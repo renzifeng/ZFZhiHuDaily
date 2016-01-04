@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'ZFZhiHuDaily' do
 pod 'Alamofire'
+pod 'MMDrawerController'
 end
 
 target 'ZFZhiHuDailyTests' do

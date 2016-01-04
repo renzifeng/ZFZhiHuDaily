@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C897B4FB86FB65CB148959C4 /* Pods_ZFZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17057E7C1E6049355A402B6 /* Pods_ZFZhiHuDaily.framework */; };
 		CC012AFB1C3ABC0500F698EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CC012AFA1C3ABC0500F698EE /* .gitignore */; };
+		CC012B031C3AC2AD00F698EE /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC012B011C3AC2AD00F698EE /* CenterViewController.swift */; };
+		CC012B041C3AC2AD00F698EE /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC012B021C3AC2AD00F698EE /* LeftViewController.swift */; };
 		CC3EF7721C3AAE3D00E7CF9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3EF7711C3AAE3D00E7CF9A /* AppDelegate.swift */; };
 		CC3EF7771C3AAE3D00E7CF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC3EF7751C3AAE3D00E7CF9A /* Main.storyboard */; };
 		CC3EF7791C3AAE3D00E7CF9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3EF7781C3AAE3D00E7CF9A /* Assets.xcassets */; };
@@ -40,6 +42,9 @@
 		B0A20EC99C83B521D6FE567D /* Pods-ZFZhiHuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZFZhiHuDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZFZhiHuDaily/Pods-ZFZhiHuDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		B17057E7C1E6049355A402B6 /* Pods_ZFZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZFZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC012AFA1C3ABC0500F698EE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CC012AFD1C3AC21300F698EE /* ZFZhiHuDaily-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZFZhiHuDaily-Bridging-Header.h"; sourceTree = "<group>"; };
+		CC012B011C3AC2AD00F698EE /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
+		CC012B021C3AC2AD00F698EE /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		CC3EF76E1C3AAE3D00E7CF9A /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC3EF7711C3AAE3D00E7CF9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC3EF7761C3AAE3D00E7CF9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +122,8 @@
 				CC012AF91C3ABBED00F698EE /* Git */,
 				CC3EF79F1C3AAE8600E7CF9A /* Other */,
 				CC3EF7711C3AAE3D00E7CF9A /* AppDelegate.swift */,
+				CC012B011C3AC2AD00F698EE /* CenterViewController.swift */,
+				CC012B021C3AC2AD00F698EE /* LeftViewController.swift */,
 				CC3EF7751C3AAE3D00E7CF9A /* Main.storyboard */,
 				CC3EF7781C3AAE3D00E7CF9A /* Assets.xcassets */,
 				CC3EF77A1C3AAE3D00E7CF9A /* LaunchScreen.storyboard */,
@@ -147,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				CC3EF7A01C3AAEAC00E7CF9A /* ZFAppConfig.swift */,
+				CC012AFD1C3AC21300F698EE /* ZFZhiHuDaily-Bridging-Header.h */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -352,6 +360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC012B031C3AC2AD00F698EE /* CenterViewController.swift in Sources */,
+				CC012B041C3AC2AD00F698EE /* LeftViewController.swift in Sources */,
 				CC3EF7A11C3AAEAC00E7CF9A /* ZFAppConfig.swift in Sources */,
 				CC3EF7721C3AAE3D00E7CF9A /* AppDelegate.swift in Sources */,
 			);
@@ -494,10 +504,13 @@
 			baseConfigurationReference = B0A20EC99C83B521D6FE567D /* Pods-ZFZhiHuDaily.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ZFZhiHuDaily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zifeng.ZFZhiHuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZFZhiHuDaily/ZFZhiHuDaily-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -506,10 +519,12 @@
 			baseConfigurationReference = 7517119D076A018041CB3574 /* Pods-ZFZhiHuDaily.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ZFZhiHuDaily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zifeng.ZFZhiHuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZFZhiHuDaily/ZFZhiHuDaily-Bridging-Header.h";
 			};
 			name = Release;
 		};
