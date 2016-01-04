@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C897B4FB86FB65CB148959C4 /* Pods_ZFZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17057E7C1E6049355A402B6 /* Pods_ZFZhiHuDaily.framework */; };
+		CC012AFB1C3ABC0500F698EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CC012AFA1C3ABC0500F698EE /* .gitignore */; };
 		CC3EF7721C3AAE3D00E7CF9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3EF7711C3AAE3D00E7CF9A /* AppDelegate.swift */; };
 		CC3EF7771C3AAE3D00E7CF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC3EF7751C3AAE3D00E7CF9A /* Main.storyboard */; };
 		CC3EF7791C3AAE3D00E7CF9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC3EF7781C3AAE3D00E7CF9A /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		7517119D076A018041CB3574 /* Pods-ZFZhiHuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZFZhiHuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZFZhiHuDaily/Pods-ZFZhiHuDaily.release.xcconfig"; sourceTree = "<group>"; };
 		B0A20EC99C83B521D6FE567D /* Pods-ZFZhiHuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZFZhiHuDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZFZhiHuDaily/Pods-ZFZhiHuDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		B17057E7C1E6049355A402B6 /* Pods_ZFZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZFZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC012AFA1C3ABC0500F698EE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CC3EF76E1C3AAE3D00E7CF9A /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC3EF7711C3AAE3D00E7CF9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC3EF7761C3AAE3D00E7CF9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC012AF91C3ABBED00F698EE /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				CC012AFA1C3ABC0500F698EE /* .gitignore */,
+			);
+			name = Git;
+			sourceTree = "<group>";
+		};
 		CC3EF7651C3AAE3D00E7CF9A = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		CC3EF7701C3AAE3D00E7CF9A /* ZFZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
+				CC012AF91C3ABBED00F698EE /* Git */,
 				CC3EF79F1C3AAE8600E7CF9A /* Other */,
 				CC3EF7711C3AAE3D00E7CF9A /* AppDelegate.swift */,
 				CC3EF7751C3AAE3D00E7CF9A /* Main.storyboard */,
@@ -265,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC012AFB1C3ABC0500F698EE /* .gitignore in Resources */,
 				CC3EF77C1C3AAE3D00E7CF9A /* LaunchScreen.storyboard in Resources */,
 				CC3EF7791C3AAE3D00E7CF9A /* Assets.xcassets in Resources */,
 				CC3EF7771C3AAE3D00E7CF9A /* Main.storyboard in Resources */,
