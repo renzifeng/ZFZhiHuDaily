@@ -7,27 +7,32 @@
 //
 
 import UIKit
+import SnapKit
 
 class LeftViewController: UITableViewController {
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //setTableView()
+        //tableView.contentInset = UIEdgeInsetsMake(190, 0, 0, 0)
+        setTableViewHeader()
     }
   
-    func setTableView(){
-        
+    func setTableViewHeader(){
+        let superView = UIView()
+        superView.frame = CGRectMake(0, 0, 335, 190)
         //设置headView
-        let headImageViewHight: CGFloat = 160
-        let headImageView = UIImageView(frame: CGRectMake(0, 0, ScreenWidth * 0.7, headImageViewHight))
-        headImageView.image = UIImage(named: "quesheng")
-        
-        tableView.tableHeaderView = headImageView
+        let headerView : ZFLeftHeader = ZFLeftHeader.leftHeader()
+        superView.addSubview(headerView)
+        tableView.tableHeaderView = superView
+        headerView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+            make.right.equalTo(0)
+        }
         //去掉下部空白格
         self.tableView.tableFooterView = UIView()
-
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
