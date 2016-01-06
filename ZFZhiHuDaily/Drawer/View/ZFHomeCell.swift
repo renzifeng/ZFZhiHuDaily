@@ -1,25 +1,24 @@
 //
-//  LeftCell.swift
+//  ZFHomeCell.swift
 //  ZFZhiHuDaily
 //
-//  Created by 任子丰 on 16/1/5.
+//  Created by 任子丰 on 16/1/6.
 //  Copyright © 2016年 任子丰. All rights reserved.
 //
 
 import UIKit
 
-class LeftCell: UITableViewCell {
+class ZFHomeCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+        // Initialization code
+         self.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         let selectView = UIView()
         selectView.backgroundColor = UIColor.blackColor()
         selectedBackgroundView = selectView
         titleLabel.highlightedTextColor = UIColor.whiteColor()
-        
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

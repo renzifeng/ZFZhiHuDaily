@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZFLeftHeader" customModule="ZFZhiHuDaily" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="335" height="190"/>
+            <rect key="frame" x="0.0" y="0.0" width="335" height="165"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editor_Profile_Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="h72-8h-NoU">
@@ -20,12 +20,12 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVp-kJ-Eyt" customClass="ImageTextButton">
                     <rect key="frame" x="100" y="101" width="50" height="50"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="消息" image="Menu_Icon_Message"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Jv-Df-9lk" customClass="ImageTextButton">
                     <rect key="frame" x="180" y="101" width="50" height="50"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="设置" image="Menu_Icon_Setting"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOg-dk-YZa">
@@ -40,9 +40,16 @@
                         <constraint firstAttribute="width" constant="50" id="WXS-gK-ZSG"/>
                         <constraint firstAttribute="height" constant="50" id="eRS-4c-Oha"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="收藏" image="Menu_Icon_Collect"/>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3E-bT-dJD">
+                    <rect key="frame" x="0.0" y="164" width="335" height="1"/>
+                    <color key="backgroundColor" red="0.1019607843" green="0.1215686275" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="l07-tv-Q6A"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.10196078431372549" green="0.12156862745098039" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -53,12 +60,15 @@
                 <constraint firstItem="hMO-2O-VY7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="8N0-Ia-i9F"/>
                 <constraint firstItem="YVp-kJ-Eyt" firstAttribute="leading" secondItem="hMO-2O-VY7" secondAttribute="trailing" constant="30" id="CLa-gQ-sQ9"/>
                 <constraint firstItem="h72-8h-NoU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="H2b-Og-ATO"/>
+                <constraint firstItem="I3E-bT-dJD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jpi-g2-kVb"/>
                 <constraint firstItem="cOg-dk-YZa" firstAttribute="centerY" secondItem="h72-8h-NoU" secondAttribute="centerY" id="LUc-d1-TU7"/>
                 <constraint firstItem="YVp-kJ-Eyt" firstAttribute="width" secondItem="6Jv-Df-9lk" secondAttribute="width" id="NQy-aj-81Q"/>
                 <constraint firstItem="6Jv-Df-9lk" firstAttribute="top" secondItem="hMO-2O-VY7" secondAttribute="top" id="OVl-Yx-L6x"/>
+                <constraint firstAttribute="trailing" secondItem="I3E-bT-dJD" secondAttribute="trailing" id="RCy-Yw-x8p"/>
                 <constraint firstItem="YVp-kJ-Eyt" firstAttribute="top" secondItem="hMO-2O-VY7" secondAttribute="top" id="cUD-3K-afl"/>
                 <constraint firstItem="cOg-dk-YZa" firstAttribute="leading" secondItem="h72-8h-NoU" secondAttribute="trailing" constant="25" id="cwW-7e-i3j"/>
                 <constraint firstItem="hMO-2O-VY7" firstAttribute="height" secondItem="YVp-kJ-Eyt" secondAttribute="height" id="dfJ-pd-D9A"/>
+                <constraint firstAttribute="bottom" secondItem="I3E-bT-dJD" secondAttribute="bottom" id="khw-wz-3ne"/>
                 <constraint firstItem="hMO-2O-VY7" firstAttribute="top" secondItem="h72-8h-NoU" secondAttribute="bottom" constant="16" id="pyx-Ge-9tJ"/>
                 <constraint firstItem="hMO-2O-VY7" firstAttribute="width" secondItem="YVp-kJ-Eyt" secondAttribute="width" id="sD8-ly-exw"/>
             </constraints>
@@ -74,7 +84,7 @@
                 <outlet property="msgBtn" destination="YVp-kJ-Eyt" id="TAu-bB-mbK"/>
                 <outlet property="settingBtn" destination="6Jv-Df-9lk" id="rGe-RL-VsB"/>
             </connections>
-            <point key="canvasLocation" x="529.5" y="166"/>
+            <point key="canvasLocation" x="529.5" y="153.5"/>
         </view>
     </objects>
     <resources>

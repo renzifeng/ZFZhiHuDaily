@@ -10,6 +10,14 @@
 
 @implementation ImageTextButton
 
+-(void)awakeFromNib
+{
+    //default Alignment is in order to facilitate the layout
+    [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
+     self.imgTextDistance = 15;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)img title:(NSString *)title {
     self = [super initWithFrame:frame];
     if (self) {

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //设置视图
         //let leftViewController = LeftViewController()
         let leftViewController = UIStoryboard(name: "Left", bundle: NSBundle.mainBundle())
-        let left_nav_viewcontroller = leftViewController.instantiateViewControllerWithIdentifier("left-nav") as! UITableViewController
+        let left_nav_viewcontroller = leftViewController.instantiateViewControllerWithIdentifier("drawer") as! UIViewController
         let centerViewController = CenterViewController()
         
         let centerNavigationController = UINavigationController(rootViewController: centerViewController)

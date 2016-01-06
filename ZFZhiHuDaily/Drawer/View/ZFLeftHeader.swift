@@ -18,13 +18,13 @@ class ZFLeftHeader: UIView {
     }
     
     override func awakeFromNib() {
-        self.collectBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp;
-        self.msgBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp;
-        self.settingBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp;
-        self.collectBtn.imgTextDistance = 5;
-        self.msgBtn.imgTextDistance = 20;
-        self.settingBtn.imgTextDistance = 20;
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+        collectBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp;
+        msgBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp;
+        settingBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp;
+        collectBtn.imgTextDistance = 10;
+        msgBtn.imgTextDistance = 20;
+        settingBtn.imgTextDistance = 20;
+        backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
     }
 
 }

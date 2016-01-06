@@ -12,6 +12,8 @@
 		CC073EFF1C3B866000906779 /* ImageTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC073EFE1C3B866000906779 /* ImageTextButton.m */; };
 		CC073F011C3B87F100906779 /* ZFLeftHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073F001C3B87F100906779 /* ZFLeftHeader.swift */; };
 		CC073F091C3CA05100906779 /* ZFLeftHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC073F081C3CA05100906779 /* ZFLeftHeader.xib */; };
+		CC073F0B1C3CA29000906779 /* ZFDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */; };
+		CC073F0D1C3CA39900906779 /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073F0C1C3CA39900906779 /* ZFHomeCell.swift */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -20,7 +22,6 @@
 		CC98C8A01C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C89F1C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift */; };
 		CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */; };
 		CC98C8B61C3B540F002FED99 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B41C3B540F002FED99 /* CenterViewController.swift */; };
-		CC98C8B71C3B540F002FED99 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B51C3B540F002FED99 /* LeftViewController.swift */; };
 		CC98C8C91C3B5715002FED99 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8C11C3B5715002FED99 /* MMDrawerBarButtonItem.m */; };
 		CC98C8CA1C3B5715002FED99 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8C41C3B5715002FED99 /* MMDrawerController.m */; };
 		CC98C8CB1C3B5715002FED99 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8C61C3B5715002FED99 /* MMDrawerVisualState.m */; };
@@ -55,6 +56,8 @@
 		CC073EFE1C3B866000906779 /* ImageTextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTextButton.m; sourceTree = "<group>"; };
 		CC073F001C3B87F100906779 /* ZFLeftHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLeftHeader.swift; sourceTree = "<group>"; };
 		CC073F081C3CA05100906779 /* ZFLeftHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZFLeftHeader.xib; sourceTree = "<group>"; };
+		CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFDrawerViewController.swift; sourceTree = "<group>"; };
+		CC073F0C1C3CA39900906779 /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		CC98C8AD1C3B51F1002FED99 /* ZFZhiHuDaily-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZFZhiHuDaily-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAppConfig.swift; sourceTree = "<group>"; };
 		CC98C8B41C3B540F002FED99 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
-		CC98C8B51C3B540F002FED99 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		CC98C8C01C3B5715002FED99 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
 		CC98C8C11C3B5715002FED99 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		CC98C8C21C3B5715002FED99 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 		CC073EF71C3B847800906779 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC98C8B51C3B540F002FED99 /* LeftViewController.swift */,
+				CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				CC073EFA1C3B84E900906779 /* LeftCell.swift */,
+				CC073F0C1C3CA39900906779 /* ZFHomeCell.swift */,
 				CC073F001C3B87F100906779 /* ZFLeftHeader.swift */,
 				CC073F081C3CA05100906779 /* ZFLeftHeader.xib */,
 			);
@@ -468,11 +471,12 @@
 				CC98C8C91C3B5715002FED99 /* MMDrawerBarButtonItem.m in Sources */,
 				CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */,
 				CC98C8CA1C3B5715002FED99 /* MMDrawerController.m in Sources */,
-				CC98C8B71C3B540F002FED99 /* LeftViewController.swift in Sources */,
 				CC073F011C3B87F100906779 /* ZFLeftHeader.swift in Sources */,
 				CC98C8CB1C3B5715002FED99 /* MMDrawerVisualState.m in Sources */,
+				CC073F0B1C3CA29000906779 /* ZFDrawerViewController.swift in Sources */,
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
 				CC98C8CC1C3B5715002FED99 /* UIViewController+MMDrawerController.m in Sources */,
+				CC073F0D1C3CA39900906779 /* ZFHomeCell.swift in Sources */,
 				CC073EFF1C3B866000906779 /* ImageTextButton.m in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC98C8CE1C3B57BD002FED99 /* OtherViewController.swift in Sources */,
