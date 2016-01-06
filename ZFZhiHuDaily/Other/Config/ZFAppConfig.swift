@@ -7,6 +7,8 @@
 //
 
 import UIKit
+/// 网络超时时间
+let NETWORK_TIMEOUT: NSTimeInterval = 15
 // MARK: - 屏幕宽高
 let ScreenWidth : CGFloat = UIScreen.mainScreen().bounds.width
 let ScreenHeight : CGFloat = UIScreen.mainScreen().bounds.height
@@ -15,4 +17,4 @@ let ScreenHeight : CGFloat = UIScreen.mainScreen().bounds.height
 func RGBA (r:CGFloat,_ g:CGFloat, _ b:CGFloat,_ a:CGFloat) -> UIColor {
     return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
 }
-// MARK: - 呵呵
+

@@ -20,13 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: mainFrame)
         //设置视图
         //let leftViewController = LeftViewController()
-        let leftViewController = UIStoryboard(name: "Left", bundle: NSBundle.mainBundle())
-        let left_nav_viewcontroller = leftViewController.instantiateViewControllerWithIdentifier("drawer") as! UIViewController
+        let leftSB = UIStoryboard(name: "Left", bundle: NSBundle.mainBundle())
+        let leftViewcontroller = leftSB.instantiateViewControllerWithIdentifier("drawer") 
         let centerViewController = CenterViewController()
         
         let centerNavigationController = UINavigationController(rootViewController: centerViewController)
         
-        drawerController = MMDrawerController(centerViewController: centerNavigationController, leftDrawerViewController: left_nav_viewcontroller)
+        drawerController = MMDrawerController(centerViewController: centerNavigationController, leftDrawerViewController: leftViewcontroller)
         
         drawerController.maximumLeftDrawerWidth = 250
         //手势
