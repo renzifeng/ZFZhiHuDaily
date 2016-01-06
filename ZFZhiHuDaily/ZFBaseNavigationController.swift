@@ -14,7 +14,7 @@ class ZFBaseNavigationController: UINavigationController {
         super.viewDidLoad()
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName: FONT(18) ]
-        navigationBar.barTintColor = RGB(50, 50, 58);
+        navigationBar.barTintColor = RGB(50, 50, 58)
         //navigationBar.translucent = false
     }
     

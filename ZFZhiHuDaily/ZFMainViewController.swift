@@ -44,6 +44,7 @@ class ZFMainViewController: ZFTableViewController {
                         self.navigationItem.setLeftBarButtonItem(leftButton, animated: false)
                         }, completion: { (finished) -> Void in
                             launchView.removeFromSuperview()
+                            self.navigationController?.navigationBar.barTintColor = RGB(50, 50, 58)
                     })
             }
             //展示完成后更改为false
@@ -54,10 +55,7 @@ class ZFMainViewController: ZFTableViewController {
 
         //设置透明NavBar
         self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Compact)
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Other
@@ -71,6 +69,12 @@ class ZFMainViewController: ZFTableViewController {
         return UIStatusBarStyle.LightContent
     }
 
+    
+    func revealToggle(btn: UIBarButtonItem) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
