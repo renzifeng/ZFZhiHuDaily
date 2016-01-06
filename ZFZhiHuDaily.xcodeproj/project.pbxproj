@@ -11,7 +11,7 @@
 		CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073EFA1C3B84E900906779 /* LeftCell.swift */; };
 		CC073EFF1C3B866000906779 /* ImageTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC073EFE1C3B866000906779 /* ImageTextButton.m */; };
 		CC073F011C3B87F100906779 /* ZFLeftHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073F001C3B87F100906779 /* ZFLeftHeader.swift */; };
-		CC073F051C3BB5FA00906779 /* ZFLeftHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC073F041C3BB5FA00906779 /* ZFLeftHeader.xib */; };
+		CC073F091C3CA05100906779 /* ZFLeftHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC073F081C3CA05100906779 /* ZFLeftHeader.xib */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -54,7 +54,7 @@
 		CC073EFD1C3B866000906779 /* ImageTextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTextButton.h; sourceTree = "<group>"; };
 		CC073EFE1C3B866000906779 /* ImageTextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTextButton.m; sourceTree = "<group>"; };
 		CC073F001C3B87F100906779 /* ZFLeftHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLeftHeader.swift; sourceTree = "<group>"; };
-		CC073F041C3BB5FA00906779 /* ZFLeftHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZFLeftHeader.xib; path = ../../../../ZFLeftHeader.xib; sourceTree = "<group>"; };
+		CC073F081C3CA05100906779 /* ZFLeftHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZFLeftHeader.xib; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			children = (
 				CC073EFA1C3B84E900906779 /* LeftCell.swift */,
 				CC073F001C3B87F100906779 /* ZFLeftHeader.swift */,
-				CC073F041C3BB5FA00906779 /* ZFLeftHeader.xib */,
+				CC073F081C3CA05100906779 /* ZFLeftHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 				CC98C8D11C3B5945002FED99 /* Left.storyboard in Resources */,
 				CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */,
 				CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */,
-				CC073F051C3BB5FA00906779 /* ZFLeftHeader.xib in Resources */,
+				CC073F091C3CA05100906779 /* ZFLeftHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
