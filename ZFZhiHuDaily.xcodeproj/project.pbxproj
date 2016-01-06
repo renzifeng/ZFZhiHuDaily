@@ -40,6 +40,16 @@
 		CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1851C3CDC15001D6762 /* MMDrawerController.m */; };
 		CC07B18D1C3CDC15001D6762 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1871C3CDC15001D6762 /* MMDrawerVisualState.m */; };
 		CC07B18E1C3CDC15001D6762 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1891C3CDC15001D6762 /* UIViewController+MMDrawerController.m */; };
+		CC07B1921C3CDEAD001D6762 /* ZFBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1911C3CDEAD001D6762 /* ZFBaseViewController.swift */; };
+		CC07B1941C3CDED8001D6762 /* ZFTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1931C3CDED8001D6762 /* ZFTableViewController.swift */; };
+		CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */; };
+		CC07B19A1C3CE2D5001D6762 /* ZFMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1991C3CE2D5001D6762 /* ZFMainViewController.swift */; };
+		CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */; };
+		CC07B1A01C3CE322001D6762 /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B19E1C3CE322001D6762 /* PaletteViewController.swift */; };
+		CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1A31C3CE478001D6762 /* JSAnimatedImagesView.m */; };
+		CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1A71C3CE61B001D6762 /* GradientView.m */; };
+		CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1AB1C3CE6A4001D6762 /* MSWeakTimer.m */; };
+		CC07B1AF1C3D08DA001D6762 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1AE1C3D08DA001D6762 /* UINavigationBar+Awesome.m */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -112,6 +122,20 @@
 		CC07B1871C3CDC15001D6762 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		CC07B1881C3CDC15001D6762 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		CC07B1891C3CDC15001D6762 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		CC07B1911C3CDEAD001D6762 /* ZFBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFBaseViewController.swift; sourceTree = "<group>"; };
+		CC07B1931C3CDED8001D6762 /* ZFTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTableViewController.swift; sourceTree = "<group>"; };
+		CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFBaseNavigationController.swift; sourceTree = "<group>"; };
+		CC07B1991C3CE2D5001D6762 /* ZFMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewController.swift; sourceTree = "<group>"; };
+		CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		CC07B19E1C3CE322001D6762 /* PaletteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteViewController.swift; sourceTree = "<group>"; };
+		CC07B1A21C3CE478001D6762 /* JSAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnimatedImagesView.h; sourceTree = "<group>"; };
+		CC07B1A31C3CE478001D6762 /* JSAnimatedImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnimatedImagesView.m; sourceTree = "<group>"; };
+		CC07B1A61C3CE61B001D6762 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		CC07B1A71C3CE61B001D6762 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		CC07B1AA1C3CE6A4001D6762 /* MSWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWeakTimer.h; sourceTree = "<group>"; };
+		CC07B1AB1C3CE6A4001D6762 /* MSWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWeakTimer.m; sourceTree = "<group>"; };
+		CC07B1AD1C3D08DA001D6762 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		CC07B1AE1C3D08DA001D6762 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -220,8 +244,8 @@
 		CC07B1391C3CCD12001D6762 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B13A1C3CCDA5001D6762 /* ZFAPIConfig.swift */,
 				CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */,
+				CC07B13A1C3CCDA5001D6762 /* ZFAPIConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -229,6 +253,8 @@
 		CC07B13C1C3CDBAE001D6762 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CC07B1AD1C3D08DA001D6762 /* UINavigationBar+Awesome.h */,
+				CC07B1AE1C3D08DA001D6762 /* UINavigationBar+Awesome.m */,
 				CC07B13D1C3CDBCA001D6762 /* SwiftExtension */,
 			);
 			path = Extension;
@@ -433,6 +459,9 @@
 		CC07B17C1C3CDBD0001D6762 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				CC07B1A91C3CE68A001D6762 /* MSWeakTimer */,
+				CC07B1A51C3CE60D001D6762 /* GradientView */,
+				CC07B1A11C3CE464001D6762 /* JSAnimatedImagesView */,
 				CC07B17D1C3CDC15001D6762 /* ImageTextButton */,
 				CC07B1801C3CDC15001D6762 /* MMDrawerController */,
 			);
@@ -464,6 +493,84 @@
 			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
+		CC07B18F1C3CDE89001D6762 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1901C3CDE94001D6762 /* Controller */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		CC07B1901C3CDE94001D6762 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1911C3CDEAD001D6762 /* ZFBaseViewController.swift */,
+				CC07B1931C3CDED8001D6762 /* ZFTableViewController.swift */,
+				CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CC07B1971C3CE214001D6762 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1981C3CE22C001D6762 /* Controller */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		CC07B1981C3CE22C001D6762 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1991C3CE2D5001D6762 /* ZFMainViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CC07B19B1C3CE2FA001D6762 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B19C1C3CE30A001D6762 /* Controller */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
+		CC07B19C1C3CE30A001D6762 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */,
+				CC07B19E1C3CE322001D6762 /* PaletteViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CC07B1A11C3CE464001D6762 /* JSAnimatedImagesView */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1A21C3CE478001D6762 /* JSAnimatedImagesView.h */,
+				CC07B1A31C3CE478001D6762 /* JSAnimatedImagesView.m */,
+			);
+			name = JSAnimatedImagesView;
+			sourceTree = "<group>";
+		};
+		CC07B1A51C3CE60D001D6762 /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1A61C3CE61B001D6762 /* GradientView.h */,
+				CC07B1A71C3CE61B001D6762 /* GradientView.m */,
+			);
+			name = GradientView;
+			sourceTree = "<group>";
+		};
+		CC07B1A91C3CE68A001D6762 /* MSWeakTimer */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1AA1C3CE6A4001D6762 /* MSWeakTimer.h */,
+				CC07B1AB1C3CE6A4001D6762 /* MSWeakTimer.m */,
+			);
+			name = MSWeakTimer;
+			sourceTree = "<group>";
+		};
 		CC98C8731C3B51DE002FED99 = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +596,9 @@
 		CC98C87E1C3B51DE002FED99 /* ZFZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
+				CC07B19B1C3CE2FA001D6762 /* Launch */,
+				CC07B1971C3CE214001D6762 /* Main */,
+				CC07B18F1C3CDE89001D6762 /* Base */,
 				CC073EF51C3B844E00906779 /* Drawer */,
 				CC98C8B11C3B53F2002FED99 /* Other */,
 				CC98C8CF1C3B5904002FED99 /* Storyboard */,
@@ -737,6 +847,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC07B1771C3CDBCA001D6762 /* UITableViewCell+Extend.swift in Sources */,
+				CC07B1941C3CDED8001D6762 /* ZFTableViewController.swift in Sources */,
 				CC98C8B61C3B540F002FED99 /* CenterViewController.swift in Sources */,
 				CC07B18A1C3CDC15001D6762 /* ImageTextButton.m in Sources */,
 				CC07B1381C3CC138001D6762 /* ZFNetworkTool.swift in Sources */,
@@ -744,12 +855,18 @@
 				CC07B1711C3CDBCA001D6762 /* UIViewController.swift in Sources */,
 				CC07B16E1C3CDBCA001D6762 /* String+Extend.swift in Sources */,
 				CC07B13B1C3CCDA5001D6762 /* ZFAPIConfig.swift in Sources */,
+				CC07B1921C3CDEAD001D6762 /* ZFBaseViewController.swift in Sources */,
 				CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */,
+				CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */,
 				CC07B1751C3CDBCA001D6762 /* UIImage+Extend.swift in Sources */,
 				CC07B16F1C3CDBCA001D6762 /* AppDelegate+Extend.swift in Sources */,
+				CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */,
+				CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */,
 				CC07B16A1C3CDBCA001D6762 /* Array+Extend.swift in Sources */,
 				CC07B1731C3CDBCA001D6762 /* UIColor+Extend.swift in Sources */,
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
+				CC07B1AF1C3D08DA001D6762 /* UINavigationBar+Awesome.m in Sources */,
+				CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */,
 				CC073F011C3B87F100906779 /* ZFLeftHeader.swift in Sources */,
 				CC07B17B1C3CDBCA001D6762 /* UIView+Extend.swift in Sources */,
 				CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */,
@@ -758,6 +875,7 @@
 				CC07B1721C3CDBCA001D6762 /* UIButton+Extend.swift in Sources */,
 				CC07B1761C3CDBCA001D6762 /* UIScreen.swift in Sources */,
 				CC07B1781C3CDBCA001D6762 /* AccessoryView.swift in Sources */,
+				CC07B19A1C3CE2D5001D6762 /* ZFMainViewController.swift in Sources */,
 				CC07B17A1C3CDBCA001D6762 /* UITextField+Extend.swift in Sources */,
 				CC073F0B1C3CA29000906779 /* ZFDrawerViewController.swift in Sources */,
 				CC07B18D1C3CDC15001D6762 /* MMDrawerVisualState.m in Sources */,
@@ -767,8 +885,10 @@
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
 				CC073F0D1C3CA39900906779 /* ZFHomeCell.swift in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
+				CC07B1A01C3CE322001D6762 /* PaletteViewController.swift in Sources */,
 				CC98C8CE1C3B57BD002FED99 /* OtherViewController.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
+				CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */,
 				CC07B1741C3CDBCA001D6762 /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var firstDisplay = true
     var drawerController : MMDrawerController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -22,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let leftViewController = LeftViewController()
         let leftSB = UIStoryboard(name: "Left", bundle: NSBundle.mainBundle())
         let leftViewcontroller = leftSB.instantiateViewControllerWithIdentifier("drawer") 
-        let centerViewController = CenterViewController()
+        let centerViewController = ZFMainViewController()
         
-        let centerNavigationController = UINavigationController(rootViewController: centerViewController)
+        let centerNavigationController = ZFBaseNavigationController(rootViewController: centerViewController)
         
         drawerController = MMDrawerController(centerViewController: centerNavigationController, leftDrawerViewController: leftViewcontroller)
         
