@@ -8,33 +8,42 @@
 
 import UIKit
 import SnapKit
+import SwiftyJSON
 
 class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectBtn: ImageTextButton!
+    @IBOutlet weak var msgBtn: ImageTextButton!
+    @IBOutlet weak var settingBtn: ImageTextButton!
+    @IBOutlet weak var offlineBtn: ImageTextButton!
+    @IBOutlet weak var themeBtn: ImageTextButton!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var footerView: UIView!
+    //ViewModel
+    private var viewModel : ZFThemeViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(165, 0, 0, 0)
+//        viewModel.getData({ (dataSoure) -> Void in
+//            
+//            }) { (error) -> Void in
+//                
+//        }
         setTableView()
+       
     }
     func setTableView() {
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
-        
-        let superView = UIView()
-        superView.frame = CGRectMake(0, 0, 250, 165)
-        view.addSubview(superView)
-        //设置headView
-        let headerView : ZFLeftHeader = ZFLeftHeader.leftHeader()
-        superView.addSubview(headerView)
-        //tableView.tableHeaderView = superView
-        headerView.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(0)
-            make.left.equalTo(0)
-            make.bottom.equalTo(0)
-            make.right.equalTo(0)
-        }
+        headerView.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+        footerView.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+        collectBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp
+        msgBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp
+        settingBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp
+        offlineBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
+        themeBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
         //去掉下部空白格
         self.tableView.tableFooterView = UIView()
 

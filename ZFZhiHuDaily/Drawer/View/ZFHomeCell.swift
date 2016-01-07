@@ -14,7 +14,8 @@ class ZFHomeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-         self.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+        backgroundColor = UIColor.darkGrayColor()
+        backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         let selectView = UIView()
         selectView.backgroundColor = UIColor.blackColor()
         selectedBackgroundView = selectView

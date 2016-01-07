@@ -33,12 +33,25 @@ class LaunchViewController: UIViewController, JSAnimatedImagesViewDataSource {
             NSUserDefaults.standardUserDefaults().setObject(text, forKey: Keys.launchTextKey)
             
             //拿到图像URL后取出图像并保存
-            //let launchImageURL = json["img"] as! String
+            let launchImageURL = json["img"] as! String
+            //同步调用URL,获取开始图片的JSON结果
+            var data: NSData?
+            do {
+                data = try NSURLSession.sharedSession().sendSynchronousDataTaskWithURL(NSURL(string: launchImageURL)!)
+            } catch _ {
+                data = nil
+            }
+
+            //把NSData转换成必要的UIImage对象
+            if let d = data {
+                //把图片放入缓存
+                NSUserDefaults.standardUserDefaults().setObject(d, forKey: Keys.launchImgKey)
+
+            }
 
             }) { (error) -> Void in
                 
         }
-        
         //设置自己为JSAnimatedImagesView的数据源
         animatedImagesView.dataSource = self
         
@@ -69,6 +82,7 @@ class LaunchViewController: UIViewController, JSAnimatedImagesViewDataSource {
         }
         return UIImage(named: "DemoLaunchImage")
     }
+
 
     /*
     // MARK: - Navigation

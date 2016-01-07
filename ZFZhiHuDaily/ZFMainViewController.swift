@@ -8,78 +8,67 @@
 
 import UIKit
 
-class ZFMainViewController: ZFTableViewController {
+class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
 
+    @IBOutlet weak var tableView: UITableView!
+    var refreshControl : RefreshControl!
+    weak var mainTitleViewController : MainTitleViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        //创建leftBarButtonItem以及添加手势识别
-        let leftButton = UIBarButtonItem(image: UIImage(named: "menu"), style: .Plain, target: self, action: "revealToggle:")
-        //如果是第一次启动
-        if appCloud().firstDisplay {
-            //生成第二启动页背景
-            let launchView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
-            launchView.alpha = 0.99
-            
-            //得到第二启动页控制器并设置为子控制器
-            let SB = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            let launchViewController = SB.instantiateViewControllerWithIdentifier("LaunchViewController")
-            self.addChildViewController(launchViewController)
-            
-            //将第二启动页放到背景上
-            launchView.addSubview(launchViewController.view)
-            
-            //展示第二启动页并隐藏NavbarTitleView
-            self.view.addSubview(launchView)
-            //UIApplication.sharedApplication().keyWindow?.addSubview(launchView)
-            self.navigationItem.titleView?.hidden = true
-//            self.navigationController?.navigationBarHidden = true;
-            //动画效果：第二启动页2.5s展示过后经0.2秒删除并恢复展示NavbarTitleView
-            UIView.animateWithDuration(2.5, animations: { () -> Void in
-                launchView.alpha = 1
-                }) { (finished) -> Void in
-                    UIView.animateWithDuration(0.2, animations: { () -> Void in
-                        launchView.alpha = 0
-                        self.navigationItem.titleView?.hidden = false
-                        self.navigationItem.setLeftBarButtonItem(leftButton, animated: false)
-                        }, completion: { (finished) -> Void in
-                            launchView.removeFromSuperview()
-                            self.navigationController?.navigationBar.barTintColor = RGB(50, 50, 58)
-                    })
-            }
-            //展示完成后更改为false
-            appCloud().firstDisplay = false
-        } else {
-            self.navigationItem.setLeftBarButtonItem(leftButton, animated: false)
-        }
-
-        //设置透明NavBar
-        self.navigationController?.navigationBar.lt_setBackgroundColor(UIColor.clearColor())
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        //左侧item
+        createLeftNavWithImage("Home_Icon")
+        
+//        refreshControl = RefreshControl(scrollView: tableView, delegate: self)
+//        refreshControl.topEnabled = true
+//        refreshControl.bottomEnabled = true
+//        refreshControl.registeTopView(mainTitleViewController!)
+//        refreshControl.enableInsetTop = SCROLL_HEIGHT
+//        refreshControl.enableInsetBottom = 30
+        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        let imageView = UIImageView(frame: CGRectMake(0, 0, self.tableView.bounds.width, 100))
+        imageView.image = UIImage(named: "ThemeImage")
+        imageView.contentMode = .ScaleAspectFill
+        
+        let heardView = ParallaxHeaderView(style: .Default, subView: imageView, headerViewSize: CGSizeMake(self.tableView.bounds.width, 100), maxOffsetY: -120, delegate:self)
+        
+        self.tableView.tableHeaderView = heardView
     }
     
-    // MARK: - Other
-    //获取总代理
-    func appCloud() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
-    }
+    // MARK: - Action
     
-    //设置StatusBar为白色
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-
-    
-    func revealToggle(btn: UIBarButtonItem) {
+    override func didClickLeft() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("homeCell")
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let heardView = self.tableView.tableHeaderView as! ParallaxHeaderView
+        heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
+        
+    }
+    
+    func LockScorllView(maxOffsetY: CGFloat) {
+        self.tableView.contentOffset.y = maxOffsetY
+    }
+    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
+        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
+    }
+
 
     /*
     // MARK: - Navigation

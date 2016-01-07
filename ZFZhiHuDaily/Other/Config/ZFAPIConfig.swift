@@ -17,7 +17,11 @@ private let width : String = String(format: "%.0f", ScreenWidth)
 private let height : String = String(format: "%.0f", ScreenHeight)
 let START_IMAGE : String = "4/start-image/\(width)*\(height)"
 
+// MARK: - 加载用户主题列表
+let THEME_URL = "4/themes"
+
 // MARK: - 软件版本查询
 let VERSION : String = String(format: "4/version/ios/%@", "1")
+
 // MARK: - 最新消息
 let LATEST_MSG : String =  "4/news/latest"

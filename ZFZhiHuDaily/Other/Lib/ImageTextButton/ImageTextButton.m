@@ -15,7 +15,7 @@
     //default Alignment is in order to facilitate the layout
     [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [self setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
-     self.imgTextDistance = 15;
+     self.imgTextDistance = 5;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)img title:(NSString *)title {

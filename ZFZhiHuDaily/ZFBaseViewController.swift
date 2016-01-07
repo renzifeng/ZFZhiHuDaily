@@ -15,7 +15,25 @@ class ZFBaseViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    func createLeftNavWithImage(imageName : String) {
+        let btn = UIButton(type: .Custom)
+        btn.setImage(UIImage(named: imageName), forState: .Normal)
+        btn.frame = CGRectMake(0, 0, 30, 30);
+        btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    func createLeftNavWithTitle(title : String) {
+        let btn = UIButton(type: .Custom)
+        btn.setTitle(title, forState: .Normal)
+        btn.frame = CGRectMake(0, 0, 30, 30);
+        btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+    }
 
+    func didClickLeft() {}
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

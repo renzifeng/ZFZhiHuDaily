@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,28 +21,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainFrame = UIScreen.mainScreen().bounds
         window = UIWindow(frame: mainFrame)
         //设置视图
-        //let leftViewController = LeftViewController()
-        let leftSB = UIStoryboard(name: "Left", bundle: NSBundle.mainBundle())
-        let leftViewcontroller = leftSB.instantiateViewControllerWithIdentifier("drawer") 
-        let centerViewController = ZFMainViewController()
+        let leftViewcontroller =  GET_SB("Left").instantiateViewControllerWithIdentifier("ZFDrawerViewController")
+        let centerViewController = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFMainViewController")
         
-        let centerNavigationController = ZFBaseNavigationController(rootViewController: centerViewController)
+        //let centerNavigationController = ZFBaseNavigationController(rootViewController: centerViewController)
         
-        drawerController = MMDrawerController(centerViewController: centerNavigationController, leftDrawerViewController: leftViewcontroller)
+        drawerController = MMDrawerController(centerViewController: centerViewController, leftDrawerViewController: leftViewcontroller)
+        drawerController.shouldStretchDrawer = false
         
-        drawerController.maximumLeftDrawerWidth = 250
+        drawerController.maximumLeftDrawerWidth = 200
         //手势
         drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureMode.All
         drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
         
         //设置根试图
-        self.window?.rootViewController = drawerController
+        //self.window?.rootViewController = drawerController
+        setRootViewController()
+        
         //设置可见
         window?.makeKeyAndVisible()
         return true
 
     }
-
+    func setRootViewController() {
+        let launchViewController = GET_SB("Main").instantiateViewControllerWithIdentifier("LaunchViewController")
+        self.window?.rootViewController = launchViewController
+        
+        let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(2.5 * Double(NSEC_PER_SEC)))
+        dispatch_after(delay, dispatch_get_main_queue()) {
+            self.window?.rootViewController = self.drawerController
+            UIApplication.sharedApplication().statusBarHidden = false
+        }
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -6,4 +6,5 @@ pod 'Alamofire'
 pod 'AFNetworking'
 pod 'YYWebImage'
 pod 'SDWebImage'
+pod 'SwiftyJSON'
 

@@ -13,6 +13,7 @@ class LeftCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = UIColor.darkGrayColor()
         backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         let selectView = UIView()
         selectView.backgroundColor = UIColor.blackColor()
