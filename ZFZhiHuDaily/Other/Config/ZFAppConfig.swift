@@ -30,6 +30,9 @@ let TITLE_HEIGHT:Float = 44
 func GET_SB (sbName : String) -> UIStoryboard {
     return UIStoryboard(name: sbName, bundle: NSBundle.mainBundle())
 }
+
+let App_Delagate = UIApplication.sharedApplication().delegate as! AppDelegate
+
 // MARK: - 屏幕宽高
 let ScreenWidth : CGFloat = UIScreen.mainScreen().bounds.width
 let ScreenHeight : CGFloat = UIScreen.mainScreen().bounds.height

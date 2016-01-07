@@ -23,12 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //设置视图
         let leftViewcontroller =  GET_SB("Left").instantiateViewControllerWithIdentifier("ZFDrawerViewController")
         let centerViewController = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFMainViewController")
-        
-        //let centerNavigationController = ZFBaseNavigationController(rootViewController: centerViewController)
-        
+                
         drawerController = MMDrawerController(centerViewController: centerViewController, leftDrawerViewController: leftViewcontroller)
         drawerController.shouldStretchDrawer = false
-        
+
         drawerController.maximumLeftDrawerWidth = 200
         //手势
         drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureMode.All

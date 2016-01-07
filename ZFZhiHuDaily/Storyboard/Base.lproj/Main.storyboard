@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A2301" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,10 +20,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nF9-sf-7KC" customClass="JSAnimatedImagesView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-92-s1Q" customClass="Logo">
                                 <rect key="frame" x="223" y="481" width="155" height="80"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="h1J-5c-LuR"/>
                                     <constraint firstAttribute="width" constant="155" id="srn-PM-r52"/>
@@ -31,11 +33,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Pink Landscape&quot; © Timothy Wang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USj-yt-OWS">
                                 <rect key="frame" x="201" y="577" width="198" height="15"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nF9-sf-7KC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IyJ-lA-1Lo"/>
@@ -70,17 +74,19 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hbY-Yj-QO2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="80" id="sPd-ox-cQP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="80" id="sPd-ox-cQP" customClass="ZFHomeCell" customModule="ZFZhiHuDaily" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sPd-ox-cQP" id="ZSh-jr-Kai">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContentImage2" translatesAutoresizingMaskIntoConstraints="NO" id="fOH-4M-6FB">
                                                     <rect key="frame" x="512" y="8" width="80" height="64"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="PEY-uY-J4C"/>
                                                         <constraint firstAttribute="width" constant="80" id="Sd4-5S-Smt"/>
@@ -88,14 +94,16 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多年疑惑，多年疑惑多年疑惑多年疑惑多年疑惑，多年疑惑多年疑惑多年疑惑多年疑惑，多年疑惑多年疑惑多年疑惑" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfS-ND-wN5">
                                                     <rect key="frame" x="15" y="16" width="482" height="36"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="55" id="TL5-EV-ret"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="fOH-4M-6FB" secondAttribute="trailing" constant="8" id="3GG-Ws-23J"/>
                                                 <constraint firstItem="lfS-ND-wN5" firstAttribute="leading" secondItem="ZSh-jr-Kai" secondAttribute="leadingMargin" constant="7" id="KZT-2i-4Pz"/>
@@ -104,6 +112,11 @@
                                                 <constraint firstItem="fOH-4M-6FB" firstAttribute="centerY" secondItem="ZSh-jr-Kai" secondAttribute="centerY" id="oan-yJ-1Wc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="rightImageView" destination="fOH-4M-6FB" id="Yds-OU-8XU"/>
+                                            <outlet property="titleLabel" destination="lfS-ND-wN5" id="laD-FE-wgP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -112,6 +125,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hbY-Yj-QO2" secondAttribute="trailing" id="5db-io-0RE"/>
@@ -137,6 +151,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uBq-k9-26v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

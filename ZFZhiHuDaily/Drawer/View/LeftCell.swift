@@ -11,6 +11,14 @@ import UIKit
 class LeftCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    var theme : ZFTheme! {
+        willSet {
+            self.theme = newValue
+        }
+        didSet {
+            self.titleLabel.text  = theme.name
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = UIColor.darkGrayColor()

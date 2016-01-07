@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ZFHomeCell: UITableViewCell {
+class ZFLeftHomeCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        backgroundColor = UIColor.darkGrayColor()
         backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         let selectView = UIView()
         selectView.backgroundColor = UIColor.blackColor()

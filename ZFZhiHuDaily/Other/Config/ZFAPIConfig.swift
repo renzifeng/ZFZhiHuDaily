@@ -20,6 +20,9 @@ let START_IMAGE : String = "4/start-image/\(width)*\(height)"
 // MARK: - 加载用户主题列表
 let THEME_URL = "4/themes"
 
+// MARK: - 获取当天新闻
+let LATEST_NEWS_URL="4/news/latest"
+
 // MARK: - 软件版本查询
 let VERSION : String = String(format: "4/version/ios/%@", "1")
 

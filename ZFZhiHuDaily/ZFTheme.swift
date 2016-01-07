@@ -8,11 +8,24 @@
 
 import UIKit
 
-class ZFTheme: NSObject {
+class ZFTheme {
     
-    var color : String?
-    var theme_description : String?
-    var theme_id : String?
-    var name : String?
-    var thumbnail : String?
+    let color:Int
+    
+    let thumbnail:String
+    
+    let description:String
+    
+    let id:Int
+    
+    let name:String
+    
+    init(color:Int,thumbnail:String,description:String,id:Int,name:String){
+        self.color = color
+        self.thumbnail = thumbnail
+        self.description = description
+        self.id = id
+        self.name = name
+    }
+
 }

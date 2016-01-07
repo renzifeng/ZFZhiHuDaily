@@ -13,13 +13,23 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     var refreshControl : RefreshControl!
     weak var mainTitleViewController : MainTitleViewController?
-    
+    //ViewModel
+    private var viewModel : ZFMainViewModel! = ZFMainViewModel()
+    var dataSoure : [ZFNews] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         //左侧item
         createLeftNavWithImage("Home_Icon")
-        
+        viewModel.getData({(dataSoure) -> Void in
+            print("---\(dataSoure)")
+            self.dataSoure = dataSoure
+            self.tableView.reloadData()
+            }) { (error) -> Void in
+                
+        }
+
 //        refreshControl = RefreshControl(scrollView: tableView, delegate: self)
 //        refreshControl.topEnabled = true
 //        refreshControl.bottomEnabled = true
@@ -44,12 +54,13 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.dataSoure.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("homeCell")
-        return cell!
+        let cell : ZFHomeCell = tableView.dequeueReusableCellWithIdentifier("homeCell") as! ZFHomeCell
+        cell.news = self.dataSoure[indexPath.row]
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

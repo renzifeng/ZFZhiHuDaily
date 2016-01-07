@@ -20,16 +20,21 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var themeBtn: ImageTextButton!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var footerView: UIView!
+    @IBOutlet weak var avatarImg: UIImageView!
+    var dataSoure : [ZFTheme] = []
     //ViewModel
-    private var viewModel : ZFThemeViewModel!
+    private var viewModel : ZFThemeViewModel! = ZFThemeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel.getData({ (dataSoure) -> Void in
-//            
-//            }) { (error) -> Void in
-//                
-//        }
+        
+        viewModel.getData({(dataSoure) -> Void in
+            print("---\(dataSoure)")
+            self.dataSoure = dataSoure
+            self.tableView.reloadData()
+            }) { (error) -> Void in
+                
+        }
         setTableView()
        
     }
@@ -44,42 +49,35 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         settingBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentUp
         offlineBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
         themeBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
+        
+        avatarImg.layer.masksToBounds = true
+        avatarImg.layer.cornerRadius = 25.0
         //去掉下部空白格
         self.tableView.tableFooterView = UIView()
 
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.dataSoure.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
-            let cell : ZFHomeCell? = tableView.dequeueReusableCellWithIdentifier("home") as? ZFHomeCell
+            let cell : ZFLeftHomeCell? = tableView.dequeueReusableCellWithIdentifier("leftHome") as? ZFLeftHomeCell
             return cell!;
         }else {
             let cell : LeftCell? = tableView.dequeueReusableCellWithIdentifier("left") as? LeftCell
+            let theme : ZFTheme = self.dataSoure[indexPath.row-1]
+            cell!.theme = theme
             return cell!;
         }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch (indexPath.row){
-        case 0:
-            let centerViewController = CenterViewController()
-            let centerNavigationController = UINavigationController(rootViewController: centerViewController)
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.drawerController.centerViewController = centerNavigationController
-            appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-        default:
-            
-            let otherViewController = OtherViewController()
-            let otherNavigationController = UINavigationController(rootViewController: otherViewController)
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.drawerController.centerViewController = otherNavigationController
-            appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-        }
-
+        let centerViewController = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFMainViewController")
+        App_Delagate.drawerController.centerViewController = centerViewController
+        App_Delagate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

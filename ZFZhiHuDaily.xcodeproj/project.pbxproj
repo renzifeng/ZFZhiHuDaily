@@ -10,7 +10,7 @@
 		5F8654CBD40EE382A3C3CE62 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE7C5D7F7B13920F28CC943 /* Pods.framework */; };
 		CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073EFA1C3B84E900906779 /* LeftCell.swift */; };
 		CC073F0B1C3CA29000906779 /* ZFDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */; };
-		CC073F0D1C3CA39900906779 /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073F0C1C3CA39900906779 /* ZFHomeCell.swift */; };
+		CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC073F0C1C3CA39900906779 /* ZFLeftHomeCell.swift */; };
 		CC07B1381C3CC138001D6762 /* ZFNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1371C3CC138001D6762 /* ZFNetworkTool.swift */; };
 		CC07B13B1C3CCDA5001D6762 /* ZFAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B13A1C3CCDA5001D6762 /* ZFAPIConfig.swift */; };
 		CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B13F1C3CDBCA001D6762 /* CoreGraphics.swift */; };
@@ -66,9 +66,10 @@
 		CC98C8951C3B51DE002FED99 /* ZFZhiHuDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8941C3B51DE002FED99 /* ZFZhiHuDailyTests.swift */; };
 		CC98C8A01C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C89F1C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift */; };
 		CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */; };
-		CC98C8B61C3B540F002FED99 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B41C3B540F002FED99 /* CenterViewController.swift */; };
-		CC98C8CE1C3B57BD002FED99 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8CD1C3B57BD002FED99 /* OtherViewController.swift */; };
 		CC98C8D11C3B5945002FED99 /* Left.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8D01C3B5945002FED99 /* Left.storyboard */; };
+		CCE6CE641C3EAF2D001BB7B6 /* ZFMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE6CE631C3EAF2D001BB7B6 /* ZFMainViewModel.swift */; };
+		CCE6CE671C3EB02D001BB7B6 /* ZFNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE6CE661C3EB02D001BB7B6 /* ZFNews.swift */; };
+		CCE6CE691C3EB533001BB7B6 /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE6CE681C3EB533001BB7B6 /* ZFHomeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +95,7 @@
 		8F56053A65877DA523B28DC3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC073EFA1C3B84E900906779 /* LeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftCell.swift; sourceTree = "<group>"; };
 		CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFDrawerViewController.swift; sourceTree = "<group>"; };
-		CC073F0C1C3CA39900906779 /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
+		CC073F0C1C3CA39900906779 /* ZFLeftHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLeftHomeCell.swift; sourceTree = "<group>"; };
 		CC07B1371C3CC138001D6762 /* ZFNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNetworkTool.swift; sourceTree = "<group>"; };
 		CC07B13A1C3CCDA5001D6762 /* ZFAPIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAPIConfig.swift; sourceTree = "<group>"; };
 		CC07B13F1C3CDBCA001D6762 /* CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
@@ -168,9 +169,10 @@
 		CC98C8A11C3B51DE002FED99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC98C8AD1C3B51F1002FED99 /* ZFZhiHuDaily-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZFZhiHuDaily-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAppConfig.swift; sourceTree = "<group>"; };
-		CC98C8B41C3B540F002FED99 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
-		CC98C8CD1C3B57BD002FED99 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		CC98C8D01C3B5945002FED99 /* Left.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Left.storyboard; sourceTree = "<group>"; };
+		CCE6CE631C3EAF2D001BB7B6 /* ZFMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewModel.swift; sourceTree = "<group>"; };
+		CCE6CE661C3EB02D001BB7B6 /* ZFNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNews.swift; sourceTree = "<group>"; };
+		CCE6CE681C3EB533001BB7B6 /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,10 +212,10 @@
 		CC073EF51C3B844E00906779 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				CC073EF61C3B846F00906779 /* ViewModel */,
 				CC073EF71C3B847800906779 /* Controller */,
 				CC073EF81C3B847D00906779 /* Model */,
 				CC073EF91C3B848300906779 /* View */,
-				CC073EF61C3B846F00906779 /* ViewModel */,
 			);
 			path = Drawer;
 			sourceTree = "<group>";
@@ -246,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				CC073EFA1C3B84E900906779 /* LeftCell.swift */,
-				CC073F0C1C3CA39900906779 /* ZFHomeCell.swift */,
+				CC073F0C1C3CA39900906779 /* ZFLeftHomeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -535,6 +537,7 @@
 		CC07B1971C3CE214001D6762 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CCE6CE651C3EB01F001BB7B6 /* Model */,
 				CC07B1DA1C3E6CED001D6762 /* ViewModel */,
 				CC07B1D21C3E54AB001D6762 /* View */,
 				CC07B1981C3CE22C001D6762 /* Controller */,
@@ -619,6 +622,7 @@
 			children = (
 				CC07B1D81C3E638E001D6762 /* ParallaxHeaderView.swift */,
 				CC07B1D31C3E54C3001D6762 /* KYCircularProgress.swift */,
+				CCE6CE681C3EB533001BB7B6 /* ZFHomeCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -634,6 +638,7 @@
 		CC07B1DA1C3E6CED001D6762 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CCE6CE631C3EAF2D001BB7B6 /* ZFMainViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -663,16 +668,14 @@
 		CC98C87E1C3B51DE002FED99 /* ZFZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B19B1C3CE2FA001D6762 /* Launch */,
-				CC07B1971C3CE214001D6762 /* Main */,
 				CC07B18F1C3CDE89001D6762 /* Base */,
+				CC07B19B1C3CE2FA001D6762 /* Launch */,
 				CC073EF51C3B844E00906779 /* Drawer */,
+				CC07B1971C3CE214001D6762 /* Main */,
 				CC98C8B11C3B53F2002FED99 /* Other */,
 				CC98C8CF1C3B5904002FED99 /* Storyboard */,
 				CC98C8861C3B51DE002FED99 /* Assets.xcassets */,
-				CC98C8B41C3B540F002FED99 /* CenterViewController.swift */,
 				CC98C88B1C3B51DE002FED99 /* Info.plist */,
-				CC98C8CD1C3B57BD002FED99 /* OtherViewController.swift */,
 				CC98C8AD1C3B51F1002FED99 /* ZFZhiHuDaily-Bridging-Header.h */,
 			);
 			path = ZFZhiHuDaily;
@@ -716,6 +719,14 @@
 				CC98C8831C3B51DE002FED99 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CCE6CE651C3EB01F001BB7B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCE6CE661C3EB02D001BB7B6 /* ZFNews.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		D5EFD697A5854927E0C46802 /* Pods */ = {
@@ -913,9 +924,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC07B1771C3CDBCA001D6762 /* UITableViewCell+Extend.swift in Sources */,
+				CCE6CE641C3EAF2D001BB7B6 /* ZFMainViewModel.swift in Sources */,
 				CC07B1941C3CDED8001D6762 /* ZFTableViewController.swift in Sources */,
 				CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */,
-				CC98C8B61C3B540F002FED99 /* CenterViewController.swift in Sources */,
 				CC07B18A1C3CDC15001D6762 /* ImageTextButton.m in Sources */,
 				CC07B1381C3CC138001D6762 /* ZFNetworkTool.swift in Sources */,
 				CC07B1691C3CDBCA001D6762 /* AnyObject+Extend.swift in Sources */,
@@ -958,13 +969,14 @@
 				CC07B16B1C3CDBCA001D6762 /* ArraySlice+Extend.swift in Sources */,
 				CC07B18B1C3CDC15001D6762 /* MMDrawerBarButtonItem.m in Sources */,
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
-				CC073F0D1C3CA39900906779 /* ZFHomeCell.swift in Sources */,
+				CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */,
 				CC07B1CF1C3E4635001D6762 /* RefreshViewDelegate.swift in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC07B1A01C3CE322001D6762 /* PaletteViewController.swift in Sources */,
-				CC98C8CE1C3B57BD002FED99 /* OtherViewController.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
+				CCE6CE691C3EB533001BB7B6 /* ZFHomeCell.swift in Sources */,
 				CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */,
+				CCE6CE671C3EB02D001BB7B6 /* ZFNews.swift in Sources */,
 				CC07B1741C3CDBCA001D6762 /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
