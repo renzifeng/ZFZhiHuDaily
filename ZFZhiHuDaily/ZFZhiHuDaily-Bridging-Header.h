@@ -6,9 +6,6 @@
 #import "ImageTextButton.h"
 #import <AFNetworking/AFNetworking.h>
 #import <YYWebImage/YYWebImage.h>
-#import <SDWebImage/SDImageCache.h>
-#import <SDWebImage/UIButton+WebCache.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "JSAnimatedImagesView.h"
 #import "GradientView.h"
 #import "MSWeakTimer.h"
