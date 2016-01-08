@@ -8,7 +8,6 @@
 
 import UIKit
 import YYWebImage
-import SDWebImage
 import Alamofire
 import AFNetworking
 
