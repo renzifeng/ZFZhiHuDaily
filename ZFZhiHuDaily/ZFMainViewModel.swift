@@ -12,7 +12,7 @@ import SwiftyJSON
 class ZFMainViewModel: NSObject {
     var themes : [ZFTheme] = []
     // 回调
-    typealias ThemeViewModelSuccessCallBack = (dataSoure : Array<ZFNews>) -> Void
+    typealias ThemeViewModelSuccessCallBack = (dataSoure : Array<ZFNews>,headerSource : Array<ZFNews>) -> Void
     typealias ThemeVieModelErrorCallBack = (error : NSError) -> Void
     var successCallBack : ThemeViewModelSuccessCallBack?
     var errorCallBack : ThemeVieModelErrorCallBack?
@@ -24,11 +24,11 @@ class ZFMainViewModel: NSObject {
             print("````\(json)")
             let result = JSON(json)
             let date = Int(result["date"].string!)
-            ////最热新闻
+            //最热新闻
             let top_stories = result["top_stories"].array
             //最新新闻
             let stories = result["stories"].array
-            //遍历最热新闻
+            //遍历轮播图数据
             let topNews : [ZFNews]? = self.convertStoriesJson2Vo(top_stories, type: .TOP_NEWS)
             //遍历最新的新闻
             let lastestNews : [ZFNews]? = self.convertStoriesJson2Vo(stories, type: .NEWS)
@@ -36,7 +36,7 @@ class ZFMainViewModel: NSObject {
             
             // 回调给controller
             if self.successCallBack != nil {
-                self.successCallBack!(dataSoure: lastestNews!)
+                self.successCallBack!(dataSoure:lastestNews!, headerSource:topNews!)
             }
             }) { (error) -> Void in
                 
@@ -108,8 +108,10 @@ class ZFMainViewModel: NSObject {
 
 
     
-    private enum NewsTypeEnum {
+    enum NewsTypeEnum {
+        //轮播图
         case TOP_NEWS
+        //新闻列表
         case NEWS
     }
 }

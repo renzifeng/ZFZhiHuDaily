@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A2301" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RqE-0I-O6L">
                                 <rect key="frame" x="0.0" y="165" width="600" height="385"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="leftHome" id="4Mw-ze-hjW" customClass="ZFLeftHomeCell" customModule="ZFZhiHuDaily" customModuleProvider="target">
@@ -32,7 +31,6 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu_Icon_Home" highlightedImage="Menu_Icon_Home_Highlight" translatesAutoresizingMaskIntoConstraints="NO" id="QLq-2z-6Lu">
                                                     <rect key="frame" x="18" y="11" width="21" height="21"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="4zt-oI-ELc"/>
                                                         <constraint firstAttribute="width" constant="21" id="DRc-Vm-dbK"/>
@@ -40,21 +38,18 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="首页" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDq-Xn-mep">
                                                     <rect key="frame" x="52" y="13" width="30" height="18"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu_Enter" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-dM-vSB">
                                                     <rect key="frame" x="563" y="13" width="15" height="18"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="E3L-oB-WeP"/>
                                                         <constraint firstAttribute="height" constant="18" id="EB7-Y6-W8f"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="QLq-2z-6Lu" firstAttribute="leading" secondItem="Izg-yY-xur" secondAttribute="leading" constant="18" id="EVG-vu-Afa"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="1Ha-dM-vSB" secondAttribute="trailing" constant="14" id="YaG-ES-mxt"/>
@@ -64,7 +59,6 @@
                                                 <constraint firstItem="1Ha-dM-vSB" firstAttribute="centerY" secondItem="Izg-yY-xur" secondAttribute="centerY" id="wgl-Iy-d9l"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="TDq-Xn-mep" id="9nm-HG-Vpw"/>
@@ -79,21 +73,18 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="互联网安全" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVV-Kv-uwF">
                                                     <rect key="frame" x="18" y="13" width="75" height="18"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu_Follow" translatesAutoresizingMaskIntoConstraints="NO" id="Ib3-8B-Svh">
                                                     <rect key="frame" x="563" y="13" width="15" height="18"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="PLY-Aw-Zhc"/>
                                                         <constraint firstAttribute="width" constant="15" id="XKV-Ty-Q3C"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="mVV-Kv-uwF" firstAttribute="leading" secondItem="49F-9P-JOs" secondAttribute="leadingMargin" constant="10" id="1go-be-iOG"/>
                                                 <constraint firstItem="Ib3-8B-Svh" firstAttribute="centerY" secondItem="49F-9P-JOs" secondAttribute="centerY" id="FsE-Zj-vH2"/>
@@ -101,7 +92,6 @@
                                                 <constraint firstItem="mVV-Kv-uwF" firstAttribute="centerY" secondItem="49F-9P-JOs" secondAttribute="centerY" id="grs-hf-gOI"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="mVV-Kv-uwF" id="rwl-B9-TC2"/>
@@ -114,7 +104,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvl-9i-tdG" customClass="ImageTextButton">
                                         <rect key="frame" x="13" y="14" width="70" height="22"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="BvT-BI-0o3"/>
                                         </constraints>
@@ -123,13 +112,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vng-Qn-c6f" customClass="ImageTextButton">
                                         <rect key="frame" x="93" y="14" width="70" height="22"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="夜间" image="Menu_Dark"/>
                                         <state key="selected" title="白天" image="Menu_Day"/>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="vng-Qn-c6f" firstAttribute="centerY" secondItem="nvl-9i-tdG" secondAttribute="centerY" id="1ub-oD-G1P"/>
@@ -144,7 +131,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editor_Profile_Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Hb-NtY">
                                         <rect key="frame" x="20" y="40" width="50" height="50"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="A5U-bM-Pst"/>
                                             <constraint firstAttribute="height" constant="50" id="YhI-Ec-l9H"/>
@@ -152,20 +138,17 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1N-xA-tqJ" customClass="ImageTextButton">
                                         <rect key="frame" x="73" y="110" width="50" height="45"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="消息" image="Menu_Icon_Message"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-Va-nxR">
-                                        <rect key="frame" x="90" y="56.5" width="45" height="18"/>
-                                        <animations/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="请登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-Va-nxR">
+                                        <rect key="frame" x="90" y="57" width="45" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTn-u4-zkp" customClass="ImageTextButton">
                                         <rect key="frame" x="8" y="110" width="50" height="45"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="M0e-jp-s7z"/>
                                             <constraint firstAttribute="width" constant="50" id="sw2-UZ-YMY"/>
@@ -175,20 +158,17 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhm-A4-EG6" customClass="ImageTextButton">
                                         <rect key="frame" x="138" y="110" width="50" height="45"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="设置" image="Menu_Icon_Setting"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvZ-g0-dQz">
                                         <rect key="frame" x="0.0" y="164" width="600" height="1"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="SxY-So-7qX"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="kvZ-g0-dQz" firstAttribute="leading" secondItem="MYj-5L-98i" secondAttribute="leading" id="13Y-u3-PM1"/>
@@ -211,7 +191,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MYj-5L-98i" firstAttribute="leading" secondItem="776-fY-Go7" secondAttribute="leading" id="3iG-Ue-XzL"/>

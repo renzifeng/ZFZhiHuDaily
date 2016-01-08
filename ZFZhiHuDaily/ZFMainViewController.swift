@@ -9,41 +9,60 @@
 import UIKit
 
 class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
-
+    var cyclePictureView: CyclePictureView!
+    var imageURLArray : [String] = []
+    var imageTitleArray : [String] = []
     @IBOutlet weak var tableView: UITableView!
-    var refreshControl : RefreshControl!
-    weak var mainTitleViewController : MainTitleViewController?
+    //var refreshControl : RefreshControl!
+    //weak var mainTitleViewController : MainTitleViewController?
     //ViewModel
     private var viewModel : ZFMainViewModel! = ZFMainViewModel()
+    //轮播图数据源
+    var headerSource : [ZFNews] = []
+    //table数据源
     var dataSoure : [ZFNews] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = UIColor.whiteColor()
         //左侧item
         createLeftNavWithImage("Home_Icon")
-        viewModel.getData({(dataSoure) -> Void in
+        viewModel.getData({(dataSoure,headerSource) -> Void in
             print("---\(dataSoure)")
             self.dataSoure = dataSoure
+            self.headerSource = headerSource
+           
+            self.setTableHeader()
             self.tableView.reloadData()
             }) { (error) -> Void in
                 
         }
 
-//        refreshControl = RefreshControl(scrollView: tableView, delegate: self)
-//        refreshControl.topEnabled = true
-//        refreshControl.bottomEnabled = true
-//        refreshControl.registeTopView(mainTitleViewController!)
-//        refreshControl.enableInsetTop = SCROLL_HEIGHT
-//        refreshControl.enableInsetBottom = 30
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
-        let imageView = UIImageView(frame: CGRectMake(0, 0, self.tableView.bounds.width, 100))
-        imageView.image = UIImage(named: "ThemeImage")
-        imageView.contentMode = .ScaleAspectFill
         
-        let heardView = ParallaxHeaderView(style: .Default, subView: imageView, headerViewSize: CGSizeMake(self.tableView.bounds.width, 100), maxOffsetY: -120, delegate:self)
+        cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
+        cyclePictureView.backgroundColor = UIColor.redColor()
+
+        let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -164, delegate:self)
         
         self.tableView.tableHeaderView = heardView
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.tableView.frame = UIScreen.mainScreen().bounds
+    }
+    
+    func setTableHeader() {
+        
+        for news:ZFNews in self.headerSource {
+            imageURLArray.append(news.images![0])
+            imageTitleArray.append(news.title)
+        }
+        cyclePictureView.imageURLArray = imageURLArray
+        cyclePictureView.imageDetailArray = imageTitleArray
+        cyclePictureView.timeInterval = 103
+
     }
     
     // MARK: - Action
@@ -80,6 +99,13 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
     }
 
+    /********************************** Delegate Methods ***************************************/
+     //MARK:- Delegate Methods
+     //MARK:- CirCleViewDelegate Methods
+    
+    func clickCurrentImage(currentIndxe: Int) {
+        print(currentIndxe);
+    }
 
     /*
     // MARK: - Navigation

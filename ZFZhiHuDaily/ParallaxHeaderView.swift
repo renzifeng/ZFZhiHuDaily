@@ -14,15 +14,6 @@ protocol ParallaxHeaderViewDelegate: class {
     func autoAdjustNavigationBarAplha(aplha: CGFloat)
 }
 
-extension ParallaxHeaderViewDelegate where Self : UITableViewController {
-    func LockScorllView(maxOffsetY: CGFloat) {
-        self.tableView.contentOffset.y = maxOffsetY
-    }
-    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
-    }
-}
-
 enum ParallaxHeaderViewStyle {
     case Default
     case Thumb
@@ -58,12 +49,20 @@ class ParallaxHeaderView: UIView {
         
         super.init(frame: CGRectMake(0, 0, headerViewSize.width, headerViewSize.height))
         //这里是自动布局的设置，大概意思就是subView与它的superView拥有一样的frame
-        subView.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleWidth, .FlexibleHeight]
+        //subView.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleWidth, .FlexibleHeight]
+        //subView.frame = CGRectMake(0, 0, headerViewSize.width, headerViewSize.height+64)
         self.clipsToBounds = false;  //必须得设置成false
         self.contentView.frame = self.bounds
         self.contentView.addSubview(subView)
         self.contentView.clipsToBounds = true
         self.addSubview(contentView)
+        
+        subView.snp_updateConstraints { (make) -> Void in
+            make.top.equalTo(self.contentView).offset(-64)
+            make.left.equalTo(self.contentView).offset(0)
+            make.bottom.equalTo(self.contentView).offset(0)
+            make.right.equalTo(self.contentView).offset(0)
+        }
         
         self.setupStyle()
     }
@@ -71,7 +70,12 @@ class ParallaxHeaderView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    override func layoutSubviews() {
+        super.layoutSubviews()
+         let rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)
+        self.contentView.frame = rect
+    }
+    
     private func setupStyle() {
         switch style {
         case .Default:
@@ -116,7 +120,10 @@ class ParallaxHeaderView: UIView {
         }
         
         if self.autoAdjustAplha {
-            let alpha = CGFloat((-originY + delta) / (self.frame.size.height))
+            var alpha = CGFloat((-originY + delta) / (self.frame.size.height))
+            if delta < 64 {
+                 alpha = CGFloat((delta) / (self.frame.size.height))
+            }
             self.delegate.autoAdjustNavigationBarAplha(alpha)
         }
     }

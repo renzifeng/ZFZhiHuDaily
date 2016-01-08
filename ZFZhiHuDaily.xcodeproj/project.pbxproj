@@ -59,6 +59,9 @@
 		CC07B1D91C3E638E001D6762 /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1D81C3E638E001D6762 /* ParallaxHeaderView.swift */; };
 		CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */; };
 		CC07B1E01C3E6DEF001D6762 /* ZFThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */; };
+		CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */; };
+		CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */; };
+		CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -155,6 +158,9 @@
 		CC07B1D81C3E638E001D6762 /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
 		CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZFTheme.swift; path = ZFZhiHuDaily/ZFTheme.swift; sourceTree = SOURCE_ROOT; };
 		CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZFThemeViewModel.swift; path = ZFZhiHuDaily/ZFThemeViewModel.swift; sourceTree = SOURCE_ROOT; };
+		CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureView.swift; sourceTree = "<group>"; };
+		CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureCell.swift; sourceTree = "<group>"; };
+		CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliaryModels.swift; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -481,6 +487,7 @@
 		CC07B17C1C3CDBD0001D6762 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				CC07B1E81C3F7895001D6762 /* CyclePictureView */,
 				CC07B1C91C3E4624001D6762 /* RefreshControl */,
 				CC07B1A91C3CE68A001D6762 /* MSWeakTimer */,
 				CC07B1A51C3CE60D001D6762 /* GradientView */,
@@ -537,10 +544,10 @@
 		CC07B1971C3CE214001D6762 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CCE6CE651C3EB01F001BB7B6 /* Model */,
 				CC07B1DA1C3E6CED001D6762 /* ViewModel */,
-				CC07B1D21C3E54AB001D6762 /* View */,
 				CC07B1981C3CE22C001D6762 /* Controller */,
+				CCE6CE651C3EB01F001BB7B6 /* Model */,
+				CC07B1D21C3E54AB001D6762 /* View */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -548,8 +555,8 @@
 		CC07B1981C3CE22C001D6762 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B1D01C3E4923001D6762 /* MainTitleViewController.swift */,
 				CC07B1991C3CE2D5001D6762 /* ZFMainViewController.swift */,
+				CC07B1D01C3E4923001D6762 /* MainTitleViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -641,6 +648,16 @@
 				CCE6CE631C3EAF2D001BB7B6 /* ZFMainViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC07B1E81C3F7895001D6762 /* CyclePictureView */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */,
+				CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */,
+				CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */,
+			);
+			name = CyclePictureView;
 			sourceTree = "<group>";
 		};
 		CC98C8731C3B51DE002FED99 = {
@@ -927,6 +944,7 @@
 				CCE6CE641C3EAF2D001BB7B6 /* ZFMainViewModel.swift in Sources */,
 				CC07B1941C3CDED8001D6762 /* ZFTableViewController.swift in Sources */,
 				CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */,
+				CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */,
 				CC07B18A1C3CDC15001D6762 /* ImageTextButton.m in Sources */,
 				CC07B1381C3CC138001D6762 /* ZFNetworkTool.swift in Sources */,
 				CC07B1691C3CDBCA001D6762 /* AnyObject+Extend.swift in Sources */,
@@ -947,6 +965,7 @@
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
 				CC07B1D11C3E4923001D6762 /* MainTitleViewController.swift in Sources */,
 				CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */,
+				CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */,
 				CC07B1AF1C3D08DA001D6762 /* UINavigationBar+Awesome.m in Sources */,
 				CC07B1D91C3E638E001D6762 /* ParallaxHeaderView.swift in Sources */,
 				CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */,
@@ -955,6 +974,7 @@
 				CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */,
 				CC07B16D1C3CDBCA001D6762 /* Foundation+Extend.swift in Sources */,
 				CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */,
+				CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */,
 				CC07B1721C3CDBCA001D6762 /* UIButton+Extend.swift in Sources */,
 				CC07B1761C3CDBCA001D6762 /* UIScreen.swift in Sources */,
 				CC07B1781C3CDBCA001D6762 /* AccessoryView.swift in Sources */,

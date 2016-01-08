@@ -19,7 +19,7 @@ class ZFNews {
     let type : Int = 0
     
     /// 新闻ID
-    let id :Int
+    let new_id :Int
     
     /// 无用
     let gaPrefix : Int?
@@ -31,7 +31,7 @@ class ZFNews {
     var alreadyRead = false
     
     init(id:Int,title:String,images:[String]? = nil,multipic:Bool? = false,gaPrefix:Int? = nil) {
-        self.id = id
+        self.new_id = id
         self.title = title
         self.images = images
         self.multipic = multipic ?? false
