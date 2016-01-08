@@ -28,32 +28,28 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         view.backgroundColor = UIColor.whiteColor()
         //左侧item
         createLeftNavWithImage("Home_Icon")
+        //获取数据源
         viewModel.getData({(dataSoure,headerSource) -> Void in
             print("---\(dataSoure)")
             self.dataSoure = dataSoure
             self.headerSource = headerSource
-           
-            self.setTableHeader()
+            self.setTableHeaderData()
             self.tableView.reloadData()
-            }) { (error) -> Void in
-                
+            }) { (error) -> Void in 
         }
-
+        //设置navbar颜色
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
-        
+        //初始化轮播图
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
         cyclePictureView.backgroundColor = UIColor.redColor()
-
+        //初始化Header
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -164, delegate:self)
         
         self.tableView.tableHeaderView = heardView
     }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.tableView.frame = UIScreen.mainScreen().bounds
-    }
     
-    func setTableHeader() {
+    //轮播图数据源
+    func setTableHeaderData() {
         
         for news:ZFNews in self.headerSource {
             imageURLArray.append(news.images![0])

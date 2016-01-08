@@ -53,7 +53,6 @@
 		CC07B1CD1C3E4635001D6762 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1CA1C3E4635001D6762 /* RefreshControl.swift */; };
 		CC07B1CE1C3E4635001D6762 /* RefreshControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1CB1C3E4635001D6762 /* RefreshControlDelegate.swift */; };
 		CC07B1CF1C3E4635001D6762 /* RefreshViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1CC1C3E4635001D6762 /* RefreshViewDelegate.swift */; };
-		CC07B1D11C3E4923001D6762 /* MainTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1D01C3E4923001D6762 /* MainTitleViewController.swift */; };
 		CC07B1D41C3E54C3001D6762 /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1D31C3E54C3001D6762 /* KYCircularProgress.swift */; };
 		CC07B1D71C3E621B001D6762 /* NavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1D61C3E621B001D6762 /* NavigationBarExtension.swift */; };
 		CC07B1D91C3E638E001D6762 /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1D81C3E638E001D6762 /* ParallaxHeaderView.swift */; };
@@ -152,17 +151,16 @@
 		CC07B1CA1C3E4635001D6762 /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		CC07B1CB1C3E4635001D6762 /* RefreshControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControlDelegate.swift; sourceTree = "<group>"; };
 		CC07B1CC1C3E4635001D6762 /* RefreshViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshViewDelegate.swift; sourceTree = "<group>"; };
-		CC07B1D01C3E4923001D6762 /* MainTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTitleViewController.swift; sourceTree = "<group>"; };
 		CC07B1D31C3E54C3001D6762 /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
 		CC07B1D61C3E621B001D6762 /* NavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtension.swift; sourceTree = "<group>"; };
 		CC07B1D81C3E638E001D6762 /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
-		CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZFTheme.swift; path = ZFZhiHuDaily/ZFTheme.swift; sourceTree = SOURCE_ROOT; };
-		CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZFThemeViewModel.swift; path = ZFZhiHuDaily/ZFThemeViewModel.swift; sourceTree = SOURCE_ROOT; };
+		CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTheme.swift; sourceTree = "<group>"; };
+		CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewModel.swift; sourceTree = "<group>"; };
 		CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureView.swift; sourceTree = "<group>"; };
 		CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureCell.swift; sourceTree = "<group>"; };
 		CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliaryModels.swift; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC98C8861C3B51DE002FED99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC98C8891C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -218,10 +216,10 @@
 		CC073EF51C3B844E00906779 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
-				CC073EF61C3B846F00906779 /* ViewModel */,
 				CC073EF71C3B847800906779 /* Controller */,
 				CC073EF81C3B847D00906779 /* Model */,
 				CC073EF91C3B848300906779 /* View */,
+				CC073EF61C3B846F00906779 /* ViewModel */,
 			);
 			path = Drawer;
 			sourceTree = "<group>";
@@ -270,8 +268,8 @@
 		CC07B1391C3CCD12001D6762 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */,
 				CC07B13A1C3CCDA5001D6762 /* ZFAPIConfig.swift */,
+				CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -279,9 +277,9 @@
 		CC07B13C1C3CDBAE001D6762 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CC07B13D1C3CDBCA001D6762 /* SwiftExtension */,
 				CC07B1AD1C3D08DA001D6762 /* UINavigationBar+Awesome.h */,
 				CC07B1AE1C3D08DA001D6762 /* UINavigationBar+Awesome.m */,
-				CC07B13D1C3CDBCA001D6762 /* SwiftExtension */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -308,11 +306,11 @@
 		CC07B1401C3CDBCA001D6762 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B1C21C3E2CB8001D6762 /* NSURLSession */,
 				CC07B1411C3CDBCA001D6762 /* AnyObject */,
 				CC07B1431C3CDBCA001D6762 /* Array */,
 				CC07B1451C3CDBCA001D6762 /* ArraySlice */,
 				CC07B1471C3CDBCA001D6762 /* Dictionary */,
+				CC07B1C21C3E2CB8001D6762 /* NSURLSession */,
 				CC07B14A1C3CDBCA001D6762 /* String */,
 				CC07B14C1C3CDBCA001D6762 /* Xcode */,
 				CC07B1491C3CDBCA001D6762 /* Foundation+Extend.swift */,
@@ -388,12 +386,12 @@
 		CC07B1521C3CDBCA001D6762 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B1D51C3E6202001D6762 /* UINaVigationBar */,
 				CC07B1531C3CDBCA001D6762 /* Controller */,
 				CC07B1551C3CDBCA001D6762 /* UIButton */,
 				CC07B1571C3CDBCA001D6762 /* UIColor */,
 				CC07B1591C3CDBCA001D6762 /* UIDevice */,
 				CC07B15B1C3CDBCA001D6762 /* UIImage */,
+				CC07B1D51C3E6202001D6762 /* UINaVigationBar */,
 				CC07B15D1C3CDBCA001D6762 /* UIScreen */,
 				CC07B15F1C3CDBCA001D6762 /* UITableViewCell */,
 				CC07B1611C3CDBCA001D6762 /* UITextField */,
@@ -488,12 +486,12 @@
 			isa = PBXGroup;
 			children = (
 				CC07B1E81C3F7895001D6762 /* CyclePictureView */,
-				CC07B1C91C3E4624001D6762 /* RefreshControl */,
-				CC07B1A91C3CE68A001D6762 /* MSWeakTimer */,
 				CC07B1A51C3CE60D001D6762 /* GradientView */,
-				CC07B1A11C3CE464001D6762 /* JSAnimatedImagesView */,
 				CC07B17D1C3CDC15001D6762 /* ImageTextButton */,
+				CC07B1A11C3CE464001D6762 /* JSAnimatedImagesView */,
 				CC07B1801C3CDC15001D6762 /* MMDrawerController */,
+				CC07B1A91C3CE68A001D6762 /* MSWeakTimer */,
+				CC07B1C91C3E4624001D6762 /* RefreshControl */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -528,37 +526,36 @@
 			children = (
 				CC07B1901C3CDE94001D6762 /* Controller */,
 			);
-			name = Base;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		CC07B1901C3CDE94001D6762 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */,
 				CC07B1911C3CDEAD001D6762 /* ZFBaseViewController.swift */,
 				CC07B1931C3CDED8001D6762 /* ZFTableViewController.swift */,
-				CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CC07B1971C3CE214001D6762 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B1DA1C3E6CED001D6762 /* ViewModel */,
 				CC07B1981C3CE22C001D6762 /* Controller */,
 				CCE6CE651C3EB01F001BB7B6 /* Model */,
 				CC07B1D21C3E54AB001D6762 /* View */,
+				CC07B1DA1C3E6CED001D6762 /* ViewModel */,
 			);
-			name = Main;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		CC07B1981C3CE22C001D6762 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				CC07B1991C3CE2D5001D6762 /* ZFMainViewController.swift */,
-				CC07B1D01C3E4923001D6762 /* MainTitleViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CC07B19B1C3CE2FA001D6762 /* Launch */ = {
@@ -566,7 +563,7 @@
 			children = (
 				CC07B19C1C3CE30A001D6762 /* Controller */,
 			);
-			name = Launch;
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		CC07B19C1C3CE30A001D6762 /* Controller */ = {
@@ -575,7 +572,7 @@
 				CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */,
 				CC07B19E1C3CE322001D6762 /* PaletteViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CC07B1A11C3CE464001D6762 /* JSAnimatedImagesView */ = {
@@ -584,7 +581,7 @@
 				CC07B1A21C3CE478001D6762 /* JSAnimatedImagesView.h */,
 				CC07B1A31C3CE478001D6762 /* JSAnimatedImagesView.m */,
 			);
-			name = JSAnimatedImagesView;
+			path = JSAnimatedImagesView;
 			sourceTree = "<group>";
 		};
 		CC07B1A51C3CE60D001D6762 /* GradientView */ = {
@@ -593,7 +590,7 @@
 				CC07B1A61C3CE61B001D6762 /* GradientView.h */,
 				CC07B1A71C3CE61B001D6762 /* GradientView.m */,
 			);
-			name = GradientView;
+			path = GradientView;
 			sourceTree = "<group>";
 		};
 		CC07B1A91C3CE68A001D6762 /* MSWeakTimer */ = {
@@ -602,7 +599,7 @@
 				CC07B1AA1C3CE6A4001D6762 /* MSWeakTimer.h */,
 				CC07B1AB1C3CE6A4001D6762 /* MSWeakTimer.m */,
 			);
-			name = MSWeakTimer;
+			path = MSWeakTimer;
 			sourceTree = "<group>";
 		};
 		CC07B1C21C3E2CB8001D6762 /* NSURLSession */ = {
@@ -611,7 +608,7 @@
 				CC07B1C51C3E2DC1001D6762 /* AppException.swift */,
 				CC07B1C31C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift */,
 			);
-			name = NSURLSession;
+			path = NSURLSession;
 			sourceTree = "<group>";
 		};
 		CC07B1C91C3E4624001D6762 /* RefreshControl */ = {
@@ -621,17 +618,17 @@
 				CC07B1CB1C3E4635001D6762 /* RefreshControlDelegate.swift */,
 				CC07B1CC1C3E4635001D6762 /* RefreshViewDelegate.swift */,
 			);
-			name = RefreshControl;
+			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		CC07B1D21C3E54AB001D6762 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B1D81C3E638E001D6762 /* ParallaxHeaderView.swift */,
 				CC07B1D31C3E54C3001D6762 /* KYCircularProgress.swift */,
+				CC07B1D81C3E638E001D6762 /* ParallaxHeaderView.swift */,
 				CCE6CE681C3EB533001BB7B6 /* ZFHomeCell.swift */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		CC07B1D51C3E6202001D6762 /* UINaVigationBar */ = {
@@ -639,7 +636,7 @@
 			children = (
 				CC07B1D61C3E621B001D6762 /* NavigationBarExtension.swift */,
 			);
-			name = UINaVigationBar;
+			path = UINaVigationBar;
 			sourceTree = "<group>";
 		};
 		CC07B1DA1C3E6CED001D6762 /* ViewModel */ = {
@@ -647,17 +644,17 @@
 			children = (
 				CCE6CE631C3EAF2D001BB7B6 /* ZFMainViewModel.swift */,
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CC07B1E81C3F7895001D6762 /* CyclePictureView */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */,
-				CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */,
 				CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */,
+				CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */,
+				CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */,
 			);
-			name = CyclePictureView;
+			path = CyclePictureView;
 			sourceTree = "<group>";
 		};
 		CC98C8731C3B51DE002FED99 = {
@@ -686,8 +683,8 @@
 			isa = PBXGroup;
 			children = (
 				CC07B18F1C3CDE89001D6762 /* Base */,
-				CC07B19B1C3CE2FA001D6762 /* Launch */,
 				CC073EF51C3B844E00906779 /* Drawer */,
+				CC07B19B1C3CE2FA001D6762 /* Launch */,
 				CC07B1971C3CE214001D6762 /* Main */,
 				CC98C8B11C3B53F2002FED99 /* Other */,
 				CC98C8CF1C3B5904002FED99 /* Storyboard */,
@@ -719,11 +716,11 @@
 		CC98C8B11C3B53F2002FED99 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */,
 				CC07B1391C3CCD12001D6762 /* Config */,
 				CC07B13C1C3CDBAE001D6762 /* Extension */,
 				CC07B17C1C3CDBD0001D6762 /* Lib */,
 				CC073F101C3CB80D00906779 /* NetWork */,
+				CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -743,7 +740,7 @@
 			children = (
 				CCE6CE661C3EB02D001BB7B6 /* ZFNews.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D5EFD697A5854927E0C46802 /* Pods */ = {
@@ -963,7 +960,6 @@
 				CC07B16A1C3CDBCA001D6762 /* Array+Extend.swift in Sources */,
 				CC07B1731C3CDBCA001D6762 /* UIColor+Extend.swift in Sources */,
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
-				CC07B1D11C3E4923001D6762 /* MainTitleViewController.swift in Sources */,
 				CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */,
 				CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */,
 				CC07B1AF1C3D08DA001D6762 /* UINavigationBar+Awesome.m in Sources */,
@@ -1048,7 +1044,7 @@
 				CC98C8891C3B51DE002FED99 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = ../.;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
