@@ -43,7 +43,6 @@
 		CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */; };
 		CC07B19A1C3CE2D5001D6762 /* ZFMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1991C3CE2D5001D6762 /* ZFMainViewController.swift */; };
 		CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */; };
-		CC07B1A01C3CE322001D6762 /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B19E1C3CE322001D6762 /* PaletteViewController.swift */; };
 		CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1A31C3CE478001D6762 /* JSAnimatedImagesView.m */; };
 		CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1A71C3CE61B001D6762 /* GradientView.m */; };
 		CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1AB1C3CE6A4001D6762 /* MSWeakTimer.m */; };
@@ -137,7 +136,6 @@
 		CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFBaseNavigationController.swift; sourceTree = "<group>"; };
 		CC07B1991C3CE2D5001D6762 /* ZFMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewController.swift; sourceTree = "<group>"; };
 		CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		CC07B19E1C3CE322001D6762 /* PaletteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteViewController.swift; sourceTree = "<group>"; };
 		CC07B1A21C3CE478001D6762 /* JSAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnimatedImagesView.h; sourceTree = "<group>"; };
 		CC07B1A31C3CE478001D6762 /* JSAnimatedImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnimatedImagesView.m; sourceTree = "<group>"; };
 		CC07B1A61C3CE61B001D6762 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
@@ -570,7 +568,6 @@
 			isa = PBXGroup;
 			children = (
 				CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */,
-				CC07B19E1C3CE322001D6762 /* PaletteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -988,7 +985,6 @@
 				CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */,
 				CC07B1CF1C3E4635001D6762 /* RefreshViewDelegate.swift in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
-				CC07B1A01C3CE322001D6762 /* PaletteViewController.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
 				CCE6CE691C3EB533001BB7B6 /* ZFHomeCell.swift in Sources */,
 				CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */,
