@@ -72,8 +72,8 @@ class ParallaxHeaderView: UIView {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-         let rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)
-        self.contentView.frame = rect
+//         let rect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)
+//        self.contentView.frame = rect
     }
     
     private func setupStyle() {

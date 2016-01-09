@@ -55,7 +55,7 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             self.pageControl?.currentPageIndicatorTintColor = currentDotColor
         }
     }
-    var otherDotColor: UIColor = UIColor.grayColor() {
+    var otherDotColor: UIColor = UIColor.lightGrayColor() {
         didSet {
             self.pageControl?.pageIndicatorTintColor = otherDotColor
         }
@@ -200,7 +200,7 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             let pageControl = UIPageControl()
             pageControl.numberOfPages = self.imageBox!.imageArray.count
             pageControl.currentPageIndicatorTintColor = self.currentDotColor
-            pageControl.pageIndicatorTintColor = self.otherDotColor
+            //pageControl.pageIndicatorTintColor = self.otherDotColor
             pageControl.userInteractionEnabled = false
             self.addSubview(pageControl)
             
@@ -256,7 +256,7 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         //解决从SB中加载时，contentInset.Top默认为64的问题
         self.collectionView.contentInset = UIEdgeInsetsZero
         
-        self.showFirstImagePageInCollectionView(self.collectionView)
+        //self.showFirstImagePageInCollectionView(self.collectionView)
         
         guard let pageControl = self.pageControl else {
             return

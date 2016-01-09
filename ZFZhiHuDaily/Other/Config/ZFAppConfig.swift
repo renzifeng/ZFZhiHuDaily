@@ -45,6 +45,15 @@ func RGB (r:CGFloat,_ g:CGFloat, _ b:CGFloat) -> UIColor {
     return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
 }
 
+//主题蓝色
+let ThemeColor = RGB(0, 130, 210)
+
+//延时操作
+func GCD_Delay (second : NSTimeInterval ) -> dispatch_time_t {
+    let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(second * Double(NSEC_PER_SEC)))
+    return delay
+}
+
 func FONT (size : CGFloat) -> UIFont {
     return UIFont.systemFontOfSize(size)
 }

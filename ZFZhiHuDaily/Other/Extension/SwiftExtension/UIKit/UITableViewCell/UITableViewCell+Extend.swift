@@ -23,12 +23,15 @@ extension CFCell{
     class func reuseCell(tableview: UITableView) -> CFCell{
         
         var cell = tableview.dequeueReusableCellWithIdentifier(rid) as? CFCell
-        
+
         if cell == nil {cell = self.viewInitWithNib() as? CFCell}
         
         return cell!
     }
     
+    class func viewInitWithNib() -> UIView{
+        return NSBundle.mainBundle().loadNibNamed(stringFromClass(self)!, owner: nil, options: nil).first as! UIView
+    }
     
     /** 数据填充 */
     func dataFill(){}

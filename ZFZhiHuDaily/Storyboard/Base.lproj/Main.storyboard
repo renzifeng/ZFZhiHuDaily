@@ -124,7 +124,9 @@
                             <constraint firstItem="hbY-Yj-QO2" firstAttribute="top" secondItem="r8b-do-g19" secondAttribute="top" id="cED-Qp-TmA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="今日热闻" id="2CD-iV-5zu"/>
+                    <navigationItem key="navigationItem" id="2CD-iV-5zu">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hbY-Yj-QO2" id="juJ-CT-CTb"/>
                     </connections>

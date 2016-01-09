@@ -14,23 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var firstDisplay = true
-    var drawerController : MMDrawerController!
+    var drawerController : MMViewController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //创建窗口
         let mainFrame = UIScreen.mainScreen().bounds
         window = UIWindow(frame: mainFrame)
-        //设置视图
-        let leftViewcontroller =  GET_SB("Left").instantiateViewControllerWithIdentifier("ZFDrawerViewController")
-        let centerViewController = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFMainViewController")
-                
-        drawerController = MMDrawerController(centerViewController: centerViewController, leftDrawerViewController: leftViewcontroller)
-        drawerController.shouldStretchDrawer = false
-
-        drawerController.maximumLeftDrawerWidth = 200
-        //手势
-        drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureMode.All
-        drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
         
         //设置根试图
         //self.window?.rootViewController = drawerController
@@ -47,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(2.5 * Double(NSEC_PER_SEC)))
         dispatch_after(delay, dispatch_get_main_queue()) {
+            self.drawerController = MMViewController()
             self.window?.rootViewController = self.drawerController
             UIApplication.sharedApplication().statusBarHidden = false
         }

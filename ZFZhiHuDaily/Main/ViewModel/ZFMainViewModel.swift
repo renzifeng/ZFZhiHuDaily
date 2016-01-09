@@ -16,6 +16,7 @@ class ZFMainViewModel: NSObject {
     typealias ThemeVieModelErrorCallBack = (error : NSError) -> Void
     var successCallBack : ThemeViewModelSuccessCallBack?
     var errorCallBack : ThemeVieModelErrorCallBack?
+
     
     func getData (successCallBack : ThemeViewModelSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
         self.successCallBack = successCallBack
@@ -38,6 +39,14 @@ class ZFMainViewModel: NSObject {
             if self.successCallBack != nil {
                 self.successCallBack!(dataSoure:lastestNews!, headerSource:topNews!)
             }
+            }) { (error) -> Void in
+                
+        }
+    }
+    func getDataForDate (dateStr: String ,successCallBack : ThemeViewModelSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
+        //若果需要查询 11 月 18 日的消息，before 后的数字应为 20131119
+        ZFNetworkTool.get(BEFORE_NEWS + dateStr, params: nil, success: { (json) -> Void in
+            print("------======`\(json)")
             }) { (error) -> Void in
                 
         }

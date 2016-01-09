@@ -32,7 +32,6 @@
 		CC07B1781C3CDBCA001D6762 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1631C3CDBCA001D6762 /* AccessoryView.swift */; };
 		CC07B1791C3CDBCA001D6762 /* AccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC07B1641C3CDBCA001D6762 /* AccessoryView.xib */; };
 		CC07B17A1C3CDBCA001D6762 /* UITextField+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1651C3CDBCA001D6762 /* UITextField+Extend.swift */; };
-		CC07B17B1C3CDBCA001D6762 /* UIView+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1671C3CDBCA001D6762 /* UIView+Extend.swift */; };
 		CC07B18A1C3CDC15001D6762 /* ImageTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B17F1C3CDC15001D6762 /* ImageTextButton.m */; };
 		CC07B18B1C3CDC15001D6762 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1821C3CDC15001D6762 /* MMDrawerBarButtonItem.m */; };
 		CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1851C3CDC15001D6762 /* MMDrawerController.m */; };
@@ -68,6 +67,11 @@
 		CC98C8A01C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C89F1C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift */; };
 		CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */; };
 		CC98C8D11C3B5945002FED99 /* Left.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8D01C3B5945002FED99 /* Left.storyboard */; };
+		CCAD29761C40EEEB0096B2A7 /* MMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */; };
+		CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */; };
+		CCAD297F1C40F3B40096B2A7 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */; };
+		CCAD29801C40F3B40096B2A7 /* DetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD297D1C40F3B40096B2A7 /* DetailFooterView.m */; };
+		CCAD29871C40F43D0096B2A7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29861C40F43D0096B2A7 /* UIView+Extension.m */; };
 		CCE6CE641C3EAF2D001BB7B6 /* ZFMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE6CE631C3EAF2D001BB7B6 /* ZFMainViewModel.swift */; };
 		CCE6CE671C3EB02D001BB7B6 /* ZFNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE6CE661C3EB02D001BB7B6 /* ZFNews.swift */; };
 		CCE6CE691C3EB533001BB7B6 /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE6CE681C3EB533001BB7B6 /* ZFHomeCell.swift */; };
@@ -119,7 +123,6 @@
 		CC07B1631C3CDBCA001D6762 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		CC07B1641C3CDBCA001D6762 /* AccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryView.xib; sourceTree = "<group>"; };
 		CC07B1651C3CDBCA001D6762 /* UITextField+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extend.swift"; sourceTree = "<group>"; };
-		CC07B1671C3CDBCA001D6762 /* UIView+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extend.swift"; sourceTree = "<group>"; };
 		CC07B17E1C3CDC15001D6762 /* ImageTextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTextButton.h; sourceTree = "<group>"; };
 		CC07B17F1C3CDC15001D6762 /* ImageTextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTextButton.m; sourceTree = "<group>"; };
 		CC07B1811C3CDC15001D6762 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
@@ -172,6 +175,15 @@
 		CC98C8AD1C3B51F1002FED99 /* ZFZhiHuDaily-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZFZhiHuDaily-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAppConfig.swift; sourceTree = "<group>"; };
 		CC98C8D01C3B5945002FED99 /* Left.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Left.storyboard; sourceTree = "<group>"; };
+		CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMViewController.swift; sourceTree = "<group>"; };
+		CCAD29781C40F3B40096B2A7 /* CircleRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleRefreshView.h; sourceTree = "<group>"; };
+		CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleRefreshView.m; sourceTree = "<group>"; };
+		CCAD297A1C40F3B40096B2A7 /* DetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHeaderView.h; sourceTree = "<group>"; };
+		CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailHeaderView.m; sourceTree = "<group>"; };
+		CCAD297C1C40F3B40096B2A7 /* DetailFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFooterView.h; sourceTree = "<group>"; };
+		CCAD297D1C40F3B40096B2A7 /* DetailFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFooterView.m; sourceTree = "<group>"; };
+		CCAD29851C40F43D0096B2A7 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		CCAD29861C40F43D0096B2A7 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		CCE6CE631C3EAF2D001BB7B6 /* ZFMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewModel.swift; sourceTree = "<group>"; };
 		CCE6CE661C3EB02D001BB7B6 /* ZFNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNews.swift; sourceTree = "<group>"; };
 		CCE6CE681C3EB533001BB7B6 /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
@@ -234,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */,
+				CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,9 +288,8 @@
 		CC07B13C1C3CDBAE001D6762 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CCAD29821C40F4000096B2A7 /* OCExtension */,
 				CC07B13D1C3CDBCA001D6762 /* SwiftExtension */,
-				CC07B1AD1C3D08DA001D6762 /* UINavigationBar+Awesome.h */,
-				CC07B1AE1C3D08DA001D6762 /* UINavigationBar+Awesome.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -393,7 +405,6 @@
 				CC07B15D1C3CDBCA001D6762 /* UIScreen */,
 				CC07B15F1C3CDBCA001D6762 /* UITableViewCell */,
 				CC07B1611C3CDBCA001D6762 /* UITextField */,
-				CC07B1661C3CDBCA001D6762 /* UIView */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -472,17 +483,10 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		CC07B1661C3CDBCA001D6762 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				CC07B1671C3CDBCA001D6762 /* UIView+Extend.swift */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		CC07B17C1C3CDBD0001D6762 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				CCAD29771C40F39C0096B2A7 /* WBRefresh */,
 				CC07B1E81C3F7895001D6762 /* CyclePictureView */,
 				CC07B1A51C3CE60D001D6762 /* GradientView */,
 				CC07B17D1C3CDC15001D6762 /* ImageTextButton */,
@@ -732,6 +736,46 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		CCAD29771C40F39C0096B2A7 /* WBRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				CCAD29781C40F3B40096B2A7 /* CircleRefreshView.h */,
+				CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */,
+				CCAD297A1C40F3B40096B2A7 /* DetailHeaderView.h */,
+				CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */,
+				CCAD297C1C40F3B40096B2A7 /* DetailFooterView.h */,
+				CCAD297D1C40F3B40096B2A7 /* DetailFooterView.m */,
+			);
+			name = WBRefresh;
+			sourceTree = "<group>";
+		};
+		CCAD29821C40F4000096B2A7 /* OCExtension */ = {
+			isa = PBXGroup;
+			children = (
+				CCAD29841C40F42B0096B2A7 /* UIView */,
+				CCAD29831C40F4140096B2A7 /* UINavigationBar */,
+			);
+			name = OCExtension;
+			sourceTree = "<group>";
+		};
+		CCAD29831C40F4140096B2A7 /* UINavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				CC07B1AD1C3D08DA001D6762 /* UINavigationBar+Awesome.h */,
+				CC07B1AE1C3D08DA001D6762 /* UINavigationBar+Awesome.m */,
+			);
+			name = UINavigationBar;
+			sourceTree = "<group>";
+		};
+		CCAD29841C40F42B0096B2A7 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				CCAD29851C40F43D0096B2A7 /* UIView+Extension.h */,
+				CCAD29861C40F43D0096B2A7 /* UIView+Extension.m */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
 		CCE6CE651C3EB01F001BB7B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,8 +987,10 @@
 				CC07B1381C3CC138001D6762 /* ZFNetworkTool.swift in Sources */,
 				CC07B1691C3CDBCA001D6762 /* AnyObject+Extend.swift in Sources */,
 				CC07B1D71C3E621B001D6762 /* NavigationBarExtension.swift in Sources */,
+				CCAD297F1C40F3B40096B2A7 /* DetailHeaderView.m in Sources */,
 				CC07B1711C3CDBCA001D6762 /* UIViewController.swift in Sources */,
 				CC07B16E1C3CDBCA001D6762 /* String+Extend.swift in Sources */,
+				CCAD29871C40F43D0096B2A7 /* UIView+Extension.m in Sources */,
 				CC07B13B1C3CCDA5001D6762 /* ZFAPIConfig.swift in Sources */,
 				CC07B1921C3CDEAD001D6762 /* ZFBaseViewController.swift in Sources */,
 				CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */,
@@ -958,11 +1004,11 @@
 				CC07B1731C3CDBCA001D6762 /* UIColor+Extend.swift in Sources */,
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
 				CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */,
+				CCAD29761C40EEEB0096B2A7 /* MMViewController.swift in Sources */,
 				CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */,
 				CC07B1AF1C3D08DA001D6762 /* UINavigationBar+Awesome.m in Sources */,
 				CC07B1D91C3E638E001D6762 /* ParallaxHeaderView.swift in Sources */,
 				CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */,
-				CC07B17B1C3CDBCA001D6762 /* UIView+Extend.swift in Sources */,
 				CC07B1D41C3E54C3001D6762 /* KYCircularProgress.swift in Sources */,
 				CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */,
 				CC07B16D1C3CDBCA001D6762 /* Foundation+Extend.swift in Sources */,
@@ -970,6 +1016,7 @@
 				CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */,
 				CC07B1721C3CDBCA001D6762 /* UIButton+Extend.swift in Sources */,
 				CC07B1761C3CDBCA001D6762 /* UIScreen.swift in Sources */,
+				CCAD29801C40F3B40096B2A7 /* DetailFooterView.m in Sources */,
 				CC07B1781C3CDBCA001D6762 /* AccessoryView.swift in Sources */,
 				CC07B19A1C3CE2D5001D6762 /* ZFMainViewController.swift in Sources */,
 				CC07B17A1C3CDBCA001D6762 /* UITextField+Extend.swift in Sources */,
@@ -987,6 +1034,7 @@
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
 				CCE6CE691C3EB533001BB7B6 /* ZFHomeCell.swift in Sources */,
+				CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */,
 				CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */,
 				CCE6CE671C3EB02D001BB7B6 /* ZFNews.swift in Sources */,
 				CC07B1741C3CDBCA001D6762 /* UIDevice.swift in Sources */,
