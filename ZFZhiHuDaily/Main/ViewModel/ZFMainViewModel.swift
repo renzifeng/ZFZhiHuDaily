@@ -13,10 +13,12 @@ class ZFMainViewModel: NSObject {
     var themes : [ZFTheme] = []
     // 回调
     typealias ThemeViewModelSuccessCallBack = (dataSoure : Array<ZFNews>,headerSource : Array<ZFNews>) -> Void
+    typealias ListSuccessCallBack = (dataSoure : Array<ZFNews>,dateStr : String) -> Void
     typealias ThemeVieModelErrorCallBack = (error : NSError) -> Void
     var successCallBack : ThemeViewModelSuccessCallBack?
+    var listSuccessCallBack : ListSuccessCallBack?
     var errorCallBack : ThemeVieModelErrorCallBack?
-
+    var dateFormat : NSDateFormatter = NSDateFormatter()
     
     func getData (successCallBack : ThemeViewModelSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
         self.successCallBack = successCallBack
@@ -24,7 +26,7 @@ class ZFMainViewModel: NSObject {
         ZFNetworkTool.get(LATEST_NEWS_URL, params: nil, success: { (json) -> Void in
             print("````\(json)")
             let result = JSON(json)
-            let date = Int(result["date"].string!)
+            //let date = Int(result["date"].string!)
             //最热新闻
             let top_stories = result["top_stories"].array
             //最新新闻
@@ -43,15 +45,38 @@ class ZFMainViewModel: NSObject {
                 
         }
     }
-    func getDataForDate (dateStr: String ,successCallBack : ThemeViewModelSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
+    func getDataForDate (dateIndex: Int ,successCallBack : ListSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
+        let date : NSDate = NSDate(timeIntervalSinceNow: -(dateIndex*24*60*60))
+        dateFormat.locale = NSLocale(localeIdentifier: "zh_CN")
+        dateFormat.dateFormat = "yyyyMMdd"
+        let dateStr : String =  dateFormat.stringFromDate(date)
+        
+        self.listSuccessCallBack = successCallBack
         //若果需要查询 11 月 18 日的消息，before 后的数字应为 20131119
         ZFNetworkTool.get(BEFORE_NEWS + dateStr, params: nil, success: { (json) -> Void in
             print("------======`\(json)")
+            let result = JSON(json)
+            //最新新闻
+            let stories = result["stories"].array
+            //遍历最新的新闻
+            let lastestNews : [ZFNews]? = self.convertStoriesJson2Vo(stories, type: .NEWS)
+            self.dateFormat.dateFormat = "MM月dd日 cccc"
+            let dateStr = self.dateFormat.stringFromDate(date)
+            
+            // 回调给controller
+            if self.listSuccessCallBack != nil {
+                self.listSuccessCallBack!(dataSoure:lastestNews!,dateStr:dateStr)
+            }
             }) { (error) -> Void in
                 
         }
         
     }
+    
+//    func getWeek(date :NSDate) -> String {
+//        let gregorian : NSCalendar = NSCalendar(identifier: NSGregorianCalendar)
+//        gregorian.dateFromComponents(<#T##comps: NSDateComponents##NSDateComponents#>)
+//    }
     /**
      转换新闻List JSON对象到VO对象
      

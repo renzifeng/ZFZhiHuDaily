@@ -12,6 +12,7 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     var cyclePictureView: CyclePictureView!
     var imageURLArray : [String] = []
     var imageTitleArray : [String] = []
+    var dateIndex : Int = 1
     @IBOutlet weak var tableView: UITableView!
 
     //ViewModel
@@ -20,9 +21,10 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     var headerSource : [ZFNews] = []
     //table数据源
     var dataSoure : [[ZFNews]] = []
-    
     //是否正在刷新
     var isLoading : Bool! = false
+    //存放header（日期）的数组
+    var headerTitleArray : [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +36,6 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         //获取数据源
         viewModel.getData({(dataSoure,headerSource) -> Void in
             print("---\(dataSoure)")
-            //先清空第一个数据源
-            
-            //self.dataSoure.removeFirst()
             self.dataSoure.insert(dataSoure, atIndex: 0)
             self.headerSource = headerSource
             self.setTableHeaderData()
@@ -86,22 +85,34 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     //下拉刷新
     func updateData() {
         print("下拉刷新")
-        if (self.isLoading == true) {
+        //获取数据源
+        viewModel.getData({(dataSoure,headerSource) -> Void in
+            print("---\(dataSoure)")
+            //先清空第一个数据源
+            self.dataSoure.removeFirst()
+            self.headerSource.removeAll()
+            self.imageURLArray.removeAll()
+            self.imageTitleArray.removeAll()
+            self.dataSoure.insert(dataSoure, atIndex: 0)
+            self.headerSource = headerSource
+            self.setTableHeaderData()
+            self.refreshView.endRefreshing()
+            self.tableView.reloadData()
+            }) { (error) -> Void in
+        }
+    }
+    //上拉加载
+    func pullMoreData() {
+        if self.isLoading == true {
             return;
         }
         self.isLoading = !self.isLoading
-    }
-    
-    func pullMoreData() {
-        
-        let date : NSDate = NSDate(timeIntervalSinceNow: -(24*60*60))
-        var dateFormat : NSDateFormatter = NSDateFormatter()
-        dateFormat.dateFormat = "yyyyMMdd"
-        let dateStr : String =  dateFormat.stringFromDate(date)
-        
-        viewModel.getDataForDate( dateStr, successCallBack: { (dataSoure, headerSource) -> Void in
+        print("上拉加载")
+        viewModel.getDataForDate( dateIndex, successCallBack: { (dataSoure,dateStr) -> Void in
+            self.dateIndex++
             self.isLoading = !self.isLoading
             self.dataSoure.append(dataSoure)
+            self.headerTitleArray.append(dateStr)
             self.tableView.reloadData()
             self.refreshView.endRefreshing()
             }) { (error) -> Void in
@@ -147,13 +158,39 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
             let headerView = UIView()
             headerView.backgroundColor = ThemeColor
             let titleLabel = UILabel()
-            titleLabel.text = "哈哈哈"
+            titleLabel.text = self.headerTitleArray[section-1]
+            titleLabel.textColor = UIColor.whiteColor()
             titleLabel.textAlignment = .Center
             titleLabel.frame = CGRectMake(0, 0, ScreenWidth, 44)
+            headerView.addSubview(titleLabel)
             return headerView
         }else {
             return nil
         }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        if section != 0 {
+//            self.navTitleLabel.text = self.headerTitleArray[section-1]
+//            //self.titleView.x = 0
+//            self.titleView.width = navTitleLabel.width
+//            self.navTitleLabel.centerY = self.titleView.centerX
+//            navTitleLabel.centerX = 22;
+//            navTitleLabel.sizeToFit();
+//        }else {
+//            self.navTitleLabel.text = "今日新闻"
+//            navTitleLabel.sizeToFit();
+//        }
+    }
+    
+    func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+//        if section != 0 {
+//            self.navTitleLabel.text = self.headerTitleArray[section-1]
+//            navTitleLabel.sizeToFit();
+//        }else {
+//            self.navTitleLabel.text = "今日新闻"
+//            navTitleLabel.sizeToFit();
+//        }
     }
     
     // MARK: - UIScrollViewDelegate
@@ -164,7 +201,6 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         let offSetY = scrollView.contentOffset.y;
         // 上拉加载
         if (offSetY  > scrollView.contentSize.height - 1.5 * ScreenHeight) {
-            print("上拉加载")
             pullMoreData()
         }
     }
@@ -190,6 +226,9 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         let navTitleLabel = UILabel()
         navTitleLabel.attributedText = NSAttributedString(string: "今日热闻", attributes: [NSFontAttributeName : FONT(18),NSForegroundColorAttributeName : UIColor.whiteColor()])
         navTitleLabel.sizeToFit();
+//        navTitleLabel.textColor = UIColor.whiteColor()
+//        navTitleLabel.font = FONT(18)
+//        navTitleLabel.text = "今日热闻"
         navTitleLabel.centerX = self.view.centerX;
         navTitleLabel.centerY = 22;
         self.titleView.width = navTitleLabel.width + 30
