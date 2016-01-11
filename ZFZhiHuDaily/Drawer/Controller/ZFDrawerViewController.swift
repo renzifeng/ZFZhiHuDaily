@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import SwiftyJSON
 
+
 class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +22,9 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var avatarImg: UIImageView!
+    //mainVC
+    weak var mainVC : MMViewController!
+    
     var dataSoure : [ZFTheme] = []
     //ViewModel
     private var viewModel : ZFThemeViewModel! = ZFThemeViewModel()
@@ -74,15 +78,25 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let centerViewController = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFMainViewController")
-        App_Delagate.drawerController.centerViewController = centerViewController
-        App_Delagate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        if indexPath.row == 0 {
+            self.mainVC.setCenterViewController(self.mainVC.centerVC, withCloseAnimation: true, completion: nil)
+        }else {
+            let theme : ZFTheme = self.dataSoure[indexPath.row-1]
+            let themeVC = self.naviVC.viewControllers[0] as! ZFThemeViewController
+            themeVC.theme = theme
+            self.mainVC.setCenterViewController(self.naviVC, withCloseAnimation: true, completion: nil)
+        }
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    private lazy var naviVC : ZFBaseNavigationController = {
+        let naviVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFThemeNav") as! ZFBaseNavigationController
+        return naviVC
+    }()
     
 
     /*

@@ -21,6 +21,13 @@ class ZFHomeCell: UITableViewCell {
             self.rightImageView.yy_setImageWithURL(NSURL(string: news.images![0]), placeholder: UIImage(named: "avatar"))
         }
     }
+    
+    var story : ThemeStories! {
+        didSet {
+            self.titleLabel.text = story.title
+            self.rightImageView.yy_setImageWithURL(NSURL(string: story.images![0]), placeholder: UIImage(named: "avatar"))
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

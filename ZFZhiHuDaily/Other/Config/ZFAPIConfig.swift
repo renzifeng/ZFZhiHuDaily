@@ -19,6 +19,8 @@ let START_IMAGE : String = "4/start-image/\(width)*\(height)"
 
 // MARK: - 加载用户主题列表
 let THEME_URL = "4/themes"
+// MARK: - 主题日报内容查看
+let THEME_LIST = "4/theme/"
 
 // MARK: - 获取当天新闻
 let LATEST_NEWS_URL = "4/news/latest"

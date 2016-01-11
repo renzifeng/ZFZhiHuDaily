@@ -9,9 +9,13 @@
 import UIKit
 
 class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
+    /// 轮播图View
     var cyclePictureView: CyclePictureView!
+    /// 轮播图图片url数组
     var imageURLArray : [String] = []
+    /// 轮播图的标题数据
     var imageTitleArray : [String] = []
+    /// 页数的下标，用来计算接口中传的Date
     var dateIndex : Int = 1
     @IBOutlet weak var tableView: UITableView!
 
@@ -70,10 +74,10 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     }
     
     func setRefreshView() {
-        self.navigationController?.navigationBar.addSubview(self.titleView)
-        self.navigationItem.titleView?.backgroundColor = UIColor.grayColor();
-        self.titleView.addSubview(self.navTitleLabel)
-        self.titleView.addSubview(self.refreshView)
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.grayColor();
+        self.navigationController?.navigationBar.addSubview(self.navTitleLabel)
+        self.navigationController?.navigationBar.addSubview(self.refreshView)
+
     }
     // MARK: - Action
     //打开抽屉
@@ -173,9 +177,6 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
 //        if section != 0 {
 //            self.navTitleLabel.text = self.headerTitleArray[section-1]
 //            //self.titleView.x = 0
-//            self.titleView.width = navTitleLabel.width
-//            self.navTitleLabel.centerY = self.titleView.centerX
-//            navTitleLabel.centerX = 22;
 //            navTitleLabel.sizeToFit();
 //        }else {
 //            self.navTitleLabel.text = "今日新闻"
@@ -224,29 +225,24 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     
     private lazy var navTitleLabel : UILabel = {
         let navTitleLabel = UILabel()
-        navTitleLabel.attributedText = NSAttributedString(string: "今日热闻", attributes: [NSFontAttributeName : FONT(18),NSForegroundColorAttributeName : UIColor.whiteColor()])
+        navTitleLabel.textColor = UIColor.whiteColor()
+        navTitleLabel.font = FONT(18)
+        navTitleLabel.text = "今日热闻"
+        navTitleLabel.centerX = ScreenWidth/2
+        navTitleLabel.centerY = 11
         navTitleLabel.sizeToFit();
-//        navTitleLabel.textColor = UIColor.whiteColor()
-//        navTitleLabel.font = FONT(18)
-//        navTitleLabel.text = "今日热闻"
-        navTitleLabel.centerX = self.view.centerX;
-        navTitleLabel.centerY = 22;
-        self.titleView.width = navTitleLabel.width + 30
+        navTitleLabel.x = ScreenWidth/2-navTitleLabel.width/2
         return navTitleLabel
     }()
     
     private lazy var refreshView : CircleRefreshView = {
         let refreshView = CircleRefreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
-        refreshView.frame = CGRectMake(10, 0, 20, 20);
-        refreshView.centerY = 22;
+        refreshView.frame = CGRectMake(10, 0, 20, 20)
+        refreshView.centerY = 22
         refreshView.x = self.navTitleLabel.x - 30
         return refreshView
     }()
     
-    private lazy var titleView : UIView = {
-        let titleView = UIView()
-        return titleView
-    }()
     
     /*
     // MARK: - Navigation

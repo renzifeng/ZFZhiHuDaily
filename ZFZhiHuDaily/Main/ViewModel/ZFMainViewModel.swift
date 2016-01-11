@@ -15,16 +15,25 @@ class ZFMainViewModel: NSObject {
     typealias ThemeViewModelSuccessCallBack = (dataSoure : Array<ZFNews>,headerSource : Array<ZFNews>) -> Void
     typealias ListSuccessCallBack = (dataSoure : Array<ZFNews>,dateStr : String) -> Void
     typealias ThemeVieModelErrorCallBack = (error : NSError) -> Void
+    /// 今日热闻、轮播图的回调
     var successCallBack : ThemeViewModelSuccessCallBack?
+    /// 列表的成功回调
     var listSuccessCallBack : ListSuccessCallBack?
+    /// 失败回调
     var errorCallBack : ThemeVieModelErrorCallBack?
+    /// dateFormat
     var dateFormat : NSDateFormatter = NSDateFormatter()
     
+    /**
+     获取今日热闻、轮播图数据
+     
+     - parameter successCallBack: successCallBack description
+     - parameter errorCallBack:   errorCallBack description
+     */
     func getData (successCallBack : ThemeViewModelSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
         self.successCallBack = successCallBack
         self.errorCallBack = errorCallBack
         ZFNetworkTool.get(LATEST_NEWS_URL, params: nil, success: { (json) -> Void in
-            print("````\(json)")
             let result = JSON(json)
             //let date = Int(result["date"].string!)
             //最热新闻
@@ -36,7 +45,6 @@ class ZFMainViewModel: NSObject {
             //遍历最新的新闻
             let lastestNews : [ZFNews]? = self.convertStoriesJson2Vo(stories, type: .NEWS)
 
-            
             // 回调给controller
             if self.successCallBack != nil {
                 self.successCallBack!(dataSoure:lastestNews!, headerSource:topNews!)
@@ -45,6 +53,13 @@ class ZFMainViewModel: NSObject {
                 
         }
     }
+    /**
+     获取往日的新闻
+     
+     - parameter dateIndex:       页数的下标，相当于取出date，根据date查询当日数据
+     - parameter successCallBack: successCallBack description
+     - parameter errorCallBack:   errorCallBack description
+     */
     func getDataForDate (dateIndex: Int ,successCallBack : ListSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
         let date : NSDate = NSDate(timeIntervalSinceNow: -(dateIndex*24*60*60))
         dateFormat.locale = NSLocale(localeIdentifier: "zh_CN")
@@ -54,7 +69,6 @@ class ZFMainViewModel: NSObject {
         self.listSuccessCallBack = successCallBack
         //若果需要查询 11 月 18 日的消息，before 后的数字应为 20131119
         ZFNetworkTool.get(BEFORE_NEWS + dateStr, params: nil, success: { (json) -> Void in
-            print("------======`\(json)")
             let result = JSON(json)
             //最新新闻
             let stories = result["stories"].array
@@ -72,11 +86,7 @@ class ZFMainViewModel: NSObject {
         }
         
     }
-    
-//    func getWeek(date :NSDate) -> String {
-//        let gregorian : NSCalendar = NSCalendar(identifier: NSGregorianCalendar)
-//        gregorian.dateFromComponents(<#T##comps: NSDateComponents##NSDateComponents#>)
-//    }
+
     /**
      转换新闻List JSON对象到VO对象
      
@@ -101,7 +111,7 @@ class ZFMainViewModel: NSObject {
     }
     
     /**
-     把JSON转换成 NewsVO
+     把JSON转换成 ZFNews
      
      - parameter json: JSON
      - parameter type: News类型,因为 最热新闻的结构稍微有点不一样
@@ -139,7 +149,6 @@ class ZFMainViewModel: NSObject {
         
         return ZFNews(id: id, title: title, images: image, multipic:multipic, gaPrefix: gaPrefix)
     }
-
 
     
     enum NewsTypeEnum {

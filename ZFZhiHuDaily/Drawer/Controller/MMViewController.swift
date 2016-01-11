@@ -9,16 +9,19 @@
 import UIKit
 
 class MMViewController: MMDrawerController {
-
+    
+    let centerVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFMainNav") 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //设置视图
-        let leftViewcontroller =  GET_SB("Left").instantiateViewControllerWithIdentifier("ZFDrawerViewController")
-        let centerViewController = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFMainViewController")
+        let leftVC =  GET_SB("Left").instantiateViewControllerWithIdentifier("ZFDrawerViewController") as! ZFDrawerViewController
         
-        self.centerViewController = centerViewController
-        self.leftDrawerViewController = leftViewcontroller
+        leftVC.mainVC = self;
+        
+        self.centerViewController = centerVC
+        self.leftDrawerViewController = leftVC
         
         self.shouldStretchDrawer = false
         

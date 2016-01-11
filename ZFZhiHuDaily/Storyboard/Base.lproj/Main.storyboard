@@ -138,7 +138,7 @@
         <!--Nav-->
         <scene sceneID="BrH-8U-R2B">
             <objects>
-                <navigationController storyboardIdentifier="ZFMainViewController" automaticallyAdjustsScrollViewInsets="NO" id="wVw-LW-PBq" userLabel="Nav" customClass="ZFBaseNavigationController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ZFMainNav" automaticallyAdjustsScrollViewInsets="NO" id="wVw-LW-PBq" userLabel="Nav" customClass="ZFBaseNavigationController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uBq-k9-26v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -152,6 +152,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4j-lZ-AhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1067" y="373"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="iSc-xg-v0l">
+            <objects>
+                <navigationController storyboardIdentifier="ZFThemeNav" id="Dft-My-jjd" customClass="ZFBaseNavigationController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Ha-HI-U0a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Yge-6x-HMb" kind="relationship" relationship="rootViewController" id="Okd-DV-BVT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kef-L5-jqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1067" y="1059"/>
+        </scene>
+        <!--主题日报详情-->
+        <scene sceneID="9hv-g1-TdA">
+            <objects>
+                <viewController storyboardIdentifier="ZFThemeViewController" id="Yge-6x-HMb" userLabel="主题日报详情" customClass="ZFThemeViewController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rD8-2p-w7W"/>
+                        <viewControllerLayoutGuide type="bottom" id="3vl-ok-Jl4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="69a-PR-W33">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Epk-Op-KyO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZFThemeListCell" rowHeight="49" id="mIp-c8-XEV" customClass="ZFThemeListCell" customModule="ZFZhiHuDaily" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="49"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mIp-c8-XEV" id="PNe-jc-vpa">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjC-YH-eoB">
+                                                    <rect key="frame" x="15" y="8" width="570" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cjC-YH-eoB" firstAttribute="leading" secondItem="PNe-jc-vpa" secondAttribute="leading" constant="15" id="RPA-z5-9Ow"/>
+                                                <constraint firstItem="cjC-YH-eoB" firstAttribute="top" secondItem="PNe-jc-vpa" secondAttribute="top" constant="8" id="cRp-PY-nvF"/>
+                                                <constraint firstAttribute="trailing" secondItem="cjC-YH-eoB" secondAttribute="trailing" constant="15" id="u5e-P0-gpT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Epk-Op-KyO" secondAttribute="trailing" id="T94-5a-W3b"/>
+                            <constraint firstItem="Epk-Op-KyO" firstAttribute="top" secondItem="69a-PR-W33" secondAttribute="top" id="aB2-9b-Ida"/>
+                            <constraint firstItem="Epk-Op-KyO" firstAttribute="leading" secondItem="69a-PR-W33" secondAttribute="leading" id="faH-Yk-Z2C"/>
+                            <constraint firstItem="3vl-ok-Jl4" firstAttribute="top" secondItem="Epk-Op-KyO" secondAttribute="bottom" id="uJh-dB-PxK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="h7c-id-7nc"/>
+                    <connections>
+                        <outlet property="tableView" destination="Epk-Op-KyO" id="N0u-KN-Xpa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Sg-Bs-ySn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="1059"/>
         </scene>
     </scenes>
     <resources>

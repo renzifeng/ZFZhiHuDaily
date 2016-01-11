@@ -13,6 +13,7 @@ struct Keys {
     static let launchTextKey = "launchTextKey"
     static let readNewsId = "readNewsId"
 }
+typealias ErrorBlockCallBack = (error : NSError) -> Void
 // MARK: - 主页上得各种高度的变量
 /// 100
 let TABLE_CELL_HEIGHT : Float = 100

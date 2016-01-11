@@ -59,6 +59,10 @@
 		CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */; };
 		CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */; };
 		CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */; };
+		CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */; };
+		CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */; };
+		CC636A071C43535D00BCB70B /* ZFThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A061C43535D00BCB70B /* ZFThemeList.swift */; };
+		CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -160,6 +164,10 @@
 		CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureView.swift; sourceTree = "<group>"; };
 		CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureCell.swift; sourceTree = "<group>"; };
 		CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliaryModels.swift; sourceTree = "<group>"; };
+		CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewController.swift; sourceTree = "<group>"; };
+		CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListViewModel.swift; sourceTree = "<group>"; };
+		CC636A061C43535D00BCB70B /* ZFThemeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeList.swift; sourceTree = "<group>"; };
+		CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListCell.swift; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -245,8 +253,8 @@
 		CC073EF71C3B847800906779 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */,
 				CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */,
+				CC073F0A1C3CA29000906779 /* ZFDrawerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -486,7 +494,6 @@
 		CC07B17C1C3CDBD0001D6762 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				CCAD29771C40F39C0096B2A7 /* WBRefresh */,
 				CC07B1E81C3F7895001D6762 /* CyclePictureView */,
 				CC07B1A51C3CE60D001D6762 /* GradientView */,
 				CC07B17D1C3CDC15001D6762 /* ImageTextButton */,
@@ -494,6 +501,7 @@
 				CC07B1801C3CDC15001D6762 /* MMDrawerController */,
 				CC07B1A91C3CE68A001D6762 /* MSWeakTimer */,
 				CC07B1C91C3E4624001D6762 /* RefreshControl */,
+				CCAD29771C40F39C0096B2A7 /* WBRefresh */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -658,6 +666,49 @@
 			path = CyclePictureView;
 			sourceTree = "<group>";
 		};
+		CC6369FD1C43499100BCB70B /* ThemeList */ = {
+			isa = PBXGroup;
+			children = (
+				CC6369FE1C4349A200BCB70B /* Controller */,
+				CC636A051C43534E00BCB70B /* Model */,
+				CC636A091C43AC2600BCB70B /* View */,
+				CC636A011C43517A00BCB70B /* ViewModel */,
+			);
+			path = ThemeList;
+			sourceTree = "<group>";
+		};
+		CC6369FE1C4349A200BCB70B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC636A011C43517A00BCB70B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC636A051C43534E00BCB70B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC636A061C43535D00BCB70B /* ZFThemeList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC636A091C43AC2600BCB70B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CC98C8731C3B51DE002FED99 = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +740,7 @@
 				CC07B1971C3CE214001D6762 /* Main */,
 				CC98C8B11C3B53F2002FED99 /* Other */,
 				CC98C8CF1C3B5904002FED99 /* Storyboard */,
+				CC6369FD1C43499100BCB70B /* ThemeList */,
 				CC98C8861C3B51DE002FED99 /* Assets.xcassets */,
 				CC98C88B1C3B51DE002FED99 /* Info.plist */,
 				CC98C8AD1C3B51F1002FED99 /* ZFZhiHuDaily-Bridging-Header.h */,
@@ -741,21 +793,21 @@
 			children = (
 				CCAD29781C40F3B40096B2A7 /* CircleRefreshView.h */,
 				CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */,
-				CCAD297A1C40F3B40096B2A7 /* DetailHeaderView.h */,
-				CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */,
 				CCAD297C1C40F3B40096B2A7 /* DetailFooterView.h */,
 				CCAD297D1C40F3B40096B2A7 /* DetailFooterView.m */,
+				CCAD297A1C40F3B40096B2A7 /* DetailHeaderView.h */,
+				CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */,
 			);
-			name = WBRefresh;
+			path = WBRefresh;
 			sourceTree = "<group>";
 		};
 		CCAD29821C40F4000096B2A7 /* OCExtension */ = {
 			isa = PBXGroup;
 			children = (
-				CCAD29841C40F42B0096B2A7 /* UIView */,
 				CCAD29831C40F4140096B2A7 /* UINavigationBar */,
+				CCAD29841C40F42B0096B2A7 /* UIView */,
 			);
-			name = OCExtension;
+			path = OCExtension;
 			sourceTree = "<group>";
 		};
 		CCAD29831C40F4140096B2A7 /* UINavigationBar */ = {
@@ -764,7 +816,7 @@
 				CC07B1AD1C3D08DA001D6762 /* UINavigationBar+Awesome.h */,
 				CC07B1AE1C3D08DA001D6762 /* UINavigationBar+Awesome.m */,
 			);
-			name = UINavigationBar;
+			path = UINavigationBar;
 			sourceTree = "<group>";
 		};
 		CCAD29841C40F42B0096B2A7 /* UIView */ = {
@@ -773,7 +825,7 @@
 				CCAD29851C40F43D0096B2A7 /* UIView+Extension.h */,
 				CCAD29861C40F43D0096B2A7 /* UIView+Extension.m */,
 			);
-			name = UIView;
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		CCE6CE651C3EB01F001BB7B6 /* Model */ = {
@@ -1009,9 +1061,11 @@
 				CC07B1AF1C3D08DA001D6762 /* UINavigationBar+Awesome.m in Sources */,
 				CC07B1D91C3E638E001D6762 /* ParallaxHeaderView.swift in Sources */,
 				CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */,
+				CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */,
 				CC07B1D41C3E54C3001D6762 /* KYCircularProgress.swift in Sources */,
 				CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */,
 				CC07B16D1C3CDBCA001D6762 /* Foundation+Extend.swift in Sources */,
+				CC636A071C43535D00BCB70B /* ZFThemeList.swift in Sources */,
 				CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */,
 				CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */,
 				CC07B1721C3CDBCA001D6762 /* UIButton+Extend.swift in Sources */,
@@ -1026,6 +1080,7 @@
 				CC07B18E1C3CDC15001D6762 /* UIViewController+MMDrawerController.m in Sources */,
 				CC07B1E01C3E6DEF001D6762 /* ZFThemeViewModel.swift in Sources */,
 				CC07B1C61C3E2DC1001D6762 /* AppException.swift in Sources */,
+				CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */,
 				CC07B16B1C3CDBCA001D6762 /* ArraySlice+Extend.swift in Sources */,
 				CC07B18B1C3CDC15001D6762 /* MMDrawerBarButtonItem.m in Sources */,
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
@@ -1035,6 +1090,7 @@
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
 				CCE6CE691C3EB533001BB7B6 /* ZFHomeCell.swift in Sources */,
 				CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */,
+				CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */,
 				CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */,
 				CCE6CE671C3EB02D001BB7B6 /* ZFNews.swift in Sources */,
 				CC07B1741C3CDBCA001D6762 /* UIDevice.swift in Sources */,
