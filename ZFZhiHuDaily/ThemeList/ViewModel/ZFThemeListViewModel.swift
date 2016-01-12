@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class ZFThemeListViewModel: NSObject,UITableViewDataSource,UITableViewDelegate {
+class ZFThemeListViewModel: NSObject {
     var themes : [ZFThemeList] = []
     
     typealias SuccessCallBackBlock = (dataSources : ZFThemeList) -> Void
@@ -36,9 +36,9 @@ class ZFThemeListViewModel: NSObject,UITableViewDataSource,UITableViewDelegate {
             if (self.successBlock != nil) {
                 successBlock(dataSources: self.convertJSON2ThemeList(data))
             }
-            let themeList = self.convertJSON2ThemeList(data)
-            self.dataSoure = themeList.stories!
-            
+//            let themeList = self.convertJSON2ThemeList(data)
+//            self.dataSoure = themeList.stories!
+//            self.tableView.reloadData()
             }) { (error) -> Void in
                 
         }
@@ -57,14 +57,16 @@ class ZFThemeListViewModel: NSObject,UITableViewDataSource,UITableViewDelegate {
                 let id = story["id"].int!
                 let title = story["title"].string!
                 let type = story["type"].int!
-                var imagesArray : [String]? = nil
+                var imagesArray : [String] = []
                 if let images = story["images"].array {
                     let img = images
                     for i in img {
-                        imagesArray?.append(i.string!)
+                        imagesArray.append(i.string!)
                     }
+                }else {
+                    imagesArray = []
                 }
-                let oneStory : ThemeStories = ThemeStories(id: id, title: title, type: type, images: imagesArray!)
+                let oneStory : ThemeStories = ThemeStories(id: id, title: title, type: type, images: imagesArray)
                 storiesArray.append(oneStory)
             }
         }
@@ -83,25 +85,6 @@ class ZFThemeListViewModel: NSObject,UITableViewDataSource,UITableViewDelegate {
         return ZFThemeList(background: background, color: color, description: description, image: image, image_source: image_source, name: name, editors: editorsArray, stories: storiesArray)
     }
     
-    // MARK: - UITableView Delegate
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSoure.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell : ZFHomeCell = tableView.dequeueReusableCellWithIdentifier("homeCell") as! ZFHomeCell
-//        cell.news = self.dataSoure[indexPath.row] as! ZFNews
-        let cell : ZFThemeListCell = tableView.dequeueReusableCellWithIdentifier("ZFThemeListCell") as! ZFThemeListCell
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
+
 
 }

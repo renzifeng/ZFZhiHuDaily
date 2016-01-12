@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFThemeViewController: ZFBaseViewController {
+class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     /// 传参model
@@ -16,26 +16,45 @@ class ZFThemeViewController: ZFBaseViewController {
     /// viewModel
     private var viewModel : ZFThemeListViewModel! = ZFThemeListViewModel()
     /// tableView数据源
-    var listArray : [ThemeStories] = []
+    var dataSoure : [ThemeStories] = []
     
     // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        self.tableView.rowHeight = 80
         self.navigationItem.title = theme.name
-        self.tableView.delegate = viewModel
-        self.tableView.dataSource = viewModel
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         viewModel.tableView = self.tableView;
         viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
             let list = dataSources 
-            self.listArray = list.stories!
+            self.dataSoure = list.stories!
             self.tableView.reloadData()
             }) { (error) -> Void in
                 
         }
     }
 
+    // MARK: - UITableView Delegate
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSoure.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ZFThemeListCell") as! ZFThemeListCell
+        cell.story = self.dataSoure[indexPath.row]
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

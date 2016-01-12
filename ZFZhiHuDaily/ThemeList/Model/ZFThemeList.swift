@@ -66,9 +66,9 @@ class ThemeStories {
     /// 类型，作用未知
     let type : Int
     /// 图像地址（其类型为数组。请留意在代码中处理无该属性与数组长度为 0 的情况）
-    let images : [String]?
+    let images : [String]
     
-    init(id : Int, title : String , type : Int, images : [String]?){
+    init(id : Int, title : String , type : Int, images : [String]){
         self.id = id
         self.title = title
         self.type = type

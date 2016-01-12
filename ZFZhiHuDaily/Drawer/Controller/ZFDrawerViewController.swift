@@ -82,9 +82,10 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
             self.mainVC.setCenterViewController(self.mainVC.centerVC, withCloseAnimation: true, completion: nil)
         }else {
             let theme : ZFTheme = self.dataSoure[indexPath.row-1]
-            let themeVC = self.naviVC.viewControllers[0] as! ZFThemeViewController
+            let naviVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFThemeNav") as! ZFBaseNavigationController
+            let themeVC = naviVC.viewControllers[0] as! ZFThemeViewController
             themeVC.theme = theme
-            self.mainVC.setCenterViewController(self.naviVC, withCloseAnimation: true, completion: nil)
+            self.mainVC.setCenterViewController(naviVC, withCloseAnimation: true, completion: nil)
         }
         
     }
@@ -93,10 +94,10 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    private lazy var naviVC : ZFBaseNavigationController = {
-        let naviVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFThemeNav") as! ZFBaseNavigationController
-        return naviVC
-    }()
+//    private lazy var naviVC : ZFBaseNavigationController = {
+//        let naviVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFThemeNav") as! ZFBaseNavigationController
+//        return naviVC
+//    }()
     
 
     /*

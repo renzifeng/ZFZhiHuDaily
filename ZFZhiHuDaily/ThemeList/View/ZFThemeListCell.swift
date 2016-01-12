@@ -10,6 +10,21 @@ import UIKit
 
 class ZFThemeListCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var rightImageView: UIImageView!
+    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
+    
+    var story : ThemeStories! {
+        didSet {
+            self.titleLabel.text = story.title
+            if story.images.count != 0 {
+                self.rightImageView.yy_setImageWithURL(NSURL(string: story.images[0]), placeholder: UIImage(named: "avatar"))
+                self.imageWidthConstraint.constant = 80;
+            }else {
+                self.imageWidthConstraint.constant = 0;
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
