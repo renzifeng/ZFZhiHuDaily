@@ -66,6 +66,11 @@
 		CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */; };
 		CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */; };
 		CC636A1E1C44BDDE00BCB70B /* ZFMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A181C44BDDE00BCB70B /* ZFMainViewModel.swift */; };
+		CC72ADA91C44D7720035ACA6 /* ZFNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADA81C44D7720035ACA6 /* ZFNewsDetailViewController.swift */; };
+		CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADAB1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift */; };
+		CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB01C44DE600035ACA6 /* ZanButton.swift */; };
+		CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */; };
+		CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -114,7 +119,6 @@
 		CC07B1481C3CDBCA001D6762 /* Dictionary+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extend.swift"; sourceTree = "<group>"; };
 		CC07B1491C3CDBCA001D6762 /* Foundation+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extend.swift"; sourceTree = "<group>"; };
 		CC07B14B1C3CDBCA001D6762 /* String+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extend.swift"; sourceTree = "<group>"; };
-		CC07B14D1C3CDBCA001D6762 /* CF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CF.h; sourceTree = "<group>"; };
 		CC07B1501C3CDBCA001D6762 /* AppDelegate+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extend.swift"; sourceTree = "<group>"; };
 		CC07B1511C3CDBCA001D6762 /* UIWindow+AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+AppDelegate.swift"; sourceTree = "<group>"; };
 		CC07B1541C3CDBCA001D6762 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,11 @@
 		CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
 		CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
 		CC636A181C44BDDE00BCB70B /* ZFMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewModel.swift; sourceTree = "<group>"; };
+		CC72ADA81C44D7720035ACA6 /* ZFNewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetailViewController.swift; sourceTree = "<group>"; };
+		CC72ADAB1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetailViewModel.swift; sourceTree = "<group>"; };
+		CC72ADB01C44DE600035ACA6 /* ZanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZanButton.swift; sourceTree = "<group>"; };
+		CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberScrollAnimatedView.swift; sourceTree = "<group>"; };
+		CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetail.swift; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -330,7 +339,6 @@
 				CC07B1471C3CDBCA001D6762 /* Dictionary */,
 				CC07B1C21C3E2CB8001D6762 /* NSURLSession */,
 				CC07B14A1C3CDBCA001D6762 /* String */,
-				CC07B14C1C3CDBCA001D6762 /* Xcode */,
 				CC07B1491C3CDBCA001D6762 /* Foundation+Extend.swift */,
 			);
 			path = Foundation;
@@ -374,14 +382,6 @@
 				CC07B14B1C3CDBCA001D6762 /* String+Extend.swift */,
 			);
 			path = String;
-			sourceTree = "<group>";
-		};
-		CC07B14C1C3CDBCA001D6762 /* Xcode */ = {
-			isa = PBXGroup;
-			children = (
-				CC07B14D1C3CDBCA001D6762 /* CF.h */,
-			);
-			path = Xcode;
 			sourceTree = "<group>";
 		};
 		CC07B14E1C3CDBCA001D6762 /* Module */ = {
@@ -717,6 +717,50 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CC72ADA61C44D73C0035ACA6 /* NewsDatail */ = {
+			isa = PBXGroup;
+			children = (
+				CC72ADA71C44D7470035ACA6 /* Controller */,
+				CC72ADB41C44E4A00035ACA6 /* Model */,
+				CC72ADAF1C44DE520035ACA6 /* View */,
+				CC72ADAA1C44D89D0035ACA6 /* ViewModel */,
+			);
+			path = NewsDatail;
+			sourceTree = "<group>";
+		};
+		CC72ADA71C44D7470035ACA6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC72ADA81C44D7720035ACA6 /* ZFNewsDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC72ADAA1C44D89D0035ACA6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC72ADAB1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC72ADAF1C44DE520035ACA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */,
+				CC72ADB01C44DE600035ACA6 /* ZanButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC72ADB41C44E4A00035ACA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CC98C8731C3B51DE002FED99 = {
 			isa = PBXGroup;
 			children = (
@@ -742,10 +786,11 @@
 		CC98C87E1C3B51DE002FED99 /* ZFZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
-				CC636A0E1C44BDDE00BCB70B /* Home */,
 				CC07B18F1C3CDE89001D6762 /* Base */,
 				CC073EF51C3B844E00906779 /* Drawer */,
+				CC636A0E1C44BDDE00BCB70B /* Home */,
 				CC07B19B1C3CE2FA001D6762 /* Launch */,
+				CC72ADA61C44D73C0035ACA6 /* NewsDatail */,
 				CC98C8B11C3B53F2002FED99 /* Other */,
 				CC98C8CF1C3B5904002FED99 /* Storyboard */,
 				CC6369FD1C43499100BCB70B /* ThemeList */,
@@ -1054,21 +1099,25 @@
 				CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */,
 				CC07B1CE1C3E4635001D6762 /* RefreshControlDelegate.swift in Sources */,
 				CC636A191C44BDDE00BCB70B /* ZFMainViewController.swift in Sources */,
+				CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */,
 				CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */,
 				CC07B16A1C3CDBCA001D6762 /* Array+Extend.swift in Sources */,
 				CC07B1731C3CDBCA001D6762 /* UIColor+Extend.swift in Sources */,
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
 				CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */,
 				CCAD29761C40EEEB0096B2A7 /* MMViewController.swift in Sources */,
+				CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */,
 				CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */,
 				CC07B1AF1C3D08DA001D6762 /* UINavigationBar+Awesome.m in Sources */,
 				CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */,
 				CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */,
 				CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */,
 				CC07B16D1C3CDBCA001D6762 /* Foundation+Extend.swift in Sources */,
+				CC72ADA91C44D7720035ACA6 /* ZFNewsDetailViewController.swift in Sources */,
 				CC636A1B1C44BDDE00BCB70B /* KYCircularProgress.swift in Sources */,
 				CC636A071C43535D00BCB70B /* ZFThemeList.swift in Sources */,
 				CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */,
+				CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */,
 				CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */,
 				CC07B1721C3CDBCA001D6762 /* UIButton+Extend.swift in Sources */,
 				CC07B1761C3CDBCA001D6762 /* UIScreen.swift in Sources */,
@@ -1087,6 +1136,7 @@
 				CC07B18B1C3CDC15001D6762 /* MMDrawerBarButtonItem.m in Sources */,
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
 				CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */,
+				CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */,
 				CC07B1CF1C3E4635001D6762 /* RefreshViewDelegate.swift in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,

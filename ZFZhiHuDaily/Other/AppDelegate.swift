@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: mainFrame)
         
         //设置根试图
-        //self.window?.rootViewController = drawerController
         setRootViewController()
         
         //设置可见

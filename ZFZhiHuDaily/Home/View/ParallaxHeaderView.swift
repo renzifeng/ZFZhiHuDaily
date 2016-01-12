@@ -55,14 +55,7 @@ class ParallaxHeaderView: UIView {
         self.contentView.addSubview(subView)
         self.contentView.clipsToBounds = true
         self.addSubview(contentView)
-        
-//        subView.snp_updateConstraints { (make) -> Void in
-//            make.top.equalTo(self.contentView).offset(-64)
-//            make.left.equalTo(self.contentView).offset(0)
-//            make.bottom.equalTo(self.contentView).offset(0)
-//            make.right.equalTo(self.contentView).offset(0)
-//        }
-        
+    
         self.setupStyle()
     }
 

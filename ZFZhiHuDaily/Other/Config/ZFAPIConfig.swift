@@ -27,6 +27,7 @@ let LATEST_NEWS_URL = "4/news/latest"
 // MARK: - 过往消息
 var BEFORE_NEWS = "4/news/before/"
 
+var NEWS_DETAIL = "4/news/"
 // MARK: - 软件版本查询
 let VERSION : String = String(format: "4/version/ios/%@", "1")
 

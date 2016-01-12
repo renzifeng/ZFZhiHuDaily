@@ -109,6 +109,7 @@
                                             <outlet property="imageWidthConstraint" destination="Sd4-5S-Smt" id="Qn5-OF-Vd0"/>
                                             <outlet property="rightImageView" destination="fOH-4M-6FB" id="Yds-OU-8XU"/>
                                             <outlet property="titleLabel" destination="lfS-ND-wN5" id="laD-FE-wgP"/>
+                                            <segue destination="18i-eZ-R0L" kind="show" id="gI9-EH-dqq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -229,6 +230,7 @@
                                             <outlet property="imageWidthConstraint" destination="lrp-SA-33h" id="2ef-C4-HeV"/>
                                             <outlet property="rightImageView" destination="czC-hb-njP" id="Lm4-Ss-xAE"/>
                                             <outlet property="titleLabel" destination="8FU-N9-wnv" id="b81-2q-Mnl"/>
+                                            <segue destination="18i-eZ-R0L" kind="show" id="ZfA-zu-doL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -255,9 +257,68 @@
             </objects>
             <point key="canvasLocation" x="1746" y="1042"/>
         </scene>
+        <!--News Detail View Controller-->
+        <scene sceneID="dKp-Sk-7pO">
+            <objects>
+                <viewController id="18i-eZ-R0L" customClass="ZFNewsDetailViewController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OJl-0V-Go4"/>
+                        <viewControllerLayoutGuide type="bottom" id="VnQ-Sx-tMF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vlm-34-bB7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90P-pe-0Bs">
+                                <rect key="frame" x="0.0" y="558" width="600" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="footer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXM-Hf-84p">
+                                        <rect key="frame" x="277" y="11" width="46" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="EIu-cp-TyH"/>
+                                    <constraint firstAttribute="bottom" secondItem="LXM-Hf-84p" secondAttribute="bottom" constant="10" id="sxe-Nk-8NX"/>
+                                    <constraint firstItem="LXM-Hf-84p" firstAttribute="centerX" secondItem="90P-pe-0Bs" secondAttribute="centerX" id="ugE-yi-tMU"/>
+                                </constraints>
+                            </view>
+                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-iy-2fD">
+                                <rect key="frame" x="0.0" y="-40" width="600" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="18i-eZ-R0L" id="ZmZ-ql-zD3"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7iZ-iy-2fD" secondAttribute="trailing" id="2R6-ld-56M"/>
+                            <constraint firstItem="VnQ-Sx-tMF" firstAttribute="top" secondItem="90P-pe-0Bs" secondAttribute="bottom" id="U2O-J6-2iE"/>
+                            <constraint firstAttribute="trailing" secondItem="90P-pe-0Bs" secondAttribute="trailing" id="ZUi-9L-i8N"/>
+                            <constraint firstItem="90P-pe-0Bs" firstAttribute="leading" secondItem="Vlm-34-bB7" secondAttribute="leading" id="gyY-Do-NsQ"/>
+                            <constraint firstItem="VnQ-Sx-tMF" firstAttribute="top" secondItem="7iZ-iy-2fD" secondAttribute="bottom" constant="42" id="szV-EU-J4o"/>
+                            <constraint firstItem="7iZ-iy-2fD" firstAttribute="leading" secondItem="Vlm-34-bB7" secondAttribute="leading" id="wiv-s3-Ff2"/>
+                            <constraint firstItem="7iZ-iy-2fD" firstAttribute="top" secondItem="Vlm-34-bB7" secondAttribute="top" constant="-40" id="zTN-Fu-4WR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="7iZ-iy-2fD" id="Uee-Xq-iXc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OL1-Ja-3xD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="691"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ContentImage2" width="150" height="150"/>
         <image name="Logo" width="311" height="154"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gI9-EH-dqq"/>
+    </inferredMetricsTieBreakers>
 </document>

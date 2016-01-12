@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class ZFThemeViewModel: NSObject {
     var themes : [ZFTheme] = []
+
     // 回调
     typealias ThemeViewModelSuccessCallBack = (dataSoure : Array<ZFTheme>) -> Void
     typealias ThemeVieModelErrorCallBack = (error : NSError) -> Void

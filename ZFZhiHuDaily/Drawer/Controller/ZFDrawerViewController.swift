@@ -14,13 +14,21 @@ import SwiftyJSON
 class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    /// 收藏Btn
     @IBOutlet weak var collectBtn: ImageTextButton!
+    /// 消息Btn
     @IBOutlet weak var msgBtn: ImageTextButton!
+    /// 设置Btn
     @IBOutlet weak var settingBtn: ImageTextButton!
+    /// 离线Btn
     @IBOutlet weak var offlineBtn: ImageTextButton!
+    /// 夜间模式Btn
     @IBOutlet weak var themeBtn: ImageTextButton!
+    /// headerView
     @IBOutlet weak var headerView: UIView!
+    /// footerView
     @IBOutlet weak var footerView: UIView!
+    //头像
     @IBOutlet weak var avatarImg: UIImageView!
     //mainVC
     weak var mainVC : MMViewController!
@@ -60,7 +68,7 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.tableView.tableFooterView = UIView()
 
     }
-    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSoure.count+1
     }

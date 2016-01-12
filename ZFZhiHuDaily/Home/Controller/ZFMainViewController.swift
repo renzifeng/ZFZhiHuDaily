@@ -48,7 +48,7 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         }
         
         //设置navbar颜色
-        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        //self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         //初始化轮播图
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
         cyclePictureView.backgroundColor = UIColor.redColor()
@@ -58,6 +58,11 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -64, delegate:self)
         
         self.tableView.tableHeaderView = heardView
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //设置navbar颜色
+        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
     }
     
     //轮播图数据源
@@ -143,10 +148,6 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
@@ -228,14 +229,18 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     }()
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let newsDetailVC  = segue.destinationViewController as! ZFNewsDetailViewController
+        let cell = sender! as! UITableViewCell
+        let indexPath =  self.tableView.indexPathForCell(cell)!
+        let array = self.dataSoure[indexPath.section]
+        let news = array[indexPath.row]
+        newsDetailVC.newsId = String(news.new_id)
     }
-    */
+    
 
 }
