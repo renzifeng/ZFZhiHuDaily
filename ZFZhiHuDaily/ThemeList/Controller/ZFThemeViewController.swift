@@ -134,14 +134,16 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     }()
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let newsDetailVC  = segue.destinationViewController as! ZFNewsDetailViewController
+        let cell = sender! as! UITableViewCell
+        let indexPath =  self.tableView.indexPathForCell(cell)!
+        let story = self.dataSoure[indexPath.row]
+        newsDetailVC.newsId = String(story.id)
     }
-    */
 
 }
