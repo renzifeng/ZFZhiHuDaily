@@ -3,8 +3,8 @@
 //  ParallaxHeaderView.swift
 //  ParallaxHeaderView
 //
-//  Created by wl on 15/11/3.
-//  Copyright © 2015年 wl. All rights reserved.
+//  Created by 任子丰 on 15/11/3.
+//  Copyright © 2015年 任子丰. All rights reserved.
 //
 
 import UIKit
@@ -34,7 +34,7 @@ class ParallaxHeaderView: UIView {
     
     /// 模糊效果的view
     private var blurView: UIVisualEffectView?
-    private let defaultBlurViewAlpha: CGFloat = 0.5
+    private let defaultBlurViewAlpha: CGFloat = 0.9
     private let style: ParallaxHeaderViewStyle
     
     private let originY:CGFloat = -64
@@ -49,20 +49,19 @@ class ParallaxHeaderView: UIView {
         
         super.init(frame: CGRectMake(0, 0, headerViewSize.width, headerViewSize.height))
         //这里是自动布局的设置，大概意思就是subView与它的superView拥有一样的frame
-        //subView.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleWidth, .FlexibleHeight]
-        //subView.frame = CGRectMake(0, 0, headerViewSize.width, headerViewSize.height+64)
+        subView.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleWidth, .FlexibleHeight]
         self.clipsToBounds = false;  //必须得设置成false
         self.contentView.frame = self.bounds
         self.contentView.addSubview(subView)
         self.contentView.clipsToBounds = true
         self.addSubview(contentView)
         
-        subView.snp_updateConstraints { (make) -> Void in
-            make.top.equalTo(self.contentView).offset(-64)
-            make.left.equalTo(self.contentView).offset(0)
-            make.bottom.equalTo(self.contentView).offset(0)
-            make.right.equalTo(self.contentView).offset(0)
-        }
+//        subView.snp_updateConstraints { (make) -> Void in
+//            make.top.equalTo(self.contentView).offset(-64)
+//            make.left.equalTo(self.contentView).offset(0)
+//            make.bottom.equalTo(self.contentView).offset(0)
+//            make.right.equalTo(self.contentView).offset(0)
+//        }
         
         self.setupStyle()
     }

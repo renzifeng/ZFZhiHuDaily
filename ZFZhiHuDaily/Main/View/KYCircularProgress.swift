@@ -2,8 +2,8 @@
 //  KYCircularProgress.swift
 //  KYCircularProgress
 //
-//  Created by Y.K on 2014/10/02.
-//  Copyright (c) 2014年 Yokoyama Kengo. All rights reserved.
+//  Created by 任子丰 on 2015/10/02.
+//  Copyright (c) 2014年 任子丰. All rights reserved.
 //
 
 import Foundation

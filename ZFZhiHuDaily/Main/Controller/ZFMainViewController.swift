@@ -70,14 +70,11 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         cyclePictureView.imageURLArray = imageURLArray
         cyclePictureView.imageDetailArray = imageTitleArray
         cyclePictureView.timeInterval = 3
-
     }
     
     func setRefreshView() {
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.grayColor();
         self.navigationController?.navigationBar.addSubview(self.navTitleLabel)
         self.navigationController?.navigationBar.addSubview(self.refreshView)
-
     }
     // MARK: - Action
     //打开抽屉
@@ -174,24 +171,11 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        if section != 0 {
-//            self.navTitleLabel.text = self.headerTitleArray[section-1]
-//            //self.titleView.x = 0
-//            navTitleLabel.sizeToFit();
-//        }else {
-//            self.navTitleLabel.text = "今日新闻"
-//            navTitleLabel.sizeToFit();
-//        }
+
     }
     
     func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
-//        if section != 0 {
-//            self.navTitleLabel.text = self.headerTitleArray[section-1]
-//            navTitleLabel.sizeToFit();
-//        }else {
-//            self.navTitleLabel.text = "今日新闻"
-//            navTitleLabel.sizeToFit();
-//        }
+
     }
     
     // MARK: - UIScrollViewDelegate

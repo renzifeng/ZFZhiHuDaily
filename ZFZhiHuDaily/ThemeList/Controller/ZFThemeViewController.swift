@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableViewDataSource {
+class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableViewDataSource,ParallaxHeaderViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     /// 传参model
@@ -17,23 +17,44 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     private var viewModel : ZFThemeListViewModel! = ZFThemeListViewModel()
     /// tableView数据源
     var dataSoure : [ThemeStories] = []
+    var backgroundImg : UIImageView!
     
     // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         self.tableView.rowHeight = 80
-        self.navigationItem.title = theme.name
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        //设置navbar颜色
+        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        
+        setTableHeader()
+        setRefreshView()
         viewModel.tableView = self.tableView;
         viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
-            let list = dataSources 
+            let list = dataSources
+            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background), placeholder: UIImage(named: "avatar"))
             self.dataSoure = list.stories!
             self.tableView.reloadData()
             }) { (error) -> Void in
                 
         }
+    }
+    
+    //tableHader
+    func setTableHeader() {
+        backgroundImg = UIImageView()
+        backgroundImg.contentMode = .ScaleAspectFill
+        backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, 100)
+        //初始化Header
+        let heardView = ParallaxHeaderView(style: .Thumb, subView: backgroundImg, headerViewSize: CGSizeMake(self.view.frame.width, 64), maxOffsetY: 93, delegate:self)
+        self.tableView.tableHeaderView = heardView
+    }
+    
+    //刷新View
+    func setRefreshView() {
+        self.navigationController?.navigationBar.addSubview(self.navTitleLabel)
+        self.navigationController?.navigationBar.addSubview(self.refreshView)
     }
 
     // MARK: - UITableView Delegate
@@ -55,11 +76,61 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - Action
+    
+    //下拉刷新
+    func updateData() {
+        print("下拉刷新")
+        //获取数据源
+        viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
+            self.dataSoure.removeAll()
+            let list = dataSources
+            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background), placeholder: UIImage(named: "avatar"))
+            self.dataSoure = list.stories!
+            self.refreshView.endRefreshing()
+            self.tableView.reloadData()
+            }) { (error) -> Void in
+                
+        }
     }
     
+    // MARK: - ParallaxHeaderViewDelegate
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let heardView = self.tableView.tableHeaderView as! ParallaxHeaderView
+        heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
+        
+    }
+    func LockScorllView(maxOffsetY: CGFloat) {
+        self.tableView.contentOffset.y = maxOffsetY
+    }
+    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
+        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
+    }
+    
+    // MARK:- Getter Methods
+    
+    private lazy var navTitleLabel : UILabel = {
+        let navTitleLabel = UILabel()
+        navTitleLabel.textColor = UIColor.whiteColor()
+        navTitleLabel.font = FONT(18)
+        navTitleLabel.text = self.theme.name
+        navTitleLabel.centerX = ScreenWidth/2
+        navTitleLabel.centerY = 11
+        navTitleLabel.sizeToFit();
+        navTitleLabel.x = ScreenWidth/2-navTitleLabel.width/2
+        return navTitleLabel
+    }()
+
+    
+    private lazy var refreshView : CircleRefreshView = {
+        let refreshView = CircleRefreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
+        refreshView.frame = CGRectMake(10, 0, 20, 20)
+        refreshView.centerY = 22
+        refreshView.x = self.navTitleLabel.x - 30
+        return refreshView
+    }()
+
 
     /*
     // MARK: - Navigation

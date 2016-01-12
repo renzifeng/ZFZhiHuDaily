@@ -36,9 +36,6 @@ class ZFThemeListViewModel: NSObject {
             if (self.successBlock != nil) {
                 successBlock(dataSources: self.convertJSON2ThemeList(data))
             }
-//            let themeList = self.convertJSON2ThemeList(data)
-//            self.dataSoure = themeList.stories!
-//            self.tableView.reloadData()
             }) { (error) -> Void in
                 
         }
@@ -54,9 +51,9 @@ class ZFThemeListViewModel: NSObject {
         var storiesArray : [ThemeStories] = []
         if let stories = json["stories"].array {
             for story in stories {
-                let id = story["id"].int!
-                let title = story["title"].string!
-                let type = story["type"].int!
+                let id = story["id"].intValue
+                let title = story["title"].stringValue
+                let type = story["type"].intValue
                 var imagesArray : [String] = []
                 if let images = story["images"].array {
                     let img = images
@@ -74,11 +71,11 @@ class ZFThemeListViewModel: NSObject {
         var editorsArray : [ThemeEditors] = []
         if let editors = json["editors"].array {
             for editor in editors {
-                let avatar = editor["avatar"].string!
-                let bio = editor["bio"].string!
-                let id = editor["id"].int!
-                let name = editor["name"].string!
-                let url = editor["url"].string!
+                let avatar = editor["avatar"].stringValue
+                let bio = editor["bio"].stringValue
+                let id = editor["id"].intValue
+                let name = editor["name"].stringValue
+                let url = editor["url"].stringValue
                 editorsArray.append(ThemeEditors(avatar: avatar, bio: bio, id: id, name: name, url: url))
             }
         }
