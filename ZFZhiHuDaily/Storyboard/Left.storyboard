@@ -108,12 +108,16 @@
                                             <constraint firstAttribute="width" constant="70" id="BvT-BI-0o3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="离线" image="Menu_Download"/>
+                                        <state key="normal" title="离线" image="Menu_Download">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vng-Qn-c6f" customClass="ImageTextButton">
                                         <rect key="frame" x="93" y="14" width="70" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="夜间" image="Menu_Dark"/>
+                                        <state key="normal" title="夜间" image="Menu_Dark">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <state key="selected" title="白天" image="Menu_Day"/>
                                     </button>
                                 </subviews>
@@ -139,10 +143,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1N-xA-tqJ" customClass="ImageTextButton">
                                         <rect key="frame" x="73" y="110" width="50" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="消息" image="Menu_Icon_Message"/>
+                                        <state key="normal" title="消息" image="Menu_Icon_Message">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="请登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-Va-nxR">
-                                        <rect key="frame" x="90" y="57" width="45" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-Va-nxR">
+                                        <rect key="frame" x="90" y="56" width="45" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -154,12 +160,16 @@
                                             <constraint firstAttribute="width" constant="50" id="sw2-UZ-YMY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="收藏" image="Menu_Icon_Collect"/>
+                                        <state key="normal" title="收藏" image="Menu_Icon_Collect">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhm-A4-EG6" customClass="ImageTextButton">
                                         <rect key="frame" x="138" y="110" width="50" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="设置" image="Menu_Icon_Setting"/>
+                                        <state key="normal" title="设置" image="Menu_Icon_Setting">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvZ-g0-dQz">
                                         <rect key="frame" x="0.0" y="164" width="600" height="1"/>

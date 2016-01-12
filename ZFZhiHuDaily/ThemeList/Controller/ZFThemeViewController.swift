@@ -23,6 +23,8 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //左侧item
+        createLeftNavWithImage("News_Arrow")
         self.automaticallyAdjustsScrollViewInsets = false
         self.tableView.rowHeight = 80
         //设置navbar颜色

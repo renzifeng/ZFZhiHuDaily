@@ -34,7 +34,7 @@ class ParallaxHeaderView: UIView {
     
     /// 模糊效果的view
     private var blurView: UIVisualEffectView?
-    private let defaultBlurViewAlpha: CGFloat = 0.9
+    private let defaultBlurViewAlpha: CGFloat = 0.7
     private let style: ParallaxHeaderViewStyle
     
     private let originY:CGFloat = -64

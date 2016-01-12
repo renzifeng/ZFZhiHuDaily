@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "placeHolder.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "News_Arrow@2x.png",
       "scale" : "2x"
     },
     {
