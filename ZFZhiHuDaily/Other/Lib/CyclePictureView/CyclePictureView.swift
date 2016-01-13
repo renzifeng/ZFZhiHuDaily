@@ -158,6 +158,10 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         //print("CyclePictureView---deinit")
     }
     
+    func layoutFirstPage() {
+        self.showFirstImagePageInCollectionView(self.collectionView)
+    }
+    
     /**
     设置CollectionView相关内容
     */
@@ -255,7 +259,7 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.collectionView.frame = self.bounds
         //解决从SB中加载时，contentInset.Top默认为64的问题
         self.collectionView.contentInset = UIEdgeInsetsZero
-        
+        //下拉后恢复显示第一个
         //self.showFirstImagePageInCollectionView(self.collectionView)
         
         guard let pageControl = self.pageControl else {

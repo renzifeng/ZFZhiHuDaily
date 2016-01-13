@@ -51,7 +51,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,Paralla
             }) { (error) -> Void in
                 
         }
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        closeTheDrawerGesture()
     }
     // MARK: - Action
     

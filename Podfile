@@ -6,4 +6,5 @@ pod 'Alamofire'
 pod 'AFNetworking'
 pod 'YYWebImage'
 pod 'SwiftyJSON'
+pod 'FDFullscreenPopGesture', '~> 1.1'
 

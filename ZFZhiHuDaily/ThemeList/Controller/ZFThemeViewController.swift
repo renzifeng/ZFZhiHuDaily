@@ -42,6 +42,10 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
                 
         }
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        openTheDrawerGesture()
+    }
     
     //tableHader
     func setTableHeader() {

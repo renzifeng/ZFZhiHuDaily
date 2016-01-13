@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFNewsDetail {
+struct ZFNewsDetail {
     /// 主要的内容
     let body: String?
     

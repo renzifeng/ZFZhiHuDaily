@@ -6,6 +6,7 @@
 #import "ImageTextButton.h"
 #import <AFNetworking/AFNetworking.h>
 #import <YYWebImage/YYWebImage.h>
+#import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
 #import "JSAnimatedImagesView.h"
 #import "GradientView.h"
 #import "MSWeakTimer.h"

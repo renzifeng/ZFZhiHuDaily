@@ -10,6 +10,7 @@ import UIKit
 
 class ZFBaseViewController: UIViewController {
 
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +34,16 @@ class ZFBaseViewController: UIViewController {
     }
 
     func didClickLeft() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+    }
+    
+    func openTheDrawerGesture() {
+        appDelegate.drawerController.openDrawerGestureModeMask = .All
+    }
+    
+    func closeTheDrawerGesture() {
+        appDelegate.drawerController.openDrawerGestureModeMask = .None
     }
     
     override func didReceiveMemoryWarning() {

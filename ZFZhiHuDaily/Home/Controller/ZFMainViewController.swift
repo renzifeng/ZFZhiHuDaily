@@ -51,8 +51,7 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         //self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         //初始化轮播图
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
-        cyclePictureView.backgroundColor = UIColor.redColor()
-        cyclePictureView.currentDotColor = ThemeColor
+        cyclePictureView.currentDotColor = UIColor.whiteColor()
         
         //初始化Header
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -64, delegate:self)
@@ -63,11 +62,13 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         super.viewWillAppear(animated)
         //设置navbar颜色
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        openTheDrawerGesture()
     }
     
     //轮播图数据源
     func setTableHeaderData() {
-        
+        //显示第一页布局
+        self.cyclePictureView.layoutFirstPage()
         for news:ZFNews in self.headerSource {
             imageURLArray.append(news.images![0])
             imageTitleArray.append(news.title)
@@ -241,6 +242,6 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         let news = array[indexPath.row]
         newsDetailVC.newsId = String(news.new_id)
     }
-    
+
 
 }

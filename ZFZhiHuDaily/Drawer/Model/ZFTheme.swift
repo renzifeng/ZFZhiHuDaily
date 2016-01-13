@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFTheme {
+struct ZFTheme {
     
     let color:Int
     

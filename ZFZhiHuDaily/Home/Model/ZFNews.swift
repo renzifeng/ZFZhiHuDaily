@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFNews {
+struct ZFNews {
     /// 列表缩略图, 可能没有
     let images : [String]?
     
