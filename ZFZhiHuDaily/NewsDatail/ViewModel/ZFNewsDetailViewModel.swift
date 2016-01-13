@@ -38,7 +38,7 @@ class ZFNewsDetailViewModel {
         
         let title = json["title"].stringValue
         
-        let image = json["image"].stringValue
+        let image = json["image"].string
         
         let share_url = json["share_url"].stringValue
         

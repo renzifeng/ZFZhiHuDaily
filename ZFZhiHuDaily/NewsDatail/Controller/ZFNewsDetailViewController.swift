@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,ParallaxHeaderViewDelegate {
+class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var webView: UIWebView!
     var newsId : String!
     var viewModel = ZFNewsDetailViewModel()
@@ -23,18 +24,25 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,Paralla
         createLeftNavWithImage("News_Arrow")
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
-        backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, 164)
+        backgroundImg.clipsToBounds = true
+        backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT))
         
-        
-        //初始化Header
-        heardView = ParallaxHeaderView(style: .Default, subView: backgroundImg, headerViewSize: CGSizeMake(self.view.frame.width, CGFloat(IN_WINDOW_HEIGHT)), maxOffsetY: -64, delegate:self)
-        
-        self.webView.scrollView.addSubview(heardView)
-        self.webView.scrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
+        self.webView.scrollView.addSubview(backgroundImg)
         
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
-            self.backgroundImg.yy_setImageWithURL(NSURL(string: newsDetail.image!), placeholder: UIImage(named: "avatar"))
+            if let img = newsDetail.image {
+                self.topView.alpha = 0
+                self.backgroundImg.hidden = false
+                LightStatusBar()
+                self.backgroundImg.yy_setImageWithURL(NSURL(string: img), placeholder: UIImage(named: "avatar"))
+                self.webView.scrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
+            }else {
+                self.backgroundImg.hidden = true
+                self.topView.alpha = 1
+                BlackStatusBar()
+                self.webView.scrollView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0)
+            }
             if  var body = newsDetail.body {
                 if let css = newsDetail.css {
                     var temp = ""
@@ -71,8 +79,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,Paralla
     func webViewDidFinishLoad(webView: UIWebView) {
       
         //调整字号
-        let str = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'"
-        webView.stringByEvaluatingJavaScriptFromString(str)
+//        let str = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'"
+//        webView.stringByEvaluatingJavaScriptFromString(str)
         //js方法遍历图片添加点击事件 返回图片个数
         let aa =  "function getImages(){var objs = document.getElementsByTagName(\("img"));for(var i=0;i<objs.length;i++){objs[i].onclick=function(){document.location=\("myweb:imageClick:")+this.src;};};return objs.length;};";
         webView.stringByEvaluatingJavaScriptFromString(aa)
@@ -83,15 +91,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,Paralla
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
-        
     }
-    func LockScorllView(maxOffsetY: CGFloat) {
-        self.webView.scrollView.contentOffset.y = maxOffsetY
-    }
-    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
-    }
+
 
     /*
     // MARK: - Navigation

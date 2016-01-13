@@ -9,6 +9,8 @@
 import UIKit
 
 class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
+    ///
+    var centerView : UIView!
     /// 轮播图View
     var cyclePictureView: CyclePictureView!
     /// 轮播图图片url数组
@@ -79,8 +81,15 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     }
     
     func setRefreshView() {
-        self.navigationController?.navigationBar.addSubview(self.navTitleLabel)
-        self.navigationController?.navigationBar.addSubview(self.refreshView)
+        centerView = UIView()
+        centerView.frame = CGRectMake(0, 0, ScreenWidth-200, 44)
+        centerView.addSubview(self.navTitleLabel)
+        centerView.addSubview(self.refreshView)
+        navigationItem.titleView = centerView
+//        navigationItem.titleView?.addSubview(self.navTitleLabel)
+//        navigationItem.titleView?.addSubview(self.refreshView)
+//        self.navigationController?.navigationBar.addSubview(self.navTitleLabel)
+//        self.navigationController?.navigationBar.addSubview(self.refreshView)
     }
     // MARK: - Action
     //打开抽屉
@@ -238,6 +247,8 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         let newsDetailVC  = segue.destinationViewController as! ZFNewsDetailViewController
         let cell = sender! as! UITableViewCell
         let indexPath =  self.tableView.indexPathForCell(cell)!
+        //取消cell选中
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let array = self.dataSoure[indexPath.section]
         let news = array[indexPath.row]
         newsDetailVC.newsId = String(news.new_id)

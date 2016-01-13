@@ -293,19 +293,32 @@
                                     <outlet property="delegate" destination="18i-eZ-R0L" id="ZmZ-ql-zD3"/>
                                 </connections>
                             </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elm-Rc-JmF" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="CxU-sV-JNE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7iZ-iy-2fD" secondAttribute="trailing" id="2R6-ld-56M"/>
+                            <constraint firstAttribute="trailing" secondItem="elm-Rc-JmF" secondAttribute="trailing" id="HgY-6E-SeL"/>
+                            <constraint firstItem="elm-Rc-JmF" firstAttribute="leading" secondItem="Vlm-34-bB7" secondAttribute="leading" id="M58-ix-FM8"/>
                             <constraint firstItem="VnQ-Sx-tMF" firstAttribute="top" secondItem="90P-pe-0Bs" secondAttribute="bottom" id="U2O-J6-2iE"/>
                             <constraint firstAttribute="trailing" secondItem="90P-pe-0Bs" secondAttribute="trailing" id="ZUi-9L-i8N"/>
                             <constraint firstItem="90P-pe-0Bs" firstAttribute="leading" secondItem="Vlm-34-bB7" secondAttribute="leading" id="gyY-Do-NsQ"/>
+                            <constraint firstItem="elm-Rc-JmF" firstAttribute="top" secondItem="Vlm-34-bB7" secondAttribute="top" id="kBo-nR-f8X"/>
                             <constraint firstItem="VnQ-Sx-tMF" firstAttribute="top" secondItem="7iZ-iy-2fD" secondAttribute="bottom" constant="42" id="szV-EU-J4o"/>
                             <constraint firstItem="7iZ-iy-2fD" firstAttribute="leading" secondItem="Vlm-34-bB7" secondAttribute="leading" id="wiv-s3-Ff2"/>
                             <constraint firstItem="7iZ-iy-2fD" firstAttribute="top" secondItem="Vlm-34-bB7" secondAttribute="top" constant="-40" id="zTN-Fu-4WR"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="topView" destination="elm-Rc-JmF" id="Ca5-Ce-DTv"/>
                         <outlet property="webView" destination="7iZ-iy-2fD" id="Uee-Xq-iXc"/>
                     </connections>
                 </viewController>

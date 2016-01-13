@@ -146,6 +146,8 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         let newsDetailVC  = segue.destinationViewController as! ZFNewsDetailViewController
         let cell = sender! as! UITableViewCell
         let indexPath =  self.tableView.indexPathForCell(cell)!
+        //取消cell选中
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let story = self.dataSoure[indexPath.row]
         newsDetailVC.newsId = String(story.id)
     }

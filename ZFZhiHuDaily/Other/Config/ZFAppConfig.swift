@@ -34,6 +34,13 @@ func GET_SB (sbName : String) -> UIStoryboard {
 
 let App_Delagate = UIApplication.sharedApplication().delegate as! AppDelegate
 
+func LightStatusBar() {
+    UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+}
+func BlackStatusBar() {
+   UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+}
+
 // MARK: - 屏幕宽高
 let ScreenWidth : CGFloat = UIScreen.mainScreen().bounds.width
 let ScreenHeight : CGFloat = UIScreen.mainScreen().bounds.height
