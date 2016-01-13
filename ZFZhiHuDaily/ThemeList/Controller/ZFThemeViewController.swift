@@ -44,6 +44,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        LightStatusBar()
         openTheDrawerGesture()
     }
     
@@ -59,8 +60,9 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     
     //刷新View
     func setRefreshView() {
-        self.navigationController?.navigationBar.addSubview(self.navTitleLabel)
-        self.navigationController?.navigationBar.addSubview(self.refreshView)
+        navigationItem.titleView = self.centerView
+        centerView.addSubview(self.navTitleLabel)
+        centerView.addSubview(self.refreshView)
     }
 
     // MARK: - UITableView Delegate
@@ -116,15 +118,21 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     
     // MARK:- Getter Methods
     
+    private lazy var centerView : UIView = {
+        let centerView = UIView()
+        centerView.frame = CGRectMake(0, 0, ScreenWidth-150, 44)
+        return centerView
+    }()
+    
     private lazy var navTitleLabel : UILabel = {
         let navTitleLabel = UILabel()
         navTitleLabel.textColor = UIColor.whiteColor()
         navTitleLabel.font = FONT(18)
         navTitleLabel.text = self.theme.name
-        navTitleLabel.centerX = ScreenWidth/2
+        navTitleLabel.centerX = self.centerView.centerX
         navTitleLabel.centerY = 11
         navTitleLabel.sizeToFit();
-        navTitleLabel.x = ScreenWidth/2-navTitleLabel.width/2
+        navTitleLabel.x = self.centerView.centerX-navTitleLabel.width/2
         return navTitleLabel
     }()
 

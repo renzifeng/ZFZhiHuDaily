@@ -9,8 +9,6 @@
 import UIKit
 
 class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
-    ///
-    var centerView : UIView!
     /// 轮播图View
     var cyclePictureView: CyclePictureView!
     /// 轮播图图片url数组
@@ -50,7 +48,7 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
         }
         
         //设置navbar颜色
-        //self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         //初始化轮播图
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
         cyclePictureView.currentDotColor = UIColor.whiteColor()
@@ -62,8 +60,15 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //设置navbar颜色
-        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        LightStatusBar()
+        //根据tab的偏移量设置navbar颜色
+        let offSetY : CGFloat = self.tableView.contentOffset.y;
+        if offSetY > 100 {
+            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 1))
+        }else {
+            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, offSetY/100))
+        }
+        print("----%f",self.tableView.contentOffset.y)
         openTheDrawerGesture()
     }
     
@@ -81,15 +86,9 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
     }
     
     func setRefreshView() {
-        centerView = UIView()
-        centerView.frame = CGRectMake(0, 0, ScreenWidth-200, 44)
-        centerView.addSubview(self.navTitleLabel)
-        centerView.addSubview(self.refreshView)
-        navigationItem.titleView = centerView
-//        navigationItem.titleView?.addSubview(self.navTitleLabel)
-//        navigationItem.titleView?.addSubview(self.refreshView)
-//        self.navigationController?.navigationBar.addSubview(self.navTitleLabel)
-//        self.navigationController?.navigationBar.addSubview(self.refreshView)
+        navigationItem.titleView = self.centerView
+        self.centerView.addSubview(self.navTitleLabel)
+        self.centerView.addSubview(self.refreshView)
     }
     // MARK: - Action
     //打开抽屉
@@ -218,15 +217,21 @@ class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableV
 
     // MARK:- Getter Methods
     
+    private lazy var centerView : UIView = {
+        let centerView = UIView()
+        centerView.frame = CGRectMake(0, 0, ScreenWidth-150, 44)
+        return centerView
+    }()
+    
     private lazy var navTitleLabel : UILabel = {
         let navTitleLabel = UILabel()
         navTitleLabel.textColor = UIColor.whiteColor()
         navTitleLabel.font = FONT(18)
         navTitleLabel.text = "今日热闻"
-        navTitleLabel.centerX = ScreenWidth/2
+        navTitleLabel.centerX = self.centerView.centerX
         navTitleLabel.centerY = 11
         navTitleLabel.sizeToFit();
-        navTitleLabel.x = ScreenWidth/2-navTitleLabel.width/2
+        navTitleLabel.x = self.centerView.centerX-navTitleLabel.width/2
         return navTitleLabel
     }()
     

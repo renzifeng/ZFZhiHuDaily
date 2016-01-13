@@ -29,7 +29,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         
         self.webView.scrollView.addSubview(backgroundImg)
         
-        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+//        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
                 self.topView.alpha = 0
@@ -63,6 +63,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         closeTheDrawerGesture()
     }
     // MARK: - Action
