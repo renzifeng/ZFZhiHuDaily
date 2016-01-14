@@ -37,5 +37,5 @@ struct ZFNews {
         self.multipic = multipic ?? false
         self.gaPrefix = gaPrefix
     }
-    
+
 }

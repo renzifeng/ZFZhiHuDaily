@@ -4,7 +4,6 @@
 
 #import "MMDrawerController.h"
 #import "ImageTextButton.h"
-#import <AFNetworking/AFNetworking.h>
 #import <YYWebImage/YYWebImage.h>
 #import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
 #import "JSAnimatedImagesView.h"

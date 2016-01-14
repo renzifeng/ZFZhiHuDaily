@@ -7,30 +7,13 @@
 //
 
 import Foundation
-import AFNetworking
+import JSONJoy
+import Alamofire
+import RxSwift
+import Argo
+import Moya
+
 class ZFNetworkTool: NSObject {
-    
-    // 当前网络是否可达
-    static var reachable : Bool = false
-    static var status : AFNetworkReachabilityStatus!
-    
-    /**检测网路状态**/
-    static func connected() -> Bool {
-        return reachable
-    }
-    
-    static func netWorkStatus() {
-        
-        // 如果要检测网络状态的变化,必须用检测管理器的单例的startMonitoring
-        AFNetworkReachabilityManager.sharedManager().startMonitoring();
-        // 检测网络连接的单例,网络变化时的回调方法
-        AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock { (statuss : AFNetworkReachabilityStatus) -> Void in
-            status = statuss
-            reachable = status != AFNetworkReachabilityStatus.NotReachable;
-        }
-        
-    
-    }
     
     /**
     *   get方式获取数据
@@ -40,22 +23,22 @@ class ZFNetworkTool: NSObject {
     *   fail : 请求失败回调函数
     */
     
-    static func get(var url : String, params : AnyObject?, success :(json : AnyObject) -> Void , fail:(error : Any) -> Void) {
-        let manager : AFHTTPSessionManager = AFHTTPSessionManager()
-//        manager.requestSerializer = AFHTTPRequestSerializer()
-//        manager.responseSerializer = AFHTTPResponseSerializer()
-        url = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        // 设置网络请求
-        manager.requestSerializer.timeoutInterval = NETWORK_TIMEOUT
+    static func get( url : String, params :[String : AnyObject]?, success :(json : AnyObject) -> Void , fail:(error : Any) -> Void) {
         let httpUrl : String = BASE_URL + url
-        manager.GET(httpUrl, parameters: params, progress: { (progress) -> Void in}, success: { (operation, obj) -> Void in
-                print ("请求地址:\(url)--\(params)")
-                success(json: obj!)
-            }) { (operation, error) -> Void in
-                fail(error: error)
-                print(error)
+        if let parameters = params {
+            Alamofire.request(.GET, httpUrl, parameters: parameters , encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response) -> Void in
+                if let JSON = response.result.value {
+                    success(json: JSON)
+                }
+            })
+        }else {
+            Alamofire.request(.GET, httpUrl).responseJSON { (response) -> Void in
+                if let JSON = response.result.value {
+                    success(json: JSON)
+                }
+            }
+           
         }
-        
     }
     
     /**
@@ -66,16 +49,100 @@ class ZFNetworkTool: NSObject {
     *   fail : 请求失败回调函数
     */
     
-    static func post(url : String, params : NSDictionary, success:(json : Any) -> Void , fail:(error : Any) -> Void) {
-    
-        let manager : AFHTTPSessionManager = AFHTTPSessionManager()
+    static func post(url : String, params : [String : AnyObject]?, success:(json : Any) -> Void , fail:(error : Any) -> Void) {
+        
         let httpUrl : String = BASE_URL + url
-        manager.POST(httpUrl, parameters: params, progress: { (progress) -> Void in}, success: { (operation, obj) -> Void in
-            print ("请求地址:\(url)\(params)")
-            success(json: obj!)
-            }) { (operation, error) -> Void in
-                fail(error: error)
-                print(error)
+        if let parameters = params {
+            Alamofire.request(.POST, httpUrl, parameters: parameters, encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response) -> Void in
+                if let JSON = response.result.value {
+                    success(json: JSON)
+                }
+            })
+        }else {
+            Alamofire.request(.POST, httpUrl).responseJSON { (response) -> Void in
+                if let JSON = response.result.value {
+                    success(json: JSON)
+                }
+            }
+            
         }
     }
 }
+
+enum ORMError : ErrorType {
+    case ORMNoRepresentor
+    case ORMNotSuccessfulHTTP
+    case ORMNoData
+    case ORMCouldNotMakeObjectError
+}
+
+extension Observable {
+    private func resultFromJSON<T: Decodable>(object:[String: AnyObject], classType: T.Type) -> T? {
+        let decoded = classType.decode(JSON.parse(object))
+        switch decoded {
+        case .Success(let result):
+            return result as? T
+        case .Failure(let error):
+            print("\(error)")
+            return nil
+            
+        }
+    }
+    
+    func mapSuccessfulHTTPToObject<T: Decodable>(type: T.Type) -> Observable<T> {
+        return map { representor in
+            guard let response = representor as? Moya.Response else {
+                throw ORMError.ORMNoRepresentor
+            }
+            guard ((200...209) ~= response.statusCode) else {
+                if let json = try? NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] {
+                    print("Got error message: \(json)")
+                }
+                throw ORMError.ORMNotSuccessfulHTTP
+            }
+            do {
+                guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] else {
+                    throw ORMError.ORMCouldNotMakeObjectError
+                }
+                return self.resultFromJSON(json, classType:type)!
+            } catch {
+                throw ORMError.ORMCouldNotMakeObjectError
+            }
+        }
+    }
+    
+    func mapSuccessfulHTTPToObjectArray<T: Decodable>(type: T.Type) -> Observable<[T]> {
+        return map { response in
+            guard let response = response as? Moya.Response else {
+                throw ORMError.ORMNoRepresentor
+            }
+            
+            // Allow successful HTTP codes
+            guard ((200...209) ~= response.statusCode) else {
+                if let json = try? NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] {
+                    print("Got error message: \(json)")
+                }
+                throw ORMError.ORMNotSuccessfulHTTP
+            }
+            
+            do {
+                guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [[String : AnyObject]] else {
+                    throw ORMError.ORMCouldNotMakeObjectError
+                }
+                
+                // Objects are not guaranteed, thus cannot directly map.
+                var objects = [T]()
+                for dict in json {
+                    if let obj = self.resultFromJSON(dict, classType:type) {
+                        objects.append(obj)
+                    }
+                }
+                return objects
+                
+            } catch {
+                throw ORMError.ORMCouldNotMakeObjectError
+            }
+        }
+    }
+}
+
