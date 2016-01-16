@@ -102,12 +102,6 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-//    private lazy var naviVC : ZFBaseNavigationController = {
-//        let naviVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFThemeNav") as! ZFBaseNavigationController
-//        return naviVC
-//    }()
-    
-
     /*
     // MARK: - Navigation
 

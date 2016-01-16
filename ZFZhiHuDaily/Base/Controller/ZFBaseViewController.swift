@@ -34,7 +34,6 @@ class ZFBaseViewController: UIViewController {
     }
 
     func didClickLeft() {
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     

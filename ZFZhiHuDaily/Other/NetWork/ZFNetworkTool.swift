@@ -1,17 +1,13 @@
 //
-//  XMNetworkTool.swift
+//  ZFNetworkTool.swift
 //  baiduCourse
 //
-//  Created by 梁亦明 on 15/9/13.
-//  Copyright © 2015年 xiaoming. All rights reserved.
+//  Created by 任子丰 on 15/9/13.
+//  Copyright © 2015年 任子丰. All rights reserved.
 //
 
 import Foundation
-import JSONJoy
 import Alamofire
-import RxSwift
-import Argo
-import Moya
 
 class ZFNetworkTool: NSObject {
     
@@ -68,81 +64,3 @@ class ZFNetworkTool: NSObject {
         }
     }
 }
-
-enum ORMError : ErrorType {
-    case ORMNoRepresentor
-    case ORMNotSuccessfulHTTP
-    case ORMNoData
-    case ORMCouldNotMakeObjectError
-}
-
-extension Observable {
-    private func resultFromJSON<T: Decodable>(object:[String: AnyObject], classType: T.Type) -> T? {
-        let decoded = classType.decode(JSON.parse(object))
-        switch decoded {
-        case .Success(let result):
-            return result as? T
-        case .Failure(let error):
-            print("\(error)")
-            return nil
-            
-        }
-    }
-    
-    func mapSuccessfulHTTPToObject<T: Decodable>(type: T.Type) -> Observable<T> {
-        return map { representor in
-            guard let response = representor as? Moya.Response else {
-                throw ORMError.ORMNoRepresentor
-            }
-            guard ((200...209) ~= response.statusCode) else {
-                if let json = try? NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] {
-                    print("Got error message: \(json)")
-                }
-                throw ORMError.ORMNotSuccessfulHTTP
-            }
-            do {
-                guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] else {
-                    throw ORMError.ORMCouldNotMakeObjectError
-                }
-                return self.resultFromJSON(json, classType:type)!
-            } catch {
-                throw ORMError.ORMCouldNotMakeObjectError
-            }
-        }
-    }
-    
-    func mapSuccessfulHTTPToObjectArray<T: Decodable>(type: T.Type) -> Observable<[T]> {
-        return map { response in
-            guard let response = response as? Moya.Response else {
-                throw ORMError.ORMNoRepresentor
-            }
-            
-            // Allow successful HTTP codes
-            guard ((200...209) ~= response.statusCode) else {
-                if let json = try? NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [String: AnyObject] {
-                    print("Got error message: \(json)")
-                }
-                throw ORMError.ORMNotSuccessfulHTTP
-            }
-            
-            do {
-                guard let json = try NSJSONSerialization.JSONObjectWithData(response.data, options: .AllowFragments) as? [[String : AnyObject]] else {
-                    throw ORMError.ORMCouldNotMakeObjectError
-                }
-                
-                // Objects are not guaranteed, thus cannot directly map.
-                var objects = [T]()
-                for dict in json {
-                    if let obj = self.resultFromJSON(dict, classType:type) {
-                        objects.append(obj)
-                    }
-                }
-                return objects
-                
-            } catch {
-                throw ORMError.ORMCouldNotMakeObjectError
-            }
-        }
-    }
-}
-
