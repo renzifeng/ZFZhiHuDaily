@@ -9,7 +9,6 @@
 import UIKit
 import YYWebImage
 import Alamofire
-import AFNetworking
 
 class LaunchViewController: UIViewController, JSAnimatedImagesViewDataSource {
 
