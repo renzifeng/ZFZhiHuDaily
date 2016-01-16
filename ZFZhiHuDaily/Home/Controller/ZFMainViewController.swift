@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFMainViewController: ZFTableViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
+class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
     /// 轮播图View
     var cyclePictureView: CyclePictureView!
     /// 轮播图图片url数组

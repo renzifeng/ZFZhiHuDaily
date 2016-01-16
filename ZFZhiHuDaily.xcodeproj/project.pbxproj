@@ -38,7 +38,6 @@
 		CC07B18D1C3CDC15001D6762 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1871C3CDC15001D6762 /* MMDrawerVisualState.m */; };
 		CC07B18E1C3CDC15001D6762 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1891C3CDC15001D6762 /* UIViewController+MMDrawerController.m */; };
 		CC07B1921C3CDEAD001D6762 /* ZFBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1911C3CDEAD001D6762 /* ZFBaseViewController.swift */; };
-		CC07B1941C3CDED8001D6762 /* ZFTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1931C3CDED8001D6762 /* ZFTableViewController.swift */; };
 		CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */; };
 		CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */; };
 		CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1A31C3CE478001D6762 /* JSAnimatedImagesView.m */; };
@@ -146,7 +145,6 @@
 		CC07B1881C3CDC15001D6762 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		CC07B1891C3CDC15001D6762 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		CC07B1911C3CDEAD001D6762 /* ZFBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFBaseViewController.swift; sourceTree = "<group>"; };
-		CC07B1931C3CDED8001D6762 /* ZFTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTableViewController.swift; sourceTree = "<group>"; };
 		CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFBaseNavigationController.swift; sourceTree = "<group>"; };
 		CC07B19D1C3CE322001D6762 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		CC07B1A21C3CE478001D6762 /* JSAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnimatedImagesView.h; sourceTree = "<group>"; };
@@ -550,7 +548,6 @@
 			children = (
 				CC07B1951C3CDF31001D6762 /* ZFBaseNavigationController.swift */,
 				CC07B1911C3CDEAD001D6762 /* ZFBaseViewController.swift */,
-				CC07B1931C3CDED8001D6762 /* ZFTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1083,7 +1080,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC07B1771C3CDBCA001D6762 /* UITableViewCell+Extend.swift in Sources */,
-				CC07B1941C3CDED8001D6762 /* ZFTableViewController.swift in Sources */,
 				CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */,
 				CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */,
 				CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */,
