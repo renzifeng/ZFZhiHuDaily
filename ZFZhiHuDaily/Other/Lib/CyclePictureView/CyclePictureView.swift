@@ -181,6 +181,7 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = false
         collectionView.pagingEnabled = true
+        collectionView.scrollsToTop = false
         // TODO: view充当数据源和代理，感觉不符合逻辑，待修改
         collectionView.dataSource = self
         collectionView.delegate = self
