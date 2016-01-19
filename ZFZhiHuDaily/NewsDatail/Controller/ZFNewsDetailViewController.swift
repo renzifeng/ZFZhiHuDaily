@@ -19,7 +19,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = ""
         //左侧item
         createLeftNavWithImage("News_Arrow")
         backgroundImg = UIImageView()
@@ -29,7 +28,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         
         self.webView.scrollView.addSubview(backgroundImg)
         
-//        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
                 self.topView.alpha = 0

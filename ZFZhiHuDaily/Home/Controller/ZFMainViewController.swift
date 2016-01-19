@@ -133,9 +133,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             }) { (error) -> Void in
                 
         }
-        dispatch_after(GCD_Delay(2), dispatch_get_main_queue()) {
-        }
-        
     }
     
     /********************************** Delegate Methods ***************************************/
