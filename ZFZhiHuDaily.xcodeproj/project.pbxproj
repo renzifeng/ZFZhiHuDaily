@@ -45,9 +45,6 @@
 		CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1AB1C3CE6A4001D6762 /* MSWeakTimer.m */; };
 		CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1C31C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift */; };
 		CC07B1C61C3E2DC1001D6762 /* AppException.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1C51C3E2DC1001D6762 /* AppException.swift */; };
-		CC07B1CD1C3E4635001D6762 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1CA1C3E4635001D6762 /* RefreshControl.swift */; };
-		CC07B1CE1C3E4635001D6762 /* RefreshControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1CB1C3E4635001D6762 /* RefreshControlDelegate.swift */; };
-		CC07B1CF1C3E4635001D6762 /* RefreshViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1CC1C3E4635001D6762 /* RefreshViewDelegate.swift */; };
 		CC07B1D71C3E621B001D6762 /* NavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1D61C3E621B001D6762 /* NavigationBarExtension.swift */; };
 		CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */; };
 		CC07B1E01C3E6DEF001D6762 /* ZFThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */; };
@@ -69,10 +66,6 @@
 		CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB01C44DE600035ACA6 /* ZanButton.swift */; };
 		CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */; };
 		CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */; };
-		CC7FA9351C463EAD00E9A93D /* JSONND.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FA9311C463EAD00E9A93D /* JSONND.swift */; };
-		CC7FA9361C463EAD00E9A93D /* JSONND+ArrayLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FA9321C463EAD00E9A93D /* JSONND+ArrayLiteralConvertible.swift */; };
-		CC7FA9371C463EAD00E9A93D /* JSONND+DictionaryLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FA9331C463EAD00E9A93D /* JSONND+DictionaryLiteralConvertible.swift */; };
-		CC7FA9381C463EAD00E9A93D /* JSONNDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FA9341C463EAD00E9A93D /* JSONNDModel.swift */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -155,9 +148,6 @@
 		CC07B1AB1C3CE6A4001D6762 /* MSWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWeakTimer.m; sourceTree = "<group>"; };
 		CC07B1C31C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLSession+SynchronousTask.swift"; sourceTree = "<group>"; };
 		CC07B1C51C3E2DC1001D6762 /* AppException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppException.swift; sourceTree = "<group>"; };
-		CC07B1CA1C3E4635001D6762 /* RefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
-		CC07B1CB1C3E4635001D6762 /* RefreshControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControlDelegate.swift; sourceTree = "<group>"; };
-		CC07B1CC1C3E4635001D6762 /* RefreshViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshViewDelegate.swift; sourceTree = "<group>"; };
 		CC07B1D61C3E621B001D6762 /* NavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtension.swift; sourceTree = "<group>"; };
 		CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTheme.swift; sourceTree = "<group>"; };
 		CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewModel.swift; sourceTree = "<group>"; };
@@ -179,10 +169,6 @@
 		CC72ADB01C44DE600035ACA6 /* ZanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZanButton.swift; sourceTree = "<group>"; };
 		CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberScrollAnimatedView.swift; sourceTree = "<group>"; };
 		CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetail.swift; sourceTree = "<group>"; };
-		CC7FA9311C463EAD00E9A93D /* JSONND.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONND.swift; sourceTree = "<group>"; };
-		CC7FA9321C463EAD00E9A93D /* JSONND+ArrayLiteralConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONND+ArrayLiteralConvertible.swift"; sourceTree = "<group>"; };
-		CC7FA9331C463EAD00E9A93D /* JSONND+DictionaryLiteralConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONND+DictionaryLiteralConvertible.swift"; sourceTree = "<group>"; };
-		CC7FA9341C463EAD00E9A93D /* JSONNDModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONNDModel.swift; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -501,10 +487,8 @@
 				CC07B1A51C3CE60D001D6762 /* GradientView */,
 				CC07B17D1C3CDC15001D6762 /* ImageTextButton */,
 				CC07B1A11C3CE464001D6762 /* JSAnimatedImagesView */,
-				CC7FA9301C463E9900E9A93D /* JSONND */,
 				CC07B1801C3CDC15001D6762 /* MMDrawerController */,
 				CC07B1A91C3CE68A001D6762 /* MSWeakTimer */,
-				CC07B1C91C3E4624001D6762 /* RefreshControl */,
 				CCAD29771C40F39C0096B2A7 /* WBRefresh */,
 			);
 			path = Lib;
@@ -602,16 +586,6 @@
 				CC07B1C31C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift */,
 			);
 			path = NSURLSession;
-			sourceTree = "<group>";
-		};
-		CC07B1C91C3E4624001D6762 /* RefreshControl */ = {
-			isa = PBXGroup;
-			children = (
-				CC07B1CA1C3E4635001D6762 /* RefreshControl.swift */,
-				CC07B1CB1C3E4635001D6762 /* RefreshControlDelegate.swift */,
-				CC07B1CC1C3E4635001D6762 /* RefreshViewDelegate.swift */,
-			);
-			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		CC07B1D51C3E6202001D6762 /* UINaVigationBar */ = {
@@ -762,17 +736,6 @@
 				CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CC7FA9301C463E9900E9A93D /* JSONND */ = {
-			isa = PBXGroup;
-			children = (
-				CC7FA9321C463EAD00E9A93D /* JSONND+ArrayLiteralConvertible.swift */,
-				CC7FA9331C463EAD00E9A93D /* JSONND+DictionaryLiteralConvertible.swift */,
-				CC7FA9311C463EAD00E9A93D /* JSONND.swift */,
-				CC7FA9341C463EAD00E9A93D /* JSONNDModel.swift */,
-			);
-			path = JSONND;
 			sourceTree = "<group>";
 		};
 		CC98C8731C3B51DE002FED99 = {
@@ -1096,15 +1059,11 @@
 				CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */,
 				CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */,
 				CC07B1751C3CDBCA001D6762 /* UIImage+Extend.swift in Sources */,
-				CC7FA9361C463EAD00E9A93D /* JSONND+ArrayLiteralConvertible.swift in Sources */,
 				CC636A1A1C44BDDE00BCB70B /* ZFNews.swift in Sources */,
 				CC07B16F1C3CDBCA001D6762 /* AppDelegate+Extend.swift in Sources */,
 				CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */,
 				CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */,
-				CC07B1CE1C3E4635001D6762 /* RefreshControlDelegate.swift in Sources */,
-				CC7FA9351C463EAD00E9A93D /* JSONND.swift in Sources */,
 				CC636A191C44BDDE00BCB70B /* ZFMainViewController.swift in Sources */,
-				CC7FA9381C463EAD00E9A93D /* JSONNDModel.swift in Sources */,
 				CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */,
 				CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */,
 				CC07B16A1C3CDBCA001D6762 /* Array+Extend.swift in Sources */,
@@ -1130,7 +1089,6 @@
 				CC07B1781C3CDBCA001D6762 /* AccessoryView.swift in Sources */,
 				CC07B17A1C3CDBCA001D6762 /* UITextField+Extend.swift in Sources */,
 				CC636A1E1C44BDDE00BCB70B /* ZFMainViewModel.swift in Sources */,
-				CC07B1CD1C3E4635001D6762 /* RefreshControl.swift in Sources */,
 				CC073F0B1C3CA29000906779 /* ZFDrawerViewController.swift in Sources */,
 				CC07B18D1C3CDC15001D6762 /* MMDrawerVisualState.m in Sources */,
 				CC07B18E1C3CDC15001D6762 /* UIViewController+MMDrawerController.m in Sources */,
@@ -1142,10 +1100,8 @@
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
 				CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */,
 				CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */,
-				CC07B1CF1C3E4635001D6762 /* RefreshViewDelegate.swift in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
-				CC7FA9371C463EAD00E9A93D /* JSONND+DictionaryLiteralConvertible.swift in Sources */,
 				CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */,
 				CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */,
 				CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */,
