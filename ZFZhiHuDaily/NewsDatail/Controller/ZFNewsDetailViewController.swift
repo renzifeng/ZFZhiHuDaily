@@ -77,13 +77,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
       
-        //调整字号
-//        let str = "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'"
-//        webView.stringByEvaluatingJavaScriptFromString(str)
-        //js方法遍历图片添加点击事件 返回图片个数
-        let aa =  "function getImages(){var objs = document.getElementsByTagName(\("img"));for(var i=0;i<objs.length;i++){objs[i].onclick=function(){document.location=\("myweb:imageClick:")+this.src;};};return objs.length;};";
-        webView.stringByEvaluatingJavaScriptFromString(aa)
-        webView.stringByEvaluatingJavaScriptFromString("getImages()")
+        
     }
     
     // MARK: - ParallaxHeaderViewDelegate
