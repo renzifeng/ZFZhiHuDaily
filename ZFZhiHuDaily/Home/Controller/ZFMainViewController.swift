@@ -102,7 +102,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         print("下拉刷新")
         //获取数据源
         viewModel.getData({(dataSoure,headerSource) -> Void in
-            print("---\(dataSoure)")
             //先清空第一个数据源
             self.dataSoure.removeFirst()
             self.headerSource.removeAll()
