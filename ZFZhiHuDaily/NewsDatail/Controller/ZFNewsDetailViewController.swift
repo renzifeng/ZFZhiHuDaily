@@ -77,7 +77,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
       
-        
     }
     
     // MARK: - ParallaxHeaderViewDelegate
