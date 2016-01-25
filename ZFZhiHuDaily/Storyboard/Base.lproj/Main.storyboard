@@ -15,22 +15,22 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nF9-sf-7KC" customClass="JSAnimatedImagesView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-92-s1Q" customClass="Logo">
-                                <rect key="frame" x="223" y="490" width="155" height="80"/>
+                                <rect key="frame" x="110" y="557" width="155" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="h1J-5c-LuR"/>
                                     <constraint firstAttribute="width" constant="155" id="srn-PM-r52"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Pink Landscape&quot; © Timothy Wang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USj-yt-OWS">
-                                <rect key="frame" x="201" y="577" width="198" height="15"/>
+                                <rect key="frame" x="89" y="644" width="198" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -48,6 +48,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="USj-yt-OWS" secondAttribute="bottom" constant="8" id="yi6-XK-uP3"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="animatedImagesView" destination="nF9-sf-7KC" id="lJh-yK-3ut"/>
                         <outlet property="text" destination="USj-yt-OWS" id="rwX-p0-f6w"/>
@@ -66,29 +67,29 @@
                         <viewControllerLayoutGuide type="bottom" id="bDQ-6I-hPq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="r8b-do-g19">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hbY-Yj-QO2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="80" id="sPd-ox-cQP" customClass="ZFHomeCell" customModule="ZFZhiHuDaily" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sPd-ox-cQP" id="ZSh-jr-Kai">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContentImage2" translatesAutoresizingMaskIntoConstraints="NO" id="fOH-4M-6FB">
-                                                    <rect key="frame" x="512" y="8" width="80" height="64"/>
+                                                    <rect key="frame" x="287" y="8" width="80" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="PEY-uY-J4C"/>
                                                         <constraint firstAttribute="width" constant="80" id="Sd4-5S-Smt"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多年疑惑，多年疑惑多年疑惑多年疑惑多年疑惑，多年疑惑多年疑惑多年疑惑多年疑惑，多年疑惑多年疑惑多年疑惑" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfS-ND-wN5">
-                                                    <rect key="frame" x="15" y="16" width="482" height="36"/>
+                                                    <rect key="frame" x="15" y="16" width="257" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="55" id="TL5-EV-ret"/>
                                                     </constraints>
@@ -130,6 +131,7 @@
                     <navigationItem key="navigationItem" id="2CD-iV-5zu">
                         <nil key="title"/>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="hideNavigationBar" value="NO"/>
                     </userDefinedRuntimeAttributes>
@@ -146,6 +148,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ZFMainNav" automaticallyAdjustsScrollViewInsets="NO" id="wVw-LW-PBq" userLabel="Nav" customClass="ZFBaseNavigationController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uBq-k9-26v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -163,6 +166,7 @@
         <scene sceneID="iSc-xg-v0l">
             <objects>
                 <navigationController storyboardIdentifier="ZFThemeNav" id="Dft-My-jjd" customClass="ZFBaseNavigationController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Ha-HI-U0a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -173,7 +177,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kef-L5-jqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="1042"/>
+            <point key="canvasLocation" x="1066.5" y="1101.5"/>
         </scene>
         <!--主题日报详情-->
         <scene sceneID="9hv-g1-TdA">
@@ -184,22 +188,22 @@
                         <viewControllerLayoutGuide type="bottom" id="3vl-ok-Jl4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="69a-PR-W33">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Epk-Op-KyO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZFThemeListCell" rowHeight="80" id="f8W-VH-COj" customClass="ZFThemeListCell" customModule="ZFZhiHuDaily" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f8W-VH-COj" id="R0b-Wo-wgg">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FU-N9-wnv">
-                                                    <rect key="frame" x="15" y="16" width="482" height="18"/>
+                                                    <rect key="frame" x="15" y="16" width="257" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="55" id="vD2-ih-ftN"/>
                                                     </constraints>
@@ -208,7 +212,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czC-hb-njP">
-                                                    <rect key="frame" x="512" y="8" width="80" height="64"/>
+                                                    <rect key="frame" x="287" y="8" width="80" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="lrp-SA-33h"/>
                                                         <constraint firstAttribute="height" constant="64" id="vdl-ub-heK"/>
@@ -258,12 +262,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Sg-Bs-ySn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1746" y="1042"/>
+            <point key="canvasLocation" x="1745.5" y="1101.5"/>
         </scene>
-        <!--News Detail View Controller-->
+        <!--新闻详情-->
         <scene sceneID="dKp-Sk-7pO">
             <objects>
-                <viewController id="18i-eZ-R0L" customClass="ZFNewsDetailViewController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="新闻详情" id="18i-eZ-R0L" customClass="ZFNewsDetailViewController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OJl-0V-Go4"/>
                         <viewControllerLayoutGuide type="bottom" id="VnQ-Sx-tMF"/>
@@ -404,6 +408,6 @@
         <image name="News_Navigation_Voted" width="64" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZfA-zu-doL"/>
+        <segue reference="gI9-EH-dqq"/>
     </inferredMetricsTieBreakers>
 </document>
