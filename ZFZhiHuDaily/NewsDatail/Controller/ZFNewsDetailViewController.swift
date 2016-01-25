@@ -19,8 +19,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //左侧item
-        createLeftNavWithImage("News_Arrow")
+        //隐藏左侧item
+        self.navigationItem.hidesBackButton = true;
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
@@ -66,7 +66,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     }
     // MARK: - Action
     
-    override func didClickLeft() {
+   
+    @IBAction func didClickLeft(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
 
