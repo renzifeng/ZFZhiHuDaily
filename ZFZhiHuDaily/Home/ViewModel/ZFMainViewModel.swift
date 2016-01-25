@@ -14,13 +14,13 @@ class ZFMainViewModel: NSObject {
     // 回调
     typealias ViewModelSuccessCallBack = (dataSoure : Array<ZFStories>,headerSource : Array<ZFTopStories>) -> Void
     typealias ListSuccessCallBack = (dataSoure : Array<ZFStories>,dateStr : String) -> Void
-    typealias ThemeVieModelErrorCallBack = (error : NSError) -> Void
+    typealias VieModelErrorCallBack = (error : NSError) -> Void
     /// 今日热闻、轮播图的回调
     var successCallBack : ViewModelSuccessCallBack?
     /// 列表的成功回调
     var listSuccessCallBack : ListSuccessCallBack?
     /// 失败回调
-    var errorCallBack : ThemeVieModelErrorCallBack?
+    var errorCallBack : VieModelErrorCallBack?
     /// dateFormat
     var dateFormat : NSDateFormatter = NSDateFormatter()
     
@@ -30,7 +30,7 @@ class ZFMainViewModel: NSObject {
      - parameter successCallBack: successCallBack description
      - parameter errorCallBack:   errorCallBack description
      */
-    func getData (successCallBack : ViewModelSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
+    func getData (successCallBack : ViewModelSuccessCallBack?, errorCallBack : VieModelErrorCallBack?) {
         self.successCallBack = successCallBack
         self.errorCallBack = errorCallBack
         ZFNetworkTool.get(LATEST_NEWS_URL, params: nil, success: { (json) -> Void in
@@ -39,8 +39,6 @@ class ZFMainViewModel: NSObject {
             let topStories = allNews.topStories
             let stories1 = allNews.stories
             
-            print("\(topStories)====\(stories1)")
-
             // 回调给controller
             if self.successCallBack != nil {
                 self.successCallBack!(dataSoure:stories1!, headerSource:topStories!)
@@ -56,7 +54,7 @@ class ZFMainViewModel: NSObject {
      - parameter successCallBack: successCallBack description
      - parameter errorCallBack:   errorCallBack description
      */
-    func getDataForDate (dateIndex: Int ,successCallBack : ListSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
+    func getDataForDate (dateIndex: Int ,successCallBack : ListSuccessCallBack?, errorCallBack : VieModelErrorCallBack?) {
         let date : NSDate = NSDate(timeIntervalSinceNow: -(dateIndex*24*60*60))
         dateFormat.locale = NSLocale(localeIdentifier: "zh_CN")
         dateFormat.dateFormat = "yyyyMMdd"
