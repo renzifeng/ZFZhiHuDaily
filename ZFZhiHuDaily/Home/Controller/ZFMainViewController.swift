@@ -22,9 +22,9 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     //ViewModel
     private var viewModel : ZFMainViewModel! = ZFMainViewModel()
     //轮播图数据源
-    var headerSource : [ZFNews] = []
+    var headerSource : [ZFTopStories] = []
     //table数据源
-    var dataSoure : [[ZFNews]] = []
+    var dataSoure : [[ZFStories]] = []
     //是否正在刷新
     var isLoading : Bool! = false
     //存放header（日期）的数组
@@ -76,9 +76,9 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     func setTableHeaderData() {
         //显示第一页布局
         self.cyclePictureView.layoutFirstPage()
-        for news:ZFNews in self.headerSource {
-            imageURLArray.append(news.images![0])
-            imageTitleArray.append(news.title)
+        for news:ZFTopStories in self.headerSource {
+            imageURLArray.append(news.image!)
+            imageTitleArray.append(news.title!)
         }
         cyclePictureView.imageURLArray = imageURLArray
         cyclePictureView.imageDetailArray = imageTitleArray
@@ -253,7 +253,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let array = self.dataSoure[indexPath.section]
         let news = array[indexPath.row]
-        newsDetailVC.newsId = String(news.new_id)
+        newsDetailVC.newsId = String(news.internalIdentifier!)
     }
 
 

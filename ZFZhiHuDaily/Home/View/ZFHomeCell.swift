@@ -13,7 +13,7 @@ class ZFHomeCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
-    var news : ZFNews! {
+    var news : ZFStories! {
         willSet {
             self.news = newValue
         }

@@ -56,7 +56,6 @@
 		CC636A071C43535D00BCB70B /* ZFThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A061C43535D00BCB70B /* ZFThemeList.swift */; };
 		CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */; };
 		CC636A191C44BDDE00BCB70B /* ZFMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A101C44BDDE00BCB70B /* ZFMainViewController.swift */; };
-		CC636A1A1C44BDDE00BCB70B /* ZFNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A121C44BDDE00BCB70B /* ZFNews.swift */; };
 		CC636A1B1C44BDDE00BCB70B /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A141C44BDDE00BCB70B /* KYCircularProgress.swift */; };
 		CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */; };
 		CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */; };
@@ -66,6 +65,10 @@
 		CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB01C44DE600035ACA6 /* ZanButton.swift */; };
 		CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */; };
 		CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */; };
+		CC7D52341C565002005FB83E /* ZFLatestNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7D52301C565002005FB83E /* ZFLatestNews.swift */; };
+		CC7D52351C565002005FB83E /* ZFStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7D52311C565002005FB83E /* ZFStories.swift */; };
+		CC7D52361C565002005FB83E /* ZFTopStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7D52321C565002005FB83E /* ZFTopStories.swift */; };
+		CC7D52381C565AC5005FB83E /* ZFBeforeNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7D52371C565AC5005FB83E /* ZFBeforeNews.swift */; };
 		CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */; };
 		CC98C8851C3B51DE002FED99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8831C3B51DE002FED99 /* Main.storyboard */; };
 		CC98C8871C3B51DE002FED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8861C3B51DE002FED99 /* Assets.xcassets */; };
@@ -159,7 +162,6 @@
 		CC636A061C43535D00BCB70B /* ZFThemeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeList.swift; sourceTree = "<group>"; };
 		CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListCell.swift; sourceTree = "<group>"; };
 		CC636A101C44BDDE00BCB70B /* ZFMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewController.swift; sourceTree = "<group>"; };
-		CC636A121C44BDDE00BCB70B /* ZFNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNews.swift; sourceTree = "<group>"; };
 		CC636A141C44BDDE00BCB70B /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
 		CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
 		CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
@@ -169,6 +171,10 @@
 		CC72ADB01C44DE600035ACA6 /* ZanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZanButton.swift; sourceTree = "<group>"; };
 		CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberScrollAnimatedView.swift; sourceTree = "<group>"; };
 		CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetail.swift; sourceTree = "<group>"; };
+		CC7D52301C565002005FB83E /* ZFLatestNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLatestNews.swift; sourceTree = "<group>"; };
+		CC7D52311C565002005FB83E /* ZFStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFStories.swift; sourceTree = "<group>"; };
+		CC7D52321C565002005FB83E /* ZFTopStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTopStories.swift; sourceTree = "<group>"; };
+		CC7D52371C565AC5005FB83E /* ZFBeforeNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFBeforeNews.swift; sourceTree = "<group>"; };
 		CC98C87C1C3B51DE002FED99 /* ZFZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZFZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC98C87F1C3B51DE002FED99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC98C8841C3B51DE002FED99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -671,7 +677,10 @@
 		CC636A111C44BDDE00BCB70B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC636A121C44BDDE00BCB70B /* ZFNews.swift */,
+				CC7D52301C565002005FB83E /* ZFLatestNews.swift */,
+				CC7D52371C565AC5005FB83E /* ZFBeforeNews.swift */,
+				CC7D52311C565002005FB83E /* ZFStories.swift */,
+				CC7D52321C565002005FB83E /* ZFTopStories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1043,6 +1052,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC07B1771C3CDBCA001D6762 /* UITableViewCell+Extend.swift in Sources */,
+				CC7D52351C565002005FB83E /* ZFStories.swift in Sources */,
 				CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */,
 				CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */,
 				CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */,
@@ -1059,7 +1069,6 @@
 				CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */,
 				CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */,
 				CC07B1751C3CDBCA001D6762 /* UIImage+Extend.swift in Sources */,
-				CC636A1A1C44BDDE00BCB70B /* ZFNews.swift in Sources */,
 				CC07B16F1C3CDBCA001D6762 /* AppDelegate+Extend.swift in Sources */,
 				CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */,
 				CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */,
@@ -1080,6 +1089,8 @@
 				CC72ADA91C44D7720035ACA6 /* ZFNewsDetailViewController.swift in Sources */,
 				CC636A1B1C44BDDE00BCB70B /* KYCircularProgress.swift in Sources */,
 				CC636A071C43535D00BCB70B /* ZFThemeList.swift in Sources */,
+				CC7D52341C565002005FB83E /* ZFLatestNews.swift in Sources */,
+				CC7D52361C565002005FB83E /* ZFTopStories.swift in Sources */,
 				CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */,
 				CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */,
 				CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */,
@@ -1100,6 +1111,7 @@
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
 				CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */,
 				CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */,
+				CC7D52381C565AC5005FB83E /* ZFBeforeNews.swift in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
 				CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */,
