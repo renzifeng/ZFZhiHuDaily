@@ -13,7 +13,6 @@ class ZFNewsDetailViewModel {
     
     func loadNewsDetail(id:String,complate:(newsDetail:ZFNewsDetail)->Void, block:((error:NSError) -> Void)? = nil) {
         ZFNetworkTool.get(NEWS_DETAIL + id, params: nil, success: { (json) -> Void in
-            print("=========\(json)")
             let result = JSON(json)
             let newsDetailVO = self.convertJSON2VO(result)
             complate(newsDetail : newsDetailVO)
