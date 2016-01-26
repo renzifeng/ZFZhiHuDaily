@@ -55,7 +55,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         //初始化轮播图
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
         cyclePictureView.currentDotColor = UIColor.whiteColor()
-        
+        cyclePictureView.timeInterval = 4.0
         //初始化Header
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -64, delegate:self)
         

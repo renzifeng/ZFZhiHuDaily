@@ -88,8 +88,8 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             }
         }
     }
-    /// 开启自动滚动后，自动翻页的时间，默认为2秒,EndlessCycleProtocol提供
-    var timeInterval: Double = 2.0 {
+    /// 开启自动滚动后，自动翻页的时间，默认为3秒,EndlessCycleProtocol提供
+    var timeInterval: Double = 3.0 {
         didSet {
             if autoScroll {
                 self.setupTimer(nil)   //重新设置定时器
