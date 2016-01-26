@@ -17,6 +17,9 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     var imageTitleArray : [String] = []
     /// 页数的下标，用来计算接口中传的Date
     var dateIndex : Int = 1
+    deinit{
+        print("2222")
+    }
     @IBOutlet weak var tableView: UITableView!
 
     //ViewModel
@@ -86,9 +89,10 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }
     
     func setRefreshView() {
+
         navigationItem.titleView = self.centerView
         self.centerView.addSubview(self.navTitleLabel)
-        self.centerView.addSubview(self.refreshView)
+//        self.centerView.addSubview(self.refreshView)
     }
     // MARK: - Action
     //打开抽屉
@@ -110,7 +114,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             self.dataSoure.insert(dataSoure, atIndex: 0)
             self.headerSource = headerSource
             self.setTableHeaderData()
-            self.refreshView.endRefreshing()
+//            self.refreshView.endRefreshing()
             self.tableView.reloadData()
             }) { (error) -> Void in
         }
@@ -128,7 +132,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             self.dataSoure.append(dataSoure)
             self.headerTitleArray.append(dateStr)
             self.tableView.reloadData()
-            self.refreshView.endRefreshing()
+//            self.refreshView.endRefreshing()
             }) { (error) -> Void in
                 
         }

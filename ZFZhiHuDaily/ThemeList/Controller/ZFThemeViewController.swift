@@ -16,9 +16,11 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     /// viewModel
     private var viewModel : ZFThemeListViewModel! = ZFThemeListViewModel()
     /// tableView数据源
-    var dataSoure : [ThemeStories] = []
+    var dataSoure : [ZFThemeStories] = []
     var backgroundImg : UIImageView!
-    
+    deinit {
+        print("xigou")
+    }
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -35,7 +37,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         viewModel.tableView = self.tableView;
         viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
             let list = dataSources
-            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background), placeholder: UIImage(named: "avatar"))
+            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background!), placeholder: UIImage(named: "avatar"))
             self.dataSoure = list.stories!
             self.tableView.reloadData()
             }) { (error) -> Void in
@@ -62,7 +64,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     func setRefreshView() {
         navigationItem.titleView = self.centerView
         centerView.addSubview(self.navTitleLabel)
-        centerView.addSubview(self.refreshView)
+//        centerView.addSubview(self.refreshView)
     }
 
     // MARK: - UITableView Delegate
@@ -93,9 +95,9 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
             self.dataSoure.removeAll()
             let list = dataSources
-            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background), placeholder: UIImage(named: "avatar"))
+            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background!), placeholder: UIImage(named: "avatar"))
             self.dataSoure = list.stories!
-            self.refreshView.endRefreshing()
+//            self.refreshView.endRefreshing()
             self.tableView.reloadData()
             }) { (error) -> Void in
                 
@@ -157,7 +159,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         //取消cell选中
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let story = self.dataSoure[indexPath.row]
-        newsDetailVC.newsId = String(story.id)
+        newsDetailVC.newsId = String(story.internalIdentifier!)
     }
 
 }

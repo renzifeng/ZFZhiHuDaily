@@ -123,5 +123,10 @@
     self.activityView.frame = self.bounds;
 }
 
+- (void)removeOb
+{
+    [self removeObserver:self forKeyPath:@"contentOffset"];
+}
+
 
 @end

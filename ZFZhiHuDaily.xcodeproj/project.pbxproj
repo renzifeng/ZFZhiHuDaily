@@ -51,9 +51,11 @@
 		CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */; };
 		CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */; };
 		CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */; };
+		CC55E0FA1C57055A00C6FD25 /* ZFEditors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC55E0F71C57055A00C6FD25 /* ZFEditors.swift */; };
+		CC55E0FB1C57055A00C6FD25 /* ZFThemeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC55E0F81C57055A00C6FD25 /* ZFThemeDetail.swift */; };
+		CC55E0FC1C57055A00C6FD25 /* ZFThemeStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */; };
 		CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */; };
 		CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */; };
-		CC636A071C43535D00BCB70B /* ZFThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A061C43535D00BCB70B /* ZFThemeList.swift */; };
 		CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */; };
 		CC636A191C44BDDE00BCB70B /* ZFMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A101C44BDDE00BCB70B /* ZFMainViewController.swift */; };
 		CC636A1B1C44BDDE00BCB70B /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A141C44BDDE00BCB70B /* KYCircularProgress.swift */; };
@@ -157,9 +159,11 @@
 		CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureView.swift; sourceTree = "<group>"; };
 		CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureCell.swift; sourceTree = "<group>"; };
 		CC07B1EB1C3F789F001D6762 /* AuxiliaryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliaryModels.swift; sourceTree = "<group>"; };
+		CC55E0F71C57055A00C6FD25 /* ZFEditors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFEditors.swift; sourceTree = "<group>"; };
+		CC55E0F81C57055A00C6FD25 /* ZFThemeDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeDetail.swift; sourceTree = "<group>"; };
+		CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeStories.swift; sourceTree = "<group>"; };
 		CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewController.swift; sourceTree = "<group>"; };
 		CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListViewModel.swift; sourceTree = "<group>"; };
-		CC636A061C43535D00BCB70B /* ZFThemeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeList.swift; sourceTree = "<group>"; };
 		CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListCell.swift; sourceTree = "<group>"; };
 		CC636A101C44BDDE00BCB70B /* ZFMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewController.swift; sourceTree = "<group>"; };
 		CC636A141C44BDDE00BCB70B /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
@@ -642,7 +646,9 @@
 		CC636A051C43534E00BCB70B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC636A061C43535D00BCB70B /* ZFThemeList.swift */,
+				CC55E0F71C57055A00C6FD25 /* ZFEditors.swift */,
+				CC55E0F81C57055A00C6FD25 /* ZFThemeDetail.swift */,
+				CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1067,7 +1073,9 @@
 				CC07B13B1C3CCDA5001D6762 /* ZFAPIConfig.swift in Sources */,
 				CC07B1921C3CDEAD001D6762 /* ZFBaseViewController.swift in Sources */,
 				CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */,
+				CC55E0FA1C57055A00C6FD25 /* ZFEditors.swift in Sources */,
 				CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */,
+				CC55E0FB1C57055A00C6FD25 /* ZFThemeDetail.swift in Sources */,
 				CC07B1751C3CDBCA001D6762 /* UIImage+Extend.swift in Sources */,
 				CC07B16F1C3CDBCA001D6762 /* AppDelegate+Extend.swift in Sources */,
 				CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */,
@@ -1076,6 +1084,7 @@
 				CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */,
 				CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */,
 				CC07B16A1C3CDBCA001D6762 /* Array+Extend.swift in Sources */,
+				CC55E0FC1C57055A00C6FD25 /* ZFThemeStories.swift in Sources */,
 				CC07B1731C3CDBCA001D6762 /* UIColor+Extend.swift in Sources */,
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
 				CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */,
@@ -1088,7 +1097,6 @@
 				CC07B16D1C3CDBCA001D6762 /* Foundation+Extend.swift in Sources */,
 				CC72ADA91C44D7720035ACA6 /* ZFNewsDetailViewController.swift in Sources */,
 				CC636A1B1C44BDDE00BCB70B /* KYCircularProgress.swift in Sources */,
-				CC636A071C43535D00BCB70B /* ZFThemeList.swift in Sources */,
 				CC7D52341C565002005FB83E /* ZFLatestNews.swift in Sources */,
 				CC7D52361C565002005FB83E /* ZFTopStories.swift in Sources */,
 				CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */,

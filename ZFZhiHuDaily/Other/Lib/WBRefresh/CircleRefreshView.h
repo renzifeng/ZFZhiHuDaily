@@ -15,5 +15,5 @@
                             action:(SEL)action;
 
 - (void)endRefreshing;
-
+- (void)removeOb;
 @end
