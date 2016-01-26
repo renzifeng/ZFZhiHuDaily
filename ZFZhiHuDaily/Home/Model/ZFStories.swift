@@ -48,14 +48,7 @@ public class ZFStories: NSObject {
 		type = json[kZFStoriesTypeKey].int
 		internalIdentifier = json[kZFStoriesInternalIdentifierKey].int
 		multipic = json[kZFStoriesMultipicKey].boolValue
-//		images = json[kZFStoriesImagesKey].array
-//		if let items = json[kZFStoriesImagesKey].array {
-//			for item in items {
-//				images?.append(item)
-//			}
-//		} else {
-//			images = nil
-//		}
+
         let _images = json[kZFStoriesImagesKey].array
         
         if let _is = _images {
