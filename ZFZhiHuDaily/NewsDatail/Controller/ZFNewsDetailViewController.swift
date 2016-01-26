@@ -12,6 +12,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var webView: UIWebView!
+    
+    
+    @IBOutlet weak var zanBtn: ZanButton!
+    @IBOutlet weak var commentBtn: UIButton!
+    @IBOutlet weak var commentNumLabel: UILabel!
+    
     var newsId : String!
     var viewModel = ZFNewsDetailViewModel()
     var backgroundImg : UIImageView!
@@ -66,9 +72,23 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         closeTheDrawerGesture()
     }
+    // MARK: - SetupUI
+    
+    func setupZan() {
+        zanBtn.zanImage = UIImage(named: "News_Navigation_Vote")
+        zanBtn.zanedImage = UIImage(named: "News_Navigation_Voted")
+        //赞
+        zanBtn.zanAction = { (number) -> Void in
+            
+        }
+        //取消赞
+        zanBtn.unzanAction = {(number)->Void in
+//            self.voteNumberLabel.text = "\(number)"
+//            self.voteNumberLabel.textColor = UIColor.lightGrayColor()
+        }
+    }
     // MARK: - Action
     
-   
     @IBAction func didClickLeft(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
