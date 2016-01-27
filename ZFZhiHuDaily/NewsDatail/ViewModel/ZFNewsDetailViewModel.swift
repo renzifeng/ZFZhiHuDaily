@@ -21,7 +21,7 @@ class ZFNewsDetailViewModel {
             if complate != nil {
                 complate!(newsDetail: detail)
             }
-            
+           
             }) { (error) -> Void in
                 
         }

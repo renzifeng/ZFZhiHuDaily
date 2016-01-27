@@ -336,6 +336,9 @@
                                         </constraints>
                                         <state key="normal" image="News_Navigation_Comment"/>
                                         <state key="highlighted" image="News_Navigation_Comment_Highlight"/>
+                                        <connections>
+                                            <segue destination="tPI-C5-QGE" kind="show" id="4Kq-2w-DIg"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUm-86-waq">
                                         <rect key="frame" x="335" y="6" width="24" height="12"/>
@@ -434,6 +437,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OL1-Ja-3xD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2473.5" y="690.5"/>
+        </scene>
+        <!--新闻评论-->
+        <scene sceneID="Fxh-p2-H3G">
+            <objects>
+                <viewController id="tPI-C5-QGE" userLabel="新闻评论" customClass="ZFNewsCommentViewController" customModule="ZFZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kyG-6z-akm"/>
+                        <viewControllerLayoutGuide type="bottom" id="nVN-UE-PV8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bkF-Ce-cNc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yz-Uc-fcP">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1H-CF-Zau">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
+                                        <state key="normal" image="News_Navigation_Arrow"/>
+                                        <connections>
+                                            <action selector="popToback:" destination="tPI-C5-QGE" eventType="touchUpInside" id="ITc-fr-Qk2"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写点评" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrV-vP-Kkn">
+                                        <rect key="frame" x="165" y="13" width="45" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="W1H-CF-Zau" firstAttribute="top" secondItem="6yz-Uc-fcP" secondAttribute="top" id="4Y4-HB-Mpx"/>
+                                    <constraint firstItem="W1H-CF-Zau" firstAttribute="leading" secondItem="6yz-Uc-fcP" secondAttribute="leading" id="7qB-1L-ECB"/>
+                                    <constraint firstAttribute="height" constant="44" id="V5t-Fl-guc"/>
+                                    <constraint firstItem="RrV-vP-Kkn" firstAttribute="centerX" secondItem="6yz-Uc-fcP" secondAttribute="centerX" id="asQ-pq-X81"/>
+                                    <constraint firstAttribute="bottom" secondItem="W1H-CF-Zau" secondAttribute="bottom" id="rJG-Oq-9kr"/>
+                                    <constraint firstItem="RrV-vP-Kkn" firstAttribute="centerY" secondItem="6yz-Uc-fcP" secondAttribute="centerY" id="xdc-b3-VgU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nVN-UE-PV8" firstAttribute="top" secondItem="6yz-Uc-fcP" secondAttribute="bottom" id="4ox-UA-iec"/>
+                            <constraint firstItem="6yz-Uc-fcP" firstAttribute="leading" secondItem="bkF-Ce-cNc" secondAttribute="leading" id="7VM-mn-hzd"/>
+                            <constraint firstAttribute="trailing" secondItem="6yz-Uc-fcP" secondAttribute="trailing" id="tq8-N3-tmx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ed-ML-Toc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2984.5" y="690.5"/>
         </scene>
     </scenes>
     <resources>

@@ -1,29 +1,31 @@
 //
-//  ZFBaseNavigationController.swift
+//  ZFNewsCommentViewController.swift
 //  ZFZhiHuDaily
 //
-//  Created by 任子丰 on 16/1/6.
+//  Created by 任子丰 on 16/1/27.
 //  Copyright © 2016年 任子丰. All rights reserved.
 //
 
 import UIKit
 
-class ZFBaseNavigationController: UINavigationController {
-
+class ZFNewsCommentViewController: ZFBaseViewController {
+    
+    var commentNum : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),NSFontAttributeName:FONT(18)]
-        navigationBar.barTintColor = RGB(0, 130, 210)
-    }
-    
-    override func pushViewController(viewController: UIViewController, animated: Bool) {
-        if viewControllers.count > 0 {
-            //隐藏TabBar
-            viewController.hidesBottomBarWhenPushed = true
-        }
-        super.pushViewController(viewController, animated: animated)
+        self.navigationItem.hidesBackButton = true;
+        self.navigationItem.title = self.commentNum + "条点评"
+        // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 1))
+    }
+    
+    @IBAction func popToback(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
