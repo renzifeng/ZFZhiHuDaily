@@ -24,7 +24,7 @@ class NumberScrollAnimatedView: UIView {
             self.prepareAnimations()
         }
     }
-    
+    //
     /// 用于记录字体的颜色
     var textColor:UIColor!
     
