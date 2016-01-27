@@ -18,10 +18,13 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var commentNumLabel: UILabel!
     
+    @IBOutlet weak var zanNumLabel: UILabel!
     var newsId : String!
     var viewModel = ZFNewsDetailViewModel()
     var backgroundImg : UIImageView!
     var heardView : ParallaxHeaderView!
+    /// 新闻额外信息
+    var newsExtra : ZFNewsExtra!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT))
         
         self.webView.scrollView.addSubview(backgroundImg)
-
+        //赞
+        setupZan()
+        //获取新闻详情
         viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
                 self.topView.alpha = 0
@@ -63,7 +68,15 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
             }
 
             }) { (error) -> Void in
-                
+        }
+        
+        /// 获取新闻额外信息
+        viewModel.loadNewsExra(self.newsId, complate: { (newsExtra) -> Void in
+            self.newsExtra = newsExtra
+            self.commentNumLabel.text = "\(newsExtra.comments!)"
+            self.zanBtn.initNumber = newsExtra.popularity!
+            self.zanNumLabel.text = "\(newsExtra.popularity!)"
+            }) { (error) -> Void in
         }
     }
     
@@ -79,12 +92,15 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         zanBtn.zanedImage = UIImage(named: "News_Navigation_Voted")
         //赞
         zanBtn.zanAction = { (number) -> Void in
-            
+            self.zanNumLabel.text = "\(number)"
+            self.zanNumLabel.textColor = ThemeColor
+            self.zanNumLabel.text = "\(number)"
         }
         //取消赞
         zanBtn.unzanAction = {(number)->Void in
-//            self.voteNumberLabel.text = "\(number)"
-//            self.voteNumberLabel.textColor = UIColor.lightGrayColor()
+            self.zanNumLabel.text = "\(number)"
+            self.zanNumLabel.textColor = UIColor.lightGrayColor()
+            self.zanNumLabel.text = "\(number)"
         }
     }
     // MARK: - Action

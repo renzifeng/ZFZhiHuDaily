@@ -276,6 +276,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-iy-2fD">
+                                <rect key="frame" x="0.0" y="-40" width="375" height="665"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="18i-eZ-R0L" id="ZmZ-ql-zD3"/>
+                                </connections>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elm-Rc-JmF" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="CxU-sV-JNE"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90P-pe-0Bs">
                                 <rect key="frame" x="0.0" y="625" width="375" height="42"/>
                                 <subviews>
@@ -390,20 +404,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-iy-2fD">
-                                <rect key="frame" x="0.0" y="-40" width="375" height="665"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="18i-eZ-R0L" id="ZmZ-ql-zD3"/>
-                                </connections>
-                            </webView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elm-Rc-JmF" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="CxU-sV-JNE"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -428,6 +428,7 @@
                         <outlet property="topView" destination="elm-Rc-JmF" id="Ca5-Ce-DTv"/>
                         <outlet property="webView" destination="7iZ-iy-2fD" id="Uee-Xq-iXc"/>
                         <outlet property="zanBtn" destination="6L2-eV-2Oa" id="cHo-Hp-4p2"/>
+                        <outlet property="zanNumLabel" destination="kmA-Qx-5TY" id="ZL7-S1-dU0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OL1-Ja-3xD" userLabel="First Responder" sceneMemberID="firstResponder"/>

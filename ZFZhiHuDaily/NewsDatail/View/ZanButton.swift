@@ -61,7 +61,7 @@ class ZanButton: UIView{
     /// PopView的高度
     var popHeight:Float = 20.0
     /// PopView的背景色
-    var popBackgroundColor = UIColor(red: 0.098, green: 0.565, blue: 0.827, alpha: 1)
+    var popBackgroundColor = ThemeColor
     /// PopView的圆角
     var popCornerRadius:Float = 2.0
     /// PopView的字体

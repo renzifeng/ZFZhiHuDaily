@@ -79,6 +79,7 @@
 		CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */; };
 		CC98C8D11C3B5945002FED99 /* Left.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8D01C3B5945002FED99 /* Left.storyboard */; };
 		CCA6818A1C58AF7300A8D947 /* ZFNewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA681891C58AF7300A8D947 /* ZFNewsDetail.swift */; };
+		CCA6818E1C58BA3800A8D947 /* ZFNewsExtra.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6818D1C58BA3800A8D947 /* ZFNewsExtra.swift */; };
 		CCAD29761C40EEEB0096B2A7 /* MMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */; };
 		CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */; };
 		CCAD297F1C40F3B40096B2A7 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */; };
@@ -194,6 +195,7 @@
 		CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAppConfig.swift; sourceTree = "<group>"; };
 		CC98C8D01C3B5945002FED99 /* Left.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Left.storyboard; sourceTree = "<group>"; };
 		CCA681891C58AF7300A8D947 /* ZFNewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetail.swift; sourceTree = "<group>"; };
+		CCA6818D1C58BA3800A8D947 /* ZFNewsExtra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsExtra.swift; sourceTree = "<group>"; };
 		CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMViewController.swift; sourceTree = "<group>"; };
 		CCAD29781C40F3B40096B2A7 /* CircleRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleRefreshView.h; sourceTree = "<group>"; };
 		CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleRefreshView.m; sourceTree = "<group>"; };
@@ -749,6 +751,7 @@
 			isa = PBXGroup;
 			children = (
 				CCA681891C58AF7300A8D947 /* ZFNewsDetail.swift */,
+				CCA6818D1C58BA3800A8D947 /* ZFNewsExtra.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1092,6 +1095,7 @@
 				CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */,
 				CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */,
 				CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */,
+				CCA6818E1C58BA3800A8D947 /* ZFNewsExtra.swift in Sources */,
 				CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */,
 				CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */,
 				CC07B16D1C3CDBCA001D6762 /* Foundation+Extend.swift in Sources */,

@@ -26,8 +26,11 @@ let THEME_LIST = "4/theme/"
 let LATEST_NEWS_URL = "4/news/latest"
 // MARK: - 过往消息
 var BEFORE_NEWS = "4/news/before/"
-
+// MARK: - 获取新闻详情
 var NEWS_DETAIL = "4/news/"
+// MARK: - 获取新闻详情额外信息(评论数、赞数量)
+var NEWS_EXTRA = "4/story-extra/"
+
 // MARK: - 软件版本查询
 let VERSION : String = String(format: "4/version/ios/%@", "1")
 
