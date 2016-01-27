@@ -66,7 +66,6 @@
 		CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADAB1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift */; };
 		CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB01C44DE600035ACA6 /* ZanButton.swift */; };
 		CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */; };
-		CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */; };
 		CC7D52341C565002005FB83E /* ZFLatestNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7D52301C565002005FB83E /* ZFLatestNews.swift */; };
 		CC7D52351C565002005FB83E /* ZFStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7D52311C565002005FB83E /* ZFStories.swift */; };
 		CC7D52361C565002005FB83E /* ZFTopStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7D52321C565002005FB83E /* ZFTopStories.swift */; };
@@ -79,6 +78,7 @@
 		CC98C8A01C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C89F1C3B51DE002FED99 /* ZFZhiHuDailyUITests.swift */; };
 		CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */; };
 		CC98C8D11C3B5945002FED99 /* Left.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC98C8D01C3B5945002FED99 /* Left.storyboard */; };
+		CCA6818A1C58AF7300A8D947 /* ZFNewsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA681891C58AF7300A8D947 /* ZFNewsDetail.swift */; };
 		CCAD29761C40EEEB0096B2A7 /* MMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */; };
 		CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */; };
 		CCAD297F1C40F3B40096B2A7 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */; };
@@ -174,7 +174,6 @@
 		CC72ADAB1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetailViewModel.swift; sourceTree = "<group>"; };
 		CC72ADB01C44DE600035ACA6 /* ZanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZanButton.swift; sourceTree = "<group>"; };
 		CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberScrollAnimatedView.swift; sourceTree = "<group>"; };
-		CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetail.swift; sourceTree = "<group>"; };
 		CC7D52301C565002005FB83E /* ZFLatestNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFLatestNews.swift; sourceTree = "<group>"; };
 		CC7D52311C565002005FB83E /* ZFStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFStories.swift; sourceTree = "<group>"; };
 		CC7D52321C565002005FB83E /* ZFTopStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTopStories.swift; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		CC98C8AD1C3B51F1002FED99 /* ZFZhiHuDaily-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZFZhiHuDaily-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFAppConfig.swift; sourceTree = "<group>"; };
 		CC98C8D01C3B5945002FED99 /* Left.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Left.storyboard; sourceTree = "<group>"; };
+		CCA681891C58AF7300A8D947 /* ZFNewsDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetail.swift; sourceTree = "<group>"; };
 		CCAD29751C40EEEB0096B2A7 /* MMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMViewController.swift; sourceTree = "<group>"; };
 		CCAD29781C40F3B40096B2A7 /* CircleRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleRefreshView.h; sourceTree = "<group>"; };
 		CCAD29791C40F3B40096B2A7 /* CircleRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleRefreshView.m; sourceTree = "<group>"; };
@@ -646,9 +646,9 @@
 		CC636A051C43534E00BCB70B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC55E0F71C57055A00C6FD25 /* ZFEditors.swift */,
 				CC55E0F81C57055A00C6FD25 /* ZFThemeDetail.swift */,
 				CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */,
+				CC55E0F71C57055A00C6FD25 /* ZFEditors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -748,7 +748,7 @@
 		CC72ADB41C44E4A00035ACA6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC72ADB51C44E4B00035ACA6 /* ZFNewsDetail.swift */,
+				CCA681891C58AF7300A8D947 /* ZFNewsDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1114,11 +1114,11 @@
 				CC07B1E01C3E6DEF001D6762 /* ZFThemeViewModel.swift in Sources */,
 				CC07B1C61C3E2DC1001D6762 /* AppException.swift in Sources */,
 				CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */,
+				CCA6818A1C58AF7300A8D947 /* ZFNewsDetail.swift in Sources */,
 				CC07B16B1C3CDBCA001D6762 /* ArraySlice+Extend.swift in Sources */,
 				CC07B18B1C3CDC15001D6762 /* MMDrawerBarButtonItem.m in Sources */,
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
 				CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */,
-				CC72ADB61C44E4B00035ACA6 /* ZFNewsDetail.swift in Sources */,
 				CC7D52381C565AC5005FB83E /* ZFBeforeNews.swift in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,

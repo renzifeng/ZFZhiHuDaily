@@ -35,7 +35,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT))
         
         self.webView.scrollView.addSubview(backgroundImg)
-        
+
         viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
                 self.topView.alpha = 0
