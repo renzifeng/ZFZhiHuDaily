@@ -13,8 +13,8 @@ let NETWORK_TIMEOUT: NSTimeInterval = 15
 let BASE_URL : String = "http://news-at.zhihu.com/api/"
 
 // MARK: - 启动界面图像获取 start-image后为图像分辨率，接受如下格式
-private let width : String = String(format: "%.0f", ScreenWidth)
-private let height : String = String(format: "%.0f", ScreenHeight)
+private let width : String = String(format: "%.0f", ScreenWidth*2)
+private let height : String = String(format: "%.0f", ScreenHeight*2)
 let START_IMAGE : String = "4/start-image/\(width)*\(height)"
 
 // MARK: - 加载用户主题列表
