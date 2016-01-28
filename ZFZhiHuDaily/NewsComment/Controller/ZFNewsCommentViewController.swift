@@ -18,6 +18,7 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
         self.navigationItem.hidesBackButton = true;
         self.navigationItem.title = self.commentNum + "条点评"
         self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
+        self.tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
 
