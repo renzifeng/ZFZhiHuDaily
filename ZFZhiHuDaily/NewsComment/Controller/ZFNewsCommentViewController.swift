@@ -8,14 +8,16 @@
 
 import UIKit
 
-class ZFNewsCommentViewController: ZFBaseViewController {
+class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     var commentNum : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
         self.navigationItem.title = self.commentNum + "条点评"
+        self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +28,16 @@ class ZFNewsCommentViewController: ZFBaseViewController {
     @IBAction func popToback(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Int(self.commentNum)!
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        return cell!
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
