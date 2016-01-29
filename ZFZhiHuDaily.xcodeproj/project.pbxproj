@@ -62,6 +62,7 @@
 		CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */; };
 		CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */; };
 		CC636A1E1C44BDDE00BCB70B /* ZFMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A181C44BDDE00BCB70B /* ZFMainViewModel.swift */; };
+		CC66FE231C5B8F8E009002C5 /* ZFNewsCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC66FE221C5B8F8E009002C5 /* ZFNewsCommentViewModel.swift */; };
 		CC72ADA91C44D7720035ACA6 /* ZFNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADA81C44D7720035ACA6 /* ZFNewsDetailViewController.swift */; };
 		CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADAB1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift */; };
 		CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC72ADB01C44DE600035ACA6 /* ZanButton.swift */; };
@@ -172,6 +173,7 @@
 		CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
 		CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
 		CC636A181C44BDDE00BCB70B /* ZFMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewModel.swift; sourceTree = "<group>"; };
+		CC66FE221C5B8F8E009002C5 /* ZFNewsCommentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsCommentViewModel.swift; sourceTree = "<group>"; };
 		CC72ADA81C44D7720035ACA6 /* ZFNewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetailViewController.swift; sourceTree = "<group>"; };
 		CC72ADAB1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFNewsDetailViewModel.swift; sourceTree = "<group>"; };
 		CC72ADB01C44DE600035ACA6 /* ZanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZanButton.swift; sourceTree = "<group>"; };
@@ -875,6 +877,7 @@
 		CCA681941C58CA3300A8D947 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CC66FE221C5B8F8E009002C5 /* ZFNewsCommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1114,6 +1117,7 @@
 				CC07B1D71C3E621B001D6762 /* NavigationBarExtension.swift in Sources */,
 				CCAD297F1C40F3B40096B2A7 /* DetailHeaderView.m in Sources */,
 				CC07B1711C3CDBCA001D6762 /* UIViewController.swift in Sources */,
+				CC66FE231C5B8F8E009002C5 /* ZFNewsCommentViewModel.swift in Sources */,
 				CC07B16E1C3CDBCA001D6762 /* String+Extend.swift in Sources */,
 				CCAD29871C40F43D0096B2A7 /* UIView+Extension.m in Sources */,
 				CC07B13B1C3CCDA5001D6762 /* ZFAPIConfig.swift in Sources */,
