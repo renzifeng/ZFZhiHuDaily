@@ -39,6 +39,11 @@ func NEWS_LONG_COMMENT (newsId : String) -> String {
     return String(format: "4/story/%@/long-comments", newsId)
 }
 
+// MARK: - 新闻短评论
+func NEWS_SHORT_COMMENT (newsId : String) -> String {
+    return String(format: "4/story/%@/short-comments", newsId)
+}
+
 // MARK: - 软件版本查询
 let VERSION : String = String(format: "4/version/ios/%@", "1")
 
