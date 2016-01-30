@@ -12,6 +12,9 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
     
     @IBOutlet weak var tableView: UITableView!
     var commentNum : String!
+    /// 新闻id
+    var newsId : String!
+    var viewModel = ZFNewsCommentViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,9 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
         self.navigationItem.title = self.commentNum + "条点评"
         self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
         self.tableView.tableFooterView = UIView()
+        viewModel.getLongComment(self.newsId) { (commentsArray) -> Void in
+            
+        }
         // Do any additional setup after loading the view.
     }
 

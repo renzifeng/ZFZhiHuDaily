@@ -19,6 +19,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     @IBOutlet weak var commentNumLabel: UILabel!
     
     @IBOutlet weak var zanNumLabel: UILabel!
+    /// 新闻id
     var newsId : String!
     var viewModel = ZFNewsDetailViewModel()
     var backgroundImg : UIImageView!
@@ -134,6 +135,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         // Pass the selected object to the new view controller.
         let commentVC = segue.destinationViewController as! ZFNewsCommentViewController
         commentVC.commentNum = String(self.newsExtra.comments!)
+        commentVC.newsId = self.newsId
     }
     
 
