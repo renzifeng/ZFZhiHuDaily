@@ -31,7 +31,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         super.viewDidLoad()
         //隐藏左侧item
         self.navigationItem.hidesBackButton = true;
-        self.navigationItem.title = nil;
+        self.navigationItem.title = "";
         
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
