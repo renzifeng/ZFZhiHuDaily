@@ -15,15 +15,19 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
     /// 新闻id
     var newsId : String!
     var viewModel = ZFNewsCommentViewModel()
+    var comments: [ZFComments] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
         self.navigationItem.title = self.commentNum + "条点评"
         self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.tableFooterView = UIView()
         viewModel.getLongComment(self.newsId) { (commentsArray) -> Void in
-            
+            self.comments.appendContentsOf(commentsArray)
+            self.tableView.reloadData()
         }
         // Do any additional setup after loading the view.
     }
@@ -37,12 +41,13 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(self.commentNum)!
+        return self.comments.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("ZFCommentCell") as! ZFCommentCell
+        cell.comment = self.comments[indexPath.row]
+        return cell
     }
     
     override func didReceiveMemoryWarning() {

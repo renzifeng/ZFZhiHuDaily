@@ -513,33 +513,59 @@
                                     <constraint firstItem="RrV-vP-Kkn" firstAttribute="centerY" secondItem="6yz-Uc-fcP" secondAttribute="centerY" id="xdc-b3-VgU"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eS3-w3-Z5q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eS3-w3-Z5q">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="usZ-Sy-bDm">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZFCommentCell" rowHeight="104" id="usZ-Sy-bDm" customClass="ZFCommentCell" customModule="ZFZhiHuDaily" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="usZ-Sy-bDm" id="1hs-wv-3hb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U8-uZ-qiq">
-                                                    <rect key="frame" x="30" y="11" width="34" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U8-uZ-qiq">
+                                                    <rect key="frame" x="62" y="10" width="45" height="18"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editor_Profile_Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-Tv-J6n">
+                                                    <rect key="frame" x="15" y="10" width="30" height="30"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="cp4-WB-nSI"/>
+                                                        <constraint firstAttribute="height" constant="30" id="sOD-ev-8hC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="评论内容、评论内容、评论内容、评论内容、评论内容、评论内容、评论内容、" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqV-IV-RHM">
+                                                    <rect key="frame" x="62" y="33" width="298" height="60.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="2U8-uZ-qiq" firstAttribute="top" secondItem="1hs-wv-3hb" secondAttribute="top" constant="11" id="DIR-tY-B9o"/>
-                                                <constraint firstItem="2U8-uZ-qiq" firstAttribute="leading" secondItem="1hs-wv-3hb" secondAttribute="leading" constant="30" id="vrd-an-SNK"/>
+                                                <constraint firstItem="EqV-IV-RHM" firstAttribute="leading" secondItem="2U8-uZ-qiq" secondAttribute="leading" id="Pc7-Hc-r2G"/>
+                                                <constraint firstItem="H5x-Tv-J6n" firstAttribute="top" secondItem="1hs-wv-3hb" secondAttribute="top" constant="10" id="UHt-C4-OdH"/>
+                                                <constraint firstItem="H5x-Tv-J6n" firstAttribute="leading" secondItem="1hs-wv-3hb" secondAttribute="leading" constant="15" id="cDD-Il-DLi"/>
+                                                <constraint firstAttribute="bottom" secondItem="EqV-IV-RHM" secondAttribute="bottom" constant="10" id="j4k-12-9Hv"/>
+                                                <constraint firstAttribute="trailing" secondItem="EqV-IV-RHM" secondAttribute="trailing" constant="15" id="mCp-4x-e61"/>
+                                                <constraint firstItem="2U8-uZ-qiq" firstAttribute="top" secondItem="H5x-Tv-J6n" secondAttribute="top" id="xMt-lu-hpD"/>
+                                                <constraint firstItem="2U8-uZ-qiq" firstAttribute="leading" secondItem="H5x-Tv-J6n" secondAttribute="trailing" constant="17" id="xUa-bh-UDB"/>
+                                                <constraint firstItem="EqV-IV-RHM" firstAttribute="top" secondItem="2U8-uZ-qiq" secondAttribute="bottom" constant="5" id="yJf-HM-BiG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="H5x-Tv-J6n" id="xZ2-d8-zyY"/>
+                                            <outlet property="contentLabel" destination="EqV-IV-RHM" id="vBc-2P-32p"/>
+                                            <outlet property="userNameLabel" destination="2U8-uZ-qiq" id="qGZ-Ws-mSw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -571,6 +597,7 @@
     </scenes>
     <resources>
         <image name="ContentImage2" width="150" height="150"/>
+        <image name="Editor_Profile_Avatar" width="70" height="70"/>
         <image name="Logo" width="311" height="154"/>
         <image name="News_Navigation_Arrow" width="64" height="43"/>
         <image name="News_Navigation_Arrow_Highlight" width="64" height="43"/>
