@@ -10,9 +10,10 @@ import UIKit
 import SwiftyJSON
 
 class ZFNewsCommentViewModel {
-    typealias LongCommentSuccessBlock = (commentsArray: [ZFComments]) -> Void
+    typealias CommentSuccessBlock = (commentsArray: [ZFComments]) -> Void
     
-    func getLongComment(newsId: String, longComment : LongCommentSuccessBlock?) {
+    
+    func getLongComment(newsId: String, longComment : CommentSuccessBlock?) {
         ZFNetworkTool.get(NEWS_LONG_COMMENT(newsId), params: nil, success: { (json) -> Void in
             print("======\(json)")
             var comments: [ZFComments]?
@@ -31,5 +32,29 @@ class ZFNewsCommentViewModel {
                 
         }
     }
+    
+    func getShortComment(newsId: String, shortComment : CommentSuccessBlock?) {
+        ZFNetworkTool.get(NEWS_LONG_COMMENT(newsId), params: nil, success: { (json) -> Void in
+            print("======\(json)")
+            var comments: [ZFComments]?
+            comments = []
+            if let items = JSON(json)["comments"].array {
+                for item in items {
+                    comments?.append(ZFComments(json: item))
+                }
+                if shortComment != nil {
+                    shortComment!(commentsArray: comments!)
+                }
+            } else {
+                comments = nil
+            }
+            }) { (error) -> Void in
+                
+        }
+    }
+
+    
+    
+    
     
 }
