@@ -32,7 +32,6 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         self.tableView.rowHeight = 80
         //设置navbar颜色
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
-        
         setTableHeader()
         setRefreshView()
         viewModel.tableView = self.tableView;
