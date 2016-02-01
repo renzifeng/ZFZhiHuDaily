@@ -4,7 +4,6 @@
 
 #import "MMDrawerController.h"
 #import "ImageTextButton.h"
-//#import <YYWebImage/YYWebImage.h>
 #import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
 #import "JSAnimatedImagesView.h"
 #import "GradientView.h"
