@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
@@ -26,6 +27,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     var heardView : ParallaxHeaderView!
     /// 新闻额外信息
     var newsExtra : ZFNewsExtra!
+    var activityIndicatorView : NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +35,22 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         self.navigationItem.hidesBackButton = true;
         self.navigationItem.title = "";
         
+        
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
         backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT))
         
         self.webView.scrollView.addSubview(backgroundImg)
+        
+        let x = self.view.center.x
+        let y = self.view.center.y
+        let width = CGFloat(50.0)
+        let height = CGFloat(50.0)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: UIColor.lightGrayColor(), size: CGSizeMake(50, 50))
+        activityIndicatorView.center = self.view.center
+        activityIndicatorView.startAnimation()
+        self.view.addSubview(activityIndicatorView)
         //赞
         setupZan()
         //获取新闻详情
@@ -116,7 +128,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-      
+        activityIndicatorView.stopAnimation()
     }
     
     // MARK: - ParallaxHeaderViewDelegate

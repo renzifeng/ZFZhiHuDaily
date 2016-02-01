@@ -6,4 +6,5 @@ pod 'Alamofire'
 pod 'YYWebImage'
 pod 'SwiftyJSON'
 pod 'FDFullscreenPopGesture', '~> 1.1'
+pod 'NVActivityIndicatorView'
 
