@@ -2,8 +2,8 @@
 //  CircleRefreshView.m
 //  WBZhiHuDailyPaper
 //
-//  Created by caowenbo on 15/12/22.
-//  Copyright © 2015年 曹文博. All rights reserved.
+//  Created by 任子丰 on 15/12/22.
+//  Copyright © 2015年 任子丰. All rights reserved.
 //
 
 #import "CircleRefreshView.h"
@@ -54,35 +54,10 @@
     self.backgroundColor = [UIColor clearColor];
     
     [self.scrollView addObserver:self
-                             forKeyPath:@"contentOffset"
-                                options:NSKeyValueObservingOptionNew |
+                      forKeyPath:@"contentOffset"
+                         options:NSKeyValueObservingOptionNew |
      NSKeyValueObservingOptionOld
-                                context:nil];
-}
-
-+ (CircleRefreshView *)attachObserveToScrollView:(UIScrollView *)scrollView
-                                   target:(id)target
-                                   action:(SEL)action{
-    
-    CircleRefreshView *refreshView = [[CircleRefreshView alloc] init];
-    
-    refreshView.scrollView = scrollView;
-    refreshView.target = target;
-    refreshView.action = action;
-    refreshView.backgroundColor = [UIColor clearColor];
-    
-    refreshView.activityView = [[UIActivityIndicatorView alloc] init];
-    refreshView.activityView.hidesWhenStopped = YES;
-    [refreshView.activityView stopAnimating];
-    [refreshView addSubview:refreshView.activityView];
-    
-    [refreshView.scrollView addObserver:refreshView
-                             forKeyPath:@"contentOffset"
-                                options:NSKeyValueObservingOptionNew |
-     NSKeyValueObservingOptionOld
-                                context:nil];
-    
-    return refreshView;
+                         context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
