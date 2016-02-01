@@ -13,12 +13,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var webView: UIWebView!
-    
-    
     @IBOutlet weak var zanBtn: ZanButton!
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var commentNumLabel: UILabel!
-    
     @IBOutlet weak var zanNumLabel: UILabel!
     /// 新闻id
     var newsId : String!
@@ -27,6 +24,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     var heardView : ParallaxHeaderView!
     /// 新闻额外信息
     var newsExtra : ZFNewsExtra!
+    /// loading
     var activityIndicatorView : NVActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -47,10 +45,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         let y = self.view.center.y
         let width = CGFloat(50.0)
         let height = CGFloat(50.0)
+        
         activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: UIColor.lightGrayColor(), size: CGSizeMake(50, 50))
         activityIndicatorView.center = self.view.center
         activityIndicatorView.startAnimation()
         self.view.addSubview(activityIndicatorView)
+        
         //赞
         setupZan()
         //获取新闻详情
