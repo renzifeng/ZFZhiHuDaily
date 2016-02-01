@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableViewDataSource ,ParallaxHeaderViewDelegate{
+class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableViewDataSource, ParallaxHeaderViewDelegate, CyclePictureViewDelegate{
     /// 轮播图View
     var cyclePictureView: CyclePictureView!
     /// 轮播图图片url数组
@@ -56,6 +56,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
         cyclePictureView.currentDotColor = UIColor.whiteColor()
         cyclePictureView.timeInterval = 4.0
+        cyclePictureView.delegate = self
         //初始化Header
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -64, delegate:self)
         
@@ -214,6 +215,15 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     func clickCurrentImage(currentIndxe: Int) {
         print(currentIndxe);
     }
+    
+    // MARK: - CyclePictureViewDelegate Methods
+    func cyclePictureView(cyclePictureView: CyclePictureView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let newsDetailVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFNewsDetailViewController") as! ZFNewsDetailViewController
+        self.navigationController?.pushViewController(newsDetailVC, animated: true)
+        let topic = self.headerSource[indexPath.row]
+        newsDetailVC.newsId = String(topic.internalIdentifier!)
+    }
+    
 
     // MARK:- Getter Methods
     
