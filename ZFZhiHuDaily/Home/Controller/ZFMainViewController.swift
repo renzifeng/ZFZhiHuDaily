@@ -42,7 +42,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         createLeftNavWithImage("Home_Icon")
         //获取数据源
         viewModel.getData({(dataSoure,headerSource) -> Void in
-            print("---\(dataSoure)")
             self.dataSoure.insert(dataSoure, atIndex: 0)
             self.headerSource = headerSource
             self.setTableHeaderData()
@@ -93,7 +92,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
 
         navigationItem.titleView = self.centerView
         self.centerView.addSubview(self.navTitleLabel)
-//        self.centerView.addSubview(self.refreshView)
+        self.centerView.addSubview(self.refreshView)
     }
     // MARK: - Action
     //打开抽屉
@@ -115,7 +114,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             self.dataSoure.insert(dataSoure, atIndex: 0)
             self.headerSource = headerSource
             self.setTableHeaderData()
-//            self.refreshView.endRefreshing()
+            self.refreshView.endRefreshing()
             self.tableView.reloadData()
             }) { (error) -> Void in
         }
@@ -133,7 +132,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             self.dataSoure.append(dataSoure)
             self.headerTitleArray.append(dateStr)
             self.tableView.reloadData()
-//            self.refreshView.endRefreshing()
+            self.refreshView.endRefreshing()
             }) { (error) -> Void in
                 
         }
@@ -217,6 +216,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }
     
     // MARK: - CyclePictureViewDelegate Methods
+    
     func cyclePictureView(cyclePictureView: CyclePictureView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let newsDetailVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFNewsDetailViewController") as! ZFNewsDetailViewController
         self.navigationController?.pushViewController(newsDetailVC, animated: true)
@@ -246,7 +246,9 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }()
     
     private lazy var refreshView : CircleRefreshView = {
-        let refreshView = CircleRefreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
+//        let refreshView = CircleRefreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
+        let refreshView = CircleRefreshView()
+        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
         refreshView.frame = CGRectMake(10, 0, 20, 20)
         refreshView.centerY = 22
         refreshView.x = self.navTitleLabel.x - 30

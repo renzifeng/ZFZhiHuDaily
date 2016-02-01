@@ -28,6 +28,37 @@
 
 @implementation CircleRefreshView
 
+-(void)dealloc
+{
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.activityView = [[UIActivityIndicatorView alloc] init];
+        self.activityView.hidesWhenStopped = YES;
+        [self.activityView stopAnimating];
+        [self addSubview:self.activityView];
+    }
+    return self;
+}
+
+- (void)attachObserveToScrollView:(UIScrollView *)scrollView
+                                          target:(id)target
+                                          action:(SEL)action{
+    self.scrollView = scrollView;
+    self.target = target;
+    self.action = action;
+    self.backgroundColor = [UIColor clearColor];
+    
+    [self.scrollView addObserver:self
+                             forKeyPath:@"contentOffset"
+                                options:NSKeyValueObservingOptionNew |
+     NSKeyValueObservingOptionOld
+                                context:nil];
+}
 
 + (CircleRefreshView *)attachObserveToScrollView:(UIScrollView *)scrollView
                                    target:(id)target
@@ -123,10 +154,6 @@
     self.activityView.frame = self.bounds;
 }
 
-- (void)removeOb
-{
-    [self removeObserver:self forKeyPath:@"contentOffset"];
-}
 
 
 @end

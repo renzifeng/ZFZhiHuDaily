@@ -65,7 +65,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     func setRefreshView() {
         navigationItem.titleView = self.centerView
         centerView.addSubview(self.navTitleLabel)
-//        centerView.addSubview(self.refreshView)
+        centerView.addSubview(self.refreshView)
     }
 
     // MARK: - UITableView Delegate
@@ -98,7 +98,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
             let list = dataSources
             self.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
             self.dataSoure = list.stories!
-//            self.refreshView.endRefreshing()
+            self.refreshView.endRefreshing()
             self.tableView.reloadData()
             }) { (error) -> Void in
                 
@@ -141,7 +141,8 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
 
     
     private lazy var refreshView : CircleRefreshView = {
-        let refreshView = CircleRefreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
+        let refreshView = CircleRefreshView()
+        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
         refreshView.frame = CGRectMake(10, 0, 20, 20)
         refreshView.centerY = 22
         refreshView.x = self.navTitleLabel.x - 30

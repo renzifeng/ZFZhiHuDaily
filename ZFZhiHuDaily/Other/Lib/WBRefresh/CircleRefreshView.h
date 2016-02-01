@@ -13,7 +13,10 @@
 + (CircleRefreshView *)attachObserveToScrollView:(UIScrollView *)scrollView
                             target:(id)target
                             action:(SEL)action;
+- (void)attachObserveToScrollView:(UIScrollView *)scrollView
+                                   target:(id)target
+                                   action:(SEL)action;
 
 - (void)endRefreshing;
-- (void)removeOb;
+
 @end
