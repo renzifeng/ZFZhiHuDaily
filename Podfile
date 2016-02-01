@@ -3,8 +3,9 @@ platform :ios, '8.0'
 use_frameworks!
 pod 'SnapKit'
 pod 'Alamofire'
-pod 'YYWebImage'
+#pod 'YYWebImage'
 pod 'SwiftyJSON'
 pod 'FDFullscreenPopGesture', '~> 1.1'
 pod 'NVActivityIndicatorView'
+pod 'Kingfisher'
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableViewDataSource,ParallaxHeaderViewDelegate {
     
@@ -37,7 +38,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         viewModel.tableView = self.tableView;
         viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
             let list = dataSources
-            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background!), placeholder: UIImage(named: "avatar"))
+            self.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
             self.dataSoure = list.stories!
             self.tableView.reloadData()
             }) { (error) -> Void in
@@ -95,7 +96,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
             self.dataSoure.removeAll()
             let list = dataSources
-            self.backgroundImg.yy_setImageWithURL(NSURL(string: list.background!), placeholder: UIImage(named: "avatar"))
+            self.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
             self.dataSoure = list.stories!
 //            self.refreshView.endRefreshing()
             self.tableView.reloadData()

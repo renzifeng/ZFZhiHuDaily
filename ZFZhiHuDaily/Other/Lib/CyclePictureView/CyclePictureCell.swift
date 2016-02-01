@@ -12,6 +12,7 @@
  ***************************************************/
 
 import UIKit
+import Kingfisher
 
 class CyclePictureCell: UICollectionViewCell {
 
@@ -21,7 +22,7 @@ class CyclePictureCell: UICollectionViewCell {
             case let .Local(name):
                 self.imageView.image = UIImage(named: name)
             case let .Network(urlStr):
-                self.imageView.yy_setImageWithURL(NSURL(string: urlStr)!, placeholder: placeholderImage)
+                self.imageView.kf_setImageWithURL(NSURL(string: urlStr)!, placeholderImage: placeholderImage)
             }
         }
     }

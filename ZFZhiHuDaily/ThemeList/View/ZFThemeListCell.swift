@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ZFThemeListCell: UITableViewCell {
 
@@ -18,7 +19,7 @@ class ZFThemeListCell: UITableViewCell {
         didSet {
             self.titleLabel.text = story.title
             if story.images != nil {
-                self.rightImageView.yy_setImageWithURL(NSURL(string: story.images![0]), placeholder: UIImage(named: "avatar"))
+                self.rightImageView.kf_setImageWithURL(NSURL(string: story.images![0])!, placeholderImage: UIImage(named: "avatar"))
                 self.imageWidthConstraint.constant = 80;
             }else {
                 self.imageWidthConstraint.constant = 0;

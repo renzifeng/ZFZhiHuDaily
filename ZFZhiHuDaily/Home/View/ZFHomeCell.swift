@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ZFHomeCell: UITableViewCell {
 
@@ -19,7 +20,7 @@ class ZFHomeCell: UITableViewCell {
         }
         didSet {
             self.titleLabel.text  = news.title
-            self.rightImageView.yy_setImageWithURL(NSURL(string: news.images![0]), placeholder: UIImage(named: "avatar"))
+            self.rightImageView.kf_setImageWithURL(NSURL(string: news.images![0])!, placeholderImage: UIImage(named: "avatar"))
         }
     }
     

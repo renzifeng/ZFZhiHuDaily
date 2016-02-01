@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ZFCommentCell: UITableViewCell {
 
@@ -15,7 +16,7 @@ class ZFCommentCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     var comment : ZFComments! {
         didSet {
-            self.avatarImageView.yy_setImageWithURL(NSURL(string: comment.avatar!), placeholder: UIImage(named: "Editor_Profile_Avatar"))
+            self.avatarImageView.kf_setImageWithURL(NSURL(string: comment.avatar!)!, placeholderImage: UIImage(named: "Editor_Profile_Avatar"))
             self.userNameLabel.text = comment.author!
             self.contentLabel.text = comment.content!
         }

@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import Kingfisher
 
 class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
@@ -59,7 +60,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
                 self.topView.alpha = 0
                 self.backgroundImg.hidden = false
                 LightStatusBar()
-                self.backgroundImg.yy_setImageWithURL(NSURL(string: img), placeholder: UIImage(named: "avatar"))
+                self.backgroundImg.kf_setImageWithURL(NSURL(string: img)!, placeholderImage: UIImage(named: "avatar"))
                 self.webView.scrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
             }else {
                 self.backgroundImg.hidden = true
