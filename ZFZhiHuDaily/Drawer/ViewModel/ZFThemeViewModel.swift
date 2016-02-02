@@ -10,17 +10,12 @@ import UIKit
 import SwiftyJSON
 
 class ZFThemeViewModel: NSObject {
-    var themes : [ZFTheme] = []
 
     // 回调
     typealias ThemeViewModelSuccessCallBack = (dataSoure : Array<ZFTheme>) -> Void
     typealias ThemeVieModelErrorCallBack = (error : NSError) -> Void
-    var successCallBack : ThemeViewModelSuccessCallBack?
-    var errorCallBack : ThemeVieModelErrorCallBack?
 
     func getData (successCallBack : ThemeViewModelSuccessCallBack?, errorCallBack : ThemeVieModelErrorCallBack?) {
-        self.successCallBack = successCallBack
-        self.errorCallBack = errorCallBack
         ZFNetworkTool.get(THEME_URL, params: nil, success: { (json) -> Void in
             
             var others : [ZFTheme]?
@@ -30,8 +25,8 @@ class ZFThemeViewModel: NSObject {
                     others?.append(ZFTheme(json: item))
                 }
                 // 回调给controller
-                if self.successCallBack != nil {
-                    self.successCallBack!(dataSoure: others!)
+                if successCallBack != nil {
+                    successCallBack!(dataSoure: others!)
                 }
             } else {
                 others = nil
