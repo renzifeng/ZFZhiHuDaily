@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import YYWebImage
 import Alamofire
+import SwiftyJSON
 
 class LaunchViewController: UIViewController, JSAnimatedImagesViewDataSource {
 
