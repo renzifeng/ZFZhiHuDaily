@@ -46,7 +46,6 @@
 		CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1C31C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift */; };
 		CC07B1C61C3E2DC1001D6762 /* AppException.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1C51C3E2DC1001D6762 /* AppException.swift */; };
 		CC07B1D71C3E621B001D6762 /* NavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1D61C3E621B001D6762 /* NavigationBarExtension.swift */; };
-		CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */; };
 		CC07B1E01C3E6DEF001D6762 /* ZFThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */; };
 		CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */; };
 		CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */; };
@@ -89,6 +88,7 @@
 		CCAD297F1C40F3B40096B2A7 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD297B1C40F3B40096B2A7 /* DetailHeaderView.m */; };
 		CCAD29801C40F3B40096B2A7 /* DetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD297D1C40F3B40096B2A7 /* DetailFooterView.m */; };
 		CCAD29871C40F43D0096B2A7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD29861C40F43D0096B2A7 /* UIView+Extension.m */; };
+		CCF49F751C6070DE006A5775 /* ZFTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF49F741C6070DE006A5775 /* ZFTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +159,6 @@
 		CC07B1C31C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLSession+SynchronousTask.swift"; sourceTree = "<group>"; };
 		CC07B1C51C3E2DC1001D6762 /* AppException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppException.swift; sourceTree = "<group>"; };
 		CC07B1D61C3E621B001D6762 /* NavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtension.swift; sourceTree = "<group>"; };
-		CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTheme.swift; sourceTree = "<group>"; };
 		CC07B1DF1C3E6DEF001D6762 /* ZFThemeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewModel.swift; sourceTree = "<group>"; };
 		CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureView.swift; sourceTree = "<group>"; };
 		CC07B1EA1C3F789F001D6762 /* CyclePictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclePictureCell.swift; sourceTree = "<group>"; };
@@ -213,6 +212,7 @@
 		CCAD297D1C40F3B40096B2A7 /* DetailFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFooterView.m; sourceTree = "<group>"; };
 		CCAD29851C40F43D0096B2A7 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		CCAD29861C40F43D0096B2A7 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		CCF49F741C6070DE006A5775 /* ZFTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,7 +280,7 @@
 		CC073EF81C3B847D00906779 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC07B1DD1C3E6DE0001D6762 /* ZFTheme.swift */,
+				CCF49F741C6070DE006A5775 /* ZFTheme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1116,6 +1116,7 @@
 				CC7D52351C565002005FB83E /* ZFStories.swift in Sources */,
 				CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */,
 				CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */,
+				CCF49F751C6070DE006A5775 /* ZFTheme.swift in Sources */,
 				CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */,
 				CC07B18A1C3CDC15001D6762 /* ImageTextButton.m in Sources */,
 				CC07B1381C3CC138001D6762 /* ZFNetworkTool.swift in Sources */,
@@ -1144,7 +1145,6 @@
 				CC55E0FC1C57055A00C6FD25 /* ZFThemeStories.swift in Sources */,
 				CC07B1731C3CDBCA001D6762 /* UIColor+Extend.swift in Sources */,
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
-				CC07B1DE1C3E6DE0001D6762 /* ZFTheme.swift in Sources */,
 				CCAD29761C40EEEB0096B2A7 /* MMViewController.swift in Sources */,
 				CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */,
 				CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */,

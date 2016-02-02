@@ -22,36 +22,24 @@ class ZFThemeViewModel: NSObject {
         self.successCallBack = successCallBack
         self.errorCallBack = errorCallBack
         ZFNetworkTool.get(THEME_URL, params: nil, success: { (json) -> Void in
-            let result = JSON(json)
-            //主题列表
-            let themes:[JSON]? = result["others"].array
             
-            for theme in themes! {
-                self.themes.append(self.convertJSON2Theme(theme))
+            var others : [ZFTheme]?
+            others = []
+            if let items = JSON(json)["others"].array {
+                for item in items {
+                    others?.append(ZFTheme(json: item))
+                }
+                // 回调给controller
+                if self.successCallBack != nil {
+                    self.successCallBack!(dataSoure: others!)
+                }
+            } else {
+                others = nil
             }
-            // 回调给controller
-            if self.successCallBack != nil {
-                self.successCallBack!(dataSoure: self.themes)
-            }
+
         }) { (error) -> Void in
                 
         }
         
-    }
-    /**
-     JSON对象和VO对象的转换
-     
-     - parameter json:
-     
-     - returns:
-     */
-    private func convertJSON2Theme(json:JSON) -> ZFTheme {
-        let color = json["color"].intValue
-        let thumbnail = json["thumbnail"].stringValue
-        let description = json["description"].stringValue
-        let id = json["id"].intValue
-        let name = json["name"].stringValue
-        
-        return ZFTheme(color: color, thumbnail: thumbnail, description: description, id: id, name: name)
     }
 }

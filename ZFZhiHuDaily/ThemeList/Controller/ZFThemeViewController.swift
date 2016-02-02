@@ -35,7 +35,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         setTableHeader()
         setRefreshView()
         viewModel.tableView = self.tableView;
-        viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
+        viewModel.getListData(String(theme.internalIdentifier!), successBlock: { (dataSources) -> Void in
             let list = dataSources
             self.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
             self.dataSoure = list.stories!
@@ -92,7 +92,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     func updateData() {
         print("下拉刷新")
         //获取数据源
-        viewModel.getListData(String(theme.id), successBlock: { (dataSources) -> Void in
+        viewModel.getListData(String(theme.internalIdentifier!), successBlock: { (dataSources) -> Void in
             self.dataSoure.removeAll()
             let list = dataSources
             self.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
