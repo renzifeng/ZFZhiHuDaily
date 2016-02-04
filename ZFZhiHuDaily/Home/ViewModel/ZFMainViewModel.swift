@@ -42,7 +42,7 @@ class ZFMainViewModel: NSObject {
             if successCallBack != nil {
                 successCallBack!(dataSoure:stories1!, headerSource:topStories!)
             }
-            }) { (error) -> Void in
+        }) { (error) -> Void in
                 
         }
     }
@@ -86,7 +86,7 @@ class ZFMainViewModel: NSObject {
                 if successCallBack != nil {
                     successCallBack!(dataSoure:stories!,dateStr:dateStr)
                 }
-                }) { (error) -> Void in
+            }) { (error) -> Void in
                     
             }
         }

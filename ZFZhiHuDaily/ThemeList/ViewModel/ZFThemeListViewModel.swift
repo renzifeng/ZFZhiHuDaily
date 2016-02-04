@@ -29,7 +29,6 @@ class ZFThemeListViewModel: NSObject {
     func getListData (themeId : String , successBlock : SuccessCallBackBlock,errorBlock : ErrorBlockCallBack) {
 
         ZFNetworkTool.get(THEME_LIST + themeId, params: nil, success: { (json) -> Void in
-            print("========\(json)")
             let themeList = ZFThemeDetail(object: json)
             // 回调给controller
             successBlock(dataSources: themeList)

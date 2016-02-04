@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import SwiftyJSON
 
-
 class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -41,7 +40,6 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         
         viewModel.getData({(dataSoure) -> Void in
-            print("---\(dataSoure)")
             self.dataSoure = dataSoure
             self.tableView.reloadData()
             }) { (error) -> Void in
@@ -68,7 +66,7 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.tableView.tableFooterView = UIView()
 
     }
-    //离线
+    //离线(年后做)
     @IBAction func cacheData() {
         
     }
