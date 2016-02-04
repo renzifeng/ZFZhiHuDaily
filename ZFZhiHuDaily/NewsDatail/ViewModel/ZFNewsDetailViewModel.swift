@@ -8,32 +8,55 @@
 
 import UIKit
 import SwiftyJSON
+import AwesomeCache
 
 class ZFNewsDetailViewModel {
     
     typealias SuccessCallBack = (newsDetail: ZFNewsDetail) -> Void
     typealias SuccessCallBackExtra = (newsExtra: ZFNewsExtra) -> Void
+    let newsDetailCache = try! Cache<ZFNewsDetail>(name: "ZFNewsDetail")
+    let newsExtraCache = try! Cache<ZFNewsExtra>(name: "ZFNewsExtra")
     
     func loadNewsDetail(id: String,complate: SuccessCallBack?, block: ErrorBlockCallBack?) {
-        ZFNetworkTool.get(NEWS_DETAIL + id, params: nil, success: { (json) -> Void in
-
-            let detail = ZFNewsDetail(object: json)
+        //判断本地有没有缓存
+        if let newsDatail = newsDetailCache[id] {
             if complate != nil {
-                complate!(newsDetail: detail)
+                complate!(newsDetail: newsDatail)
             }
-           
-            }) { (error) -> Void in
+        }else {
+            ZFNetworkTool.get(NEWS_DETAIL + id, params: nil, success: { (json) -> Void in
+                let detail = ZFNewsDetail(object: json)
+                //存储
+                self.newsDetailCache[id] = detail
                 
+                if complate != nil {
+                    complate!(newsDetail: detail)
+                }
+                
+                }) { (error) -> Void in
+                    
+            }
         }
+        
     }
     
     func loadNewsExra(id : String, complate: SuccessCallBackExtra?, error: ErrorBlockCallBack?) {
-        ZFNetworkTool.get(NEWS_EXTRA + id, params: nil, success: { (json) -> Void in
-            let extra = ZFNewsExtra(object: json)
-            complate!(newsExtra: extra)
-            }) { (error) -> Void in
+//        //判断本地有没有缓存
+//        if let newsExtra = newsExtraCache[id] {
+//            if complate != nil {
+//                complate!(newsExtra: newsExtra)
+//            }
+//        }else {
+            ZFNetworkTool.get(NEWS_EXTRA + id, params: nil, success: { (json) -> Void in
+                let extra = ZFNewsExtra(object: json)
+                //存储
+                self.newsExtraCache[id] = extra
                 
-        }
+                complate!(newsExtra: extra)
+                }) { (error) -> Void in
+                    
+            }
+//        }
     }
 
 }

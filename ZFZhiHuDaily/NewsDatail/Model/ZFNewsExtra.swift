@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public class ZFNewsExtra: NSObject {
+public class ZFNewsExtra: NSObject,NSCoding {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
 	internal let kZFNewExtraPopularityKey: String = "popularity"
@@ -82,5 +82,27 @@ public class ZFNewsExtra: NSObject {
 
         return dictionary
     }
+    
+    // MARK: NSCoding Protocol
+    required public init(coder aDecoder: NSCoder) {
+        self.popularity = aDecoder.decodeObjectForKey(kZFNewExtraPopularityKey) as? Int
+        self.postReasons = aDecoder.decodeObjectForKey(kZFNewExtraPostReasonsKey) as? Int
+        self.comments = aDecoder.decodeObjectForKey(kZFNewExtraCommentsKey) as? Int
+        self.normalComments = aDecoder.decodeObjectForKey(kZFNewExtraNormalCommentsKey) as? Int
+        self.longComments = aDecoder.decodeObjectForKey(kZFNewExtraLongCommentsKey) as? Int
+        self.shortComments = aDecoder.decodeObjectForKey(kZFNewExtraShortCommentsKey) as? Int
+        
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(popularity, forKey: kZFNewExtraPopularityKey)
+        aCoder.encodeObject(postReasons, forKey: kZFNewExtraPostReasonsKey)
+        aCoder.encodeObject(comments, forKey: kZFNewExtraCommentsKey)
+        aCoder.encodeObject(normalComments, forKey: kZFNewExtraNormalCommentsKey)
+        aCoder.encodeObject(longComments, forKey: kZFNewExtraLongCommentsKey)
+        aCoder.encodeObject(shortComments, forKey: kZFNewExtraShortCommentsKey)
+        
+    }
+
 
 }

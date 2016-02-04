@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public class ZFNewsDetail: NSObject {
+public class ZFNewsDetail: NSObject,NSCoding {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
 	internal let kZFNewDetailTitleKey: String = "title"
@@ -127,6 +127,34 @@ public class ZFNewsDetail: NSObject {
 		}
 
         return dictionary
+    }
+
+    // MARK: NSCoding Protocol
+    required public init(coder aDecoder: NSCoder) {
+        self.title = aDecoder.decodeObjectForKey(kZFNewDetailTitleKey) as? String
+        self.css = aDecoder.decodeObjectForKey(kZFNewDetailCssKey) as? [String]
+        self.shareUrl = aDecoder.decodeObjectForKey(kZFNewDetailShareUrlKey) as? String
+        self.internalIdentifier = aDecoder.decodeObjectForKey(kZFNewDetailInternalIdentifierKey) as? Int
+        self.body = aDecoder.decodeObjectForKey(kZFNewDetailBodyKey) as? String
+        self.image = aDecoder.decodeObjectForKey(kZFNewDetailImageKey) as? String
+        self.gaPrefix = aDecoder.decodeObjectForKey(kZFNewDetailGaPrefixKey) as? String
+        self.imageSource = aDecoder.decodeObjectForKey(kZFNewDetailImageSourceKey) as? String
+        self.type = aDecoder.decodeObjectForKey(kZFNewDetailTypeKey) as? Int
+        
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(title, forKey: kZFNewDetailTitleKey)
+        aCoder.encodeObject(css, forKey: kZFNewDetailCssKey)
+        aCoder.encodeObject(shareUrl, forKey: kZFNewDetailShareUrlKey)
+        aCoder.encodeObject(internalIdentifier, forKey: kZFNewDetailInternalIdentifierKey)
+        aCoder.encodeObject(body, forKey: kZFNewDetailBodyKey)
+        aCoder.encodeObject(js, forKey: kZFNewDetailJsKey)
+        aCoder.encodeObject(image, forKey: kZFNewDetailImageKey)
+        aCoder.encodeObject(gaPrefix, forKey: kZFNewDetailGaPrefixKey)
+        aCoder.encodeObject(imageSource, forKey: kZFNewDetailImageSourceKey)
+        aCoder.encodeObject(type, forKey: kZFNewDetailTypeKey)
+        
     }
 
 }

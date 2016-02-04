@@ -48,8 +48,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             self.tableView.reloadData()
             }) { (error) -> Void in 
         }
-//        self.navigationController?.navigationBar.barTintColor = UIColor.greenColor()
-
         //设置navbar颜色
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         //初始化轮播图
@@ -61,7 +59,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -64, delegate:self)
         
         self.tableView.tableHeaderView = heardView
-//        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
