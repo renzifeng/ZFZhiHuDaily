@@ -17,9 +17,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     var imageTitleArray : [String] = []
     /// 页数的下标，用来计算接口中传的Date
     var dateIndex : Int = 1
-    deinit{
-        print("2222")
-    }
+
     @IBOutlet weak var tableView: UITableView!
 
     //ViewModel
@@ -70,7 +68,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         }else {
             self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, offSetY/100))
         }
-        print("----%f",self.tableView.contentOffset.y)
         openTheDrawerGesture()
     }
     

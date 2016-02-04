@@ -34,6 +34,7 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
 
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 1))
+        LightStatusBar()
     }
     
     @IBAction func popToback(sender: UIButton) {
