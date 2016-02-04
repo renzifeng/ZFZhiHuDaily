@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public class ZFBeforeNews: NSObject {
+public class ZFBeforeNews: NSObject,NSCoding {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
 	internal let kZFNewsDateKey: String = "date"
@@ -69,5 +69,19 @@ public class ZFBeforeNews: NSObject {
 
         return dictionary
     }
+    
+    // MARK: NSCoding Protocol
+    required public init(coder aDecoder: NSCoder) {
+        self.date = aDecoder.decodeObjectForKey(kZFNewsDateKey) as? String
+        self.stories = aDecoder.decodeObjectForKey(kZFNewsStoriesKey) as? [ZFStories]
+        
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(date, forKey: kZFNewsDateKey)
+        aCoder.encodeObject(stories, forKey: kZFNewsStoriesKey)
+        
+    }
+
 
 }

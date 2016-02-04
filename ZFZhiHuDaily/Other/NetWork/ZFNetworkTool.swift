@@ -28,12 +28,14 @@ class ZFNetworkTool: NSObject {
                 }
             })
         }else {
-            Alamofire.request(.GET, httpUrl).responseJSON { (response) -> Void in
+            Alamofire.request(.GET, httpUrl).progress({ (bytesRead, totalBytesRead, totalBytesExpectedToRead) -> Void in
+                
+            }).responseJSON { (response) -> Void in
                 if let JSON = response.result.value {
                     success(json: JSON)
                 }
             }
-           
+            
         }
     }
     
@@ -63,4 +65,5 @@ class ZFNetworkTool: NSObject {
             
         }
     }
+    
 }

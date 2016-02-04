@@ -68,7 +68,11 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.tableView.tableFooterView = UIView()
 
     }
-
+    //离线
+    @IBAction func cacheData() {
+        
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSoure.count+1
     }

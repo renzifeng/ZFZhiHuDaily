@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public class ZFLatestNews: NSObject {
+public class ZFLatestNews: NSObject,NSCoding {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
 	internal let kZFLatestNewsTopStoriesKey: String = "top_stories"
@@ -85,6 +85,21 @@ public class ZFLatestNews: NSObject {
 		}
 
         return dictionary
+    }
+    
+    // MARK: NSCoding Protocol
+    required public init(coder aDecoder: NSCoder) {
+        self.topStories = aDecoder.decodeObjectForKey(kZFLatestNewsTopStoriesKey) as? [ZFTopStories]
+        self.date = aDecoder.decodeObjectForKey(kZFLatestNewsDateKey) as? String
+        self.stories = aDecoder.decodeObjectForKey(kZFLatestNewsStoriesKey) as? [ZFStories]
+        
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(topStories, forKey: kZFLatestNewsTopStoriesKey)
+        aCoder.encodeObject(date, forKey: kZFLatestNewsDateKey)
+        aCoder.encodeObject(stories, forKey: kZFLatestNewsStoriesKey)
+        
     }
 
 }

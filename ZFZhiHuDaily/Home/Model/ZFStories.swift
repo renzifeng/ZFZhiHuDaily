@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public class ZFStories: NSObject {
+public class ZFStories: NSObject,NSCoding {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
 	internal let kZFStoriesTitleKey: String = "title"
@@ -93,5 +93,27 @@ public class ZFStories: NSObject {
 
         return dictionary
     }
+    
+    // MARK: NSCoding Protocol
+    required public init(coder aDecoder: NSCoder) {
+        self.title = aDecoder.decodeObjectForKey(kZFStoriesTitleKey) as? String
+        self.type = aDecoder.decodeObjectForKey(kZFStoriesTypeKey) as? Int
+        self.internalIdentifier = aDecoder.decodeObjectForKey(kZFStoriesInternalIdentifierKey) as? Int
+        self.multipic = aDecoder.decodeBoolForKey(kZFStoriesMultipicKey)
+        self.images = aDecoder.decodeObjectForKey(kZFStoriesImagesKey) as? [String]
+        self.gaPrefix = aDecoder.decodeObjectForKey(kZFStoriesGaPrefixKey) as? String
+        
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(title, forKey: kZFStoriesTitleKey)
+        aCoder.encodeObject(type, forKey: kZFStoriesTypeKey)
+        aCoder.encodeObject(internalIdentifier, forKey: kZFStoriesInternalIdentifierKey)
+        aCoder.encodeBool(multipic, forKey: kZFStoriesMultipicKey)
+        aCoder.encodeObject(images, forKey: kZFStoriesImagesKey)
+        aCoder.encodeObject(gaPrefix, forKey: kZFStoriesGaPrefixKey)
+        
+    }
+
 
 }

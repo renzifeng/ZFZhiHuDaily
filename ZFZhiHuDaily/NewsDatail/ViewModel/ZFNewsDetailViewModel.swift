@@ -41,22 +41,23 @@ class ZFNewsDetailViewModel {
     }
     
     func loadNewsExra(id : String, complate: SuccessCallBackExtra?, error: ErrorBlockCallBack?) {
-//        //判断本地有没有缓存
-//        if let newsExtra = newsExtraCache[id] {
-//            if complate != nil {
-//                complate!(newsExtra: newsExtra)
-//            }
-//        }else {
-            ZFNetworkTool.get(NEWS_EXTRA + id, params: nil, success: { (json) -> Void in
-                let extra = ZFNewsExtra(object: json)
-                //存储
-                self.newsExtraCache[id] = extra
-                
-                complate!(newsExtra: extra)
-                }) { (error) -> Void in
-                    
+        //判断本地有没有缓存（先加载缓存，后请求数据）
+        if let newsExtra = newsExtraCache[id] {
+            if complate != nil {
+                complate!(newsExtra: newsExtra)
             }
-//        }
+        }
+        
+        ZFNetworkTool.get(NEWS_EXTRA + id, params: nil, success: { (json) -> Void in
+            let extra = ZFNewsExtra(object: json)
+            //存储（更新数据）
+            self.newsExtraCache[id] = extra
+            
+            complate!(newsExtra: extra)
+            }) { (error) -> Void in
+                
+        }
     }
+    
 
 }
