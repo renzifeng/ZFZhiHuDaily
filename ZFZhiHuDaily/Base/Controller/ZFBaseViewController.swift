@@ -26,9 +26,10 @@ class ZFBaseViewController: UIViewController {
     func createLeftNavWithImage(imageName : String) {
         let btn = UIButton(type: .Custom)
         btn.setImage(UIImage(named: imageName), forState: .Normal)
-        btn.frame = CGRectMake(0, 0, 30, 30);
+        btn.frame = CGRectMake(20, 7, 30, 30);
         btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+        navView.addSubview(btn)
     }
     
     func createLeftNavWithTitle(title : String) {

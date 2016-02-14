@@ -19,9 +19,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     /// tableView数据源
     var dataSoure : [ZFThemeStories] = []
     var backgroundImg : UIImageView!
-    deinit {
-        print("xigou")
-    }
+   
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -62,9 +60,8 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     
     //刷新View
     func setRefreshView() {
-        navigationItem.titleView = self.centerView
-        centerView.addSubview(self.navTitleLabel)
-        centerView.addSubview(self.tabRefreshView)
+        navTitle.text = self.theme.name
+        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
     }
 
     // MARK: - UITableView Delegate
@@ -117,39 +114,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     func autoAdjustNavigationBarAplha(aplha: CGFloat) {
         self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
     }
-    
-    // MARK:- Getter Methods
-    
-    private lazy var centerView : UIView = {
-        let centerView = UIView()
-        centerView.frame = CGRectMake(0, 0, ScreenWidth-150, 44)
-        return centerView
-    }()
-    
-    private lazy var navTitleLabel : UILabel = {
-        let navTitleLabel = UILabel()
-        navTitleLabel.textColor = UIColor.whiteColor()
-        navTitleLabel.font = FONT(18)
-        navTitleLabel.text = self.theme.name
-        navTitleLabel.centerX = self.centerView.centerX
-        navTitleLabel.centerY = 11
-        navTitleLabel.sizeToFit();
-        navTitleLabel.x = self.centerView.centerX-navTitleLabel.width/2
-        return navTitleLabel
-    }()
-
-    
-    private lazy var tabRefreshView : CircleRefreshView = {
-        let refreshView = CircleRefreshView()
-        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
-        refreshView.frame = CGRectMake(10, 0, 20, 20)
-        refreshView.centerY = 22
-        refreshView.x = self.navTitleLabel.x - 30
-        return refreshView
-    }()
-
-
-    
+        
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

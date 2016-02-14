@@ -95,6 +95,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = true
+        navView.hidden = true
         closeTheDrawerGesture()
     }
     // MARK: - SetupUI
