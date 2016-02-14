@@ -131,6 +131,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let story = self.dataSoure[indexPath.row]
         newsDetailVC.newsId = String(story.internalIdentifier!)
+//        newsDetailVC.newsIdArray = 
     }
 
 }

@@ -11,6 +11,7 @@ import SwiftyJSON
 import AwesomeCache
 
 class ZFNewsDetailViewModel {
+    
     typealias SuccessCallBack = (newsDetail: ZFNewsDetail) -> Void
     typealias SuccessCallBackExtra = (newsExtra: ZFNewsExtra) -> Void
     let newsDetailCache = try! Cache<ZFNewsDetail>(name: "ZFNewsDetail")

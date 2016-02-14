@@ -11,12 +11,15 @@ import NVActivityIndicatorView
 import Kingfisher
 
 class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrollViewDelegate {
-    
+    /// 容器view
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var zanBtn: ZanButton!
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var commentNumLabel: UILabel!
     @IBOutlet weak var zanNumLabel: UILabel!
+    /// 存放内容id的数组
+    var newsIdArray : [String]!
     /// 新闻id
     var newsId : String!
     var viewModel = ZFNewsDetailViewModel()
@@ -29,6 +32,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var activityIndicatorView : NVActivityIndicatorView!
     /// 判断是否有图
     var hasPic : Bool = false
+    /// 是否正在加载
+    var isLoading : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +81,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                 self.titleLabel.text = newsDetail.title!
                 LightStatusBar()
                 self.backgroundImg.kf_setImageWithURL(NSURL(string: img)!, placeholderImage: UIImage(named: "avatar"))
-                self.webView.scrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
+                self.webView.scrollView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0)
             }else {
                 self.hasPic = false
                 self.backgroundImg.hidden = true
@@ -146,12 +151,14 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicatorView.stopAnimation()
+        self.isLoading = false
     }
     
     // MARK: - ParallaxHeaderViewDelegate
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y;
+        print("====%f",offSetY)
         //有图模式
         if hasPic {
             if (Float)(offSetY) >= 170 {
@@ -165,9 +172,45 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             statusView.backgroundColor = UIColor.whiteColor()
             BlackStatusBar()
         }
+        
+        if (-offSetY <= 40 && -offSetY >= 20) {
+            //上一条新闻
+             print("上一条")
+        }else if (-offSetY > 40) {//到－80 让webview不再能被拉动
+            self.webView.scrollView.contentOffset = CGPointMake(0, -40);
+        }
+        
+        if (offSetY + ScreenHeight > scrollView.contentSize.height + 20  && !self.webView.scrollView.dragging) {
+            
+            getNextNews()
+            print("下一条")
+        }
     }
 
 
+    // MARK: - 下一条新闻
+    
+    func getNextNews() {
+        if self.isLoading {
+            return
+        }
+        self.isLoading = true
+        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
+            self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
+            
+        }) { (finished) -> Void in
+            self.isLoading = false
+            let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+            dispatch_after(delay, dispatch_get_main_queue()) {
+                self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+            }
+        }
+    }
+    // MARK: - 上一条新闻
+    
+    func getPreviousNews() {
+        
+    }
     
     // MARK: - Navigation
 

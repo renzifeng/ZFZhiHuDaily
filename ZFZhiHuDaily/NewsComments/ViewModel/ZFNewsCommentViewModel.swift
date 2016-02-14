@@ -15,7 +15,6 @@ class ZFNewsCommentViewModel {
     
     func getLongComment(newsId: String, longComment : CommentSuccessBlock?) {
         ZFNetworkTool.get(NEWS_LONG_COMMENT(newsId), params: nil, success: { (json) -> Void in
-            print("======\(json)")
             var comments: [ZFComments]?
             comments = []
             if let items = JSON(json)["comments"].array {
@@ -35,7 +34,6 @@ class ZFNewsCommentViewModel {
     
     func getShortComment(newsId: String, shortComment : CommentSuccessBlock?) {
         ZFNetworkTool.get(NEWS_LONG_COMMENT(newsId), params: nil, success: { (json) -> Void in
-            print("======\(json)")
             var comments: [ZFComments]?
             comments = []
             if let items = JSON(json)["comments"].array {
