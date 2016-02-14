@@ -45,6 +45,11 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         LightStatusBar()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        LightStatusBar()
         openTheDrawerGesture()
     }
     

@@ -46,7 +46,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             }) { (error) -> Void in 
         }
         //设置navbar颜色
-//        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         statusView.backgroundColor = RGBA(0, 130, 210, 0)
         navView.backgroundColor = RGBA(0, 130, 210, 0)
         
@@ -67,15 +66,17 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         //根据tab的偏移量设置navbar颜色
         let offSetY : CGFloat = self.tableView.contentOffset.y;
         if offSetY > 100 {
-//            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 1))
             navView.backgroundColor = RGBA(0, 130, 210, 1)
             statusView.backgroundColor = RGBA(0, 130, 210, 1)
         }else {
             navView.backgroundColor = RGBA(0, 130, 210, offSetY/100)
             statusView.backgroundColor = RGBA(0, 130, 210, offSetY/100)
-//            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, offSetY/100))
         }
         openTheDrawerGesture()
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        LightStatusBar()
     }
     
     //轮播图数据源
@@ -92,14 +93,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }
     
     func setRefreshView() {
-
-//        navView = UIView(frame: CGRectMake(0, 0, ScreenWidth, 44))
-//        self.navigationController!.navigationBar.addSubview(navView)
-        
-//        navigationItem.titleView = self.centerView
-//        navView.addSubview(self.centerView)
-//        self.centerView.addSubview(self.navTitleLabel)
-//        self.centerView.addSubview(self.refreshView)
         refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
     }
     // MARK: - Action

@@ -19,6 +19,7 @@ class ZFBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true
         setupNavView()
         // Do any additional setup after loading the view.
     }
@@ -26,19 +27,18 @@ class ZFBaseViewController: UIViewController {
     func createLeftNavWithImage(imageName : String) {
         let btn = UIButton(type: .Custom)
         btn.setImage(UIImage(named: imageName), forState: .Normal)
-        btn.frame = CGRectMake(20, 7, 30, 30);
+        btn.frame = CGRectMake(20, 27, 30, 30);
         btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
-        navView.addSubview(btn)
+        self.view.addSubview(btn)
     }
     
-    func createLeftNavWithTitle(title : String) {
-        let btn = UIButton(type: .Custom)
-        btn.setTitle(title, forState: .Normal)
-        btn.frame = CGRectMake(0, 0, 30, 30);
-        btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
-    }
+//    func createLeftNavWithTitle(title : String) {
+//        let btn = UIButton(type: .Custom)
+//        btn.setTitle(title, forState: .Normal)
+//        btn.frame = CGRectMake(20, 27, 30, 30);
+//        btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
+//        self.view.addSubview(btn)
+//    }
 
     func didClickLeft() {
         appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)

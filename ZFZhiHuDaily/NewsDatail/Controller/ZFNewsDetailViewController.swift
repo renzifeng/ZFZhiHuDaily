@@ -21,11 +21,14 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var newsId : String!
     var viewModel = ZFNewsDetailViewModel()
     var backgroundImg : UIImageView!
+    var titleLabel : UILabel!
     var heardView : ParallaxHeaderView!
     /// 新闻额外信息
     var newsExtra : ZFNewsExtra!
     /// loading
     var activityIndicatorView : NVActivityIndicatorView!
+    /// 判断是否有图
+    var hasPic : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,18 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
-        backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT))
+        backgroundImg.frame = CGRectMake(0, -40, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT+40))
+        
+        titleLabel = UILabel()
+        titleLabel.numberOfLines = 0
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.font = UIFont.boldSystemFontOfSize(20.0)
+        backgroundImg.addSubview(titleLabel)
+        titleLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+            make.bottom.equalTo(-10)
+        }
         
         self.webView.scrollView.addSubview(backgroundImg)
         self.webView.scrollView.delegate = self
@@ -57,14 +71,17 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         //获取新闻详情
         viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
+                self.hasPic = true
                 self.backgroundImg.hidden = false
+                self.titleLabel.text = newsDetail.title!
                 LightStatusBar()
                 self.backgroundImg.kf_setImageWithURL(NSURL(string: img)!, placeholderImage: UIImage(named: "avatar"))
                 self.webView.scrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
             }else {
+                self.hasPic = false
                 self.backgroundImg.hidden = true
                 BlackStatusBar()
-                self.webView.scrollView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0)
+                self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             }
             if  var body = newsDetail.body {
                 if let css = newsDetail.css {
@@ -135,15 +152,19 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y;
-        if (Float)(offSetY) >= 115 {
-            print("=====%f",offSetY);
+        //有图模式
+        if hasPic {
+            if (Float)(offSetY) >= 170 {
+                statusView.backgroundColor = UIColor.whiteColor()
+                BlackStatusBar()
+            }else {
+                LightStatusBar()
+                statusView.backgroundColor = UIColor.clearColor()
+            }
+        }else { //无图模式
             statusView.backgroundColor = UIColor.whiteColor()
             BlackStatusBar()
-        }else {
-            LightStatusBar()
-            statusView.backgroundColor = UIColor.clearColor()
         }
-         print("-----==%f",offSetY);
     }
 
 
