@@ -31,7 +31,8 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         navView.backgroundColor = ThemeColor
         statusView.backgroundColor = ThemeColor
         navView.hidden = false

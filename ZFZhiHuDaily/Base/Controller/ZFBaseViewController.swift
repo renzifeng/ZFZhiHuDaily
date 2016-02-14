@@ -31,14 +31,6 @@ class ZFBaseViewController: UIViewController {
         btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
         self.view.addSubview(btn)
     }
-    
-//    func createLeftNavWithTitle(title : String) {
-//        let btn = UIButton(type: .Custom)
-//        btn.setTitle(title, forState: .Normal)
-//        btn.frame = CGRectMake(20, 27, 30, 30);
-//        btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
-//        self.view.addSubview(btn)
-//    }
 
     func didClickLeft() {
         appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)

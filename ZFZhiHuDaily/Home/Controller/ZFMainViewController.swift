@@ -225,8 +225,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         self.tableView.contentOffset.y = maxOffsetY
     }
     func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-//        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
-        print("------%f",aplha)
         navView.backgroundColor = RGBA(0, 130, 210, aplha)
         statusView.backgroundColor = RGBA(0, 130, 210, aplha)
         
@@ -246,37 +244,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         let topic = self.headerSource[indexPath.row]
         newsDetailVC.newsId = String(topic.internalIdentifier!)
     }
-    
-
-    // MARK:- Getter Methods
-    
-//    private lazy var centerView : UIView = {
-//        let centerView = UIView()
-//        centerView.frame = CGRectMake(ScreenWidth/2-100, 0, 200, 44)
-//        return centerView
-//    }()
-//    
-//    private lazy var navTitleLabel : UILabel = {
-//        let navTitleLabel = UILabel()
-//        navTitleLabel.textColor = UIColor.whiteColor()
-//        navTitleLabel.font = FONT(18)
-//        navTitleLabel.text = "今日热闻"
-//        navTitleLabel.centerX = self.centerView.centerX
-//        navTitleLabel.centerY = 11
-//        navTitleLabel.sizeToFit();
-//        navTitleLabel.x = self.centerView.centerX-navTitleLabel.width/2
-//        return navTitleLabel
-//    }()
-//    
-//    private lazy var refreshView : CircleRefreshView = {
-//        let refreshView = CircleRefreshView()
-//        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
-//        refreshView.frame = CGRectMake(10, 0, 20, 20)
-//        refreshView.centerY = 22
-//        refreshView.x = self.navTitleLabel.x - 30
-//        return refreshView
-//    }()
-    
     
     
     // MARK: - Navigation
