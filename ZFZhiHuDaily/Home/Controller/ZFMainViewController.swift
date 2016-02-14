@@ -19,7 +19,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     var dateIndex : Int = 1
 
     @IBOutlet weak var tableView: UITableView!
-
     //ViewModel
     private var viewModel : ZFMainViewModel! = ZFMainViewModel()
     //轮播图数据源
@@ -47,7 +46,10 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             }) { (error) -> Void in 
         }
         //设置navbar颜色
-        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+//        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        statusView.backgroundColor = RGBA(0, 130, 210, 0)
+        navView.backgroundColor = RGBA(0, 130, 210, 0)
+        
         //初始化轮播图
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
         cyclePictureView.currentDotColor = UIColor.whiteColor()
@@ -60,13 +62,18 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
         LightStatusBar()
         //根据tab的偏移量设置navbar颜色
         let offSetY : CGFloat = self.tableView.contentOffset.y;
         if offSetY > 100 {
-            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 1))
+//            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 1))
+            navView.backgroundColor = RGBA(0, 130, 210, 1)
+            statusView.backgroundColor = RGBA(0, 130, 210, 1)
         }else {
-            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, offSetY/100))
+            navView.backgroundColor = RGBA(0, 130, 210, offSetY/100)
+            statusView.backgroundColor = RGBA(0, 130, 210, offSetY/100)
+//            self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, offSetY/100))
         }
         openTheDrawerGesture()
     }
@@ -86,9 +93,14 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     
     func setRefreshView() {
 
-        navigationItem.titleView = self.centerView
-        self.centerView.addSubview(self.navTitleLabel)
-        self.centerView.addSubview(self.refreshView)
+//        navView = UIView(frame: CGRectMake(0, 0, ScreenWidth, 44))
+//        self.navigationController!.navigationBar.addSubview(navView)
+        
+//        navigationItem.titleView = self.centerView
+//        navView.addSubview(self.centerView)
+//        self.centerView.addSubview(self.navTitleLabel)
+//        self.centerView.addSubview(self.refreshView)
+        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
     }
     // MARK: - Action
     //打开抽屉
@@ -189,10 +201,28 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let heardView = self.tableView.tableHeaderView as! ParallaxHeaderView
         heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
-        let offSetY = scrollView.contentOffset.y;
+        let offSetY = scrollView.contentOffset.y
         // 上拉加载
         if (offSetY  > scrollView.contentSize.height - 1.5 * ScreenHeight) {
             pullMoreData()
+        }
+        
+        let dateHeaderHeight : CGFloat = 44.0;
+        if (offSetY <= dateHeaderHeight && offSetY >= 0) {
+            
+            scrollView.contentInset = UIEdgeInsetsMake(-offSetY, 0, 0, 0);
+        }
+        else if (offSetY >= dateHeaderHeight) {//偏移20
+            
+            scrollView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+        }
+
+        
+        let firstArray = self.dataSoure[0]
+        if (offSetY >=  (CGFloat)(80.0 * firstArray.count + 164*2)+44) {//第一个section到达后 隐藏navbar 和 标题
+            navView.alpha = 0;
+        }else {
+            navView.alpha = 1.0;
         }
     }
     
@@ -202,7 +232,11 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         self.tableView.contentOffset.y = maxOffsetY
     }
     func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
+//        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
+        print("------%f",aplha)
+        navView.backgroundColor = RGBA(0, 130, 210, aplha)
+        statusView.backgroundColor = RGBA(0, 130, 210, aplha)
+        
     }
 
      // MARK:- CirCleViewDelegate Methods
@@ -223,32 +257,32 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
 
     // MARK:- Getter Methods
     
-    private lazy var centerView : UIView = {
-        let centerView = UIView()
-        centerView.frame = CGRectMake(0, 0, ScreenWidth-150, 44)
-        return centerView
-    }()
-    
-    private lazy var navTitleLabel : UILabel = {
-        let navTitleLabel = UILabel()
-        navTitleLabel.textColor = UIColor.whiteColor()
-        navTitleLabel.font = FONT(18)
-        navTitleLabel.text = "今日热闻"
-        navTitleLabel.centerX = self.centerView.centerX
-        navTitleLabel.centerY = 11
-        navTitleLabel.sizeToFit();
-        navTitleLabel.x = self.centerView.centerX-navTitleLabel.width/2
-        return navTitleLabel
-    }()
-    
-    private lazy var refreshView : CircleRefreshView = {
-        let refreshView = CircleRefreshView()
-        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
-        refreshView.frame = CGRectMake(10, 0, 20, 20)
-        refreshView.centerY = 22
-        refreshView.x = self.navTitleLabel.x - 30
-        return refreshView
-    }()
+//    private lazy var centerView : UIView = {
+//        let centerView = UIView()
+//        centerView.frame = CGRectMake(ScreenWidth/2-100, 0, 200, 44)
+//        return centerView
+//    }()
+//    
+//    private lazy var navTitleLabel : UILabel = {
+//        let navTitleLabel = UILabel()
+//        navTitleLabel.textColor = UIColor.whiteColor()
+//        navTitleLabel.font = FONT(18)
+//        navTitleLabel.text = "今日热闻"
+//        navTitleLabel.centerX = self.centerView.centerX
+//        navTitleLabel.centerY = 11
+//        navTitleLabel.sizeToFit();
+//        navTitleLabel.x = self.centerView.centerX-navTitleLabel.width/2
+//        return navTitleLabel
+//    }()
+//    
+//    private lazy var refreshView : CircleRefreshView = {
+//        let refreshView = CircleRefreshView()
+//        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
+//        refreshView.frame = CGRectMake(10, 0, 20, 20)
+//        refreshView.centerY = 22
+//        refreshView.x = self.navTitleLabel.x - 30
+//        return refreshView
+//    }()
     
     
     

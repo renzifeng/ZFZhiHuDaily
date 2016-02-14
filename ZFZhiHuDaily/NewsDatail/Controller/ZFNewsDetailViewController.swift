@@ -10,9 +10,8 @@ import UIKit
 import NVActivityIndicatorView
 import Kingfisher
 
-class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
+class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrollViewDelegate {
     
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var zanBtn: ZanButton!
     @IBOutlet weak var commentBtn: UIButton!
@@ -32,8 +31,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         super.viewDidLoad()
         //隐藏左侧item
         self.navigationItem.hidesBackButton = true;
-        self.navigationItem.title = "";
-        
+        statusView.backgroundColor = UIColor.clearColor()
+        navView.hidden = true
         
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
@@ -41,6 +40,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT))
         
         self.webView.scrollView.addSubview(backgroundImg)
+        self.webView.scrollView.delegate = self
         
         let x = self.view.center.x
         let y = self.view.center.y
@@ -57,14 +57,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
         //获取新闻详情
         viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
-                self.topView.alpha = 0
                 self.backgroundImg.hidden = false
                 LightStatusBar()
                 self.backgroundImg.kf_setImageWithURL(NSURL(string: img)!, placeholderImage: UIImage(named: "avatar"))
                 self.webView.scrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
             }else {
                 self.backgroundImg.hidden = true
-                self.topView.alpha = 1
                 BlackStatusBar()
                 self.webView.scrollView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0)
             }
@@ -96,7 +94,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        self.navigationController?.navigationBarHidden = true
         closeTheDrawerGesture()
     }
     // MARK: - SetupUI
@@ -135,7 +133,16 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate {
     // MARK: - ParallaxHeaderViewDelegate
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
+        let offSetY = scrollView.contentOffset.y;
+        if (Float)(offSetY) >= 115 {
+            print("=====%f",offSetY);
+            statusView.backgroundColor = UIColor.whiteColor()
+            BlackStatusBar()
+        }else {
+            LightStatusBar()
+            statusView.backgroundColor = UIColor.clearColor()
+        }
+         print("-----==%f",offSetY);
     }
 
 

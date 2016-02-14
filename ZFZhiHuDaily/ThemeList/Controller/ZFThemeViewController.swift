@@ -64,7 +64,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     func setRefreshView() {
         navigationItem.titleView = self.centerView
         centerView.addSubview(self.navTitleLabel)
-        centerView.addSubview(self.refreshView)
+        centerView.addSubview(self.tabRefreshView)
     }
 
     // MARK: - UITableView Delegate
@@ -139,7 +139,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     }()
 
     
-    private lazy var refreshView : CircleRefreshView = {
+    private lazy var tabRefreshView : CircleRefreshView = {
         let refreshView = CircleRefreshView()
         refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
         refreshView.frame = CGRectMake(10, 0, 20, 20)

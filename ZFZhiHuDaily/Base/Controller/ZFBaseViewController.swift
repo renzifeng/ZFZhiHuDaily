@@ -11,9 +11,15 @@ import UIKit
 class ZFBaseViewController: UIViewController {
 
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var navView : UIView!
+    var statusView : UIView!
+    var navCenterView : UIView!
+    var navTitle : UILabel!
+    var refreshView : CircleRefreshView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavView()
         // Do any additional setup after loading the view.
     }
     
@@ -45,6 +51,42 @@ class ZFBaseViewController: UIViewController {
         appDelegate.drawerController.openDrawerGestureModeMask = .None
     }
     
+    func setupNavView() {
+        statusView = UIView(frame: CGRectMake(0, 0, ScreenWidth, 20))
+        statusView.backgroundColor = UIColor.clearColor()
+        self.view.addSubview(statusView)
+        
+        navView = UIView(frame: CGRectMake(0, 20, ScreenWidth, 44))
+        navView.backgroundColor = UIColor.clearColor()
+        self.view.addSubview(navView)
+        
+        navCenterView = UIView()
+        navView.backgroundColor = UIColor.clearColor()
+        navCenterView.frame = CGRectMake(ScreenWidth/2-100, 0, 200, 44)
+        navView.addSubview(navCenterView)
+        
+        navTitle = UILabel()
+        navTitle.textColor = UIColor.whiteColor()
+        navTitle.font = FONT(18)
+        navTitle.text = "今日热闻"
+        navTitle.textAlignment = .Center
+        self.navCenterView.addSubview(navTitle)
+        navTitle.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(navCenterView)
+        }
+
+        
+        refreshView = CircleRefreshView()
+        self.navCenterView.addSubview(refreshView)
+        refreshView.frame = CGRectMake(10, 0, 20, 20)
+        refreshView.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(self.navTitle).offset(-30)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+            make.centerY.equalTo(navCenterView)
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
