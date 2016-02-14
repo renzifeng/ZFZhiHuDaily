@@ -137,27 +137,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="165"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editor_Profile_Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Hb-NtY">
-                                        <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                        <rect key="frame" x="20" y="40" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="A5U-bM-Pst"/>
-                                            <constraint firstAttribute="height" constant="50" id="YhI-Ec-l9H"/>
+                                            <constraint firstAttribute="width" constant="40" id="A5U-bM-Pst"/>
+                                            <constraint firstAttribute="height" constant="40" id="YhI-Ec-l9H"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1N-xA-tqJ" customClass="ImageTextButton">
-                                        <rect key="frame" x="73" y="110" width="50" height="45"/>
+                                        <rect key="frame" x="73" y="100" width="50" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="消息" image="Menu_Icon_Message">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-Va-nxR">
-                                        <rect key="frame" x="90" y="56" width="45" height="18"/>
+                                        <rect key="frame" x="80" y="51" width="45" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTn-u4-zkp" customClass="ImageTextButton">
-                                        <rect key="frame" x="8" y="110" width="50" height="45"/>
+                                        <rect key="frame" x="8" y="100" width="50" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="M0e-jp-s7z"/>
                                             <constraint firstAttribute="width" constant="50" id="sw2-UZ-YMY"/>
@@ -168,7 +168,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhm-A4-EG6" customClass="ImageTextButton">
-                                        <rect key="frame" x="138" y="110" width="50" height="45"/>
+                                        <rect key="frame" x="138" y="100" width="50" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="设置" image="Menu_Icon_Setting">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

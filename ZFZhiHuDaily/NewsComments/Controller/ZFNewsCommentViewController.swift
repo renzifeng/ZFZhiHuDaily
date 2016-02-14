@@ -20,7 +20,6 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
-//        self.navigationItem.title = self.commentNum + "条点评"
         self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -33,7 +32,6 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
     }
 
     override func viewWillAppear(animated: Bool) {
-//        self.navigationController?.navigationBarHidden = false
         navView.backgroundColor = ThemeColor
         statusView.backgroundColor = ThemeColor
         navView.hidden = false

@@ -42,11 +42,14 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         viewModel.getData({(dataSoure) -> Void in
             self.dataSoure = dataSoure
             self.tableView.reloadData()
+            /// 默认选择第0个
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            self.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
             }) { (error) -> Void in
                 
         }
         setTableView()
-       
+        
     }
     func setTableView() {
         tableView.delegate = self;
@@ -61,7 +64,7 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         themeBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
         
         avatarImg.layer.masksToBounds = true
-        avatarImg.layer.cornerRadius = 25.0
+        avatarImg.layer.cornerRadius = 20.0
         //去掉下部空白格
         self.tableView.tableFooterView = UIView()
 
