@@ -11,13 +11,40 @@ import SwiftyJSON
 import AwesomeCache
 
 class ZFNewsDetailViewModel {
-    
+    /// 存放内容id的数组
+    var newsIdArray : [String]!
+    /// 是否有下一条
+    var hasNext : Bool = false
+    /// 是否有上一条
+    var hasPrevious : Bool = false
+    /// 要加载的下一条新闻id
+    var nextId : String!
+    /// 要加载的上一条新闻id
+    var previousId : String!
+
     typealias SuccessCallBack = (newsDetail: ZFNewsDetail) -> Void
     typealias SuccessCallBackExtra = (newsExtra: ZFNewsExtra) -> Void
     let newsDetailCache = try! Cache<ZFNewsDetail>(name: "ZFNewsDetail")
     let newsExtraCache = try! Cache<ZFNewsExtra>(name: "ZFNewsExtra")
     
     func loadNewsDetail(id: String,complate: SuccessCallBack?, block: ErrorBlockCallBack?) {
+        let index = self.newsIdArray.indexOf(id)!
+        if index == 0 {
+            self.hasPrevious = false
+            self.hasNext = true
+            self.previousId = self.newsIdArray[0]
+            self.nextId = self.newsIdArray[index+1]
+        }else if index > 0 && index < self.newsIdArray.count - 1 {
+            self.hasPrevious = true
+            self.hasNext = true
+            self.previousId = self.newsIdArray[index-1]
+            self.nextId = self.newsIdArray[index+1]
+        }else {
+            self.hasPrevious = true
+            self.hasNext = false
+            self.previousId = self.newsIdArray[index-1]
+            self.nextId = self.newsIdArray[index]
+        }
         //判断本地有没有缓存
         if let newsDatail = newsDetailCache[id] {
             if complate != nil {

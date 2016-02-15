@@ -34,6 +34,10 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var hasPic : Bool = false
     /// 是否正在加载
     var isLoading : Bool = true
+    /// 是否有下一条
+    var hasNext : Bool = false
+    /// 是否有上一条
+    var hasPrevious : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,13 +72,20 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         
         activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: UIColor.lightGrayColor(), size: CGSizeMake(50, 50))
         activityIndicatorView.center = self.view.center
-        activityIndicatorView.startAnimation()
         self.view.addSubview(activityIndicatorView)
         
         //赞
         setupZan()
+        
+        viewModel.newsIdArray = self.newsIdArray
+        getNewsWithId(self.newsId)
+    }
+    
+    
+    func getNewsWithId(newsId : String!) {
+        activityIndicatorView.startAnimation()
         //获取新闻详情
-        viewModel.loadNewsDetail(self.newsId, complate: { (newsDetail) -> Void in
+        viewModel.loadNewsDetail(newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
                 self.hasPic = true
                 self.backgroundImg.hidden = false
@@ -100,20 +111,20 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                 
                 self.webView.loadHTMLString(body, baseURL: nil)
             }
-
+            
             }) { (error) -> Void in
         }
         
         /// 获取新闻额外信息
-        viewModel.loadNewsExra(self.newsId, complate: { (newsExtra) -> Void in
+        viewModel.loadNewsExra(newsId, complate: { (newsExtra) -> Void in
             self.newsExtra = newsExtra
             self.commentNumLabel.text = "\(newsExtra.comments!)"
             self.zanBtn.initNumber = newsExtra.popularity!
             self.zanNumLabel.text = "\(newsExtra.popularity!)"
             }) { (error) -> Void in
         }
+
     }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = true
@@ -158,7 +169,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y;
-        print("====%f",offSetY)
         //有图模式
         if hasPic {
             if (Float)(offSetY) >= 170 {
@@ -174,14 +184,20 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
         
         if (-offSetY <= 40 && -offSetY >= 20) {
+            if !viewModel.hasPrevious {
+                return
+            }
             //上一条新闻
-             print("上一条")
+            getPreviousNews()
+            print("上一条")
         }else if (-offSetY > 40) {//到－80 让webview不再能被拉动
             self.webView.scrollView.contentOffset = CGPointMake(0, -40);
         }
         
         if (offSetY + ScreenHeight > scrollView.contentSize.height + 20  && !self.webView.scrollView.dragging) {
-            
+            if !viewModel.hasNext {
+                return
+            }
             getNextNews()
             print("下一条")
         }
@@ -197,7 +213,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         self.isLoading = true
         UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
-            
+            self.getNewsWithId(self.viewModel.nextId)
         }) { (finished) -> Void in
             self.isLoading = false
             let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
@@ -209,7 +225,21 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     // MARK: - 上一条新闻
     
     func getPreviousNews() {
-        
+        if self.isLoading {
+            return
+        }
+        self.isLoading = true
+        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
+            self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
+            self.getNewsWithId(self.viewModel.previousId)
+            }) { (finished) -> Void in
+                self.isLoading = false
+                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                dispatch_after(delay, dispatch_get_main_queue()) {
+                    self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+                }
+        }
+
     }
     
     // MARK: - Navigation

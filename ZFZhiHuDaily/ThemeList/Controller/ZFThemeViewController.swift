@@ -19,7 +19,8 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     /// tableView数据源
     var dataSoure : [ZFThemeStories] = []
     var backgroundImg : UIImageView!
-   
+    /// 存放内容id的数组
+    var newsIdArray : [String]!
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -33,14 +34,8 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         setTableHeader()
         setRefreshView()
         viewModel.tableView = self.tableView;
-        viewModel.getListData(String(theme.internalIdentifier!), successBlock: { (dataSources) -> Void in
-            let list = dataSources
-            self.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
-            self.dataSoure = list.stories!
-            self.tableView.reloadData()
-            }) { (error) -> Void in
-                
-        }
+        //请求数据
+        updateData()
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -131,7 +126,12 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let story = self.dataSoure[indexPath.row]
         newsDetailVC.newsId = String(story.internalIdentifier!)
-//        newsDetailVC.newsIdArray = 
+        self.newsIdArray = []
+        for (var i = 0 ; i < self.dataSoure.count ; i++) {
+            let story = self.dataSoure[i]
+            self.newsIdArray.append((String)(story.internalIdentifier!))
+        }
+        newsDetailVC.newsIdArray = self.newsIdArray
     }
 
 }
