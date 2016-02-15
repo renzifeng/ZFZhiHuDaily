@@ -185,7 +185,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             BlackStatusBar()
         }
         
-        if (-offSetY <= 40 && -offSetY >= 0) {
+        if (-offSetY <= 40 && -offSetY >= 20) {
             if !viewModel.hasPrevious {
                 return
             }
