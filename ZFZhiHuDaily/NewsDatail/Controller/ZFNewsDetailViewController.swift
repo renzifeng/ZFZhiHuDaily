@@ -41,8 +41,15 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //隐藏左侧item
-        self.navigationItem.hidesBackButton = true;
+        setupUI()
+        //赞
+        setupZan()
+        
+        viewModel.newsIdArray = self.newsIdArray
+        getNewsWithId(self.newsId)
+    }
+    
+    func setupUI() {
         statusView.backgroundColor = UIColor.clearColor()
         navView.hidden = true
         
@@ -73,14 +80,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: UIColor.lightGrayColor(), size: CGSizeMake(50, 50))
         activityIndicatorView.center = self.view.center
         self.view.addSubview(activityIndicatorView)
-        
-        //赞
-        setupZan()
-        
-        viewModel.newsIdArray = self.newsIdArray
-        getNewsWithId(self.newsId)
+
     }
-    
     
     func getNewsWithId(newsId : String!) {
         activityIndicatorView.startAnimation()

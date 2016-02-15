@@ -25,6 +25,8 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     var headerSource : [ZFTopStories] = []
     //table数据源
     var dataSoure : [[ZFStories]] = []
+    /// 存放内容id的数组
+    var newsIdArray : [String]!
     //是否正在刷新
     var isLoading : Bool! = false
     //存放header（日期）的数组
@@ -258,6 +260,15 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         let array = self.dataSoure[indexPath.section]
         let news = array[indexPath.row]
         newsDetailVC.newsId = String(news.internalIdentifier!)
+        self.newsIdArray = []
+        for (var i = 0 ; i < self.dataSoure.count ; i++) {
+            let array = self.dataSoure[i]
+            for (var j = 0 ; j < array.count ; j++) {
+                let story = array[j]
+                self.newsIdArray.append((String)(story.internalIdentifier!))
+            }
+        }
+        newsDetailVC.newsIdArray = self.newsIdArray
     }
 
 
