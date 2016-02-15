@@ -45,6 +45,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         getNewsWithId(self.newsId)
     }
     
+    // MARK: - SetupUI
+    
     func setupUI() {
         statusView.backgroundColor = UIColor.clearColor()
         navView.hidden = true
@@ -76,14 +78,31 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: ThemeColor, size: CGSizeMake(50, 50))
         activityIndicatorView.center = self.view.center
         self.view.addSubview(activityIndicatorView)
+        
+    }
 
+    func setupZan() {
+        zanBtn.zanImage = UIImage(named: "News_Navigation_Vote")
+        zanBtn.zanedImage = UIImage(named: "News_Navigation_Voted")
+        //赞
+        zanBtn.zanAction = { [unowned self](number) -> Void in
+            self.zanNumLabel.text = "\(number)"
+            self.zanNumLabel.textColor = ThemeColor
+            self.zanNumLabel.text = "\(number)"
+        }
+        //取消赞
+        zanBtn.unzanAction = { [unowned self](number)->Void in
+            self.zanNumLabel.text = "\(number)"
+            self.zanNumLabel.textColor = UIColor.lightGrayColor()
+            self.zanNumLabel.text = "\(number)"
+        }
     }
     
     func getNewsWithId(newsId : String!) {
         activityIndicatorView.startAnimation()
         self.isLoading = true
         //获取新闻详情
-        viewModel.loadNewsDetail(newsId, complate: { (newsDetail) -> Void in
+        viewModel.loadNewsDetail(newsId, complate: { [unowned self](newsDetail) -> Void in
             
             if let img = newsDetail.image {
                 self.hasPic = true
@@ -115,7 +134,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
         
         /// 获取新闻额外信息
-        viewModel.loadNewsExra(newsId, complate: { (newsExtra) -> Void in
+        viewModel.loadNewsExra(newsId, complate: { [unowned self](newsExtra) -> Void in
             self.newsExtra = newsExtra
             self.commentNumLabel.text = "\(newsExtra.comments!)"
             self.zanBtn.initNumber = newsExtra.popularity!
@@ -130,24 +149,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         navView.hidden = true
         closeTheDrawerGesture()
     }
-    // MARK: - SetupUI
-    
-    func setupZan() {
-        zanBtn.zanImage = UIImage(named: "News_Navigation_Vote")
-        zanBtn.zanedImage = UIImage(named: "News_Navigation_Voted")
-        //赞
-        zanBtn.zanAction = { (number) -> Void in
-            self.zanNumLabel.text = "\(number)"
-            self.zanNumLabel.textColor = ThemeColor
-            self.zanNumLabel.text = "\(number)"
-        }
-        //取消赞
-        zanBtn.unzanAction = {(number)->Void in
-            self.zanNumLabel.text = "\(number)"
-            self.zanNumLabel.textColor = UIColor.lightGrayColor()
-            self.zanNumLabel.text = "\(number)"
-        }
-    }
+ 
     
     // MARK: - Action
     // 返回
