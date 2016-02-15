@@ -28,17 +28,18 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
             self.comments.appendContentsOf(commentsArray)
             self.tableView.reloadData()
         }
+        navTitle.text = self.commentNum + "条点评"
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         navView.backgroundColor = ThemeColor
         statusView.backgroundColor = ThemeColor
         navView.hidden = false
         refreshView.hidden = true
-        navTitle.text = self.commentNum + "条点评"
         LightStatusBar()
+        self.navigationController?.navigationBarHidden = true
     }
     
     @IBAction func popToback(sender: UIButton) {

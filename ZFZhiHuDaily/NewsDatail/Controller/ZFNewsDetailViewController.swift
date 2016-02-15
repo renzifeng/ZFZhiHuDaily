@@ -34,10 +34,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var hasPic : Bool = false
     /// 是否正在加载
     var isLoading : Bool = false
-    /// 是否有下一条
-    var hasNext : Bool = false
-    /// 是否有上一条
-    var hasPrevious : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +84,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         self.isLoading = true
         //获取新闻详情
         viewModel.loadNewsDetail(newsId, complate: { (newsDetail) -> Void in
+            
             if let img = newsDetail.image {
                 self.hasPic = true
                 self.backgroundImg.hidden = false
@@ -101,7 +98,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                 BlackStatusBar()
                 self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             }
-            if  var body = newsDetail.body {
+            if var body = newsDetail.body {
                 if let css = newsDetail.css {
                     var temp = ""
                     for c in css {
@@ -151,10 +148,20 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             self.zanNumLabel.text = "\(number)"
         }
     }
-    // MARK: - Action
     
+    // MARK: - Action
+    // 返回
     @IBAction func didClickLeft(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    // 下一条新闻
+    @IBAction func didClickNext() {
+        getNextNews()
+    }
+    // 分享
+    @IBAction func didClickShare(sender: UIButton) {
+        print("分享")
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,10 +174,39 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         self.isLoading = false
     }
     
-    // MARK: - ParallaxHeaderViewDelegate
+    // MARK: - 下一条新闻
+    func getNextNews() {
+        print("========下一条")
+        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
+            self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
+            self.getNewsWithId(self.viewModel.nextId)
+            }) { (finished) -> Void in
+                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                dispatch_after(delay, dispatch_get_main_queue()) {
+                    self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+                }
+        }
+    }
+    
+    // MARK: - 上一条新闻
+    func getPreviousNews() {
+        print("========上一条")
+        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
+            self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
+            self.getNewsWithId(self.viewModel.previousId)
+            }) { (finished) -> Void in
+                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                dispatch_after(delay, dispatch_get_main_queue()) {
+                    self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+                }
+        }
+        
+    }
+
+    // MARK: - UIScrollDelegate
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let offSetY = scrollView.contentOffset.y;
+        let offSetY = scrollView.contentOffset.y
         //有图模式
         if hasPic {
             if (Float)(offSetY) >= 170 {
@@ -185,7 +221,15 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             BlackStatusBar()
         }
         
-        if (-offSetY <= 60 && -offSetY >= 50) {
+        if (-offSetY > 60) {//到－80 让webview不再能被拉动
+            self.webView.scrollView.contentOffset = CGPointMake(0, -60);
+        }
+        
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offSetY = scrollView.contentOffset.y
+        if (-offSetY <= 60 && -offSetY >= 50 ) {
             if !viewModel.hasPrevious {
                 return
             }
@@ -199,7 +243,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             self.webView.scrollView.contentOffset = CGPointMake(0, -60);
         }
         
-        if (offSetY + ScreenHeight + 80 > scrollView.contentSize.height  && !self.webView.scrollView.dragging) {
+        if (offSetY + ScreenHeight + 80 > scrollView.contentSize.height) {
             if !viewModel.hasNext {
                 return
             }
@@ -211,37 +255,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
     }
 
-
-    // MARK: - 下一条新闻
-    
-    func getNextNews() {
-        print("========下一条")
-        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
-            self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
-            self.getNewsWithId(self.viewModel.nextId)
-        }) { (finished) -> Void in
-            let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
-            dispatch_after(delay, dispatch_get_main_queue()) {
-                self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-            }
-        }
-    }
-    // MARK: - 上一条新闻
-    
-    func getPreviousNews() {
-        print("========上一条")
-        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
-            self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
-            self.getNewsWithId(self.viewModel.previousId)
-            }) { (finished) -> Void in
-                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
-                dispatch_after(delay, dispatch_get_main_queue()) {
-                    self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-                }
-        }
-
-    }
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

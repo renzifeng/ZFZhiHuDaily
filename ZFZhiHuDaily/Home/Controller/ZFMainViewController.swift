@@ -63,17 +63,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = true
         LightStatusBar()
-        //根据tab的偏移量设置navbar颜色
-        let offSetY : CGFloat = self.tableView.contentOffset.y;
-        if offSetY > 100 {
-            navView.backgroundColor = RGBA(0, 130, 210, 1)
-            statusView.backgroundColor = RGBA(0, 130, 210, 1)
-        }else {
-            navView.backgroundColor = RGBA(0, 130, 210, offSetY/100)
-            statusView.backgroundColor = RGBA(0, 130, 210, offSetY/100)
-        }
         openTheDrawerGesture()
     }
     override func viewDidAppear(animated: Bool) {
@@ -211,10 +201,10 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             
             scrollView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
         }
-
         
         let firstArray = self.dataSoure[0]
-        if (offSetY >=  (CGFloat)(80.0 * firstArray.count + 164*2)+44) {//第一个section到达后 隐藏navbar 和 标题
+        //第一个section到达后 隐藏navbar 和 标题
+        if (offSetY >=  (CGFloat)(80.0 * firstArray.count + 164*2)+88) {
             navView.alpha = 0;
         }else {
             navView.alpha = 1.0;
@@ -226,10 +216,10 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     func LockScorllView(maxOffsetY: CGFloat) {
         self.tableView.contentOffset.y = maxOffsetY
     }
+    
     func autoAdjustNavigationBarAplha(aplha: CGFloat) {
         navView.backgroundColor = RGBA(0, 130, 210, aplha)
         statusView.backgroundColor = RGBA(0, 130, 210, aplha)
-        
     }
 
      // MARK:- CirCleViewDelegate Methods

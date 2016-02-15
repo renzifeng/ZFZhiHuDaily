@@ -16,14 +16,17 @@ class ZFBaseViewController: UIViewController {
     var navCenterView : UIView!
     var navTitle : UILabel!
     var refreshView : CircleRefreshView!
-    
+    deinit {
+       print("\(self.classForCoder)控制器释放了")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
         setupNavView()
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
     func createLeftNavWithImage(imageName : String) {
         let btn = UIButton(type: .Custom)
         btn.setImage(UIImage(named: imageName), forState: .Normal)

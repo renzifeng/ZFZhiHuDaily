@@ -296,6 +296,9 @@
                                                 </constraints>
                                                 <state key="normal" image="News_Navigation_Next"/>
                                                 <state key="highlighted" image="News_Navigation_Next_Highlight"/>
+                                                <connections>
+                                                    <action selector="didClickNext" destination="18i-eZ-R0L" eventType="touchUpInside" id="Li2-Jq-CTh"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6L2-eV-2Oa" userLabel="third" customClass="ZanButton" customModule="ZFZhiHuDaily" customModuleProvider="target">
                                                 <rect key="frame" x="150" y="1" width="75" height="43"/>
@@ -342,6 +345,9 @@
                                                 </constraints>
                                                 <state key="normal" image="News_Navigation_Share"/>
                                                 <state key="highlighted" image="News_Navigation_Share_Highlight"/>
+                                                <connections>
+                                                    <action selector="didClickShare:" destination="18i-eZ-R0L" eventType="touchUpInside" id="4pQ-sM-0bU"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cx-mc-DSZ" userLabel="first">
                                                 <rect key="frame" x="0.0" y="-1" width="75" height="43"/>
@@ -513,10 +519,19 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecr-FK-4EE" customClass="ImageTextButton">
+                                                    <rect key="frame" x="340" y="5" width="20" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="0" image="Comment_Vote">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="ecr-FK-4EE" firstAttribute="top" secondItem="1hs-wv-3hb" secondAttribute="top" constant="5" id="Agb-9Z-XtN"/>
                                                 <constraint firstItem="EqV-IV-RHM" firstAttribute="leading" secondItem="2U8-uZ-qiq" secondAttribute="leading" id="Pc7-Hc-r2G"/>
                                                 <constraint firstItem="H5x-Tv-J6n" firstAttribute="top" secondItem="1hs-wv-3hb" secondAttribute="top" constant="10" id="UHt-C4-OdH"/>
+                                                <constraint firstAttribute="trailing" secondItem="ecr-FK-4EE" secondAttribute="trailing" constant="15" id="V7c-W6-tpp"/>
                                                 <constraint firstItem="H5x-Tv-J6n" firstAttribute="leading" secondItem="1hs-wv-3hb" secondAttribute="leading" constant="15" id="cDD-Il-DLi"/>
                                                 <constraint firstAttribute="bottom" secondItem="EqV-IV-RHM" secondAttribute="bottom" constant="10" id="j4k-12-9Hv"/>
                                                 <constraint firstAttribute="trailing" secondItem="EqV-IV-RHM" secondAttribute="trailing" constant="15" id="mCp-4x-e61"/>
@@ -529,6 +544,7 @@
                                             <outlet property="avatarImageView" destination="H5x-Tv-J6n" id="xZ2-d8-zyY"/>
                                             <outlet property="contentLabel" destination="EqV-IV-RHM" id="vBc-2P-32p"/>
                                             <outlet property="userNameLabel" destination="2U8-uZ-qiq" id="qGZ-Ws-mSw"/>
+                                            <outlet property="zanBtn" destination="ecr-FK-4EE" id="D8z-at-2KR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -559,6 +575,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Comment_Vote" width="11" height="12"/>
         <image name="ContentImage2" width="150" height="150"/>
         <image name="Editor_Profile_Avatar" width="70" height="70"/>
         <image name="Logo" width="311" height="154"/>
