@@ -56,7 +56,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
-        backgroundImg.frame = CGRectMake(0, -40, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT+40))
+        backgroundImg.frame = CGRectMake(0, -60, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT+60))
         
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
@@ -77,7 +77,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         let width = CGFloat(50.0)
         let height = CGFloat(50.0)
         
-        activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: UIColor.lightGrayColor(), size: CGSizeMake(50, 50))
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: ThemeColor, size: CGSizeMake(50, 50))
         activityIndicatorView.center = self.view.center
         self.view.addSubview(activityIndicatorView)
 
@@ -185,7 +185,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             BlackStatusBar()
         }
         
-        if (-offSetY <= 40 && -offSetY >= 20) {
+        if (-offSetY <= 60 && -offSetY >= 50) {
             if !viewModel.hasPrevious {
                 return
             }
@@ -195,11 +195,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             self.isLoading = true
             //上一条新闻
             getPreviousNews()
-        }else if (-offSetY > 40) {//到－80 让webview不再能被拉动
-            self.webView.scrollView.contentOffset = CGPointMake(0, -40);
+        }else if (-offSetY > 60) {//到－80 让webview不再能被拉动
+            self.webView.scrollView.contentOffset = CGPointMake(0, -60);
         }
         
-        if (offSetY + ScreenHeight > scrollView.contentSize.height + 20  && !self.webView.scrollView.dragging) {
+        if (offSetY + ScreenHeight + 80 > scrollView.contentSize.height  && !self.webView.scrollView.dragging) {
             if !viewModel.hasNext {
                 return
             }
