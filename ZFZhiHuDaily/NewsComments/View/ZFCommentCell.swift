@@ -28,8 +28,6 @@ class ZFCommentCell: UITableViewCell {
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.width/2
         self.avatarImageView.layer.masksToBounds = true
         zanBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
-        zanBtn.imgTextDistance = 10
-        // Initialization code
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
