@@ -33,7 +33,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     /// 判断是否有图
     var hasPic : Bool = false
     /// 是否正在加载
-    var isLoading : Bool = true
+    var isLoading : Bool = false
     /// 是否有下一条
     var hasNext : Bool = false
     /// 是否有上一条
@@ -85,6 +85,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     func getNewsWithId(newsId : String!) {
         activityIndicatorView.startAnimation()
+        self.isLoading = true
         //获取新闻详情
         viewModel.loadNewsDetail(newsId, complate: { (newsDetail) -> Void in
             if let img = newsDetail.image {
@@ -184,13 +185,16 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             BlackStatusBar()
         }
         
-        if (-offSetY <= 40 && -offSetY >= 20) {
+        if (-offSetY <= 40 && -offSetY >= 0) {
             if !viewModel.hasPrevious {
                 return
             }
+            if self.isLoading {
+                return
+            }
+            self.isLoading = true
             //上一条新闻
             getPreviousNews()
-            print("上一条")
         }else if (-offSetY > 40) {//到－80 让webview不再能被拉动
             self.webView.scrollView.contentOffset = CGPointMake(0, -40);
         }
@@ -199,8 +203,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             if !viewModel.hasNext {
                 return
             }
+            if self.isLoading {
+                return
+            }
+            self.isLoading = true
             getNextNews()
-            print("下一条")
         }
     }
 
@@ -208,15 +215,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     // MARK: - 下一条新闻
     
     func getNextNews() {
-        if self.isLoading {
-            return
-        }
-        self.isLoading = true
+        print("========下一条")
         UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.nextId)
         }) { (finished) -> Void in
-            self.isLoading = false
             let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
             dispatch_after(delay, dispatch_get_main_queue()) {
                 self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
@@ -226,15 +229,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     // MARK: - 上一条新闻
     
     func getPreviousNews() {
-        if self.isLoading {
-            return
-        }
-        self.isLoading = true
+        print("========上一条")
         UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.previousId)
             }) { (finished) -> Void in
-                self.isLoading = false
                 let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
                 dispatch_after(delay, dispatch_get_main_queue()) {
                     self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
