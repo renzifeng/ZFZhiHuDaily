@@ -96,7 +96,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     
     //下拉刷新
     func updateData() {
-        print("下拉刷新")
         //获取数据源
         viewModel.getData({(dataSoure,headerSource) -> Void in
             //先清空第一个数据源
@@ -118,7 +117,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             return;
         }
         self.isLoading = !self.isLoading
-        print("上拉加载")
         viewModel.getDataForDate( dateIndex, successCallBack: { (dataSoure,dateStr) -> Void in
             self.dateIndex++
             self.isLoading = !self.isLoading

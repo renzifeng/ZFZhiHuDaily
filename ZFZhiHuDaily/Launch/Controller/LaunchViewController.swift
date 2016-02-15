@@ -24,7 +24,7 @@ class LaunchViewController: UIViewController, JSAnimatedImagesViewDataSource {
         //下载下一次所需的启动页数据
         
         ZFNetworkTool.get(START_IMAGE, params: nil, success: { (json) -> Void in
-            print("\(json)")
+            //print("\(json)")
             //拿到text并保存
             let text = json["text"] as! String
             self.text.text = text

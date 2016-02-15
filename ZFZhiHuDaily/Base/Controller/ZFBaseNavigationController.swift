@@ -15,7 +15,6 @@ class ZFBaseNavigationController: UINavigationController {
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :
             UIColor.whiteColor(),NSFontAttributeName:FONT(18)]
         navigationBar.barTintColor = RGB(0, 130, 210)
-//        navigationBar.translucent = false
     }
     
     override func pushViewController(viewController: UIViewController, animated: Bool) {
