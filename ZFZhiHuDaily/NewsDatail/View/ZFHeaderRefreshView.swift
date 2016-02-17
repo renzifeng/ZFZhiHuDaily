@@ -41,7 +41,7 @@ class ZFHeaderRefreshView: UIView {
     }
     //没有上一篇（已经是第一篇了）
     func notiNoHeaderData() {
-        titleLabel.x = ScreenWidth/2-60
+        titleLabel.x = ScreenWidth/2-55
         titleLabel.text = "已经是第一篇了"
         arrowImageView.hidden = true
     }
