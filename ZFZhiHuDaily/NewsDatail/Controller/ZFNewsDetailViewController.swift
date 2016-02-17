@@ -179,11 +179,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     // MARK: - 下一条新闻
     func getNextNews() {
         print("========下一条")
-        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.nextId)
             }) { (finished) -> Void in
-                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
                 dispatch_after(delay, dispatch_get_main_queue()) {
                     self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
                 }
@@ -193,11 +193,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     // MARK: - 上一条新闻
     func getPreviousNews() {
         print("========上一条")
-        UIView.animateWithDuration(0.25, delay: 0.0, options: .CurveEaseIn, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.previousId)
             }) { (finished) -> Void in
-                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
                 dispatch_after(delay, dispatch_get_main_queue()) {
                     self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
                 }

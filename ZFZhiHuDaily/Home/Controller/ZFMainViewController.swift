@@ -171,14 +171,6 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-
-    }
-    
-    func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
-
-    }
-    
     // MARK: - UIScrollViewDelegate
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -191,9 +183,9 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         }
         
         let dateHeaderHeight : CGFloat = 44.0;
-        if (offSetY <= dateHeaderHeight && offSetY >= 0) {
+        if (offSetY < dateHeaderHeight && offSetY >= 0) {
             
-            scrollView.contentInset = UIEdgeInsetsMake(-offSetY, 0, 0, 0);
+            scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         }
         else if (offSetY >= dateHeaderHeight) {//偏移20
             
@@ -233,6 +225,15 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         self.navigationController?.pushViewController(newsDetailVC, animated: true)
         let topic = self.headerSource[indexPath.row]
         newsDetailVC.newsId = String(topic.internalIdentifier!)
+        self.newsIdArray = []
+        for (var i = 0 ; i < self.dataSoure.count ; i++) {
+            let array = self.dataSoure[i]
+            for (var j = 0 ; j < array.count ; j++) {
+                let story = array[j]
+                self.newsIdArray.append((String)(story.internalIdentifier!))
+            }
+        }
+        newsDetailVC.newsIdArray = self.newsIdArray
     }
     
     

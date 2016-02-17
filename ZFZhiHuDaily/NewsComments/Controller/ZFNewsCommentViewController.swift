@@ -42,6 +42,11 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
         self.navigationController?.navigationBarHidden = true
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        LightStatusBar()
+    }
+    
     @IBAction func popToback(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }

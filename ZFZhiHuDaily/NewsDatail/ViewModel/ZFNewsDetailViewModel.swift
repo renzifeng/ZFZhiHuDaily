@@ -21,13 +21,14 @@ class ZFNewsDetailViewModel {
     var nextId : String!
     /// 要加载的上一条新闻id
     var previousId : String!
-
+    
     typealias SuccessCallBack = (newsDetail: ZFNewsDetail) -> Void
     typealias SuccessCallBackExtra = (newsExtra: ZFNewsExtra) -> Void
     let newsDetailCache = try! Cache<ZFNewsDetail>(name: "ZFNewsDetail")
     let newsExtraCache = try! Cache<ZFNewsExtra>(name: "ZFNewsExtra")
     
     func loadNewsDetail(id: String,complate: SuccessCallBack?, block: ErrorBlockCallBack?) {
+
         let index = self.newsIdArray.indexOf(id)!
         if index == 0 {
             self.hasPrevious = false
