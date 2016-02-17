@@ -34,6 +34,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var hasPic : Bool = false
     /// 是否正在加载
     var isLoading : Bool = false
+    var headerView : ZFHeaderRefreshView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
         backgroundImg.frame = CGRectMake(0, -60, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT+60))
+        
+        headerView = ZFHeaderRefreshView(frame: CGRectMake(0, 0, ScreenWidth, 60))
+        backgroundImg.addSubview(headerView)
         
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
@@ -99,6 +103,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     }
     
     func getNewsWithId(newsId : String!) {
+        
         activityIndicatorView.startAnimation()
         self.isLoading = true
         //获取新闻详情
@@ -174,6 +179,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicatorView.stopAnimation()
         self.isLoading = false
+        if viewModel.hasPrevious {
+            headerView.hasheaderData()
+        }else {
+            headerView.notiNoHeaderData()
+        }
     }
     
     // MARK: - 下一条新闻
@@ -223,7 +233,18 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             BlackStatusBar()
         }
         
-        if (-offSetY > 60) {//到－80 让webview不再能被拉动
+        //改变下拉箭头的方向
+        if (-offSetY >= 40 ) {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.headerView.arrowImageView.transform = CGAffineTransformMakeRotation((CGFloat)(M_PI))
+            })
+        }else if -offSetY < 40 {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.headerView.arrowImageView.transform = CGAffineTransformIdentity
+            })
+        }
+        //到－80 让webview不再能被拉动
+        if (-offSetY > 60) {
             self.webView.scrollView.contentOffset = CGPointMake(0, -60);
         }
         
@@ -231,7 +252,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSetY = scrollView.contentOffset.y
-        if (-offSetY <= 60 && -offSetY >= 50 ) {
+        if (-offSetY <= 60 && -offSetY >= 40 ) {
             if !viewModel.hasPrevious {
                 return
             }

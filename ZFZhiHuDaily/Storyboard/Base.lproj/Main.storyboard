@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-92-s1Q" customClass="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-92-s1Q">
                                 <rect key="frame" x="110" y="557" width="155" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="h1J-5c-LuR"/>
@@ -142,9 +142,6 @@
                         <nil key="title"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="hideNavigationBar" value="NO"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tableView" destination="hbY-Yj-QO2" id="juJ-CT-CTb"/>
                     </connections>
@@ -600,6 +597,6 @@
         <image name="News_Navigation_Share_Highlight" width="64" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZfA-zu-doL"/>
+        <segue reference="gI9-EH-dqq"/>
     </inferredMetricsTieBreakers>
 </document>
