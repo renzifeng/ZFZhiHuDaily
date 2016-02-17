@@ -97,17 +97,27 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_Morepic" translatesAutoresizingMaskIntoConstraints="NO" id="ktR-lN-nhb">
+                                                    <rect key="frame" x="335" y="58" width="32" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="oBY-tE-DU8"/>
+                                                        <constraint firstAttribute="height" constant="14" id="yco-VY-gZ4"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="fOH-4M-6FB" secondAttribute="trailing" constant="8" id="3GG-Ws-23J"/>
                                                 <constraint firstItem="lfS-ND-wN5" firstAttribute="leading" secondItem="ZSh-jr-Kai" secondAttribute="leadingMargin" constant="7" id="KZT-2i-4Pz"/>
                                                 <constraint firstItem="fOH-4M-6FB" firstAttribute="leading" secondItem="lfS-ND-wN5" secondAttribute="trailing" constant="15" id="Rc6-mA-KJG"/>
+                                                <constraint firstItem="ktR-lN-nhb" firstAttribute="bottom" secondItem="fOH-4M-6FB" secondAttribute="bottom" id="TKN-es-c9O"/>
                                                 <constraint firstItem="lfS-ND-wN5" firstAttribute="top" secondItem="ZSh-jr-Kai" secondAttribute="topMargin" constant="8" id="Xkg-6e-ner"/>
+                                                <constraint firstItem="ktR-lN-nhb" firstAttribute="trailing" secondItem="fOH-4M-6FB" secondAttribute="trailing" id="fE0-ke-Rhe"/>
                                                 <constraint firstItem="fOH-4M-6FB" firstAttribute="centerY" secondItem="ZSh-jr-Kai" secondAttribute="centerY" id="oan-yJ-1Wc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageWidthConstraint" destination="Sd4-5S-Smt" id="Qn5-OF-Vd0"/>
+                                            <outlet property="moreImageView" destination="ktR-lN-nhb" id="2UD-gm-fn0"/>
                                             <outlet property="rightImageView" destination="fOH-4M-6FB" id="Yds-OU-8XU"/>
                                             <outlet property="titleLabel" destination="lfS-ND-wN5" id="laD-FE-wgP"/>
                                             <segue destination="18i-eZ-R0L" kind="show" id="gI9-EH-dqq"/>
@@ -141,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8w-tx-V1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1746" y="373"/>
+            <point key="canvasLocation" x="1745.5" y="372.5"/>
         </scene>
         <!--Nav-->
         <scene sceneID="BrH-8U-R2B">
@@ -578,6 +588,7 @@
         <image name="Comment_Vote" width="11" height="12"/>
         <image name="ContentImage2" width="150" height="150"/>
         <image name="Editor_Profile_Avatar" width="70" height="70"/>
+        <image name="Home_Morepic" width="32" height="14"/>
         <image name="Logo" width="311" height="154"/>
         <image name="News_Navigation_Arrow" width="64" height="43"/>
         <image name="News_Navigation_Arrow_Highlight" width="64" height="43"/>
@@ -589,6 +600,6 @@
         <image name="News_Navigation_Share_Highlight" width="64" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gI9-EH-dqq"/>
+        <segue reference="ZfA-zu-doL"/>
     </inferredMetricsTieBreakers>
 </document>
