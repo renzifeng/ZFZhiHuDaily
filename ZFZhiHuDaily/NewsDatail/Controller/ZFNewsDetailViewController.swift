@@ -26,8 +26,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var newsId : String!
     var viewModel = ZFNewsDetailViewModel()
     var backgroundImg : UIImageView!
+    /// top图片上的title
     var titleLabel : UILabel!
-    var heardView : ParallaxHeaderView!
     /// 新闻额外信息
     var newsExtra : ZFNewsExtra!
     /// loading
@@ -64,12 +64,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         self.webView.scrollView.addSubview(backgroundImg)
         self.webView.scrollView.delegate = self
         
-        headerView = ZFHeaderRefreshView(frame: CGRectMake(0, -60, ScreenWidth, 60))
-        self.webView.scrollView.addSubview(headerView)
-        
-        footerView = ZFFooterView(frame: CGRectMake(0, 0, ScreenWidth, 60))
-        self.webView.scrollView.addSubview(footerView)
-        
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.textColor = UIColor.whiteColor()
@@ -90,6 +84,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: ThemeColor, size: CGSizeMake(50, 50))
         activityIndicatorView.center = self.view.center
         self.view.addSubview(activityIndicatorView)
+        
+        headerView = ZFHeaderRefreshView(frame: CGRectMake(0, -60, ScreenWidth, 60))
+        self.webView.scrollView.addSubview(headerView)
+        
+        footerView = ZFFooterView(frame: CGRectMake(0, 0, ScreenWidth, 60))
+        self.webView.scrollView.addSubview(footerView)
         
     }
 
