@@ -37,7 +37,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     /// 是否正在加载
     var isLoading : Bool = false
     /// headerView
-    var headerView : ZFHeaderRefreshView!
+    var headerView : ZFHeaderView!
     /// footerView
     var footerView : ZFFooterView!
     
@@ -85,7 +85,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         activityIndicatorView.center = self.view.center
         self.view.addSubview(activityIndicatorView)
         
-        headerView = ZFHeaderRefreshView(frame: CGRectMake(0, -60, ScreenWidth, 60))
+        headerView = ZFHeaderView(frame: CGRectMake(0, -60, ScreenWidth, 60))
         self.webView.scrollView.addSubview(headerView)
         
         footerView = ZFFooterView(frame: CGRectMake(0, 0, ScreenWidth, 60))

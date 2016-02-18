@@ -1,5 +1,5 @@
 //
-//  ZFHeaderRefreshView.swift
+//  ZFHeaderView.swift
 //  ZFZhiHuDaily
 //
 //  Created by 任子丰 on 16/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFHeaderRefreshView: UIView {
+class ZFHeaderView: UIView {
     /// 箭头
     var arrowImageView : UIImageView!
     var titleLabel : UILabel!
