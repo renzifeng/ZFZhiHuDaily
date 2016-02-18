@@ -12,6 +12,8 @@ class ZFHeaderRefreshView: UIView {
     /// 箭头
     var arrowImageView : UIImageView!
     var titleLabel : UILabel!
+    var maskImage : UIImageView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initBaseLayout()
@@ -23,7 +25,7 @@ class ZFHeaderRefreshView: UIView {
     }
     
     func initBaseLayout() {
-        let maskImage = UIImageView(image: UIImage(named: "News_Image_Mask"))
+        maskImage = UIImageView(image: UIImage(named: "News_Image_Mask"))
         maskImage.frame = CGRectMake(0, 0, ScreenWidth, 60)
         self.addSubview(maskImage)
         
@@ -33,12 +35,13 @@ class ZFHeaderRefreshView: UIView {
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.textAlignment = .Left
         self.addSubview(titleLabel)
-        
+
         arrowImageView = UIImageView(image: UIImage(named: "ZHAnswerViewBack"))
         arrowImageView.frame = CGRectMake(titleLabel.x-20, 35, 15, 20)
         self.addSubview(arrowImageView)
         
     }
+    
     //没有上一篇（已经是第一篇了）
     func notiNoHeaderData() {
         titleLabel.x = ScreenWidth/2-55
@@ -50,5 +53,17 @@ class ZFHeaderRefreshView: UIView {
         titleLabel.x = ScreenWidth/2-20
         titleLabel.text = "载入上一篇"
         arrowImageView.hidden = false
+    }
+    // 配置图片颜色，文字颜色（header有图和无图颜色不一样）
+    func configTintColor(hasPic : Bool) {
+        if hasPic {
+            titleLabel.textColor = UIColor.whiteColor()
+            arrowImageView.image = UIImage(named:  "ZHAnswerViewBack")
+            maskImage.hidden = false
+        }else {
+            titleLabel.textColor = UIColor.lightGrayColor()
+            arrowImageView.image = UIImage(named:  "ZHAnswerViewBackIcon")
+            maskImage.hidden = true
+        }
     }
 }

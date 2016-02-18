@@ -61,9 +61,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
         backgroundImg.frame = CGRectMake(0, -60, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT+60))
+        self.webView.scrollView.addSubview(backgroundImg)
+        self.webView.scrollView.delegate = self
         
-        headerView = ZFHeaderRefreshView(frame: CGRectMake(0, 0, ScreenWidth, 60))
-        backgroundImg.addSubview(headerView)
+        headerView = ZFHeaderRefreshView(frame: CGRectMake(0, -60, ScreenWidth, 60))
+        self.webView.scrollView.addSubview(headerView)
         
         footerView = ZFFooterView(frame: CGRectMake(0, 0, ScreenWidth, 60))
         self.webView.scrollView.addSubview(footerView)
@@ -79,8 +81,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             make.bottom.equalTo(-10)
         }
         
-        self.webView.scrollView.addSubview(backgroundImg)
-        self.webView.scrollView.delegate = self
         
         let x = self.view.center.x
         let y = self.view.center.y
@@ -187,6 +187,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
      配置header 和 footerview
      */
     func configHederAndFooterView() {
+        // 配置header
+        headerView.configTintColor(hasPic)
+        
         if viewModel.hasPrevious {
             headerView.hasHeaderData()
         }else {
