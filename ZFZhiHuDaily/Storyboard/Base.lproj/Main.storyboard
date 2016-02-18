@@ -448,6 +448,7 @@
                         <outlet property="commentBtn" destination="RmH-T7-Mch" id="Vx5-aZ-Udd"/>
                         <outlet property="commentNumLabel" destination="CUm-86-waq" id="iMs-cT-vfm"/>
                         <outlet property="containerView" destination="crm-SX-08h" id="Ltq-XS-kFj"/>
+                        <outlet property="nextNewsBtn" destination="USc-5w-WQP" id="cGj-N5-hek"/>
                         <outlet property="webView" destination="7iZ-iy-2fD" id="Uee-Xq-iXc"/>
                         <outlet property="zanBtn" destination="6L2-eV-2Oa" id="cHo-Hp-4p2"/>
                         <outlet property="zanNumLabel" destination="kmA-Qx-5TY" id="ZL7-S1-dU0"/>

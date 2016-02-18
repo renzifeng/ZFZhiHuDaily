@@ -54,6 +54,7 @@
 		CC55E0FB1C57055A00C6FD25 /* ZFThemeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC55E0F81C57055A00C6FD25 /* ZFThemeDetail.swift */; };
 		CC55E0FC1C57055A00C6FD25 /* ZFThemeStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */; };
 		CC58FD1C1C746C300003C36A /* ZFHeaderRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD1B1C746C300003C36A /* ZFHeaderRefreshView.swift */; };
+		CC58FD1E1C75B38F0003C36A /* ZFFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD1D1C75B38F0003C36A /* ZFFooterView.swift */; };
 		CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */; };
 		CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */; };
 		CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */; };
@@ -168,6 +169,7 @@
 		CC55E0F81C57055A00C6FD25 /* ZFThemeDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeDetail.swift; sourceTree = "<group>"; };
 		CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeStories.swift; sourceTree = "<group>"; };
 		CC58FD1B1C746C300003C36A /* ZFHeaderRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHeaderRefreshView.swift; sourceTree = "<group>"; };
+		CC58FD1D1C75B38F0003C36A /* ZFFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFFooterView.swift; sourceTree = "<group>"; };
 		CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewController.swift; sourceTree = "<group>"; };
 		CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListViewModel.swift; sourceTree = "<group>"; };
 		CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListCell.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 				CC72ADB21C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift */,
 				CC72ADB01C44DE600035ACA6 /* ZanButton.swift */,
 				CC58FD1B1C746C300003C36A /* ZFHeaderRefreshView.swift */,
+				CC58FD1D1C75B38F0003C36A /* ZFFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1178,6 +1181,7 @@
 				CC7283231C5CE08400BFECBF /* ZFComments.swift in Sources */,
 				CC07B1C61C3E2DC1001D6762 /* AppException.swift in Sources */,
 				CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */,
+				CC58FD1E1C75B38F0003C36A /* ZFFooterView.swift in Sources */,
 				CCA6818A1C58AF7300A8D947 /* ZFNewsDetail.swift in Sources */,
 				CC07B16B1C3CDBCA001D6762 /* ArraySlice+Extend.swift in Sources */,
 				CC07B18B1C3CDC15001D6762 /* MMDrawerBarButtonItem.m in Sources */,

@@ -18,6 +18,8 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var commentNumLabel: UILabel!
     @IBOutlet weak var zanNumLabel: UILabel!
+    @IBOutlet weak var nextNewsBtn: UIButton!
+    
     /// 存放内容id的数组
     var newsIdArray : [String]!
     /// 新闻id
@@ -34,7 +36,10 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var hasPic : Bool = false
     /// 是否正在加载
     var isLoading : Bool = false
+    /// headerView
     var headerView : ZFHeaderRefreshView!
+    /// footerView
+    var footerView : ZFFooterView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +64,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         
         headerView = ZFHeaderRefreshView(frame: CGRectMake(0, 0, ScreenWidth, 60))
         backgroundImg.addSubview(headerView)
+        
+        footerView = ZFFooterView(frame: CGRectMake(0, 0, ScreenWidth, 60))
+        self.webView.scrollView.addSubview(footerView)
         
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
@@ -103,11 +111,15 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     }
     
     func getNewsWithId(newsId : String!) {
-        
+
         activityIndicatorView.startAnimation()
         self.isLoading = true
+        
         //获取新闻详情
         viewModel.loadNewsDetail(newsId, complate: { [unowned self](newsDetail) -> Void in
+            
+            //配置header和footer
+            self.configHederAndFooterView()
             
             if let img = newsDetail.image {
                 self.hasPic = true
@@ -171,24 +183,33 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         print("分享")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func webViewDidFinishLoad(webView: UIWebView) {
-        activityIndicatorView.stopAnimation()
-        self.isLoading = false
+    /**
+     配置header 和 footerview
+     */
+    func configHederAndFooterView() {
         if viewModel.hasPrevious {
-            headerView.hasheaderData()
+            headerView.hasHeaderData()
         }else {
             headerView.notiNoHeaderData()
         }
+        
+        if viewModel.hasNext {
+            footerView.hasMoreData()
+            nextNewsBtn.enabled = true
+        }else {
+            footerView.notiNoMoreData()
+            nextNewsBtn.enabled = false
+        }
+    }
+    func webViewDidFinishLoad(webView: UIWebView) {
+        activityIndicatorView.stopAnimation()
+        self.isLoading = false
+        footerView.y = webView.scrollView.contentSize.height
+
     }
     
     // MARK: - 下一条新闻
     func getNextNews() {
-        print("========下一条")
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.nextId)
@@ -202,7 +223,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     // MARK: - 上一条新闻
     func getPreviousNews() {
-        print("========上一条")
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.previousId)
@@ -233,7 +253,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             BlackStatusBar()
         }
         
-        //改变下拉箭头的方向
+        //到－80 让webview不再能被拉动
+        if (-offSetY > 60) {
+            self.webView.scrollView.contentOffset = CGPointMake(0, -60);
+        }
+        
+        //改变header下拉箭头的方向
         if (-offSetY >= 40 ) {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.headerView.arrowImageView.transform = CGAffineTransformMakeRotation((CGFloat)(M_PI))
@@ -243,9 +268,15 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                 self.headerView.arrowImageView.transform = CGAffineTransformIdentity
             })
         }
-        //到－80 让webview不再能被拉动
-        if (-offSetY > 60) {
-            self.webView.scrollView.contentOffset = CGPointMake(0, -60);
+        //改变footer下拉箭头的方向
+        if offSetY + ScreenHeight - 100 > scrollView.contentSize.height {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.footerView.arrowImageView.transform = CGAffineTransformMakeRotation((CGFloat)(M_PI))
+            })
+        }else {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.footerView.arrowImageView.transform = CGAffineTransformIdentity
+            })
         }
         
     }
@@ -266,7 +297,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             self.webView.scrollView.contentOffset = CGPointMake(0, -60);
         }
         
-        if (offSetY + ScreenHeight + 80 > scrollView.contentSize.height) {
+        if (offSetY + ScreenHeight - 100 > scrollView.contentSize.height) {
             if !viewModel.hasNext {
                 return
             }

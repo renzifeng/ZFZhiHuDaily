@@ -1,14 +1,15 @@
 //
-//  ZFHeaderRefreshView.swift
+//  ZFFooterView.swift
 //  ZFZhiHuDaily
 //
-//  Created by 任子丰 on 16/2/17.
+//  Created by 任子丰 on 16/2/18.
 //  Copyright © 2016年 任子丰. All rights reserved.
 //
 
 import UIKit
 
-class ZFHeaderRefreshView: UIView {
+class ZFFooterView: UIView {
+
     /// 箭头
     var arrowImageView : UIImageView!
     var titleLabel : UILabel!
@@ -16,39 +17,37 @@ class ZFHeaderRefreshView: UIView {
         super.init(frame: frame)
         initBaseLayout()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initBaseLayout()
     }
     
     func initBaseLayout() {
-        let maskImage = UIImageView(image: UIImage(named: "News_Image_Mask"))
-        maskImage.frame = CGRectMake(0, 0, ScreenWidth, 60)
-        self.addSubview(maskImage)
         
-        titleLabel = UILabel(frame: CGRectMake(ScreenWidth/2-20, 30, 110, 30))
-        titleLabel.text = "载入上一篇"
+        titleLabel = UILabel(frame: CGRectMake(ScreenWidth/2-20, 30, 120, 30))
+        titleLabel.text = "载入下一篇"
         titleLabel.font = UIFont.systemFontOfSize(15)
-        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.textColor = UIColor.lightGrayColor()
         titleLabel.textAlignment = .Left
         self.addSubview(titleLabel)
         
-        arrowImageView = UIImageView(image: UIImage(named: "ZHAnswerViewBack"))
+        arrowImageView = UIImageView(image: UIImage(named: "ZHAnswerViewPrevIcon"))
         arrowImageView.frame = CGRectMake(titleLabel.x-20, 35, 15, 20)
         self.addSubview(arrowImageView)
         
     }
-    //没有上一篇（已经是第一篇了）
-    func notiNoHeaderData() {
+    //没有下一篇（已经是最后一篇了）
+    func notiNoMoreData() {
         titleLabel.x = ScreenWidth/2-55
-        titleLabel.text = "已经是第一篇了"
+        titleLabel.text = "已经是最后一篇了"
         arrowImageView.hidden = true
     }
     
-    func hasHeaderData() {
+    func hasMoreData() {
         titleLabel.x = ScreenWidth/2-20
-        titleLabel.text = "载入上一篇"
+        titleLabel.text = "载入下一篇"
         arrowImageView.hidden = false
     }
+
 }
