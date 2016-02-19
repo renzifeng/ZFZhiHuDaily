@@ -21,16 +21,17 @@ class ZFNetworkTool: NSObject {
     
     static func get( url : String, params :[String : AnyObject]?, success :(json : AnyObject) -> Void , fail:(error : Any) -> Void) {
         let httpUrl : String = BASE_URL + url
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         if let parameters = params {
             Alamofire.request(.GET, httpUrl, parameters: parameters , encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response) -> Void in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 if let JSON = response.result.value {
                     success(json: JSON)
                 }
             })
         }else {
-            Alamofire.request(.GET, httpUrl).progress({ (bytesRead, totalBytesRead, totalBytesExpectedToRead) -> Void in
-                
-            }).responseJSON { (response) -> Void in
+            Alamofire.request(.GET, httpUrl).responseJSON { (response) -> Void in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 if let JSON = response.result.value {
                     success(json: JSON)
                 }
@@ -48,16 +49,18 @@ class ZFNetworkTool: NSObject {
     */
     
     static func post(url : String, params : [String : AnyObject]?, success:(json : Any) -> Void , fail:(error : Any) -> Void) {
-        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         let httpUrl : String = BASE_URL + url
         if let parameters = params {
             Alamofire.request(.POST, httpUrl, parameters: parameters, encoding: .JSON, headers: nil).responseJSON(completionHandler: { (response) -> Void in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 if let JSON = response.result.value {
                     success(json: JSON)
                 }
             })
         }else {
             Alamofire.request(.POST, httpUrl).responseJSON { (response) -> Void in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 if let JSON = response.result.value {
                     success(json: JSON)
                 }
