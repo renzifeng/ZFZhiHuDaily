@@ -36,6 +36,8 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         viewModel.tableView = self.tableView;
         //请求数据
         updateData()
+        self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
+        self.tableView.dk_backgroundColorPicker = CELL_COLOR
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

@@ -487,7 +487,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="W1H-CF-Zau" firstAttribute="top" secondItem="6yz-Uc-fcP" secondAttribute="top" id="4Y4-HB-Mpx"/>
                                     <constraint firstItem="W1H-CF-Zau" firstAttribute="leading" secondItem="6yz-Uc-fcP" secondAttribute="leading" id="7qB-1L-ECB"/>

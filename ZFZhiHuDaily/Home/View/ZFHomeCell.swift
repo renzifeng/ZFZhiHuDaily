@@ -36,6 +36,7 @@ class ZFHomeCell: UITableViewCell {
         // Initialization code
         self.dk_backgroundColorPicker = CELL_COLOR
         self.titleLabel.dk_textColorPicker = CELL_TITLE
+        self.selectionStyle = .None
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

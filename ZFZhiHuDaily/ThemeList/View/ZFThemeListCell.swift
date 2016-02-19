@@ -28,6 +28,9 @@ class ZFThemeListCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.dk_backgroundColorPicker = CELL_COLOR
+        self.titleLabel.dk_textColorPicker = CELL_TITLE
+        self.selectionStyle = .None
         // Initialization code
     }
 

@@ -61,6 +61,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         
         self.tableView.tableHeaderView = heardView
         self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
+        self.tableView.dk_backgroundColorPicker = CELL_COLOR
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

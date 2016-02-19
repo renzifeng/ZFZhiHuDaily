@@ -29,13 +29,15 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
             self.tableView.reloadData()
         }
         navTitle.text = self.commentNum + "条点评"
+        self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
+        self.tableView.dk_backgroundColorPicker = CELL_COLOR
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        navView.backgroundColor = ThemeColor
-        statusView.backgroundColor = ThemeColor
+        navView.dk_backgroundColorPicker = TAB_HEADER
+        statusView.dk_backgroundColorPicker = TAB_HEADER
         navView.hidden = false
         refreshView.hidden = true
         LightStatusBar()

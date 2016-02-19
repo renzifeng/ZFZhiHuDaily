@@ -28,6 +28,12 @@ class ZFCommentCell: UITableViewCell {
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.width/2
         self.avatarImageView.layer.masksToBounds = true
         zanBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
+        
+        self.dk_backgroundColorPicker = CELL_COLOR
+        self.userNameLabel.dk_textColorPicker = CELL_TITLE
+        self.contentLabel.dk_textColorPicker = CELL_TITLE
+        self.selectionStyle = .None
+
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
