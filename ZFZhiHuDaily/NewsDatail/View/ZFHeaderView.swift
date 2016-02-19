@@ -26,7 +26,7 @@ class ZFHeaderView: UIView {
     
     func initBaseLayout() {
         maskImage = UIImageView(image: UIImage(named: "News_Image_Mask"))
-        maskImage.frame = CGRectMake(0, 0, ScreenWidth, 60)
+        maskImage.frame = CGRectMake(0, 0, ScreenWidth, 100)
         self.addSubview(maskImage)
         
         titleLabel = UILabel(frame: CGRectMake(ScreenWidth/2-20, 30, 110, 30))

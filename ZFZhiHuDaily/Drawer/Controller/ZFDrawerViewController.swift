@@ -67,20 +67,53 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         avatarImg.layer.cornerRadius = 20.0
         //去掉下部空白格
         self.tableView.tableFooterView = UIView()
+        
+        if ((NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode")) == nil) {
+            //白天模式
+            DKNightVersionManager.dawnComing()
+            NSUserDefaults.standardUserDefaults().setObject("light", forKey: "NightOrLightMode")
+            lightMode()
+        }else {
+            let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
+            if mode == "light"{
+                //白天模式
+                DKNightVersionManager.dawnComing()
+                lightMode()
+            }else if mode == "night" {
+                DKNightVersionManager.nightFalling()
+                nightModel()
+            }
+        }
 
     }
-    //离线(年后做)
+    //离线(稍后做)
     @IBAction func cacheData() {
         
     }
     
+    //夜间模式、白天模式
     @IBAction func changeTheme(sender: ImageTextButton) {
         if (DKNightVersionManager.currentThemeVersion() == .Night) {
             DKNightVersionManager.dawnComing()
+            NSUserDefaults.standardUserDefaults().setObject("light", forKey: "NightOrLightMode")
+            lightMode()
         }else {
             DKNightVersionManager.nightFalling()
+            NSUserDefaults.standardUserDefaults().setObject("night", forKey: "NightOrLightMode")
+            nightModel()
         }
     }
+    
+    func lightMode() {
+        themeBtn.setImage(UIImage(named: "Menu_Dark"), forState: .Normal)
+        themeBtn.setTitle("夜间", forState: .Normal)
+    }
+    
+    func nightModel() {
+        themeBtn.setImage(UIImage(named: "Menu_Day"), forState: .Normal)
+        themeBtn.setTitle("白天", forState: .Normal)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSoure.count+1
     }

@@ -86,9 +86,13 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         self.view.addSubview(activityIndicatorView)
         
         headerView = ZFHeaderView(frame: CGRectMake(0, -60, ScreenWidth, 60))
+        //先隐藏，待web加载完毕后显示
+        headerView.hidden = true
         self.webView.scrollView.addSubview(headerView)
         
         footerView = ZFFooterView(frame: CGRectMake(0, 0, ScreenWidth, 60))
+        //先隐藏，待web加载完毕后显示
+        footerView.hidden = true
         self.webView.scrollView.addSubview(footerView)
         
     }
@@ -118,9 +122,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         //获取新闻详情
         viewModel.loadNewsDetail(newsId, complate: { [unowned self](newsDetail) -> Void in
             
-            //配置header和footer
-            self.configHederAndFooterView()
-            
             if let img = newsDetail.image {
                 self.hasPic = true
                 self.backgroundImg.hidden = false
@@ -134,6 +135,10 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                 BlackStatusBar()
                 self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             }
+            
+            //配置header和footer
+            self.configHederAndFooterView()
+            
             if var body = newsDetail.body {
                 if let css = newsDetail.css {
                     var temp = ""
@@ -205,10 +210,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
     }
     func webViewDidFinishLoad(webView: UIWebView) {
+        //显示header和footer
+        footerView.hidden = false
+        headerView.hidden = false
         activityIndicatorView.stopAnimation()
         self.isLoading = false
         footerView.y = webView.scrollView.contentSize.height
-
     }
     
     // MARK: - 下一条新闻
