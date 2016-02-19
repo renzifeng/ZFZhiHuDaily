@@ -81,7 +81,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContentImage2" translatesAutoresizingMaskIntoConstraints="NO" id="fOH-4M-6FB">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fOH-4M-6FB">
                                                     <rect key="frame" x="287" y="8" width="80" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="PEY-uY-J4C"/>
@@ -584,7 +584,6 @@
     </scenes>
     <resources>
         <image name="Comment_Vote" width="11" height="12"/>
-        <image name="ContentImage2" width="150" height="150"/>
         <image name="Editor_Profile_Avatar" width="70" height="70"/>
         <image name="Home_Morepic" width="32" height="14"/>
         <image name="Logo" width="311" height="154"/>
