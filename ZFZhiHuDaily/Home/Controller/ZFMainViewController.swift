@@ -48,8 +48,8 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             }) { (error) -> Void in 
         }
         //设置navbar颜色
-        statusView.backgroundColor = RGBA(0, 130, 210, 0)
-        navView.backgroundColor = RGBA(0, 130, 210, 0)
+        statusView.dk_backgroundColorPicker = ThemeColorWithAlpha(0)
+        navView.dk_backgroundColorPicker = ThemeColorWithAlpha(0)
         
         //初始化轮播图
         cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
@@ -60,6 +60,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -64, delegate:self)
         
         self.tableView.tableHeaderView = heardView
+        self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -158,7 +159,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section != 0 {
             let headerView = UIView()
-            headerView.backgroundColor = ThemeColor
+            headerView.dk_backgroundColorPicker = TAB_HEADER
             let titleLabel = UILabel()
             titleLabel.text = self.headerTitleArray[section-1]
             titleLabel.textColor = UIColor.whiteColor()
@@ -208,8 +209,8 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }
     
     func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-        navView.backgroundColor = RGBA(0, 130, 210, aplha)
-        statusView.backgroundColor = RGBA(0, 130, 210, aplha)
+        statusView.dk_backgroundColorPicker = ThemeColorWithAlpha(aplha)
+        navView.dk_backgroundColorPicker = ThemeColorWithAlpha(aplha)
     }
 
      // MARK:- CirCleViewDelegate Methods

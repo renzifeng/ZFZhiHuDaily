@@ -34,6 +34,8 @@ class ZFHomeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.dk_backgroundColorPicker = CELL_COLOR
+        self.titleLabel.dk_textColorPicker = CELL_TITLE
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

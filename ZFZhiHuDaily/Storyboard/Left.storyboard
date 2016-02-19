@@ -109,6 +109,9 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" title="白天" image="Menu_Day"/>
+                                        <connections>
+                                            <action selector="changeTheme:" destination="rWh-EP-D5m" eventType="touchUpInside" id="vcW-Tq-69W"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvl-9i-tdG" customClass="ImageTextButton">
                                         <rect key="frame" x="13" y="14" width="70" height="22"/>

@@ -22,6 +22,7 @@ class ZFBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavView()
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {

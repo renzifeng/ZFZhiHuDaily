@@ -74,7 +74,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             make.right.equalTo(-10)
             make.bottom.equalTo(-10)
         }
-        
+//        self.webView.backgroundColor = UIColor.lightGrayColor()
         
         let x = self.view.center.x
         let y = self.view.center.y

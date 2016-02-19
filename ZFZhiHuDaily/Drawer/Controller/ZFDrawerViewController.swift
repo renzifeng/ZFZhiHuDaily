@@ -74,6 +74,13 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
+    @IBAction func changeTheme(sender: ImageTextButton) {
+        if (DKNightVersionManager.currentThemeVersion() == .Night) {
+            DKNightVersionManager.dawnComing()
+        }else {
+            DKNightVersionManager.nightFalling()
+        }
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSoure.count+1
     }

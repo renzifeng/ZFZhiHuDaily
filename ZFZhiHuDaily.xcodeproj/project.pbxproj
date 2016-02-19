@@ -55,6 +55,31 @@
 		CC55E0FC1C57055A00C6FD25 /* ZFThemeStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */; };
 		CC58FD1C1C746C300003C36A /* ZFHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD1B1C746C300003C36A /* ZFHeaderView.swift */; };
 		CC58FD1E1C75B38F0003C36A /* ZFFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD1D1C75B38F0003C36A /* ZFFooterView.swift */; };
+		CC58FD551C76B7BF0003C36A /* DKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD221C76B7BF0003C36A /* DKColor.m */; };
+		CC58FD561C76B7C00003C36A /* DKColorTable.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD241C76B7BF0003C36A /* DKColorTable.m */; };
+		CC58FD571C76B7C00003C36A /* DKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD261C76B7BF0003C36A /* DKImage.m */; };
+		CC58FD581C76B7C00003C36A /* DKNightVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD281C76B7BF0003C36A /* DKNightVersionManager.m */; };
+		CC58FD591C76B7C00003C36A /* NSObject+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD2A1C76B7BF0003C36A /* NSObject+Night.m */; };
+		CC58FD5A1C76B7C00003C36A /* CALayer+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD2D1C76B7BF0003C36A /* CALayer+Night.m */; };
+		CC58FD5B1C76B7C00003C36A /* UIButton+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD311C76B7BF0003C36A /* UIButton+Night.m */; };
+		CC58FD5C1C76B7C00003C36A /* UIImageView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD331C76B7BF0003C36A /* UIImageView+Night.m */; };
+		CC58FD5D1C76B7C00003C36A /* UINavigationBar+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD351C76B7BF0003C36A /* UINavigationBar+Animation.m */; };
+		CC58FD5E1C76B7C00003C36A /* UIBarButtonItem+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD381C76B7BF0003C36A /* UIBarButtonItem+Night.m */; };
+		CC58FD5F1C76B7C00003C36A /* UIControl+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD3A1C76B7BF0003C36A /* UIControl+Night.m */; };
+		CC58FD601C76B7C00003C36A /* UILabel+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD3C1C76B7BF0003C36A /* UILabel+Night.m */; };
+		CC58FD611C76B7C00003C36A /* UINavigationBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD3E1C76B7BF0003C36A /* UINavigationBar+Night.m */; };
+		CC58FD621C76B7C00003C36A /* UIPageControl+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD401C76B7BF0003C36A /* UIPageControl+Night.m */; };
+		CC58FD631C76B7C00003C36A /* UIProgressView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD421C76B7BF0003C36A /* UIProgressView+Night.m */; };
+		CC58FD641C76B7C00003C36A /* UISearchBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD441C76B7BF0003C36A /* UISearchBar+Night.m */; };
+		CC58FD651C76B7C00003C36A /* UISlider+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD461C76B7BF0003C36A /* UISlider+Night.m */; };
+		CC58FD661C76B7C00003C36A /* UISwitch+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD481C76B7BF0003C36A /* UISwitch+Night.m */; };
+		CC58FD671C76B7C00003C36A /* UITabBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD4A1C76B7BF0003C36A /* UITabBar+Night.m */; };
+		CC58FD681C76B7C00003C36A /* UITableView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD4C1C76B7BF0003C36A /* UITableView+Night.m */; };
+		CC58FD691C76B7C00003C36A /* UITextField+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD4E1C76B7BF0003C36A /* UITextField+Night.m */; };
+		CC58FD6A1C76B7C00003C36A /* UITextView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD501C76B7BF0003C36A /* UITextView+Night.m */; };
+		CC58FD6B1C76B7C00003C36A /* UIToolBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD521C76B7BF0003C36A /* UIToolBar+Night.m */; };
+		CC58FD6C1C76B7C00003C36A /* UIView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD541C76B7BF0003C36A /* UIView+Night.m */; };
+		CC58FD6E1C76C23A0003C36A /* ZFThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC58FD6D1C76C23A0003C36A /* ZFThemeConfig.swift */; };
 		CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */; };
 		CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */; };
 		CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */; };
@@ -170,6 +195,56 @@
 		CC55E0F91C57055A00C6FD25 /* ZFThemeStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeStories.swift; sourceTree = "<group>"; };
 		CC58FD1B1C746C300003C36A /* ZFHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHeaderView.swift; sourceTree = "<group>"; };
 		CC58FD1D1C75B38F0003C36A /* ZFFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFFooterView.swift; sourceTree = "<group>"; };
+		CC58FD211C76B7BF0003C36A /* DKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKColor.h; sourceTree = "<group>"; };
+		CC58FD221C76B7BF0003C36A /* DKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKColor.m; sourceTree = "<group>"; };
+		CC58FD231C76B7BF0003C36A /* DKColorTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKColorTable.h; sourceTree = "<group>"; };
+		CC58FD241C76B7BF0003C36A /* DKColorTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKColorTable.m; sourceTree = "<group>"; };
+		CC58FD251C76B7BF0003C36A /* DKImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKImage.h; sourceTree = "<group>"; };
+		CC58FD261C76B7BF0003C36A /* DKImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKImage.m; sourceTree = "<group>"; };
+		CC58FD271C76B7BF0003C36A /* DKNightVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKNightVersionManager.h; sourceTree = "<group>"; };
+		CC58FD281C76B7BF0003C36A /* DKNightVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKNightVersionManager.m; sourceTree = "<group>"; };
+		CC58FD291C76B7BF0003C36A /* NSObject+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Night.h"; sourceTree = "<group>"; };
+		CC58FD2A1C76B7BF0003C36A /* NSObject+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Night.m"; sourceTree = "<group>"; };
+		CC58FD2C1C76B7BF0003C36A /* CALayer+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Night.h"; sourceTree = "<group>"; };
+		CC58FD2D1C76B7BF0003C36A /* CALayer+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Night.m"; sourceTree = "<group>"; };
+		CC58FD2E1C76B7BF0003C36A /* DKNightVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKNightVersion.h; sourceTree = "<group>"; };
+		CC58FD301C76B7BF0003C36A /* UIButton+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Night.h"; sourceTree = "<group>"; };
+		CC58FD311C76B7BF0003C36A /* UIButton+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Night.m"; sourceTree = "<group>"; };
+		CC58FD321C76B7BF0003C36A /* UIImageView+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Night.h"; sourceTree = "<group>"; };
+		CC58FD331C76B7BF0003C36A /* UIImageView+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Night.m"; sourceTree = "<group>"; };
+		CC58FD341C76B7BF0003C36A /* UINavigationBar+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Animation.h"; sourceTree = "<group>"; };
+		CC58FD351C76B7BF0003C36A /* UINavigationBar+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Animation.m"; sourceTree = "<group>"; };
+		CC58FD371C76B7BF0003C36A /* UIBarButtonItem+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Night.h"; sourceTree = "<group>"; };
+		CC58FD381C76B7BF0003C36A /* UIBarButtonItem+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Night.m"; sourceTree = "<group>"; };
+		CC58FD391C76B7BF0003C36A /* UIControl+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Night.h"; sourceTree = "<group>"; };
+		CC58FD3A1C76B7BF0003C36A /* UIControl+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Night.m"; sourceTree = "<group>"; };
+		CC58FD3B1C76B7BF0003C36A /* UILabel+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Night.h"; sourceTree = "<group>"; };
+		CC58FD3C1C76B7BF0003C36A /* UILabel+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Night.m"; sourceTree = "<group>"; };
+		CC58FD3D1C76B7BF0003C36A /* UINavigationBar+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Night.h"; sourceTree = "<group>"; };
+		CC58FD3E1C76B7BF0003C36A /* UINavigationBar+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Night.m"; sourceTree = "<group>"; };
+		CC58FD3F1C76B7BF0003C36A /* UIPageControl+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageControl+Night.h"; sourceTree = "<group>"; };
+		CC58FD401C76B7BF0003C36A /* UIPageControl+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageControl+Night.m"; sourceTree = "<group>"; };
+		CC58FD411C76B7BF0003C36A /* UIProgressView+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+Night.h"; sourceTree = "<group>"; };
+		CC58FD421C76B7BF0003C36A /* UIProgressView+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+Night.m"; sourceTree = "<group>"; };
+		CC58FD431C76B7BF0003C36A /* UISearchBar+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+Night.h"; sourceTree = "<group>"; };
+		CC58FD441C76B7BF0003C36A /* UISearchBar+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Night.m"; sourceTree = "<group>"; };
+		CC58FD451C76B7BF0003C36A /* UISlider+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+Night.h"; sourceTree = "<group>"; };
+		CC58FD461C76B7BF0003C36A /* UISlider+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+Night.m"; sourceTree = "<group>"; };
+		CC58FD471C76B7BF0003C36A /* UISwitch+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+Night.h"; sourceTree = "<group>"; };
+		CC58FD481C76B7BF0003C36A /* UISwitch+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+Night.m"; sourceTree = "<group>"; };
+		CC58FD491C76B7BF0003C36A /* UITabBar+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Night.h"; sourceTree = "<group>"; };
+		CC58FD4A1C76B7BF0003C36A /* UITabBar+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Night.m"; sourceTree = "<group>"; };
+		CC58FD4B1C76B7BF0003C36A /* UITableView+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Night.h"; sourceTree = "<group>"; };
+		CC58FD4C1C76B7BF0003C36A /* UITableView+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Night.m"; sourceTree = "<group>"; };
+		CC58FD4D1C76B7BF0003C36A /* UITextField+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Night.h"; sourceTree = "<group>"; };
+		CC58FD4E1C76B7BF0003C36A /* UITextField+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Night.m"; sourceTree = "<group>"; };
+		CC58FD4F1C76B7BF0003C36A /* UITextView+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Night.h"; sourceTree = "<group>"; };
+		CC58FD501C76B7BF0003C36A /* UITextView+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Night.m"; sourceTree = "<group>"; };
+		CC58FD511C76B7BF0003C36A /* UIToolBar+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolBar+Night.h"; sourceTree = "<group>"; };
+		CC58FD521C76B7BF0003C36A /* UIToolBar+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolBar+Night.m"; sourceTree = "<group>"; };
+		CC58FD531C76B7BF0003C36A /* UIView+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Night.h"; sourceTree = "<group>"; };
+		CC58FD541C76B7BF0003C36A /* UIView+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Night.m"; sourceTree = "<group>"; };
+		CC58FD6D1C76C23A0003C36A /* ZFThemeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeConfig.swift; sourceTree = "<group>"; };
 		CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewController.swift; sourceTree = "<group>"; };
 		CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListViewModel.swift; sourceTree = "<group>"; };
 		CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListCell.swift; sourceTree = "<group>"; };
@@ -311,6 +386,7 @@
 			children = (
 				CC07B13A1C3CCDA5001D6762 /* ZFAPIConfig.swift */,
 				CC98C8B21C3B53FD002FED99 /* ZFAppConfig.swift */,
+				CC58FD6D1C76C23A0003C36A /* ZFThemeConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -507,6 +583,7 @@
 		CC07B17C1C3CDBD0001D6762 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				CC58FD1F1C76B7A20003C36A /* DKNightVersion */,
 				CC07B1E81C3F7895001D6762 /* CyclePictureView */,
 				CC07B1A51C3CE60D001D6762 /* GradientView */,
 				CC07B17D1C3CDC15001D6762 /* ImageTextButton */,
@@ -628,6 +705,94 @@
 				CC07B1E91C3F789F001D6762 /* CyclePictureView.swift */,
 			);
 			path = CyclePictureView;
+			sourceTree = "<group>";
+		};
+		CC58FD1F1C76B7A20003C36A /* DKNightVersion */ = {
+			isa = PBXGroup;
+			children = (
+				CC58FD201C76B7BF0003C36A /* Core */,
+				CC58FD2B1C76B7BF0003C36A /* CoreAnimation */,
+				CC58FD2E1C76B7BF0003C36A /* DKNightVersion.h */,
+				CC58FD2F1C76B7BF0003C36A /* Manual */,
+				CC58FD361C76B7BF0003C36A /* UIKit */,
+			);
+			path = DKNightVersion;
+			sourceTree = "<group>";
+		};
+		CC58FD201C76B7BF0003C36A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CC58FD211C76B7BF0003C36A /* DKColor.h */,
+				CC58FD221C76B7BF0003C36A /* DKColor.m */,
+				CC58FD231C76B7BF0003C36A /* DKColorTable.h */,
+				CC58FD241C76B7BF0003C36A /* DKColorTable.m */,
+				CC58FD251C76B7BF0003C36A /* DKImage.h */,
+				CC58FD261C76B7BF0003C36A /* DKImage.m */,
+				CC58FD271C76B7BF0003C36A /* DKNightVersionManager.h */,
+				CC58FD281C76B7BF0003C36A /* DKNightVersionManager.m */,
+				CC58FD291C76B7BF0003C36A /* NSObject+Night.h */,
+				CC58FD2A1C76B7BF0003C36A /* NSObject+Night.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CC58FD2B1C76B7BF0003C36A /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				CC58FD2C1C76B7BF0003C36A /* CALayer+Night.h */,
+				CC58FD2D1C76B7BF0003C36A /* CALayer+Night.m */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
+		CC58FD2F1C76B7BF0003C36A /* Manual */ = {
+			isa = PBXGroup;
+			children = (
+				CC58FD301C76B7BF0003C36A /* UIButton+Night.h */,
+				CC58FD311C76B7BF0003C36A /* UIButton+Night.m */,
+				CC58FD321C76B7BF0003C36A /* UIImageView+Night.h */,
+				CC58FD331C76B7BF0003C36A /* UIImageView+Night.m */,
+				CC58FD341C76B7BF0003C36A /* UINavigationBar+Animation.h */,
+				CC58FD351C76B7BF0003C36A /* UINavigationBar+Animation.m */,
+			);
+			path = Manual;
+			sourceTree = "<group>";
+		};
+		CC58FD361C76B7BF0003C36A /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				CC58FD371C76B7BF0003C36A /* UIBarButtonItem+Night.h */,
+				CC58FD381C76B7BF0003C36A /* UIBarButtonItem+Night.m */,
+				CC58FD391C76B7BF0003C36A /* UIControl+Night.h */,
+				CC58FD3A1C76B7BF0003C36A /* UIControl+Night.m */,
+				CC58FD3B1C76B7BF0003C36A /* UILabel+Night.h */,
+				CC58FD3C1C76B7BF0003C36A /* UILabel+Night.m */,
+				CC58FD3D1C76B7BF0003C36A /* UINavigationBar+Night.h */,
+				CC58FD3E1C76B7BF0003C36A /* UINavigationBar+Night.m */,
+				CC58FD3F1C76B7BF0003C36A /* UIPageControl+Night.h */,
+				CC58FD401C76B7BF0003C36A /* UIPageControl+Night.m */,
+				CC58FD411C76B7BF0003C36A /* UIProgressView+Night.h */,
+				CC58FD421C76B7BF0003C36A /* UIProgressView+Night.m */,
+				CC58FD431C76B7BF0003C36A /* UISearchBar+Night.h */,
+				CC58FD441C76B7BF0003C36A /* UISearchBar+Night.m */,
+				CC58FD451C76B7BF0003C36A /* UISlider+Night.h */,
+				CC58FD461C76B7BF0003C36A /* UISlider+Night.m */,
+				CC58FD471C76B7BF0003C36A /* UISwitch+Night.h */,
+				CC58FD481C76B7BF0003C36A /* UISwitch+Night.m */,
+				CC58FD491C76B7BF0003C36A /* UITabBar+Night.h */,
+				CC58FD4A1C76B7BF0003C36A /* UITabBar+Night.m */,
+				CC58FD4B1C76B7BF0003C36A /* UITableView+Night.h */,
+				CC58FD4C1C76B7BF0003C36A /* UITableView+Night.m */,
+				CC58FD4D1C76B7BF0003C36A /* UITextField+Night.h */,
+				CC58FD4E1C76B7BF0003C36A /* UITextField+Night.m */,
+				CC58FD4F1C76B7BF0003C36A /* UITextView+Night.h */,
+				CC58FD501C76B7BF0003C36A /* UITextView+Night.m */,
+				CC58FD511C76B7BF0003C36A /* UIToolBar+Night.h */,
+				CC58FD521C76B7BF0003C36A /* UIToolBar+Night.m */,
+				CC58FD531C76B7BF0003C36A /* UIView+Night.h */,
+				CC58FD541C76B7BF0003C36A /* UIView+Night.m */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		CC6369FD1C43499100BCB70B /* ThemeList */ = {
@@ -1122,41 +1287,58 @@
 				CC7D52351C565002005FB83E /* ZFStories.swift in Sources */,
 				CC07B1C41C3E2CC2001D6762 /* NSURLSession+SynchronousTask.swift in Sources */,
 				CC07B1EE1C3F789F001D6762 /* AuxiliaryModels.swift in Sources */,
+				CC58FD6A1C76B7C00003C36A /* UITextView+Night.m in Sources */,
 				CCF49F751C6070DE006A5775 /* ZFTheme.swift in Sources */,
 				CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */,
+				CC58FD5A1C76B7C00003C36A /* CALayer+Night.m in Sources */,
 				CC07B18A1C3CDC15001D6762 /* ImageTextButton.m in Sources */,
+				CC58FD571C76B7C00003C36A /* DKImage.m in Sources */,
+				CC58FD551C76B7BF0003C36A /* DKColor.m in Sources */,
 				CC07B1381C3CC138001D6762 /* ZFNetworkTool.swift in Sources */,
 				CC07B1691C3CDBCA001D6762 /* AnyObject+Extend.swift in Sources */,
+				CC58FD641C76B7C00003C36A /* UISearchBar+Night.m in Sources */,
 				CC7283241C5CE08400BFECBF /* ZFCommentCell.swift in Sources */,
 				CC07B1D71C3E621B001D6762 /* NavigationBarExtension.swift in Sources */,
 				CCAD297F1C40F3B40096B2A7 /* DetailHeaderView.m in Sources */,
 				CC07B1711C3CDBCA001D6762 /* UIViewController.swift in Sources */,
+				CC58FD691C76B7C00003C36A /* UITextField+Night.m in Sources */,
 				CC07B16E1C3CDBCA001D6762 /* String+Extend.swift in Sources */,
 				CCAD29871C40F43D0096B2A7 /* UIView+Extension.m in Sources */,
 				CC07B13B1C3CCDA5001D6762 /* ZFAPIConfig.swift in Sources */,
+				CC58FD5C1C76B7C00003C36A /* UIImageView+Night.m in Sources */,
+				CC58FD5D1C76B7C00003C36A /* UINavigationBar+Animation.m in Sources */,
+				CC58FD561C76B7C00003C36A /* DKColorTable.m in Sources */,
 				CC07B1921C3CDEAD001D6762 /* ZFBaseViewController.swift in Sources */,
 				CC073EFB1C3B84E900906779 /* LeftCell.swift in Sources */,
 				CC55E0FA1C57055A00C6FD25 /* ZFEditors.swift in Sources */,
 				CC07B1A41C3CE478001D6762 /* JSAnimatedImagesView.m in Sources */,
 				CC55E0FB1C57055A00C6FD25 /* ZFThemeDetail.swift in Sources */,
 				CC7283221C5CE08400BFECBF /* ZFNewsCommentViewController.swift in Sources */,
+				CC58FD6E1C76C23A0003C36A /* ZFThemeConfig.swift in Sources */,
 				CC07B1751C3CDBCA001D6762 /* UIImage+Extend.swift in Sources */,
 				CC07B16F1C3CDBCA001D6762 /* AppDelegate+Extend.swift in Sources */,
 				CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */,
+				CC58FD581C76B7C00003C36A /* DKNightVersionManager.m in Sources */,
 				CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */,
 				CC636A191C44BDDE00BCB70B /* ZFMainViewController.swift in Sources */,
 				CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */,
+				CC58FD5E1C76B7C00003C36A /* UIBarButtonItem+Night.m in Sources */,
 				CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */,
+				CC58FD631C76B7C00003C36A /* UIProgressView+Night.m in Sources */,
 				CC07B16A1C3CDBCA001D6762 /* Array+Extend.swift in Sources */,
 				CC55E0FC1C57055A00C6FD25 /* ZFThemeStories.swift in Sources */,
 				CC07B1731C3CDBCA001D6762 /* UIColor+Extend.swift in Sources */,
+				CC58FD661C76B7C00003C36A /* UISwitch+Night.m in Sources */,
 				CC07B1701C3CDBCA001D6762 /* UIWindow+AppDelegate.swift in Sources */,
 				CCAD29761C40EEEB0096B2A7 /* MMViewController.swift in Sources */,
+				CC58FD5B1C76B7C00003C36A /* UIButton+Night.m in Sources */,
 				CC72ADB31C44DE7C0035ACA6 /* NumberScrollAnimatedView.swift in Sources */,
 				CC07B1ED1C3F789F001D6762 /* CyclePictureCell.swift in Sources */,
+				CC58FD671C76B7C00003C36A /* UITabBar+Night.m in Sources */,
 				CC07B1961C3CDF31001D6762 /* ZFBaseNavigationController.swift in Sources */,
 				CCA6818E1C58BA3800A8D947 /* ZFNewsExtra.swift in Sources */,
 				CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */,
+				CC58FD681C76B7C00003C36A /* UITableView+Night.m in Sources */,
 				CC58FD1C1C746C300003C36A /* ZFHeaderView.swift in Sources */,
 				CC07B1681C3CDBCA001D6762 /* CoreGraphics.swift in Sources */,
 				CC07B16D1C3CDBCA001D6762 /* Foundation+Extend.swift in Sources */,
@@ -1165,7 +1347,9 @@
 				CC7283251C5CE08400BFECBF /* ZFNewsCommentViewModel.swift in Sources */,
 				CC7D52341C565002005FB83E /* ZFLatestNews.swift in Sources */,
 				CC7D52361C565002005FB83E /* ZFTopStories.swift in Sources */,
+				CC58FD6C1C76B7C00003C36A /* UIView+Night.m in Sources */,
 				CC07B18C1C3CDC15001D6762 /* MMDrawerController.m in Sources */,
+				CC58FD591C76B7C00003C36A /* NSObject+Night.m in Sources */,
 				CC72ADB11C44DE600035ACA6 /* ZanButton.swift in Sources */,
 				CC07B1EC1C3F789F001D6762 /* CyclePictureView.swift in Sources */,
 				CC07B1721C3CDBCA001D6762 /* UIButton+Extend.swift in Sources */,
@@ -1177,23 +1361,29 @@
 				CC073F0B1C3CA29000906779 /* ZFDrawerViewController.swift in Sources */,
 				CC07B18D1C3CDC15001D6762 /* MMDrawerVisualState.m in Sources */,
 				CC07B18E1C3CDC15001D6762 /* UIViewController+MMDrawerController.m in Sources */,
+				CC58FD601C76B7C00003C36A /* UILabel+Night.m in Sources */,
+				CC58FD6B1C76B7C00003C36A /* UIToolBar+Night.m in Sources */,
 				CC07B1E01C3E6DEF001D6762 /* ZFThemeViewModel.swift in Sources */,
 				CC7283231C5CE08400BFECBF /* ZFComments.swift in Sources */,
 				CC07B1C61C3E2DC1001D6762 /* AppException.swift in Sources */,
+				CC58FD5F1C76B7C00003C36A /* UIControl+Night.m in Sources */,
 				CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */,
 				CC58FD1E1C75B38F0003C36A /* ZFFooterView.swift in Sources */,
 				CCA6818A1C58AF7300A8D947 /* ZFNewsDetail.swift in Sources */,
 				CC07B16B1C3CDBCA001D6762 /* ArraySlice+Extend.swift in Sources */,
 				CC07B18B1C3CDC15001D6762 /* MMDrawerBarButtonItem.m in Sources */,
+				CC58FD611C76B7C00003C36A /* UINavigationBar+Night.m in Sources */,
 				CC98C8801C3B51DE002FED99 /* AppDelegate.swift in Sources */,
 				CC073F0D1C3CA39900906779 /* ZFLeftHomeCell.swift in Sources */,
 				CC7D52381C565AC5005FB83E /* ZFBeforeNews.swift in Sources */,
+				CC58FD651C76B7C00003C36A /* UISlider+Night.m in Sources */,
 				CC98C8B31C3B53FD002FED99 /* ZFAppConfig.swift in Sources */,
 				CC07B16C1C3CDBCA001D6762 /* Dictionary+Extend.swift in Sources */,
 				CCAD297E1C40F3B40096B2A7 /* CircleRefreshView.m in Sources */,
 				CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */,
 				CC07B1A81C3CE61B001D6762 /* GradientView.m in Sources */,
 				CC07B1741C3CDBCA001D6762 /* UIDevice.swift in Sources */,
+				CC58FD621C76B7C00003C36A /* UIPageControl+Night.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
