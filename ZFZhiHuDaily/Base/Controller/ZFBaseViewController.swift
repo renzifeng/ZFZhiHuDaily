@@ -51,9 +51,11 @@ class ZFBaseViewController: UIViewController {
     func setupNavView() {
         statusView = UIView(frame: CGRectMake(0, 0, ScreenWidth, 20))
         statusView.backgroundColor = UIColor.clearColor()
+        statusView.userInteractionEnabled = false
         self.view.addSubview(statusView)
         
         navView = UIView(frame: CGRectMake(0, 20, ScreenWidth, 44))
+        navView.userInteractionEnabled = false
         navView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(navView)
         
