@@ -145,13 +145,13 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                 if let css = newsDetail.css {
                     var temp = ""
                     for c in css {
-                        temp = "<link href='\(c)' rel='stylesheet' type='text/css' />\(temp)"
+                        temp = "<link href='\(c)' rel='stylesheet' type='text/css'>\(temp)"
 //                        body = "<html><head><link rel='stylesheet' href='\(c)'></head><body>'\(body)'</body></html>"
                     }
                     //由于它的CSS中已经写死了 顶部图片的高度就是200,因此这个地方需要增加一个CSS 来根据设备的大小来改变图片的高度
-                    body = "\(temp) <style> .headline .img-place-holder { height: \(IN_WINDOW_HEIGHT)px;}</style> \(body)"
+                    body = "\(temp) <style> .headline .img-place-holder { height: \(IN_WINDOW_HEIGHT)px;}</style> <body style='background:black'>\(body)</body>"
                 }
-//                print("\(body)")
+                print("\(body)")
                 self.webView.loadHTMLString(body, baseURL: nil)
             }
             
