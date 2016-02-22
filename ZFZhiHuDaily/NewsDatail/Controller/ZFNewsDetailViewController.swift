@@ -19,6 +19,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     @IBOutlet weak var commentNumLabel: UILabel!
     @IBOutlet weak var zanNumLabel: UILabel!
     @IBOutlet weak var nextNewsBtn: UIButton!
+    @IBOutlet weak var bottomView: UIView!
     
     /// 存放内容id的数组
     var newsIdArray : [String]!
@@ -49,6 +50,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         
         viewModel.newsIdArray = self.newsIdArray
         getNewsWithId(self.newsId)
+        bottomView.dk_backgroundColorPicker = CELL_COLOR
     }
     
     // MARK: - SetupUI
@@ -111,6 +113,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             self.zanNumLabel.textColor = UIColor.lightGrayColor()
             self.zanNumLabel.text = "\(number)"
         }
+        zanBtn.dk_backgroundColorPicker = CELL_COLOR
     }
     
     func getNewsWithId(newsId : String!) {

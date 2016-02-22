@@ -336,7 +336,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUm-86-waq">
-                                                <rect key="frame" x="335" y="6" width="24" height="12"/>
+                                                <rect key="frame" x="335" y="7" width="24" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="KFY-HH-4EA"/>
                                                     <constraint firstAttribute="width" constant="24" id="sUg-8C-3FV"/>
@@ -387,7 +387,7 @@
                                             <constraint firstItem="9Cx-mc-DSZ" firstAttribute="top" secondItem="90P-pe-0Bs" secondAttribute="top" constant="-1" id="Uij-DD-4AP"/>
                                             <constraint firstAttribute="bottom" secondItem="9Cx-mc-DSZ" secondAttribute="bottom" constant="1" id="VdM-SN-eQO"/>
                                             <constraint firstItem="RmH-T7-Mch" firstAttribute="top" secondItem="90P-pe-0Bs" secondAttribute="top" id="W3d-gs-LpM"/>
-                                            <constraint firstItem="CUm-86-waq" firstAttribute="top" secondItem="90P-pe-0Bs" secondAttribute="top" constant="6" id="XZa-Wk-CF2"/>
+                                            <constraint firstItem="CUm-86-waq" firstAttribute="top" secondItem="90P-pe-0Bs" secondAttribute="top" constant="7" id="XZa-Wk-CF2"/>
                                             <constraint firstAttribute="trailing" secondItem="RmH-T7-Mch" secondAttribute="trailing" id="aZP-ui-tZU"/>
                                             <constraint firstItem="DH0-Lm-lVd" firstAttribute="height" secondItem="9Cx-mc-DSZ" secondAttribute="height" id="enx-gA-15r"/>
                                             <constraint firstItem="DH0-Lm-lVd" firstAttribute="leading" secondItem="6L2-eV-2Oa" secondAttribute="trailing" id="gCH-ay-BX5"/>
@@ -445,6 +445,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="bottomView" destination="90P-pe-0Bs" id="i8g-gO-DIm"/>
                         <outlet property="commentBtn" destination="RmH-T7-Mch" id="Vx5-aZ-Udd"/>
                         <outlet property="commentNumLabel" destination="CUm-86-waq" id="iMs-cT-vfm"/>
                         <outlet property="containerView" destination="crm-SX-08h" id="Ltq-XS-kFj"/>
