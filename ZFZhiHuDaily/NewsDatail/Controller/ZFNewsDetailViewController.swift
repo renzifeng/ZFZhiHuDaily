@@ -41,9 +41,20 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var headerView : ZFHeaderView!
     /// footerView
     var footerView : ZFFooterView!
+    /// 是否为夜间模式
+    var isNight : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
+        if mode == "light"{
+            //白天模式
+            isNight = false
+        }else if mode == "night" {
+            //夜间模式
+            isNight = true
+        }
+
         setupUI()
         //赞
         setupZan()
@@ -145,11 +156,10 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             
             if var body = newsDetail.body {
                 if let css = newsDetail.css {
-                    let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
-                    if mode == "light"{
+                    if !self.isNight {
                         //白天模式
                         body = "<html><head><link rel='stylesheet' href='\(css[0])'></head><body>\(body)</body></html>"
-                    }else if mode == "night" {
+                    }else {
                         //夜间模式
                         body = "<html><head><link rel='stylesheet' href='\(css[0])'></head><body><div class='night'>\(body)</div></body></html>"
                     }
@@ -230,11 +240,18 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.nextId)
-            }) { (finished) -> Void in
-                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-                dispatch_after(delay, dispatch_get_main_queue()) {
-                    self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+        }) { (finished) -> Void in
+            if !self.hasPic {
+                if self.isNight {
+                    LightStatusBar()
+                }else {
+                    BlackStatusBar()
                 }
+            }
+            let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+            dispatch_after(delay, dispatch_get_main_queue()) {
+                self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+            }
         }
     }
     
@@ -259,11 +276,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         //有图模式
         if hasPic {
             if (Float)(offSetY) >= 170 {
-                let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
-                if mode == "light"{
+                
+                if !self.isNight {
                     //白天模式
                     BlackStatusBar()
-                }else if mode == "night" {
+                }else  {
                     //夜间模式
                     LightStatusBar()
                 }
@@ -274,11 +291,10 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             }
         }else { //无图模式
             statusView.dk_backgroundColorPicker = BG_COLOR
-            let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
-            if mode == "light"{
+            if !self.isNight {
                 //白天模式
                 BlackStatusBar()
-            }else if mode == "night" {
+            }else {
                 //夜间模式
                 LightStatusBar()
             }
