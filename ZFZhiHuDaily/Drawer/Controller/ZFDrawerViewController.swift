@@ -63,8 +63,9 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         offlineBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
         themeBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
         
-        avatarImg.layer.masksToBounds = true
-        avatarImg.layer.cornerRadius = 20.0
+        //切圆角
+        cutRoundWith(avatarImg)
+
         //去掉下部空白格
         self.tableView.tableFooterView = UIView()
         

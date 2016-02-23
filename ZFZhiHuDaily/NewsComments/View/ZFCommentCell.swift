@@ -25,8 +25,9 @@ class ZFCommentCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.avatarImageView.layer.cornerRadius = self.avatarImageView.width/2
-        self.avatarImageView.layer.masksToBounds = true
+        //切圆角
+        cutRoundWith(avatarImageView)
+        
         zanBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
         
         self.dk_backgroundColorPicker = CELL_COLOR

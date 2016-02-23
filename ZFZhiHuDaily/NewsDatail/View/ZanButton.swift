@@ -122,9 +122,12 @@ class ZanButton: UIView{
         zanNotifyView.backgroundColor=popBackgroundColor
         
         //设置圆角矩形
-        zanNotifyView.layer.cornerRadius = CGFloat(popCornerRadius);
-        zanNotifyView.layer.masksToBounds = true;
-        
+        let corner = CGFloat(popCornerRadius)
+        let shapeLayer = CAShapeLayer()
+        let path = UIBezierPath(roundedRect: zanNotifyView.bounds, byRoundingCorners: .AllCorners, cornerRadii:CGSizeMake(corner,corner))
+        shapeLayer.path = path.CGPath
+        zanNotifyView.layer.mask = shapeLayer
+
         //先是设置为隐藏
         zanNotifyView.alpha=0
         

@@ -66,3 +66,13 @@ func FONT (size : CGFloat) -> UIFont {
     return UIFont.systemFontOfSize(size)
 }
 
+
+// 切圆角
+func cutRoundWith(view : UIView) {
+    let corner = view.width/2
+    let shapeLayer = CAShapeLayer()
+    let path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: .AllCorners, cornerRadii:CGSizeMake(corner,corner))
+    shapeLayer.path = path.CGPath
+    view.layer.mask = shapeLayer
+}
+
