@@ -164,8 +164,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                         body = "<html><head><link rel='stylesheet' href='\(css[0])'></head><body><div class='night'>\(body)</div></body></html>"
                     }
                 }
-                print("\(body)")
-                
+                //print("\(body)")
                 self.webView.loadHTMLString(body, baseURL: nil)
             }
             
