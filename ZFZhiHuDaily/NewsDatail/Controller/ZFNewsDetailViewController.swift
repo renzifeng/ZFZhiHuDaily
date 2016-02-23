@@ -50,7 +50,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         
         viewModel.newsIdArray = self.newsIdArray
         getNewsWithId(self.newsId)
-        bottomView.dk_backgroundColorPicker = CELL_COLOR
+        bottomView.dk_backgroundColorPicker = BG_COLOR
+        self.webView.dk_backgroundColorPicker = BG_COLOR
+        self.view.dk_backgroundColorPicker = BG_COLOR
     }
     
     // MARK: - SetupUI
@@ -62,7 +64,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         backgroundImg = UIImageView()
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
-        backgroundImg.frame = CGRectMake(0, -60, ScreenWidth, CGFloat(IN_WINDOW_HEIGHT+60))
+        backgroundImg.frame = CGRectMake(0, -60, ScreenWidth, CGFloat(265))
         self.webView.scrollView.addSubview(backgroundImg)
         self.webView.scrollView.delegate = self
         
@@ -113,7 +115,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             self.zanNumLabel.textColor = UIColor.lightGrayColor()
             self.zanNumLabel.text = "\(number)"
         }
-        zanBtn.dk_backgroundColorPicker = CELL_COLOR
+        zanBtn.dk_backgroundColorPicker = BG_COLOR
     }
     
     func getNewsWithId(newsId : String!) {
@@ -137,21 +139,23 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
                 BlackStatusBar()
                 self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             }
-            
+
             //配置header和footer
             self.configHederAndFooterView()
             
             if var body = newsDetail.body {
                 if let css = newsDetail.css {
-                    var temp = ""
-                    for c in css {
-                        temp = "<link href='\(c)' rel='stylesheet' type='text/css'>\(temp)"
-//                        body = "<html><head><link rel='stylesheet' href='\(c)'></head><body>'\(body)'</body></html>"
+                    let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
+                    if mode == "light"{
+                        //白天模式
+                        body = "<html><head><link rel='stylesheet' href='\(css[0])'></head><body>\(body)</body></html>"
+                    }else if mode == "night" {
+                        //夜间模式
+                        body = "<html><head><link rel='stylesheet' href='\(css[0])'></head><body><div class='night'>\(body)</div></body></html>"
                     }
-                    //由于它的CSS中已经写死了 顶部图片的高度就是200,因此这个地方需要增加一个CSS 来根据设备的大小来改变图片的高度
-                    body = "\(temp) <style> .headline .img-place-holder { height: \(IN_WINDOW_HEIGHT)px;}</style> <body style='background:black'>\(body)</body>"
                 }
                 print("\(body)")
+                
                 self.webView.loadHTMLString(body, baseURL: nil)
             }
             
@@ -255,15 +259,29 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         //有图模式
         if hasPic {
             if (Float)(offSetY) >= 170 {
-                statusView.backgroundColor = UIColor.whiteColor()
-                BlackStatusBar()
+                let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
+                if mode == "light"{
+                    //白天模式
+                    BlackStatusBar()
+                }else if mode == "night" {
+                    //夜间模式
+                    LightStatusBar()
+                }
+                statusView.dk_backgroundColorPicker = BG_COLOR
             }else {
                 LightStatusBar()
                 statusView.backgroundColor = UIColor.clearColor()
             }
         }else { //无图模式
-            statusView.backgroundColor = UIColor.whiteColor()
-            BlackStatusBar()
+            statusView.dk_backgroundColorPicker = BG_COLOR
+            let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
+            if mode == "light"{
+                //白天模式
+                BlackStatusBar()
+            }else if mode == "night" {
+                //夜间模式
+                LightStatusBar()
+            }
         }
         
         //到－80 让webview不再能被拉动

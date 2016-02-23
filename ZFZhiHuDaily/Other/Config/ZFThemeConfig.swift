@@ -8,7 +8,12 @@
 
 import UIKit
 
+let BG_COLOR = DKColorWithColors(UIColor.whiteColor(), RGB(52, 52, 52))
+
+//let STATUS_COLOR = DKColorWithColors(UIColor.clearColor(), RGB(52, 52, 52))
+
 let CELL_COLOR = DKColorWithColors(UIColor.whiteColor(), RGB(39, 39, 39))
+
 let CELL_TITLE = DKColorWithRGB(0x343434,0xffffff)
 
 let TAB_HEADER = DKColorWithColors(ThemeColor, RGB(52, 52, 52))
@@ -17,3 +22,4 @@ func ThemeColorWithAlpha(alpha : CGFloat) -> DKColorPicker {
 }
 
 let TAB_SEPAROTOR = DKColorWithRGB(0xaaaaaa, 0x313131)
+

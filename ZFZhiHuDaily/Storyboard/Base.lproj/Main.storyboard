@@ -288,7 +288,7 @@
                                 <subviews>
                                     <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-iy-2fD">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="delegate" destination="18i-eZ-R0L" id="ZmZ-ql-zD3"/>
                                         </connections>
@@ -529,9 +529,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecr-FK-4EE" customClass="ImageTextButton">
-                                                    <rect key="frame" x="340" y="5" width="20" height="17"/>
+                                                    <rect key="frame" x="323" y="5" width="37" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <state key="normal" title="0" image="Comment_Vote">
+                                                    <state key="normal" title="200" image="Comment_Vote">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
