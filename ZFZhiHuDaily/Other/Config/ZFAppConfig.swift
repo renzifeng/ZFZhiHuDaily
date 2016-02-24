@@ -14,19 +14,7 @@ struct Keys {
     static let readNewsId = "readNewsId"
 }
 typealias ErrorBlockCallBack = (error : NSError) -> Void
-// MARK: - 主页上得各种高度的变量
-/// 100
-let TABLE_CELL_HEIGHT : Float = 100
-/// 24
-let SECTION_HEIGHT:Float = 24
-/// 80
-let SCROLL_HEIGHT:Float = 80
-/// 400
-let IMAGE_HEIGHT:Float = IN_WINDOW_HEIGHT+200
-/// 200
-let IN_WINDOW_HEIGHT:Float = UIScreen.mainScreen().bounds.height > 1000 ? 300 : 200
-/// 44
-let TITLE_HEIGHT:Float = 44
+
 // MARK: - 获取SB
 func GET_SB (sbName : String) -> UIStoryboard {
     return UIStoryboard(name: sbName, bundle: NSBundle.mainBundle())
