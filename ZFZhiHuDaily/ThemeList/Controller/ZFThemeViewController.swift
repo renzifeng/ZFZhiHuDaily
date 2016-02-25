@@ -89,7 +89,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     
     //下拉刷新
     func updateData() {
-        print("下拉刷新")
+        //print("下拉刷新")
         //获取数据源
         viewModel.getListData(String(theme.internalIdentifier!), successBlock: { (dataSources) -> Void in
             self.dataSoure.removeAll()
