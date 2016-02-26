@@ -9,8 +9,9 @@
 import UIKit
 import NVActivityIndicatorView
 import Kingfisher
+import SKPhotoBrowser
 
-class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrollViewDelegate {
+class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrollViewDelegate,UIGestureRecognizerDelegate {
     /// 容器view
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var webView: UIWebView!
@@ -43,9 +44,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var footerView : ZFFooterView!
     /// 是否为夜间模式
     var isNight : Bool = false
+    var tapGesture : UITapGestureRecognizer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let mode = NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode") as! String
         if mode == "light"{
             //白天模式
@@ -64,6 +68,11 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         bottomView.dk_backgroundColorPicker = BG_COLOR
         self.webView.dk_backgroundColorPicker = BG_COLOR
         self.view.dk_backgroundColorPicker = BG_COLOR
+        
+        tapGesture = UITapGestureRecognizer()
+        tapGesture.addTarget(self, action: "tapAction:")
+        self.webView.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
     }
     
     // MARK: - SetupUI
@@ -204,6 +213,31 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         print("分享")
     }
 
+    func tapAction(gesture : UITapGestureRecognizer) {
+        let touchPoint = gesture.locationInView(self.webView)
+        getImage(touchPoint)
+    }
+    
+    func getImage(point : CGPoint) {
+        let js = String(format: "document.elementFromPoint(%f, %f).tagName", arguments: [point.x,point.y])
+        let tagName = self.webView.stringByEvaluatingJavaScriptFromString(js)
+        if tagName == "IMG" {
+            let imgURL = String(format: "document.elementFromPoint(%f, %f).src", arguments: [point.x,point.y])
+            let urlToShow = self.webView.stringByEvaluatingJavaScriptFromString(imgURL)
+            if let url = urlToShow {
+                
+                print("=======\(url)")
+                var images = [SKPhoto]()
+                let photo = SKPhoto.photoWithImageURL(url)
+                photo.shouldCachePhotoURLImage = true
+                images.append(photo)
+                
+                let browser = SKPhotoBrowser(photos: images)
+                presentViewController(browser, animated: true, completion: {})
+            }
+        }
+    }
+    
     /**
      配置header 和 footerview
      */
@@ -225,6 +259,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             nextNewsBtn.enabled = false
         }
     }
+    
+    // MARK: - Delegate 
+    
     func webViewDidFinishLoad(webView: UIWebView) {
         //显示header和footer
         footerView.hidden = false
@@ -232,6 +269,13 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         activityIndicatorView.stopAnimation()
         self.isLoading = false
         footerView.y = webView.scrollView.contentSize.height
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == tapGesture {
+            return true
+        }
+        return false
     }
     
     // MARK: - 下一条新闻
