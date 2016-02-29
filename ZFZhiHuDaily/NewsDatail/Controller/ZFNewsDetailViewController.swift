@@ -46,6 +46,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     var isNight : Bool = false
     var tapGesture : UITapGestureRecognizer!
     
+    // MARK: - life sycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,13 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         tapGesture.addTarget(self, action: "tapAction:")
         self.webView.addGestureRecognizer(tapGesture)
         tapGesture.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+        navView.hidden = true
+        closeTheDrawerGesture()
     }
     
     // MARK: - SetupUI
@@ -138,6 +146,29 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         zanBtn.dk_backgroundColorPicker = BG_COLOR
     }
     
+    // MARK: - 配置header 和 footerview
+    
+    func configHederAndFooterView() {
+        // 配置header
+        headerView.configTintColor(hasPic)
+        
+        if viewModel.hasPrevious {
+            headerView.hasHeaderData()
+        }else {
+            headerView.notiNoHeaderData()
+        }
+        
+        if viewModel.hasNext {
+            footerView.hasMoreData()
+            nextNewsBtn.enabled = true
+        }else {
+            footerView.notiNoMoreData()
+            nextNewsBtn.enabled = false
+        }
+    }
+    
+    // MARK: - Networking
+    
     func getNewsWithId(newsId : String!) {
 
         activityIndicatorView.startAnimation()
@@ -190,13 +221,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
 
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = true
-        navView.hidden = true
-        closeTheDrawerGesture()
-    }
- 
     
     // MARK: - Action
     // 返回
@@ -208,16 +232,19 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     @IBAction func didClickNext() {
         getNextNews()
     }
+    
     // 分享
     @IBAction func didClickShare(sender: UIButton) {
         print("分享")
     }
-
+    
+    // webView tap事件
     func tapAction(gesture : UITapGestureRecognizer) {
         let touchPoint = gesture.locationInView(self.webView)
         getImage(touchPoint)
     }
     
+    // 获取webView图片
     func getImage(point : CGPoint) {
         let js = String(format: "document.elementFromPoint(%f, %f).tagName", arguments: [point.x,point.y])
         let tagName = self.webView.stringByEvaluatingJavaScriptFromString(js)
@@ -225,8 +252,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             let imgURL = String(format: "document.elementFromPoint(%f, %f).src", arguments: [point.x,point.y])
             let urlToShow = self.webView.stringByEvaluatingJavaScriptFromString(imgURL)
             if let url = urlToShow {
-                
-                print("=======\(url)")
+                //print("=======\(url)")
                 var images = [SKPhoto]()
                 let photo = SKPhoto.photoWithImageURL(url)
                 photo.shouldCachePhotoURLImage = true
@@ -238,67 +264,27 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
     }
     
-    /**
-     配置header 和 footerview
-     */
-    func configHederAndFooterView() {
-        // 配置header
-        headerView.configTintColor(hasPic)
-        
-        if viewModel.hasPrevious {
-            headerView.hasHeaderData()
-        }else {
-            headerView.notiNoHeaderData()
-        }
-        
-        if viewModel.hasNext {
-            footerView.hasMoreData()
-            nextNewsBtn.enabled = true
-        }else {
-            footerView.notiNoMoreData()
-            nextNewsBtn.enabled = false
-        }
-    }
-    
-    // MARK: - Delegate 
-    
-    func webViewDidFinishLoad(webView: UIWebView) {
-        //显示header和footer
-        footerView.hidden = false
-        headerView.hidden = false
-        activityIndicatorView.stopAnimation()
-        self.isLoading = false
-        footerView.y = webView.scrollView.contentSize.height
-    }
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == tapGesture {
-            return true
-        }
-        return false
-    }
-    
-    // MARK: - 下一条新闻
+    // 下一条新闻
     func getNextNews() {
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.nextId)
-        }) { (finished) -> Void in
-            if !self.hasPic {
-                if self.isNight {
-                    LightStatusBar()
-                }else {
-                    BlackStatusBar()
+            }) { (finished) -> Void in
+                if !self.hasPic {
+                    if self.isNight {
+                        LightStatusBar()
+                    }else {
+                        BlackStatusBar()
+                    }
                 }
-            }
-            let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-            dispatch_after(delay, dispatch_get_main_queue()) {
-                self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-            }
+                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+                dispatch_after(delay, dispatch_get_main_queue()) {
+                    self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+                }
         }
     }
     
-    // MARK: - 上一条新闻
+    // 上一条新闻
     func getPreviousNews() {
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
@@ -312,8 +298,28 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         
     }
 
-    // MARK: - UIScrollDelegate
+    // MARK: - Delegate 
     
+    // UIWebViewDelegate
+    func webViewDidFinishLoad(webView: UIWebView) {
+        //显示header和footer
+        footerView.hidden = false
+        headerView.hidden = false
+        activityIndicatorView.stopAnimation()
+        self.isLoading = false
+        footerView.y = webView.scrollView.contentSize.height
+    }
+    
+    // UIGestureRecognizerDelegate
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == tapGesture {
+            return true
+        }
+        return false
+    }
+    
+    
+    // UIScrollDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
         //有图模式
@@ -371,6 +377,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         
     }
     
+    // UIScrollDelegate
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSetY = scrollView.contentOffset.y
         if (-offSetY <= 60 && -offSetY >= 40 ) {
