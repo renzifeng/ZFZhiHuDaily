@@ -112,17 +112,21 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         let width = CGFloat(50.0)
         let height = CGFloat(50.0)
         
-        activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse, color: ThemeColor, size: CGSizeMake(50, 50))
+        // loading
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse  , color: UIColor.lightGrayColor(), size: CGSizeMake(50, 50))
         activityIndicatorView.center = self.view.center
+        
         self.view.addSubview(activityIndicatorView)
         
+        // 上一篇header
         headerView = ZFHeaderView(frame: CGRectMake(0, -60, ScreenWidth, 60))
         //先隐藏，待web加载完毕后显示
         headerView.hidden = true
         self.webView.scrollView.addSubview(headerView)
         
+        // 下一篇footer
         footerView = ZFFooterView(frame: CGRectMake(0, 0, ScreenWidth, 60))
-        //先隐藏，待web加载完毕后显示
+        // 先隐藏，待web加载完毕后显示
         footerView.hidden = true
         self.webView.scrollView.addSubview(footerView)
         

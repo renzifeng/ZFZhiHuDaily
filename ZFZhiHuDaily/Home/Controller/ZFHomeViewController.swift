@@ -1,5 +1,5 @@
 //
-//  ZFMainViewController.swift
+//  ZFHomeViewController.swift
 //  ZFZhiHuDaily
 //
 //  Created by 任子丰 on 16/1/6.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableViewDataSource, ParallaxHeaderViewDelegate, CyclePictureViewDelegate{
+class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableViewDataSource, ParallaxHeaderViewDelegate, CyclePictureViewDelegate{
     /// 轮播图View
     var cyclePictureView: CyclePictureView!
     /// 轮播图图片url数组

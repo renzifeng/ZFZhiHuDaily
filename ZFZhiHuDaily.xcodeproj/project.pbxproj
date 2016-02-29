@@ -83,7 +83,7 @@
 		CC636A001C4349D100BCB70B /* ZFThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */; };
 		CC636A031C43519700BCB70B /* ZFThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */; };
 		CC636A0B1C43AC4100BCB70B /* ZFThemeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */; };
-		CC636A191C44BDDE00BCB70B /* ZFMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A101C44BDDE00BCB70B /* ZFMainViewController.swift */; };
+		CC636A191C44BDDE00BCB70B /* ZFHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A101C44BDDE00BCB70B /* ZFHomeViewController.swift */; };
 		CC636A1B1C44BDDE00BCB70B /* KYCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A141C44BDDE00BCB70B /* KYCircularProgress.swift */; };
 		CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */; };
 		CC636A1D1C44BDDE00BCB70B /* ZFHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */; };
@@ -248,7 +248,7 @@
 		CC6369FF1C4349D100BCB70B /* ZFThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeViewController.swift; sourceTree = "<group>"; };
 		CC636A021C43519700BCB70B /* ZFThemeListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListViewModel.swift; sourceTree = "<group>"; };
 		CC636A0A1C43AC4100BCB70B /* ZFThemeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFThemeListCell.swift; sourceTree = "<group>"; };
-		CC636A101C44BDDE00BCB70B /* ZFMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFMainViewController.swift; sourceTree = "<group>"; };
+		CC636A101C44BDDE00BCB70B /* ZFHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeViewController.swift; sourceTree = "<group>"; };
 		CC636A141C44BDDE00BCB70B /* KYCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCircularProgress.swift; sourceTree = "<group>"; };
 		CC636A151C44BDDE00BCB70B /* ParallaxHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderView.swift; sourceTree = "<group>"; };
 		CC636A161C44BDDE00BCB70B /* ZFHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFHomeCell.swift; sourceTree = "<group>"; };
@@ -854,7 +854,7 @@
 		CC636A0F1C44BDDE00BCB70B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC636A101C44BDDE00BCB70B /* ZFMainViewController.swift */,
+				CC636A101C44BDDE00BCB70B /* ZFHomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1320,7 +1320,7 @@
 				CC07B1AC1C3CE6A4001D6762 /* MSWeakTimer.m in Sources */,
 				CC58FD581C76B7C00003C36A /* DKNightVersionManager.m in Sources */,
 				CC07B19F1C3CE322001D6762 /* LaunchViewController.swift in Sources */,
-				CC636A191C44BDDE00BCB70B /* ZFMainViewController.swift in Sources */,
+				CC636A191C44BDDE00BCB70B /* ZFHomeViewController.swift in Sources */,
 				CC72ADAC1C44D8E90035ACA6 /* ZFNewsDetailViewModel.swift in Sources */,
 				CC58FD5E1C76B7C00003C36A /* UIBarButtonItem+Night.m in Sources */,
 				CC636A1C1C44BDDE00BCB70B /* ParallaxHeaderView.swift in Sources */,
