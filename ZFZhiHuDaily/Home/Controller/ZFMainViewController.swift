@@ -196,7 +196,7 @@ class ZFMainViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         
         let firstArray = self.dataSoure[0]
         //第一个section到达后 隐藏navbar 和 标题
-        if (offSetY >=  (CGFloat)(80.0 * firstArray.count + 164*2)+88) {
+        if (offSetY >=  (CGFloat)(80.0 * firstArray.count + 164*2)+88+110) {
             navView.alpha = 0;
         }else {
             navView.alpha = 1.0;

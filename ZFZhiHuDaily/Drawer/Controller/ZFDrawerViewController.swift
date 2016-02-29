@@ -87,7 +87,7 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
 
     }
-    //离线(稍后做)
+    //离线功能
     @IBAction func cacheData() {
         
     }

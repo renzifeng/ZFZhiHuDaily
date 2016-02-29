@@ -289,11 +289,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.previousId)
-            }) { (finished) -> Void in
-                let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-                dispatch_after(delay, dispatch_get_main_queue()) {
-                    self.containerView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-                }
+        }) { (finished) -> Void in
         }
         
     }
@@ -325,7 +321,6 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         //有图模式
         if hasPic {
             if (Float)(offSetY) >= 170 {
-                
                 if !self.isNight {
                     //白天模式
                     BlackStatusBar()
