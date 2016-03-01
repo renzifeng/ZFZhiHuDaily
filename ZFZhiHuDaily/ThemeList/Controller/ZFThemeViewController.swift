@@ -53,6 +53,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     //tableHader
     func setTableHeader() {
         backgroundImg = UIImageView()
+        backgroundImg.backgroundColor = UIColor.grayColor()
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, 100)
         //初始化Header
