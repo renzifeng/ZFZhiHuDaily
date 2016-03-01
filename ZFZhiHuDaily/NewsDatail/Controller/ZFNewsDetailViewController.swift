@@ -270,6 +270,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     // 下一条新闻
     func getNextNews() {
+        // 取消赞
+        zanBtn.isZan = true
+        zanBtn.zanAnimationPlay()
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.nextId)
@@ -290,6 +293,9 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
     
     // 上一条新闻
     func getPreviousNews() {
+        // 取消赞
+        zanBtn.isZan = true
+        zanBtn.zanAnimationPlay()
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.containerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, ScreenHeight);
             self.getNewsWithId(self.viewModel.previousId)

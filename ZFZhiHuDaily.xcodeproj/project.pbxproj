@@ -1170,7 +1170,6 @@
 				TargetAttributes = {
 					CC98C87B1C3B51DE002FED99 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = ML27AXLXF5;
 					};
 					CC98C88F1C3B51DE002FED99 = {
 						CreatedOnToolsVersion = 7.2;
