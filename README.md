@@ -6,7 +6,7 @@
 
 ### 图片效果演示
 
-![image](https://github.com/renzifeng/ZFZhiHuDaily/raw/master/ZhiHu.gif)
+![图片效果演示](https://github.com/renzifeng/ZFZhiHuDaily/raw/master/ZhiHu.gif)
 
 ### 已完成功能
 
@@ -15,8 +15,9 @@
 * 查看主题详细内容
 * 新闻评论
 * 点赞功能
-* 新闻已做缓存功能
+* 新闻详情缓存功能
 * 新闻详情页上下拉加载新闻
+* 新闻详情图片点击查看大图功能
 * 夜间模式
 
 ### 待完成功能
