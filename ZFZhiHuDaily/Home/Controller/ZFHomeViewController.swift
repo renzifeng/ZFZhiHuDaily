@@ -52,12 +52,12 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         navView.dk_backgroundColorPicker = ThemeColorWithAlpha(0)
         
         //初始化轮播图
-        cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, self.view.frame.width, 164), imageURLArray: nil)
+        cyclePictureView = CyclePictureView(frame: CGRectMake(0, 0, ScreenWidth, ScreenWidth/1.88), imageURLArray: nil)
         cyclePictureView.currentDotColor = UIColor.whiteColor()
         cyclePictureView.timeInterval = 4.0
         cyclePictureView.delegate = self
         //初始化Header
-        let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(self.view.frame.width, 164), maxOffsetY: -64, delegate:self)
+        let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(ScreenWidth, ScreenWidth/1.88), maxOffsetY: -64, delegate:self)
         
         self.tableView.tableHeaderView = heardView
         self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
@@ -196,7 +196,7 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         
         let firstArray = self.dataSoure[0]
         //第一个section到达后 隐藏navbar 和 标题
-        if (offSetY >=  (CGFloat)(80.0 * firstArray.count + 164*2)+88+110) {
+        if (offSetY >=  (CGFloat)(80.0*firstArray.count+164*2)+88) {
             navView.alpha = 0;
         }else {
             navView.alpha = 1.0;
