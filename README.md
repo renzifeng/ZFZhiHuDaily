@@ -8,6 +8,13 @@
 
 ![图片效果演示](https://github.com/renzifeng/ZFZhiHuDaily/raw/master/ZhiHu.gif)
 
+编译需要安装cocopods
+
+	$ cd ZFPlayer
+	$ pod install
+	
+Open the "ZFZhiHuDaily.xcworkspace"
+
 ### 已完成功能
 
 * 启动动画的设置
@@ -31,6 +38,5 @@
 
 
 # 期待
-- 如果在使用过程中遇到BUG，或发现功能不够用，希望你能Issues我
+- 如果在使用过程中遇到BUG，或发现功能不够用，希望你能Issues我或者微博联系我[@任子丰](https://weibo.com/zifeng1300)
 - 如果觉得好用请Star!
-- 谢谢!
