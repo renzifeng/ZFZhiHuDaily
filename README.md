@@ -10,7 +10,7 @@
 
 编译需要安装cocopods
 
-	$ cd ZFPlayer
+	$ cd ZFZhiHuDaily
 	$ pod install
 	
 Open the "ZFZhiHuDaily.xcworkspace"
