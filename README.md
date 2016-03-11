@@ -36,6 +36,7 @@ Open the "ZFZhiHuDaily.xcworkspace"
 * iOS 8.0+ 
 * Xcode 7.0 +
 
+#有技术问题也可以加我的iOS技术群，互相讨论，群号为：213376937
 
 # 期待
 - 如果在使用过程中遇到BUG，或发现功能不够用，希望你能Issues我或者微博联系我[@任子丰](https://weibo.com/zifeng1300)
