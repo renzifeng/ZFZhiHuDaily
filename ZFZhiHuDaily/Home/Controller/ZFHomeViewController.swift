@@ -87,7 +87,7 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     }
     
     func setRefreshView() {
-        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
+        refreshView.attachObserveToScrollView(self.tableView, target: self, action: #selector(ZFHomeViewController.updateData))
     }
     // MARK: - Action
     //打开抽屉
@@ -120,7 +120,7 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         }
         self.isLoading = !self.isLoading
         viewModel.getDataForDate( dateIndex, successCallBack: { (dataSoure,dateStr) -> Void in
-            self.dateIndex++
+            self.dateIndex += 1
             self.isLoading = !self.isLoading
             self.dataSoure.append(dataSoure)
             self.headerTitleArray.append(dateStr)
@@ -228,9 +228,9 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         let topic = self.headerSource[indexPath.row]
         newsDetailVC.newsId = String(topic.internalIdentifier!)
         self.newsIdArray = []
-        for (var i = 0 ; i < self.dataSoure.count ; i++) {
+        for i in 0  ..< self.dataSoure.count  {
             let array = self.dataSoure[i]
-            for (var j = 0 ; j < array.count ; j++) {
+            for j in 0  ..< array.count  {
                 let story = array[j]
                 self.newsIdArray.append((String)(story.internalIdentifier!))
             }
@@ -252,13 +252,21 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         let news = array[indexPath.row]
         newsDetailVC.newsId = String(news.internalIdentifier!)
         self.newsIdArray = []
-        for (var i = 0 ; i < self.dataSoure.count ; i++) {
+        for i in 0 ..< self.dataSoure.count {
             let array = self.dataSoure[i]
-            for (var j = 0 ; j < array.count ; j++) {
+            for j in 0  ..< array.count {
                 let story = array[j]
                 self.newsIdArray.append((String)(story.internalIdentifier!))
             }
+
         }
+//        for (var i = 0 ; i < self.dataSoure.count ; i++) {
+//            let array = self.dataSoure[i]
+//            for (var j = 0 ; j < array.count ; j++) {
+//                let story = array[j]
+//                self.newsIdArray.append((String)(story.internalIdentifier!))
+//            }
+//        }
         newsDetailVC.newsIdArray = self.newsIdArray
     }
 

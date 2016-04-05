@@ -128,9 +128,9 @@ class NumberScrollAnimatedView: UIView {
         let textValue = value.stringValue
         
         //如果长度不够就补零
-        for var i = 0; i < self.minLength - textValue.characters.count; i++ {
-            numbersText.append("0")
-        }
+//        for var i = 0; i < self.minLength - textValue.characters.count; i++ {
+//            numbersText.append("0")
+//        }
         
         //判断是否是有负号
         var minus = false;
@@ -219,7 +219,7 @@ class NumberScrollAnimatedView: UIView {
         let desity = needChange ? self.desity : -1
         
         //根据desity,增加适量的动画中间值
-        for var i=0; i<desity+1;++i {
+        for i in 0 ..< desity+1 {
             textForScroll.append("\((number!+i+off)%10)")
         }
         
@@ -341,7 +341,7 @@ class NumberScrollAnimatedView: UIView {
     - parameter flag:   结束标识
     */
     override func animationDidStop(sender:CAAnimation,finished flag:Bool) {
-        finishedCount++
+        finishedCount += 1
         
         if  finishedCount == scrollLayers.count {
             //表示此次动画全部结束

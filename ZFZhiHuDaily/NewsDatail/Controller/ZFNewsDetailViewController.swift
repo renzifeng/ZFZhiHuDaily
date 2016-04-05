@@ -71,7 +71,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         self.view.dk_backgroundColorPicker = BG_COLOR
         
         tapGesture = UITapGestureRecognizer()
-        tapGesture.addTarget(self, action: "tapAction:")
+        tapGesture.addTarget(self, action: #selector(ZFNewsDetailViewController.tapAction(_:)))
         self.webView.addGestureRecognizer(tapGesture)
         tapGesture.delegate = self
     }

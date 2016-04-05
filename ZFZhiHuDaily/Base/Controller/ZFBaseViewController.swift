@@ -32,7 +32,7 @@ class ZFBaseViewController: UIViewController {
         let btn = UIButton(type: .Custom)
         btn.setImage(UIImage(named: imageName), forState: .Normal)
         btn.frame = CGRectMake(20, 27, 30, 30);
-        btn.addTarget(self, action: "didClickLeft", forControlEvents: .TouchUpInside)
+        btn.addTarget(self, action: #selector(ZFBaseViewController.didClickLeft), forControlEvents: .TouchUpInside)
         self.view.addSubview(btn)
     }
 

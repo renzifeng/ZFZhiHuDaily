@@ -64,7 +64,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
     //刷新View
     func setRefreshView() {
         navTitle.text = self.theme.name
-        refreshView.attachObserveToScrollView(self.tableView, target: self, action: "updateData")
+        refreshView.attachObserveToScrollView(self.tableView, target: self, action: #selector(ZFThemeViewController.updateData))
     }
 
     // MARK: - UITableView Delegate
@@ -130,7 +130,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         let story = self.dataSoure[indexPath.row]
         newsDetailVC.newsId = String(story.internalIdentifier!)
         self.newsIdArray = []
-        for (var i = 0 ; i < self.dataSoure.count ; i++) {
+        for i in 0 ..< self.dataSoure.count {
             let story = self.dataSoure[i]
             self.newsIdArray.append((String)(story.internalIdentifier!))
         }

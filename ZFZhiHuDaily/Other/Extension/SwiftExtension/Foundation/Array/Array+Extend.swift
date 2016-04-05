@@ -17,9 +17,9 @@ extension Array{
         
         if openOrClosedInterval.isEmpty {
             
-            var lenth = self.count
-        
-            range = Range(start: 0, end: lenth)
+            let lenth = self.count
+
+            range = Range(0..<lenth)
         }
         
         return self[range];
@@ -29,7 +29,7 @@ extension Array{
     /** 仿OC遍历 */
     func enumerate(itemClosure: (index: Int , value: Element)->Void){
         
-        for (var i=0;i<self.count;i++){
+        for i in 0 ..< self.count {
             
             itemClosure(index: i, value: self[i])
         }

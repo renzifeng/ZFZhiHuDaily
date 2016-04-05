@@ -269,7 +269,7 @@ class CyclePictureView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     */
     func setupTimer(userInfo: AnyObject?) {
         self.timer?.invalidate() //先取消先前定时器
-        let timer = NSTimer(timeInterval: timeInterval, target: self, selector: Selector("changePicture"), userInfo: userInfo, repeats: true)
+        let timer = NSTimer(timeInterval: timeInterval, target: self, selector: #selector(CyclePictureView.changePicture), userInfo: userInfo, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
         self.timer = timer
     }

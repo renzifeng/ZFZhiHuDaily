@@ -17,7 +17,7 @@ extension Dictionary{
         var i = 0
         for (key,value) in self{
             itemClosure(index:i,key: key, value: value)
-            i++
+            i += 1
         }
     }
 

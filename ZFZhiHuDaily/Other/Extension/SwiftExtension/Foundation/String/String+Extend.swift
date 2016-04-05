@@ -37,7 +37,7 @@ extension String{
         let start = zeroIndexForStringDotIndex.advancedBy(range.startIndex)
         let end = zeroIndexForStringDotIndex.advancedBy(range.endIndex)
         
-        let rangeForStringDotIndex = Range(start: start, end: end)
+        let rangeForStringDotIndex = Range(start..<end)
         
         return self.substringWithRange(rangeForStringDotIndex)
     }
