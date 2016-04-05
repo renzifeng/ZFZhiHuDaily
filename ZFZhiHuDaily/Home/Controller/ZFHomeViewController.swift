@@ -260,13 +260,6 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             }
 
         }
-//        for (var i = 0 ; i < self.dataSoure.count ; i++) {
-//            let array = self.dataSoure[i]
-//            for (var j = 0 ; j < array.count ; j++) {
-//                let story = array[j]
-//                self.newsIdArray.append((String)(story.internalIdentifier!))
-//            }
-//        }
         newsDetailVC.newsIdArray = self.newsIdArray
     }
 
