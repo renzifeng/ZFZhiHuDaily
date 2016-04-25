@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableViewDataSource,ParallaxHeaderViewDelegate {
+class ZFThemeViewController: ZFBaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     /// 传参model
@@ -66,26 +66,7 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         navTitle.text = self.theme.name
         refreshView.attachObserveToScrollView(self.tableView, target: self, action: #selector(ZFThemeViewController.updateData))
     }
-
-    // MARK: - UITableView Delegate
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSoure.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ZFThemeListCell") as! ZFThemeListCell
-        cell.story = self.dataSoure[indexPath.row]
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
     // MARK: - Action
     
     //下拉刷新
@@ -104,20 +85,6 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
         }
     }
     
-    // MARK: - ParallaxHeaderViewDelegate
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let heardView = self.tableView.tableHeaderView as! ParallaxHeaderView
-        heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
-        
-    }
-    func LockScorllView(maxOffsetY: CGFloat) {
-        self.tableView.contentOffset.y = maxOffsetY
-    }
-    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
-    }
-        
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -135,6 +102,43 @@ class ZFThemeViewController: ZFBaseViewController,UITableViewDelegate,UITableVie
             self.newsIdArray.append((String)(story.internalIdentifier!))
         }
         newsDetailVC.newsIdArray = self.newsIdArray
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+extension ZFThemeViewController : UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSoure.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ZFThemeListCell") as! ZFThemeListCell
+        cell.story = self.dataSoure[indexPath.row]
+        return cell
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension ZFThemeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let heardView = self.tableView.tableHeaderView as! ParallaxHeaderView
+        heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
+    }
+
+}
+
+// MARK: - ParallaxHeaderViewDelegate
+extension ZFThemeViewController: ParallaxHeaderViewDelegate {
+    func LockScorllView(maxOffsetY: CGFloat) {
+        self.tableView.contentOffset.y = maxOffsetY
+    }
+    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
+        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
     }
 
 }

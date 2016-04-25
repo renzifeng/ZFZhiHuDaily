@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableViewDataSource, ParallaxHeaderViewDelegate, CyclePictureViewDelegate{
+class ZFHomeViewController: ZFBaseViewController {
     /// 轮播图View
     var cyclePictureView: CyclePictureView!
     /// 轮播图图片url数组
@@ -63,17 +63,19 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
         self.tableView.dk_backgroundColorPicker = CELL_COLOR
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         LightStatusBar()
         openTheDrawerGesture()
     }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         LightStatusBar()
     }
     
-    //轮播图数据源
+    /// 轮播图数据源
     func setTableHeaderData() {
         //显示第一页布局
         self.cyclePictureView.layoutFirstPage()
@@ -89,14 +91,15 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
     func setRefreshView() {
         refreshView.attachObserveToScrollView(self.tableView, target: self, action: #selector(ZFHomeViewController.updateData))
     }
+    
     // MARK: - Action
-    //打开抽屉
+    /// 打开抽屉
     override func didClickLeft() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
     
-    //下拉刷新
+    /// 下拉刷新
     func updateData() {
         //获取数据源
         viewModel.getData({(dataSoure,headerSource) -> Void in
@@ -113,7 +116,8 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             }) { (error) -> Void in
         }
     }
-    //上拉加载
+    
+    /// 上拉加载
     func pullMoreData() {
         if self.isLoading == true {
             return;
@@ -130,14 +134,40 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
                 
         }
     }
-    
-    /********************************** Delegate Methods ***************************************/
-    // MARK: - UITableView Delegate 
-    
+
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let newsDetailVC  = segue.destinationViewController as! ZFNewsDetailViewController
+        let cell = sender! as! UITableViewCell
+        let indexPath =  self.tableView.indexPathForCell(cell)!
+        //取消cell选中
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let array = self.dataSoure[indexPath.section]
+        let news = array[indexPath.row]
+        newsDetailVC.newsId = String(news.internalIdentifier!)
+        self.newsIdArray = []
+        for i in 0 ..< self.dataSoure.count {
+            let array = self.dataSoure[i]
+            for j in 0  ..< array.count {
+                let story = array[j]
+                self.newsIdArray.append((String)(story.internalIdentifier!))
+            }
+
+        }
+        newsDetailVC.newsIdArray = self.newsIdArray
+    }
+
+
+}
+
+// MARK: - UITableViewDataSource
+extension ZFHomeViewController: UITableViewDataSource
+{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.dataSoure.count
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let array = self.dataSoure[section]
         return array.count
@@ -149,7 +179,11 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         cell.news = array[indexPath.row]
         return cell
     }
-    
+
+}
+
+// MARK: - UITableViewDelegate
+extension ZFHomeViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
@@ -172,9 +206,10 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             return nil
         }
     }
-    
-    // MARK: - UIScrollViewDelegate
-    
+}
+
+// MARK: - UIScrollViewDelegate
+extension ZFHomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let heardView = self.tableView.tableHeaderView as! ParallaxHeaderView
         heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
@@ -202,26 +237,11 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
             navView.alpha = 1.0;
         }
     }
-    
-    // MARK: - ParallaxHeaderViewDelegate
-    
-    func LockScorllView(maxOffsetY: CGFloat) {
-        self.tableView.contentOffset.y = maxOffsetY
-    }
-    
-    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-        statusView.dk_backgroundColorPicker = ThemeColorWithAlpha(aplha)
-        navView.dk_backgroundColorPicker = ThemeColorWithAlpha(aplha)
-    }
 
-     // MARK:- CirCleViewDelegate Methods
-    
-    func clickCurrentImage(currentIndxe: Int) {
-        print(currentIndxe);
-    }
-    
-    // MARK: - CyclePictureViewDelegate Methods
-    
+}
+
+// MARK: - CyclePictureViewDelegate Methods
+extension ZFHomeViewController: CyclePictureViewDelegate {
     func cyclePictureView(cyclePictureView: CyclePictureView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let newsDetailVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFNewsDetailViewController") as! ZFNewsDetailViewController
         self.navigationController?.pushViewController(newsDetailVC, animated: true)
@@ -237,31 +257,17 @@ class ZFHomeViewController: ZFBaseViewController, UITableViewDelegate, UITableVi
         }
         newsDetailVC.newsIdArray = self.newsIdArray
     }
-    
-    
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let newsDetailVC  = segue.destinationViewController as! ZFNewsDetailViewController
-        let cell = sender! as! UITableViewCell
-        let indexPath =  self.tableView.indexPathForCell(cell)!
-        //取消cell选中
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let array = self.dataSoure[indexPath.section]
-        let news = array[indexPath.row]
-        newsDetailVC.newsId = String(news.internalIdentifier!)
-        self.newsIdArray = []
-        for i in 0 ..< self.dataSoure.count {
-            let array = self.dataSoure[i]
-            for j in 0  ..< array.count {
-                let story = array[j]
-                self.newsIdArray.append((String)(story.internalIdentifier!))
-            }
-
-        }
-        newsDetailVC.newsIdArray = self.newsIdArray
+// MARK: - ParallaxHeaderViewDelegate
+extension ZFHomeViewController: ParallaxHeaderViewDelegate {
+    
+    func LockScorllView(maxOffsetY: CGFloat) {
+        self.tableView.contentOffset.y = maxOffsetY
     }
-
-
+    
+    func autoAdjustNavigationBarAplha(aplha: CGFloat) {
+        statusView.dk_backgroundColorPicker = ThemeColorWithAlpha(aplha)
+        navView.dk_backgroundColorPicker = ThemeColorWithAlpha(aplha)
+    }
 }

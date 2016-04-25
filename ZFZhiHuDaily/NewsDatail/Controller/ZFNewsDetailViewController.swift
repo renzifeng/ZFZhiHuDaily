@@ -11,7 +11,7 @@ import NVActivityIndicatorView
 import Kingfisher
 import SKPhotoBrowser
 
-class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrollViewDelegate,UIGestureRecognizerDelegate {
+class ZFNewsDetailViewController: ZFBaseViewController {
     /// 容器view
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var webView: UIWebView!
@@ -303,10 +303,21 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
         
     }
-
-    // MARK: - Delegate 
     
-    // UIWebViewDelegate
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let commentVC = segue.destinationViewController as! ZFNewsCommentViewController
+        commentVC.commentNum = String(self.newsExtra.comments!)
+        commentVC.newsId = self.newsId
+    }
+}
+
+// MARK: - UIWebViewDelegate
+extension ZFNewsDetailViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         //显示header和footer
         footerView.hidden = false
@@ -315,17 +326,12 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         self.isLoading = false
         footerView.y = webView.scrollView.contentSize.height
     }
+
+}
+
+// MARK: - UIScrollViewDelegate
+extension ZFNewsDetailViewController: UIScrollViewDelegate {
     
-    // UIGestureRecognizerDelegate
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == tapGesture {
-            return true
-        }
-        return false
-    }
-    
-    
-    // UIScrollDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
         //有图模式
@@ -381,8 +387,7 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
         }
         
     }
-    
-    // UIScrollDelegate
+
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSetY = scrollView.contentOffset.y
         if (-offSetY <= 60 && -offSetY >= 40 ) {
@@ -410,17 +415,15 @@ class ZFNewsDetailViewController: ZFBaseViewController,UIWebViewDelegate,UIScrol
             getNextNews()
         }
     }
+}
 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let commentVC = segue.destinationViewController as! ZFNewsCommentViewController
-        commentVC.commentNum = String(self.newsExtra.comments!)
-        commentVC.newsId = self.newsId
+// MARK: - UIGestureRecognizerDelegate
+extension ZFNewsDetailViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == tapGesture {
+            return true
+        }
+        return false
     }
-    
 
 }

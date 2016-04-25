@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITableViewDataSource {
+class ZFNewsCommentViewController: ZFBaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var commentNum : String!
@@ -53,20 +53,6 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.comments.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ZFCommentCell") as! ZFCommentCell
-        cell.comment = self.comments[indexPath.row]
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,5 +68,25 @@ class ZFNewsCommentViewController: ZFBaseViewController,UITableViewDelegate,UITa
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension ZFNewsCommentViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
+}
+
+extension ZFNewsCommentViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.comments.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ZFCommentCell") as! ZFCommentCell
+        cell.comment = self.comments[indexPath.row]
+        return cell
+    }
 
 }

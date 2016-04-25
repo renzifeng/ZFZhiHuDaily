@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import SwiftyJSON
 
-class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ZFDrawerViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     /// 收藏Btn
@@ -115,34 +115,6 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
         themeBtn.setTitle("白天", forState: .Normal)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSoure.count+1
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.row == 0) {
-            let cell : ZFLeftHomeCell? = tableView.dequeueReusableCellWithIdentifier("leftHome") as? ZFLeftHomeCell
-            return cell!;
-        }else {
-            let cell : LeftCell? = tableView.dequeueReusableCellWithIdentifier("left") as? LeftCell
-            let theme : ZFTheme = self.dataSoure[indexPath.row-1]
-            cell!.theme = theme
-            return cell!;
-        }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            self.mainVC.setCenterViewController(self.mainVC.centerVC, withCloseAnimation: true, completion: nil)
-        }else {
-            let theme : ZFTheme = self.dataSoure[indexPath.row-1]
-            let naviVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFThemeNav") as! ZFBaseNavigationController
-            let themeVC = naviVC.viewControllers[0] as! ZFThemeViewController
-            themeVC.theme = theme
-            self.mainVC.setCenterViewController(naviVC, withCloseAnimation: true, completion: nil)
-        }
-        
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -158,4 +130,40 @@ class ZFDrawerViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     */
 
+}
+
+// MARK: - UITableViewDelegate
+extension ZFDrawerViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            self.mainVC.setCenterViewController(self.mainVC.centerVC, withCloseAnimation: true, completion: nil)
+        }else {
+            let theme : ZFTheme = self.dataSoure[indexPath.row-1]
+            let naviVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFThemeNav") as! ZFBaseNavigationController
+            let themeVC = naviVC.viewControllers[0] as! ZFThemeViewController
+            themeVC.theme = theme
+            self.mainVC.setCenterViewController(naviVC, withCloseAnimation: true, completion: nil)
+        }
+        
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+extension ZFDrawerViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSoure.count+1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if (indexPath.row == 0) {
+            let cell : ZFLeftHomeCell? = tableView.dequeueReusableCellWithIdentifier("leftHome") as? ZFLeftHomeCell
+            return cell!;
+        }else {
+            let cell : LeftCell? = tableView.dequeueReusableCellWithIdentifier("left") as? LeftCell
+            let theme : ZFTheme = self.dataSoure[indexPath.row-1]
+            cell!.theme = theme
+            return cell!;
+        }
+    }
 }
