@@ -34,19 +34,21 @@ class ZFHomeViewController: ZFBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
+        automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = UIColor.whiteColor()
         setRefreshView()
         //左侧item
         createLeftNavWithImage("Home_Icon")
         //获取数据源
-        viewModel.getData({(dataSoure,headerSource) -> Void in
-            self.dataSoure.insert(dataSoure, atIndex: 0)
-            self.headerSource = headerSource
-            self.setTableHeaderData()
-            self.tableView.reloadData()
-            }) { (error) -> Void in 
-        }
+        viewModel.getData({ [weak self](dataSoure,headerSource) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.dataSoure.insert(dataSoure, atIndex: 0)
+            strongSelf.headerSource = headerSource
+            strongSelf.setTableHeaderData()
+            strongSelf.tableView.reloadData()
+            })
+        { (error) -> Void in}
+        
         //设置navbar颜色
         statusView.dk_backgroundColorPicker = ThemeColorWithAlpha(0)
         navView.dk_backgroundColorPicker = ThemeColorWithAlpha(0)
@@ -59,9 +61,9 @@ class ZFHomeViewController: ZFBaseViewController {
         //初始化Header
         let heardView = ParallaxHeaderView(style: .Default, subView: cyclePictureView, headerViewSize: CGSizeMake(ScreenWidth, ScreenWidth/1.88), maxOffsetY: -64, delegate:self)
         
-        self.tableView.tableHeaderView = heardView
-        self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
-        self.tableView.dk_backgroundColorPicker = CELL_COLOR
+        tableView.tableHeaderView = heardView
+        tableView.dk_separatorColorPicker = TAB_SEPAROTOR
+        tableView.dk_backgroundColorPicker = CELL_COLOR
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -102,34 +104,34 @@ class ZFHomeViewController: ZFBaseViewController {
     /// 下拉刷新
     func updateData() {
         //获取数据源
-        viewModel.getData({(dataSoure,headerSource) -> Void in
+        viewModel.getData({ [weak self] (dataSoure,headerSource) -> Void in
+            guard let strongSelf = self else { return }
             //先清空第一个数据源
-            self.dataSoure.removeFirst()
-            self.headerSource.removeAll()
-            self.imageURLArray.removeAll()
-            self.imageTitleArray.removeAll()
-            self.dataSoure.insert(dataSoure, atIndex: 0)
-            self.headerSource = headerSource
-            self.setTableHeaderData()
-            self.refreshView.endRefreshing()
-            self.tableView.reloadData()
+            strongSelf.dataSoure.removeFirst()
+            strongSelf.headerSource.removeAll()
+            strongSelf.imageURLArray.removeAll()
+            strongSelf.imageTitleArray.removeAll()
+            strongSelf.dataSoure.insert(dataSoure, atIndex: 0)
+            strongSelf.headerSource = headerSource
+            strongSelf.setTableHeaderData()
+            strongSelf.refreshView.endRefreshing()
+            strongSelf.tableView.reloadData()
             }) { (error) -> Void in
         }
     }
     
     /// 上拉加载
     func pullMoreData() {
-        if self.isLoading == true {
-            return;
-        }
+        if isLoading == true { return; }
         self.isLoading = !self.isLoading
-        viewModel.getDataForDate( dateIndex, successCallBack: { (dataSoure,dateStr) -> Void in
-            self.dateIndex += 1
-            self.isLoading = !self.isLoading
-            self.dataSoure.append(dataSoure)
-            self.headerTitleArray.append(dateStr)
-            self.tableView.reloadData()
-            self.refreshView.endRefreshing()
+        viewModel.getDataForDate( dateIndex, successCallBack: { [weak self](dataSoure,dateStr) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.dateIndex += 1
+            strongSelf.isLoading = !strongSelf.isLoading
+            strongSelf.dataSoure.append(dataSoure)
+            strongSelf.headerTitleArray.append(dateStr)
+            strongSelf.tableView.reloadData()
+            strongSelf.refreshView.endRefreshing()
             }) { (error) -> Void in
                 
         }

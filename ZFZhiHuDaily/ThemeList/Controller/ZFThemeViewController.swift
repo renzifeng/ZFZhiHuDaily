@@ -27,8 +27,8 @@ class ZFThemeViewController: ZFBaseViewController {
         super.viewDidLoad()
         //左侧item
         createLeftNavWithImage("News_Arrow")
-        self.automaticallyAdjustsScrollViewInsets = false
-        self.tableView.rowHeight = 80
+        automaticallyAdjustsScrollViewInsets = false
+        tableView.rowHeight = 80
         //设置navbar颜色
         self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         setTableHeader()
@@ -36,8 +36,8 @@ class ZFThemeViewController: ZFBaseViewController {
         viewModel.tableView = self.tableView;
         //请求数据
         updateData()
-        self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
-        self.tableView.dk_backgroundColorPicker = CELL_COLOR
+        tableView.dk_separatorColorPicker = TAB_SEPAROTOR
+        tableView.dk_backgroundColorPicker = CELL_COLOR
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -73,13 +73,14 @@ class ZFThemeViewController: ZFBaseViewController {
     func updateData() {
         //print("下拉刷新")
         //获取数据源
-        viewModel.getListData(String(theme.internalIdentifier!), successBlock: { (dataSources) -> Void in
-            self.dataSoure.removeAll()
+        viewModel.getListData(String(theme.internalIdentifier!), successBlock: { [weak self](dataSources) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.dataSoure.removeAll()
             let list = dataSources
-            self.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
-            self.dataSoure = list.stories!
-            self.refreshView.endRefreshing()
-            self.tableView.reloadData()
+            strongSelf.backgroundImg.kf_setImageWithURL(NSURL(string: list.background!)!, placeholderImage: UIImage(named: "avatar"))
+            strongSelf.dataSoure = list.stories!
+            strongSelf.refreshView.endRefreshing()
+            strongSelf.tableView.reloadData()
             }) { (error) -> Void in
                 
         }

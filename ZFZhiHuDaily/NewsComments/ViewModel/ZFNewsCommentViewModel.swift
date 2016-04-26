@@ -12,7 +12,6 @@ import SwiftyJSON
 class ZFNewsCommentViewModel {
     typealias CommentSuccessBlock = (commentsArray: [ZFComments]) -> Void
     
-    
     func getLongComment(newsId: String, longComment : CommentSuccessBlock?) {
         ZFNetworkTool.get(NEWS_LONG_COMMENT(newsId), params: nil, success: { (json) -> Void in
             var comments: [ZFComments]?

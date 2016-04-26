@@ -19,19 +19,19 @@ class ZFNewsCommentViewController: ZFBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true;
-        self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
-        self.tableView.estimatedRowHeight = 44.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.tableFooterView = UIView()
-        viewModel.getLongComment(self.newsId) { (commentsArray) -> Void in
-            self.comments.appendContentsOf(commentsArray)
-            self.tableView.reloadData()
+        navigationItem.hidesBackButton = true;
+        tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()
+        viewModel.getLongComment(self.newsId) { [weak self](commentsArray) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.comments.appendContentsOf(commentsArray)
+            strongSelf.tableView.reloadData()
         }
         navTitle.text = self.commentNum + "条点评"
-        self.tableView.dk_separatorColorPicker = TAB_SEPAROTOR
-        self.tableView.dk_backgroundColorPicker = CELL_COLOR
-        // Do any additional setup after loading the view.
+        tableView.dk_separatorColorPicker = TAB_SEPAROTOR
+        tableView.dk_backgroundColorPicker = CELL_COLOR
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -41,7 +41,7 @@ class ZFNewsCommentViewController: ZFBaseViewController {
         navView.hidden = false
         refreshView.hidden = true
         LightStatusBar()
-        self.navigationController?.navigationBarHidden = true
+        navigationController?.navigationBarHidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,6 +71,7 @@ class ZFNewsCommentViewController: ZFBaseViewController {
 
 }
 
+// MARK: - UITableViewDelegate
 extension ZFNewsCommentViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -78,14 +79,15 @@ extension ZFNewsCommentViewController: UITableViewDelegate {
 
 }
 
+// MARK: - UITableViewDataSource
 extension ZFNewsCommentViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.comments.count
+        return comments.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ZFCommentCell") as! ZFCommentCell
-        cell.comment = self.comments[indexPath.row]
+        cell.comment = comments[indexPath.row]
         return cell
     }
 

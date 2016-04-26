@@ -67,18 +67,18 @@ class ZFNewsDetailViewController: ZFBaseViewController {
         viewModel.newsIdArray = self.newsIdArray
         getNewsWithId(self.newsId)
         bottomView.dk_backgroundColorPicker = BG_COLOR
-        self.webView.dk_backgroundColorPicker = BG_COLOR
-        self.view.dk_backgroundColorPicker = BG_COLOR
+        webView.dk_backgroundColorPicker = BG_COLOR
+        view.dk_backgroundColorPicker = BG_COLOR
         
         tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(ZFNewsDetailViewController.tapAction(_:)))
-        self.webView.addGestureRecognizer(tapGesture)
+        webView.addGestureRecognizer(tapGesture)
         tapGesture.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = true
+        navigationController?.navigationBarHidden = true
         navView.hidden = true
         closeTheDrawerGesture()
     }
@@ -93,8 +93,8 @@ class ZFNewsDetailViewController: ZFBaseViewController {
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.clipsToBounds = true
         backgroundImg.frame = CGRectMake(0, -60, ScreenWidth, CGFloat(265))
-        self.webView.scrollView.addSubview(backgroundImg)
-        self.webView.scrollView.delegate = self
+        webView.scrollView.addSubview(backgroundImg)
+        webView.scrollView.delegate = self
         
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
@@ -107,8 +107,8 @@ class ZFNewsDetailViewController: ZFBaseViewController {
             make.bottom.equalTo(-10)
         }
         
-        let x = self.view.center.x
-        let y = self.view.center.y
+        let x = view.center.x
+        let y = view.center.y
         let width = CGFloat(50.0)
         let height = CGFloat(50.0)
         
@@ -135,17 +135,19 @@ class ZFNewsDetailViewController: ZFBaseViewController {
     func setupZan() {
         zanBtn.zanImage = UIImage(named: "News_Navigation_Vote")
         zanBtn.zanedImage = UIImage(named: "News_Navigation_Voted")
-        //赞
-        zanBtn.zanAction = { [unowned self](number) -> Void in
-            self.zanNumLabel.text = "\(number)"
-            self.zanNumLabel.textColor = ThemeColor
-            self.zanNumLabel.text = "\(number)"
+        // 赞
+        zanBtn.zanAction = { [weak self](number) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.zanNumLabel.text = "\(number)"
+            strongSelf.zanNumLabel.textColor = ThemeColor
+            strongSelf.zanNumLabel.text = "\(number)"
         }
-        //取消赞
-        zanBtn.unzanAction = { [unowned self](number)->Void in
-            self.zanNumLabel.text = "\(number)"
-            self.zanNumLabel.textColor = UIColor.lightGrayColor()
-            self.zanNumLabel.text = "\(number)"
+        // 取消赞
+        zanBtn.unzanAction = { [weak self](number)->Void in
+            guard let strongSelf = self else { return }
+            strongSelf.zanNumLabel.text = "\(number)"
+            strongSelf.zanNumLabel.textColor = UIColor.lightGrayColor()
+            strongSelf.zanNumLabel.text = "\(number)"
         }
         zanBtn.dk_backgroundColorPicker = BG_COLOR
     }
@@ -179,28 +181,28 @@ class ZFNewsDetailViewController: ZFBaseViewController {
         self.isLoading = true
         
         //获取新闻详情
-        viewModel.loadNewsDetail(newsId, complate: { [unowned self](newsDetail) -> Void in
-            
+        viewModel.loadNewsDetail(newsId, complate: { [weak self](newsDetail) -> Void in
+            guard let strongSelf = self else { return }
             if let img = newsDetail.image {
-                self.hasPic = true
-                self.backgroundImg.hidden = false
-                self.titleLabel.text = newsDetail.title!
+                strongSelf.hasPic = true
+                strongSelf.backgroundImg.hidden = false
+                strongSelf.titleLabel.text = newsDetail.title!
                 LightStatusBar()
-                self.backgroundImg.kf_setImageWithURL(NSURL(string: img)!, placeholderImage: UIImage(named: "avatar"))
-                self.webView.scrollView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0)
+                strongSelf.backgroundImg.kf_setImageWithURL(NSURL(string: img)!, placeholderImage: UIImage(named: "avatar"))
+                strongSelf.webView.scrollView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0)
             }else {
-                self.hasPic = false
-                self.backgroundImg.hidden = true
+                strongSelf.hasPic = false
+                strongSelf.backgroundImg.hidden = true
                 BlackStatusBar()
-                self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                strongSelf.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             }
 
             //配置header和footer
-            self.configHederAndFooterView()
+            strongSelf.configHederAndFooterView()
             
             if var body = newsDetail.body {
                 if let css = newsDetail.css {
-                    if !self.isNight {
+                    if !strongSelf.isNight {
                         //白天模式
                         body = "<html><head><link rel='stylesheet' href='\(css[0])'></head><body>\(body)</body></html>"
                     }else {
@@ -209,18 +211,19 @@ class ZFNewsDetailViewController: ZFBaseViewController {
                     }
                 }
                 //print("\(body)")
-                self.webView.loadHTMLString(body, baseURL: nil)
+                strongSelf.webView.loadHTMLString(body, baseURL: nil)
             }
             
             }) { (error) -> Void in
         }
         
         /// 获取新闻额外信息
-        viewModel.loadNewsExra(newsId, complate: { [unowned self](newsExtra) -> Void in
-            self.newsExtra = newsExtra
-            self.commentNumLabel.text = "\(newsExtra.comments!)"
-            self.zanBtn.initNumber = newsExtra.popularity!
-            self.zanNumLabel.text = "\(newsExtra.popularity!)"
+        viewModel.loadNewsExra(newsId, complate: { [weak self](newsExtra) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.newsExtra = newsExtra
+            strongSelf.commentNumLabel.text = "\(newsExtra.comments!)"
+            strongSelf.zanBtn.initNumber = newsExtra.popularity!
+            strongSelf.zanNumLabel.text = "\(newsExtra.popularity!)"
             }) { (error) -> Void in
         }
 
@@ -229,7 +232,7 @@ class ZFNewsDetailViewController: ZFBaseViewController {
     // MARK: - Action
     // 返回
     @IBAction func didClickLeft(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     // 下一条新闻
@@ -251,12 +254,11 @@ class ZFNewsDetailViewController: ZFBaseViewController {
     // 获取webView图片
     func getImage(point : CGPoint) {
         let js = String(format: "document.elementFromPoint(%f, %f).tagName", arguments: [point.x,point.y])
-        let tagName = self.webView.stringByEvaluatingJavaScriptFromString(js)
+        let tagName = webView.stringByEvaluatingJavaScriptFromString(js)
         if tagName == "IMG" {
             let imgURL = String(format: "document.elementFromPoint(%f, %f).src", arguments: [point.x,point.y])
-            let urlToShow = self.webView.stringByEvaluatingJavaScriptFromString(imgURL)
+            let urlToShow = webView.stringByEvaluatingJavaScriptFromString(imgURL)
             if let url = urlToShow {
-                //print("=======\(url)")
                 var images = [SKPhoto]()
                 let photo = SKPhoto.photoWithImageURL(url)
                 photo.shouldCachePhotoURLImage = true
@@ -337,7 +339,7 @@ extension ZFNewsDetailViewController: UIScrollViewDelegate {
         //有图模式
         if hasPic {
             if (Float)(offSetY) >= 170 {
-                if !self.isNight {
+                if !isNight {
                     //白天模式
                     BlackStatusBar()
                 }else  {
@@ -351,7 +353,7 @@ extension ZFNewsDetailViewController: UIScrollViewDelegate {
             }
         }else { //无图模式
             statusView.dk_backgroundColorPicker = BG_COLOR
-            if !self.isNight {
+            if !isNight {
                 //白天模式
                 BlackStatusBar()
             }else {
@@ -362,7 +364,7 @@ extension ZFNewsDetailViewController: UIScrollViewDelegate {
         
         //到－80 让webview不再能被拉动
         if (-offSetY > 60) {
-            self.webView.scrollView.contentOffset = CGPointMake(0, -60);
+            webView.scrollView.contentOffset = CGPointMake(0, -60);
         }
         
         //改变header下拉箭头的方向
@@ -391,13 +393,9 @@ extension ZFNewsDetailViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSetY = scrollView.contentOffset.y
         if (-offSetY <= 60 && -offSetY >= 40 ) {
-            if !viewModel.hasPrevious {
-                return
-            }
-            if self.isLoading {
-                return
-            }
-            self.isLoading = true
+            if !viewModel.hasPrevious { return }
+            if isLoading { return }
+            isLoading = true
             //上一条新闻
             getPreviousNews()
         }else if (-offSetY > 60) {//到－80 让webview不再能被拉动
@@ -405,13 +403,9 @@ extension ZFNewsDetailViewController: UIScrollViewDelegate {
         }
         
         if (offSetY + ScreenHeight - 100 > scrollView.contentSize.height) {
-            if !viewModel.hasNext {
-                return
-            }
-            if self.isLoading {
-                return
-            }
-            self.isLoading = true
+            if !viewModel.hasNext { return }
+            if isLoading { return }
+            isLoading = true
             getNextNews()
         }
     }

@@ -31,20 +31,20 @@ class ZFNewsDetailViewModel {
 
         let index = self.newsIdArray.indexOf(id)!
         if index == 0 {
-            self.hasPrevious = false
-            self.hasNext = true
-            self.previousId = self.newsIdArray[0]
-            self.nextId = self.newsIdArray[index+1]
+            hasPrevious = false
+            hasNext = true
+            previousId = self.newsIdArray[0]
+            nextId = self.newsIdArray[index+1]
         }else if index > 0 && index < self.newsIdArray.count - 1 {
-            self.hasPrevious = true
-            self.hasNext = true
-            self.previousId = self.newsIdArray[index-1]
-            self.nextId = self.newsIdArray[index+1]
+            hasPrevious = true
+            hasNext = true
+            previousId = self.newsIdArray[index-1]
+            nextId = self.newsIdArray[index+1]
         }else {
-            self.hasPrevious = true
-            self.hasNext = false
-            self.previousId = self.newsIdArray[index-1]
-            self.nextId = self.newsIdArray[index]
+            hasPrevious = true
+            hasNext = false
+            previousId = self.newsIdArray[index-1]
+            nextId = self.newsIdArray[index]
         }
         //判断本地有没有缓存
         if let newsDatail = newsDetailCache[id] {
