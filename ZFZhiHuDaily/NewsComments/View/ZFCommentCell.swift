@@ -17,10 +17,10 @@ class ZFCommentCell: UITableViewCell {
     @IBOutlet weak var zanBtn: ImageTextButton!
     var comment : ZFComments! {
         didSet {
-            self.avatarImageView.kf_setImageWithURL(NSURL(string: comment.avatar!)!, placeholderImage: UIImage(named: "Editor_Profile_Avatar"))
-            self.userNameLabel.text = comment.author!
-            self.contentLabel.text = comment.content!
-            self.zanBtn.setTitle(" \(comment.likes!)", forState: .Normal)
+            avatarImageView.kf_setImageWithURL(NSURL(string: comment.avatar!)!, placeholderImage: UIImage(named: "Editor_Profile_Avatar"))
+            userNameLabel.text = comment.author!
+            contentLabel.text = comment.content!
+            zanBtn.setTitle(" \(comment.likes!)", forState: .Normal)
         }
     }
     override func awakeFromNib() {
@@ -30,11 +30,10 @@ class ZFCommentCell: UITableViewCell {
         
         zanBtn.buttonTitleWithImageAlignment = UIButtonTitleWithImageAlignmentLeft
         
-        self.dk_backgroundColorPicker = CELL_COLOR
-        self.userNameLabel.dk_textColorPicker = CELL_TITLE
-        self.contentLabel.dk_textColorPicker = CELL_TITLE
-        self.selectionStyle = .None
-
+        dk_backgroundColorPicker = CELL_COLOR
+        userNameLabel.dk_textColorPicker = CELL_TITLE
+        contentLabel.dk_textColorPicker = CELL_TITLE
+        selectionStyle = .None
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

@@ -26,14 +26,14 @@ class ZFBaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
+        navigationController?.navigationBarHidden = true
     }
     func createLeftNavWithImage(imageName : String) {
         let btn = UIButton(type: .Custom)
         btn.setImage(UIImage(named: imageName), forState: .Normal)
         btn.frame = CGRectMake(20, 27, 30, 30);
         btn.addTarget(self, action: #selector(ZFBaseViewController.didClickLeft), forControlEvents: .TouchUpInside)
-        self.view.addSubview(btn)
+        view.addSubview(btn)
     }
 
     func didClickLeft() {
@@ -52,12 +52,12 @@ class ZFBaseViewController: UIViewController {
         statusView = UIView(frame: CGRectMake(0, 0, ScreenWidth, 20))
         statusView.backgroundColor = UIColor.clearColor()
         statusView.userInteractionEnabled = false
-        self.view.addSubview(statusView)
+        view.addSubview(statusView)
         
         navView = UIView(frame: CGRectMake(0, 20, ScreenWidth, 44))
         navView.userInteractionEnabled = false
         navView.backgroundColor = UIColor.clearColor()
-        self.view.addSubview(navView)
+        view.addSubview(navView)
         
         navCenterView = UIView()
         navView.backgroundColor = UIColor.clearColor()
@@ -69,14 +69,14 @@ class ZFBaseViewController: UIViewController {
         navTitle.font = FONT(18)
         navTitle.text = "今日热闻"
         navTitle.textAlignment = .Center
-        self.navCenterView.addSubview(navTitle)
+        navCenterView.addSubview(navTitle)
         navTitle.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(navCenterView)
         }
 
         
         refreshView = CircleRefreshView()
-        self.navCenterView.addSubview(refreshView)
+        navCenterView.addSubview(refreshView)
         refreshView.frame = CGRectMake(10, 0, 20, 20)
         refreshView.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.navTitle).offset(-30)

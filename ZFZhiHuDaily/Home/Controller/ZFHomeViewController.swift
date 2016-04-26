@@ -144,16 +144,16 @@ class ZFHomeViewController: ZFBaseViewController {
         let cell = sender! as! UITableViewCell
         let indexPath =  self.tableView.indexPathForCell(cell)!
         //取消cell选中
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let array = self.dataSoure[indexPath.section]
         let news = array[indexPath.row]
         newsDetailVC.newsId = String(news.internalIdentifier!)
-        self.newsIdArray = []
+        newsIdArray = []
         for i in 0 ..< self.dataSoure.count {
             let array = self.dataSoure[i]
             for j in 0  ..< array.count {
                 let story = array[j]
-                self.newsIdArray.append((String)(story.internalIdentifier!))
+                newsIdArray.append((String)(story.internalIdentifier!))
             }
 
         }
@@ -167,17 +167,17 @@ class ZFHomeViewController: ZFBaseViewController {
 extension ZFHomeViewController: UITableViewDataSource
 {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.dataSoure.count
+        return dataSoure.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let array = self.dataSoure[section]
+        let array = dataSoure[section]
         return array.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : ZFHomeCell = tableView.dequeueReusableCellWithIdentifier("homeCell") as! ZFHomeCell
-        let array = self.dataSoure[indexPath.section]
+        let array = dataSoure[indexPath.section]
         cell.news = array[indexPath.row]
         return cell
     }
@@ -223,11 +223,9 @@ extension ZFHomeViewController: UIScrollViewDelegate {
         
         let dateHeaderHeight : CGFloat = 44.0;
         if (offSetY < dateHeaderHeight && offSetY >= 0) {
-            
             scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         }
         else if (offSetY >= dateHeaderHeight) {//偏移20
-            
             scrollView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
         }
         
@@ -246,18 +244,18 @@ extension ZFHomeViewController: UIScrollViewDelegate {
 extension ZFHomeViewController: CyclePictureViewDelegate {
     func cyclePictureView(cyclePictureView: CyclePictureView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let newsDetailVC = GET_SB("Main").instantiateViewControllerWithIdentifier("ZFNewsDetailViewController") as! ZFNewsDetailViewController
-        self.navigationController?.pushViewController(newsDetailVC, animated: true)
+        navigationController?.pushViewController(newsDetailVC, animated: true)
         let topic = self.headerSource[indexPath.row]
         newsDetailVC.newsId = String(topic.internalIdentifier!)
-        self.newsIdArray = []
-        for i in 0  ..< self.dataSoure.count  {
-            let array = self.dataSoure[i]
+        newsIdArray = []
+        for i in 0  ..< dataSoure.count  {
+            let array = dataSoure[i]
             for j in 0  ..< array.count  {
                 let story = array[j]
-                self.newsIdArray.append((String)(story.internalIdentifier!))
+                newsIdArray.append((String)(story.internalIdentifier!))
             }
         }
-        newsDetailVC.newsIdArray = self.newsIdArray
+        newsDetailVC.newsIdArray = newsIdArray
     }
 }
 
@@ -265,7 +263,7 @@ extension ZFHomeViewController: CyclePictureViewDelegate {
 extension ZFHomeViewController: ParallaxHeaderViewDelegate {
     
     func LockScorllView(maxOffsetY: CGFloat) {
-        self.tableView.contentOffset.y = maxOffsetY
+        tableView.contentOffset.y = maxOffsetY
     }
     
     func autoAdjustNavigationBarAplha(aplha: CGFloat) {

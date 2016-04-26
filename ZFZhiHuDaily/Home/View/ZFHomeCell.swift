@@ -20,12 +20,12 @@ class ZFHomeCell: UITableViewCell {
             self.news = newValue
         }
         didSet {
-            self.titleLabel.text  = news.title
-            self.rightImageView.kf_setImageWithURL(NSURL(string: news.images![0])!, placeholderImage: UIImage(named: "Image_Preview"))
+            titleLabel.text  = news.title
+            rightImageView.kf_setImageWithURL(NSURL(string: news.images![0])!, placeholderImage: UIImage(named: "Image_Preview"))
             if news.multipic {
-                self.moreImageView.hidden = false
+                moreImageView.hidden = false
             }else {
-                self.moreImageView.hidden = true
+                moreImageView.hidden = true
             }
         }
     }
@@ -34,9 +34,9 @@ class ZFHomeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.dk_backgroundColorPicker = CELL_COLOR
-        self.titleLabel.dk_textColorPicker = CELL_TITLE
-        self.selectionStyle = .None
+        dk_backgroundColorPicker = CELL_COLOR
+        titleLabel.dk_textColorPicker = CELL_TITLE
+        selectionStyle = .None
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -30,10 +30,10 @@ class ZFThemeViewController: ZFBaseViewController {
         automaticallyAdjustsScrollViewInsets = false
         tableView.rowHeight = 80
         //设置navbar颜色
-        self.navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
+        navigationController?.navigationBar.setMyBackgroundColor(RGBA(0, 130, 210, 0))
         setTableHeader()
         setRefreshView()
-        viewModel.tableView = self.tableView;
+        viewModel.tableView = tableView;
         //请求数据
         updateData()
         tableView.dk_separatorColorPicker = TAB_SEPAROTOR
@@ -57,14 +57,14 @@ class ZFThemeViewController: ZFBaseViewController {
         backgroundImg.contentMode = .ScaleAspectFill
         backgroundImg.frame = CGRectMake(0, 0, ScreenWidth, 100)
         //初始化Header
-        let heardView = ParallaxHeaderView(style: .Thumb, subView: backgroundImg, headerViewSize: CGSizeMake(self.view.frame.width, 64), maxOffsetY: 93, delegate:self)
-        self.tableView.tableHeaderView = heardView
+        let heardView = ParallaxHeaderView(style: .Thumb, subView: backgroundImg, headerViewSize: CGSizeMake(view.frame.width, 64), maxOffsetY: 93, delegate:self)
+        tableView.tableHeaderView = heardView
     }
     
     //刷新View
     func setRefreshView() {
-        navTitle.text = self.theme.name
-        refreshView.attachObserveToScrollView(self.tableView, target: self, action: #selector(ZFThemeViewController.updateData))
+        navTitle.text = theme.name
+        refreshView.attachObserveToScrollView(tableView, target: self, action: #selector(ZFThemeViewController.updateData))
     }
     
     // MARK: - Action
@@ -92,17 +92,17 @@ class ZFThemeViewController: ZFBaseViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let newsDetailVC  = segue.destinationViewController as! ZFNewsDetailViewController
         let cell = sender! as! UITableViewCell
-        let indexPath =  self.tableView.indexPathForCell(cell)!
+        let indexPath = tableView.indexPathForCell(cell)!
         //取消cell选中
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let story = self.dataSoure[indexPath.row]
+        let story = dataSoure[indexPath.row]
         newsDetailVC.newsId = String(story.internalIdentifier!)
         self.newsIdArray = []
         for i in 0 ..< self.dataSoure.count {
-            let story = self.dataSoure[i]
-            self.newsIdArray.append((String)(story.internalIdentifier!))
+            let story = dataSoure[i]
+            newsIdArray.append((String)(story.internalIdentifier!))
         }
-        newsDetailVC.newsIdArray = self.newsIdArray
+        newsDetailVC.newsIdArray = newsIdArray
     }
 
 }
@@ -114,12 +114,12 @@ extension ZFThemeViewController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSoure.count
+        return dataSoure.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ZFThemeListCell") as! ZFThemeListCell
-        cell.story = self.dataSoure[indexPath.row]
+        cell.story = dataSoure[indexPath.row]
         return cell
     }
 }
@@ -127,7 +127,7 @@ extension ZFThemeViewController : UITableViewDataSource {
 // MARK: - UIScrollViewDelegate
 extension ZFThemeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let heardView = self.tableView.tableHeaderView as! ParallaxHeaderView
+        let heardView = tableView.tableHeaderView as! ParallaxHeaderView
         heardView.layoutHeaderViewWhenScroll(scrollView.contentOffset)
     }
 
@@ -136,10 +136,10 @@ extension ZFThemeViewController: UIScrollViewDelegate {
 // MARK: - ParallaxHeaderViewDelegate
 extension ZFThemeViewController: ParallaxHeaderViewDelegate {
     func LockScorllView(maxOffsetY: CGFloat) {
-        self.tableView.contentOffset.y = maxOffsetY
+        tableView.contentOffset.y = maxOffsetY
     }
     func autoAdjustNavigationBarAplha(aplha: CGFloat) {
-        self.navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
+        navigationController?.navigationBar.setMyBackgroundColorAlpha(aplha)
     }
 
 }

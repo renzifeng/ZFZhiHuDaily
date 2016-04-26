@@ -19,19 +19,18 @@ class ZFThemeListCell: UITableViewCell {
         didSet {
             self.titleLabel.text = story.title
             if story.images != nil {
-                self.rightImageView.kf_setImageWithURL(NSURL(string: story.images![0])!, placeholderImage: UIImage(named: "Image_Preview"))
-                self.imageWidthConstraint.constant = 80;
+                rightImageView.kf_setImageWithURL(NSURL(string: story.images![0])!, placeholderImage: UIImage(named: "Image_Preview"))
+                imageWidthConstraint.constant = 80;
             }else {
-                self.imageWidthConstraint.constant = 0;
+                imageWidthConstraint.constant = 0;
             }
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.dk_backgroundColorPicker = CELL_COLOR
-        self.titleLabel.dk_textColorPicker = CELL_TITLE
-        self.selectionStyle = .None
-        // Initialization code
+        dk_backgroundColorPicker = CELL_COLOR
+        titleLabel.dk_textColorPicker = CELL_TITLE
+        selectionStyle = .None
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

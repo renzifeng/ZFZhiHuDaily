@@ -20,16 +20,15 @@ class MMViewController: MMDrawerController {
         
         leftVC.mainVC = self;
         
-        self.centerViewController = centerVC
-        self.leftDrawerViewController = leftVC
+        centerViewController = centerVC
+        leftDrawerViewController = leftVC
         
-        self.shouldStretchDrawer = false
+        shouldStretchDrawer = false
         
-        self.maximumLeftDrawerWidth = 200
+        maximumLeftDrawerWidth = 200
         //手势
-        self.openDrawerGestureModeMask = MMOpenDrawerGestureMode.All
-        self.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
-        // Do any additional setup after loading the view.
+        openDrawerGestureModeMask = MMOpenDrawerGestureMode.All
+        closeDrawerGestureModeMask = MMCloseDrawerGestureMode.All
     }
 
     override func didReceiveMemoryWarning() {

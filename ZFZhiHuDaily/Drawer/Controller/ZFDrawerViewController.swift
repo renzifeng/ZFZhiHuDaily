@@ -39,12 +39,13 @@ class ZFDrawerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.getData({(dataSoure) -> Void in
-            self.dataSoure = dataSoure
-            self.tableView.reloadData()
+        viewModel.getData({ [weak self](dataSoure) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.dataSoure = dataSoure
+            strongSelf.tableView.reloadData()
             /// 默认选择第0个
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-            self.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
+            strongSelf.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
             }) { (error) -> Void in
                 
         }
@@ -67,7 +68,7 @@ class ZFDrawerViewController: UIViewController {
         cutRoundWith(avatarImg)
 
         //去掉下部空白格
-        self.tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
         
         if ((NSUserDefaults.standardUserDefaults().objectForKey("NightOrLightMode")) == nil) {
             //白天模式
