@@ -113,7 +113,7 @@ class ZFNewsDetailViewController: ZFBaseViewController {
         let height = CGFloat(50.0)
         
         // loading
-        activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse  , color: UIColor.lightGrayColor(), size: CGSizeMake(50, 50))
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRectMake(x, y, width, height), type: .BallClipRotatePulse  , color: UIColor.lightGrayColor(), padding: 5)
         activityIndicatorView.center = self.view.center
         
         self.view.addSubview(activityIndicatorView)
